@@ -1,5 +1,5 @@
 // Verifies plugin readonly-scope audit findings.
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { OpenClawConfig } from "../config/config.js";
 

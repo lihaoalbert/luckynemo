@@ -1,8 +1,8 @@
 // Node invoke wake tests cover APNs wake attempts, reconnect waits, nudge
 // throttling, command policy, and foreground-restricted command handling.
 
-import { expectDefined } from "@openclaw/normalization-core";
-import { MAX_TIMER_TIMEOUT_MS } from "@openclaw/normalization-core/number-coercion";
+import { expectDefined } from "@luckynemo/normalization-core";
+import { MAX_TIMER_TIMEOUT_MS } from "@luckynemo/normalization-core/number-coercion";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { ErrorCodes } from "../../../packages/gateway-protocol/src/index.js";
 import { expectRecordFields, requireRecord } from "../test-helpers.assertions.js";

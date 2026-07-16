@@ -1,6 +1,6 @@
 /** Tests Code Mode tool registration, namespace filtering, and run lifecycle. */
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { isRecord } from "../../packages/normalization-core/src/record-coerce.js";
 import { setPluginToolMeta } from "../plugins/tools.js";

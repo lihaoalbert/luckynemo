@@ -3,8 +3,8 @@
  * JSONL streaming, Claude stream-json dialects, usage metadata, and tool event
  * reconstruction.
  */
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
-import { normalizeStringEntries } from "@openclaw/normalization-core/string-normalization";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
+import { normalizeStringEntries } from "@luckynemo/normalization-core/string-normalization";
 import type { CliBackendConfig } from "../config/types.js";
 import { extractBalancedJsonFragments } from "../shared/balanced-json.js";
 import { isRecord } from "../utils.js";

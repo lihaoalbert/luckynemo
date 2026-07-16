@@ -3,14 +3,14 @@
  *
  * Resolves provider/model config, local roots, auth availability, SSRF policy, and media reference inputs.
  */
-import { normalizeInboundPathRoots } from "@openclaw/media-core/inbound-path-policy";
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
-import { parseBoolean } from "@openclaw/normalization-core/boolean-coercion";
+import { normalizeInboundPathRoots } from "@luckynemo/media-core/inbound-path-policy";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
+import { parseBoolean } from "@luckynemo/normalization-core/boolean-coercion";
 import {
   normalizeOptionalLowercaseString,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
-import { uniqueStrings } from "@openclaw/normalization-core/string-normalization";
+} from "@luckynemo/normalization-core/string-coerce";
+import { uniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import {
   findCapabilityProviderById,
   resolveCapabilityModelRefForProviders,

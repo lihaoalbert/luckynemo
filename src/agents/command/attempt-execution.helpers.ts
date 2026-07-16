@@ -5,7 +5,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import readline from "node:readline";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import {
   isSilentReplyPrefixText,
   isSilentReplyText,

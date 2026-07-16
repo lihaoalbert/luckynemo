@@ -6,8 +6,8 @@
 import {
   sanitizeInlineImageBase64,
   sanitizeInlineImageDataUrlForStorage,
-} from "@openclaw/media-core/inline-image-data-url";
-import { findNormalizedProviderValue } from "@openclaw/model-catalog-core/provider-id";
+} from "@luckynemo/media-core/inline-image-data-url";
+import { findNormalizedProviderValue } from "@luckynemo/model-catalog-core/provider-id";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { readLoggingConfig } from "../logging/config.js";
 import {

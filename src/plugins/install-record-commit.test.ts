@@ -307,14 +307,14 @@ describe("commitConfigWithPendingPluginInstalls", () => {
           previousInstallRecords: {
             codex: {
               source: "npm",
-              spec: "@openclaw/codex@1.0.0",
+              spec: "@luckynemo/codex@1.0.0",
               installPath: previousInstallPath,
             },
           },
           nextInstallRecords: {
             codex: {
               source: "npm",
-              spec: "@openclaw/codex@2.0.0",
+              spec: "@luckynemo/codex@2.0.0",
               installPath: nextInstallPath,
             },
           },
@@ -358,14 +358,14 @@ describe("commitConfigWithPendingPluginInstalls", () => {
           previousInstallRecords: {
             codex: {
               source: "npm",
-              spec: "@openclaw/codex@1.0.0",
+              spec: "@luckynemo/codex@1.0.0",
               installPath: previousInstallPath,
             },
           },
           nextInstallRecords: {
             codex: {
               source: "npm",
-              spec: "@openclaw/codex@2.0.0",
+              spec: "@luckynemo/codex@2.0.0",
               installPath: nextInstallPath,
             },
           },
@@ -409,14 +409,14 @@ describe("commitConfigWithPendingPluginInstalls", () => {
           previousInstallRecords: {
             "voice-call": {
               source: "npm",
-              spec: "@openclaw/voice-call@1.0.0",
+              spec: "@luckynemo/voice-call@1.0.0",
               installPath: previousInstallPath,
             },
           },
           nextInstallRecords: {
-            "@openclaw/voice-call": {
+            "@luckynemo/voice-call": {
               source: "npm",
-              spec: "@openclaw/voice-call@2.0.0",
+              spec: "@luckynemo/voice-call@2.0.0",
               installPath: nextInstallPath,
             },
           },
@@ -461,14 +461,14 @@ describe("commitConfigWithPendingPluginInstalls", () => {
             previousInstallRecords: {
               codex: {
                 source: "npm",
-                spec: "@openclaw/codex@1.0.0",
+                spec: "@luckynemo/codex@1.0.0",
                 installPath: previousInstallPath,
               },
             },
             nextInstallRecords: {
               codex: {
                 source: "npm",
-                spec: "@openclaw/codex@2.0.0",
+                spec: "@luckynemo/codex@2.0.0",
                 installPath: nextInstallPath,
               },
             },
@@ -538,24 +538,24 @@ describe("commitConfigWithPendingPluginInstalls", () => {
             previousInstallRecords: {
               codex: {
                 source: "npm",
-                spec: "@openclaw/codex@1.0.0",
+                spec: "@luckynemo/codex@1.0.0",
                 installPath: firstPreviousInstallPath,
               },
               "voice-call": {
                 source: "npm",
-                spec: "@openclaw/voice-call@1.0.0",
+                spec: "@luckynemo/voice-call@1.0.0",
                 installPath: secondPreviousInstallPath,
               },
             },
             nextInstallRecords: {
               codex: {
                 source: "npm",
-                spec: "@openclaw/codex@2.0.0",
+                spec: "@luckynemo/codex@2.0.0",
                 installPath: firstNextInstallPath,
               },
               "voice-call": {
                 source: "npm",
-                spec: "@openclaw/voice-call@2.0.0",
+                spec: "@luckynemo/voice-call@2.0.0",
                 installPath: secondNextInstallPath,
               },
             },
@@ -596,7 +596,7 @@ describe("commitConfigWithPendingPluginInstalls", () => {
           nextInstallRecords: {
             codex: {
               source: "npm",
-              spec: "@openclaw/codex@2.0.0",
+              spec: "@luckynemo/codex@2.0.0",
               installPath,
             },
           },
@@ -638,7 +638,7 @@ describe("commitConfigWithPendingPluginInstalls", () => {
             nextInstallRecords: {
               codex: {
                 source: "npm",
-                spec: "@openclaw/codex@2.0.0",
+                spec: "@luckynemo/codex@2.0.0",
                 installPath,
               },
             },

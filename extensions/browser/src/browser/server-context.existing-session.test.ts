@@ -1,6 +1,6 @@
 // Browser tests cover server context.existing session plugin behavior.
 import fs from "node:fs";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import "../test-support/browser-security.mock.js";
 import type { BrowserServerState } from "./server-context.js";

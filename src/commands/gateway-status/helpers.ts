@@ -1,5 +1,5 @@
 /** Shared helpers for gateway status target selection, auth, summaries, and probe rendering. */
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { colorize, theme } from "../../../packages/terminal-core/src/theme.js";
 import { parseTimeoutMsWithFallback } from "../../cli/parse-timeout.js";
 import { resolveGatewayPort } from "../../config/config.js";

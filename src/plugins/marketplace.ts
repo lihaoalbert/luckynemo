@@ -2,9 +2,9 @@
 import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
-import { redactSensitiveUrlLikeString } from "@openclaw/net-policy/redact-sensitive-url";
-import { hasHttpUrlPrefix } from "@openclaw/net-policy/url-protocol";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { redactSensitiveUrlLikeString } from "@luckynemo/net-policy/redact-sensitive-url";
+import { hasHttpUrlPrefix } from "@luckynemo/net-policy/url-protocol";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { sanitizeForLog } from "../../packages/terminal-core/src/ansi.js";
 import { resolveArchiveKind } from "../infra/archive.js";
 import { formatErrorMessage, toErrorObject } from "../infra/errors.js";

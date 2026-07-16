@@ -2,7 +2,7 @@
 // Deliberately no write/delete/upload surface: mutations need their own
 // reviewed contract; see the allowlisted agents.files.* API for edits.
 import path from "node:path";
-import { detectMime } from "@openclaw/media-core/mime";
+import { detectMime } from "@luckynemo/media-core/mime";
 import {
   ErrorCodes,
   errorShape,

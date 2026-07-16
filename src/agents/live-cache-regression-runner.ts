@@ -6,7 +6,7 @@
  */
 import { randomUUID } from "node:crypto";
 import fs from "node:fs/promises";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import { Type } from "typebox";
 import type { AssistantMessage, Message, Tool } from "../llm/types.js";
 import { extractAssistantText } from "./embedded-agent-utils.js";

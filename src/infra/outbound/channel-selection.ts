@@ -1,4 +1,4 @@
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 // Channel selection chooses a deliverable message channel from explicit input,
 // tool context fallback, or configured plugin accounts.
 import { listChannelPlugins } from "../../channels/plugins/index.js";

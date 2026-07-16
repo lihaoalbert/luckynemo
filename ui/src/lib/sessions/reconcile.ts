@@ -1,4 +1,4 @@
-import { asNullableRecord as recordOrNull } from "@openclaw/normalization-core/record-coerce";
+import { asNullableRecord as recordOrNull } from "@luckynemo/normalization-core/record-coerce";
 import type { GatewaySessionRow, SessionRunStatus, SessionsListResult } from "../../api/types.ts";
 import { isSessionRunActive } from "../session-run-state.ts";
 import { compareSessionRowsByUpdatedAt } from "./navigation.ts";

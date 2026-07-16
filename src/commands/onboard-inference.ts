@@ -2,7 +2,7 @@ import { randomInt } from "node:crypto";
 // Inference backend detection shared by onboarding bootstrap and OpenClaw setup.
 import os from "node:os";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { resolveAgentConfig, resolveDefaultAgentId } from "../agents/agent-scope-config.js";
 import {
   readClaudeCliCredentialsCached,

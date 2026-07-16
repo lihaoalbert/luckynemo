@@ -656,11 +656,11 @@ function assertConfiguredPluginInstalls() {
   const records = index.installRecords ?? {};
   assertOptionalConfiguredPluginIndex(records, index.plugins ?? [], {
     bundled: true,
-    packageName: "@openclaw/matrix",
+    packageName: "@luckynemo/matrix",
     pluginId: "matrix",
   });
   assertOptionalConfiguredPluginIndex(records, index.plugins ?? [], {
-    packageName: "@openclaw/brave-plugin",
+    packageName: "@luckynemo/brave-plugin",
     pluginId: "brave",
   });
   assert(!records.telegram, "internal telegram plugin should not be installed externally");

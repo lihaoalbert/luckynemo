@@ -1,7 +1,7 @@
 // Chat attachment tests cover inbound image/file parsing, media-store cleanup,
 // warning surfaces, size limits, and outbound message block assembly.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 
 const saveMediaBufferMock = vi.hoisted(() =>
@@ -25,7 +25,7 @@ vi.mock("../media/store.js", async (importOriginal) => {
   };
 });
 
-import { MAX_IMAGE_BYTES } from "@openclaw/media-core/constants";
+import { MAX_IMAGE_BYTES } from "@luckynemo/media-core/constants";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import {
   type ChatAttachment,

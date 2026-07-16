@@ -1,11 +1,11 @@
 {
-  "name": "@openclaw/byteplus-provider",
+  "name": "@luckynemo/byteplus-provider",
   "version": "2026.7.2",
   "private": true,
   "description": "OpenClaw BytePlus provider plugin",
   "type": "module",
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [

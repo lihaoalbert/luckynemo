@@ -2,7 +2,7 @@
 import {
   normalizeOptionalLowercaseString,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { resolveFastModeState } from "../../agents/fast-mode.js";
 import { normalizeChatType } from "../../channels/chat-type.js";
 import { getChannelPlugin } from "../../channels/plugins/index.js";

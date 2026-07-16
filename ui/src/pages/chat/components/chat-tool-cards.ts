@@ -1,5 +1,5 @@
 // Control UI chat module implements tool cards behavior.
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { html, nothing } from "lit";
 import { keyed } from "lit/directives/keyed.js";
 import { ensureCustomElementDefined } from "../../../app/lazy-custom-element.ts";

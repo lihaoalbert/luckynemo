@@ -1,7 +1,7 @@
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 // Gateway sessions.resolve implementation helper.
 // Resolves key/sessionId/label selectors into one canonical session key.
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import {
   ErrorCodes,
   type ErrorShape,

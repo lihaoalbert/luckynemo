@@ -1,7 +1,7 @@
 // Gateway Protocol tests cover native protocol levels.guard behavior.
 import fs from "node:fs/promises";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, it } from "vitest";
 import { ProtocolSchemas } from "./schema/protocol-schemas.js";
 import {

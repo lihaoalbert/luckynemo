@@ -1,7 +1,7 @@
 // Browser tests cover profiles service plugin behavior.
 import fs from "node:fs";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { useAutoCleanupTempDirTracker } from "../../test-support.js";
 import { getRuntimeConfig } from "../config/config.js";

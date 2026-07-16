@@ -1,8 +1,8 @@
 // Web media helpers load local and remote media for web-facing surfaces.
 import { lstat, realpath } from "node:fs/promises";
 import path from "node:path";
-import { maxBytesForKind, type MediaKind } from "@openclaw/media-core/constants";
-import { basenameFromAnyPath, extnameFromAnyPath } from "@openclaw/media-core/file-name";
+import { maxBytesForKind, type MediaKind } from "@luckynemo/media-core/constants";
+import { basenameFromAnyPath, extnameFromAnyPath } from "@luckynemo/media-core/file-name";
 import {
   detectMime,
   extensionForMime,
@@ -10,9 +10,9 @@ import {
   kindFromMime,
   mimeTypeFromFilePath,
   normalizeMimeType,
-} from "@openclaw/media-core/mime";
-import { hasHttpUrlPrefix } from "@openclaw/net-policy/url-protocol";
-import { uniqueValues } from "@openclaw/normalization-core/string-normalization";
+} from "@luckynemo/media-core/mime";
+import { hasHttpUrlPrefix } from "@luckynemo/net-policy/url-protocol";
+import { uniqueValues } from "@luckynemo/normalization-core/string-normalization";
 import { logVerbose, shouldLogVerbose } from "../globals.js";
 import { formatErrorMessage } from "../infra/errors.js";
 import { FsSafeError, readLocalFileSafely } from "../infra/fs-safe.js";

@@ -1,6 +1,6 @@
 // Loaded-target resolution uses only already-loaded plugins so hot send paths
 // can avoid triggering channel discovery.
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { getLoadedChannelPluginForRead } from "../../channels/plugins/registry-loaded.js";
 import type { ChannelPlugin } from "../../channels/plugins/types.plugin.js";
 import type { ChannelOutboundTargetMode } from "../../channels/plugins/types.public.js";

@@ -1,6 +1,6 @@
 // Integration proof for tools.effective global sessions scoped to non-default agents.
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { installGatewayTestHooks, testState, writeSessionStore } from "../test-helpers.js";
 import { getGatewayConfigModule, sessionStoreEntry } from "../test/server-sessions.test-helpers.js";

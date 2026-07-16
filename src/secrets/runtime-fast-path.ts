@@ -1,7 +1,7 @@
 /** Detects when secrets runtime preparation can safely use a fast path. */
 import { existsSync } from "node:fs";
 import path from "node:path";
-import { uniqueStrings } from "@openclaw/normalization-core/string-normalization";
+import { uniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import {
   listAgentIds,
   resolveAgentDir,

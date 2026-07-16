@@ -1,4 +1,4 @@
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import type { Command } from "commander";
 import { getRuntimeConfig } from "../../config/config.js";
 import { defaultRuntime } from "../../runtime.js";

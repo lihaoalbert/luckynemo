@@ -1,5 +1,5 @@
 // Runtime boundary for resolving provider plugins from metadata and config.
-import { sortUniqueStrings } from "@openclaw/normalization-core/string-normalization";
+import { sortUniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import { withActivatedPluginIds } from "./activation-context.js";
 import { resolveBundledPluginCompatibleActivationInputs } from "./activation-context.js";
 import { resolveManifestActivationPluginIds } from "./activation-planner.js";

@@ -1,6 +1,6 @@
 // Browser tests cover server.agent contract core plugin behavior.
 import fs from "node:fs";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { DEFAULT_AI_SNAPSHOT_MAX_CHARS } from "./constants.js";
 import { ACT_ERROR_CODES } from "./routes/agent.act.errors.js";

@@ -2,7 +2,7 @@
 import fs from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, expectTypeOf, it } from "vitest";
 import { buildPluginSdkPackageExports } from "../../plugin-sdk/entrypoints.js";
 import type { ClawdbotConfig, OpenClawConfig, OpenClawSchemaType } from "../../plugin-sdk/index.js";

@@ -7,11 +7,11 @@ import {
   isLoopbackIpAddress,
   isRfc1918Ipv4Address,
   parseCanonicalIpAddress,
-} from "@openclaw/net-policy/ip";
+} from "@luckynemo/net-policy/ip";
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { resolveGatewayPort } from "../config/paths.js";
 import type { OpenClawConfig } from "../config/types.js";
 import { normalizeSecretInputString, resolveSecretInputRef } from "../config/types.secrets.js";

@@ -7,7 +7,7 @@ import {
   validateExternalCodePluginPackageJson,
 } from "./index.js";
 
-describe("@openclaw/plugin-package-contract", () => {
+describe("@luckynemo/plugin-package-contract", () => {
   it("normalizes the OpenClaw compatibility block for external plugins", () => {
     expect(
       normalizeExternalPluginCompatibility({

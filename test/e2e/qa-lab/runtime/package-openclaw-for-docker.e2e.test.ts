@@ -4,7 +4,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { pathToFileURL } from "node:url";
-import { MAX_TIMER_TIMEOUT_MS } from "@openclaw/normalization-core/number-coercion";
+import { MAX_TIMER_TIMEOUT_MS } from "@luckynemo/normalization-core/number-coercion";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { DOCKER_SELECTED_PLUGIN_BUILD_IDS_ENV } from "../../../../scripts/lib/bundled-plugin-build-entries.mjs";
 import {
@@ -338,7 +338,7 @@ describe("package-openclaw-for-docker", () => {
     const packageJsonPath = path.join(sourceDir, "package.json");
     const originalPackageJson = `${JSON.stringify(
       {
-        dependencies: { "@openclaw/ai": "workspace:*", "dep-a": "1.2.3" },
+        dependencies: { "@luckynemo/ai": "workspace:*", "dep-a": "1.2.3" },
         files: ["dist"],
         name: "openclaw",
         version: "2026.6.17",
@@ -372,7 +372,7 @@ describe("package-openclaw-for-docker", () => {
               path.join(destination, "package.json"),
               `${JSON.stringify({
                 dependencies: { "dep-a": "1.2.3" },
-                name: "@openclaw/ai",
+                name: "@luckynemo/ai",
                 version: "2026.6.17",
               })}\n`,
             );
@@ -385,8 +385,8 @@ describe("package-openclaw-for-docker", () => {
         bundleDependencies: string[];
         dependencies: Record<string, string>;
       };
-      expect(packageJson.dependencies["@openclaw/ai"]).toBe("2026.6.17");
-      expect(packageJson.bundleDependencies).toContain("@openclaw/ai");
+      expect(packageJson.dependencies["@luckynemo/ai"]).toBe("2026.6.17");
+      expect(packageJson.bundleDependencies).toContain("@luckynemo/ai");
       expect(fs.existsSync(path.join(installedAiPath, "original-marker"))).toBe(false);
       expect(fs.existsSync(path.join(installedAiPath, "runtime.js"))).toBe(true);
       const stagedAiPackageJson = JSON.parse(
@@ -433,13 +433,13 @@ describe("package-openclaw-for-docker", () => {
   it("rejects incomplete AI workspace package sources", async () => {
     const cases = [
       {
-        dependencies: { "@openclaw/ai": "workspace:*" },
-        expected: "@openclaw/ai dependency requires the packages/ai workspace",
+        dependencies: { "@luckynemo/ai": "workspace:*" },
+        expected: "@luckynemo/ai dependency requires the packages/ai workspace",
         withWorkspace: false,
       },
       {
         dependencies: {},
-        expected: "root package.json must declare @openclaw/ai as a dependency",
+        expected: "root package.json must declare @luckynemo/ai as a dependency",
         withWorkspace: true,
       },
     ];

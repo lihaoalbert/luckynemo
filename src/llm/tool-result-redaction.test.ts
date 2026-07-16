@@ -1,4 +1,4 @@
-import { extractToolResultText } from "@openclaw/ai/internal/shared";
+import { extractToolResultText } from "@luckynemo/ai/internal/shared";
 // Proves the OpenClaw redaction contract applies to provider tool-result
 // replay text once the stream facade installs the AI transport host ports.
 import { describe, expect, it } from "vitest";

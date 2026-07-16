@@ -1,4 +1,4 @@
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 // Control UI module implements custom theme behavior.
 import { z } from "zod";
 import { normalizeOptionalString } from "../lib/string-coerce.ts";

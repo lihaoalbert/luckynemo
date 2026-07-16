@@ -2,10 +2,10 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
-import { asNullableObjectRecord } from "@openclaw/normalization-core/record-coerce";
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
-import { uniqueStrings } from "@openclaw/normalization-core/string-normalization";
+import { expectDefined } from "@luckynemo/normalization-core";
+import { asNullableObjectRecord } from "@luckynemo/normalization-core/record-coerce";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
+import { uniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import { note } from "../../packages/terminal-core/src/note.js";
 import { listAgentEntries, resolveDefaultAgentId } from "../agents/agent-scope.js";
 import {

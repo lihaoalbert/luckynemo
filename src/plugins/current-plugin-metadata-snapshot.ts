@@ -1,5 +1,5 @@
 /** Tracks the current plugin metadata snapshot for control-plane lookups. */
-import { setCurrentManifestModelIdNormalizationRecords } from "@openclaw/model-catalog-core/provider-model-id-normalization";
+import { setCurrentManifestModelIdNormalizationRecords } from "@luckynemo/model-catalog-core/provider-model-id-normalization";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import {
   clearCurrentPluginMetadataSnapshotState,

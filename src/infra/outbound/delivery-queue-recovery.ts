@@ -3,7 +3,7 @@
 import {
   resolveDateTimestampMs,
   resolveExpiresAtMsFromDurationMs,
-} from "@openclaw/normalization-core/number-coercion";
+} from "@luckynemo/normalization-core/number-coercion";
 import type {
   ChannelMessageSendCommitContext,
   ChannelMessageUnknownSendReconciliationResult,

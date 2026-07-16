@@ -1,6 +1,6 @@
 /** Session update helpers for skill snapshots, compaction, and lifecycle hooks. */
 import crypto from "node:crypto";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { resolveSessionAgentId } from "../../agents/agent-scope.js";
 import {
   type ExecPolicyOverrides,

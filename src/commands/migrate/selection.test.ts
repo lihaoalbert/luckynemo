@@ -1,6 +1,6 @@
 // Migration selection tests cover skill/plugin filtering, defaults, shortcuts, and skipped-item reasons.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it } from "vitest";
 import type { MigrationItem, MigrationPlan } from "../../plugins/types.js";
 import { applyMigrationItemSelection } from "./item-selection.js";

@@ -1,7 +1,7 @@
 // Doctor device pairing tests cover device-pairing checks, repair prompts, and diagnostics.
 import fs from "node:fs/promises";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { storeDeviceAuthToken } from "../infra/device-auth-store.js";
 import {

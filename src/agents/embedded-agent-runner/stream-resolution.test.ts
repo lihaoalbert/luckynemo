@@ -1,5 +1,5 @@
-import { getApiProvider } from "@openclaw/ai/internal/runtime";
-import { SYSTEM_PROMPT_CACHE_BOUNDARY } from "@openclaw/ai/internal/shared";
+import { getApiProvider } from "@luckynemo/ai/internal/runtime";
+import { SYSTEM_PROMPT_CACHE_BOUNDARY } from "@luckynemo/ai/internal/shared";
 // Stream resolution tests cover how embedded runs choose provider, boundary,
 // native Codex, or custom stream functions and pass auth/cache/signal options.
 import type { StreamFn } from "openclaw/plugin-sdk/agent-core";

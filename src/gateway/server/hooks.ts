@@ -3,9 +3,9 @@ import { randomUUID } from "node:crypto";
 import {
   resolveDateTimestampMs,
   resolveTimestampMsToIsoString,
-} from "@openclaw/normalization-core/number-coercion";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+} from "@luckynemo/normalization-core/number-coercion";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { sanitizeInboundSystemTags } from "../../auto-reply/reply/inbound-text.js";
 import type { CliDeps } from "../../cli/deps.types.js";
 import { getRuntimeConfig } from "../../config/io.js";

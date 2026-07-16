@@ -3,8 +3,8 @@
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
-import { normalizeSortedUniqueTrimmedStringList } from "@openclaw/normalization-core/string-normalization";
+} from "@luckynemo/normalization-core/string-coerce";
+import { normalizeSortedUniqueTrimmedStringList } from "@luckynemo/normalization-core/string-normalization";
 import { hasEffectivePairedDeviceRole, type PairedDevice } from "../infra/device-pairing.js";
 import {
   sameNodeApprovalSurfaceSet,

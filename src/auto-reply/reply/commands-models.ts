@@ -1,9 +1,9 @@
 // Implements model listing and provider catalog commands.
-import { parseStrictPositiveInteger } from "@openclaw/normalization-core/number-coercion";
+import { parseStrictPositiveInteger } from "@luckynemo/normalization-core/number-coercion";
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import {
   resolveAgentDir,
   resolveAgentWorkspaceDir,

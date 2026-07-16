@@ -1,6 +1,6 @@
 // Covers system event queue routing, draining, and formatting.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { beforeEach, describe, expect, it } from "vitest";
 import { drainFormattedSystemEvents } from "../auto-reply/reply/session-system-events.js";
 import type { OpenClawConfig } from "../config/config.js";

@@ -1,5 +1,5 @@
 // Buffers streaming reply blocks before coalesced final delivery.
-import { clampPositiveTimerTimeoutMs } from "@openclaw/normalization-core/number-coercion";
+import { clampPositiveTimerTimeoutMs } from "@luckynemo/normalization-core/number-coercion";
 import {
   hasOutboundReplyContent,
   resolveSendableOutboundReplyParts,

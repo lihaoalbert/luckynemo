@@ -1,7 +1,7 @@
 // Models method tests cover slow catalog timeouts, configured/all views,
 // validation errors, and protocol response shapes.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it, vi } from "vitest";
 import { ErrorCodes } from "../../../packages/gateway-protocol/src/index.js";
 import {

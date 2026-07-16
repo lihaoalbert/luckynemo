@@ -2,12 +2,12 @@
 // Translates OpenAI chat requests to OpenClaw agent runs and SSE/JSON responses.
 import { randomUUID } from "node:crypto";
 import type { IncomingMessage, ServerResponse } from "node:http";
-import { estimateBase64DecodedBytes } from "@openclaw/media-core/base64";
-import { resolveIntegerOption } from "@openclaw/normalization-core/number-coercion";
+import { estimateBase64DecodedBytes } from "@luckynemo/media-core/base64";
+import { resolveIntegerOption } from "@luckynemo/normalization-core/number-coercion";
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { isClientToolNameConflictError } from "../agents/agent-tool-definition-adapter.js";
 import type { AgentStreamParams, ClientToolDefinition } from "../agents/command/shared-types.js";
 import type { ImageContent } from "../agents/command/types.js";

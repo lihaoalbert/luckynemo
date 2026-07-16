@@ -9,10 +9,10 @@ import { Worker } from "node:worker_threads";
 import {
   isFutureDateTimestampMs,
   resolveExpiresAtMsFromDurationSeconds,
-} from "@openclaw/normalization-core/number-coercion";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
-import type { Result } from "@openclaw/normalization-core/result";
-import { uniqueValues } from "@openclaw/normalization-core/string-normalization";
+} from "@luckynemo/normalization-core/number-coercion";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
+import type { Result } from "@luckynemo/normalization-core/result";
+import { uniqueValues } from "@luckynemo/normalization-core/string-normalization";
 import { Type } from "typebox";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { createLazyPromiseLoader } from "../shared/lazy-runtime.js";

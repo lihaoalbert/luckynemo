@@ -3,7 +3,7 @@
 // the embedding application (OpenClaw core installs its implementations via
 // configureAiTransportHost); the library defaults below are inert so external
 // consumers get safe, dependency-free behavior without wiring anything.
-import type { Model } from "@openclaw/llm-core";
+import type { Model } from "@luckynemo/llm-core";
 
 /** Strict-tool policy inputs for OpenAI-compatible routes. */
 export interface OpenAIStrictToolSettingOptions {

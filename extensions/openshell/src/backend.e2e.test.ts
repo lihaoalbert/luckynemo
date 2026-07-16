@@ -4,7 +4,7 @@ import fs from "node:fs/promises";
 import net from "node:net";
 import os from "node:os";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { createSandboxTestContext } from "openclaw/plugin-sdk/test-fixtures";
 import {
   createSandboxBrowserConfig,

@@ -4,8 +4,8 @@
 
 import { existsSync, readFileSync } from "node:fs";
 import { dirname, join } from "node:path";
-import { defaultApiRegistry, registerApiProvider } from "@openclaw/ai/internal/runtime";
-import { resetApiProviders } from "@openclaw/ai/providers";
+import { defaultApiRegistry, registerApiProvider } from "@luckynemo/ai/internal/runtime";
+import { resetApiProviders } from "@luckynemo/ai/providers";
 import { type Static, Type } from "typebox";
 import { Compile } from "typebox/compile";
 import type { TLocalizedValidationError } from "typebox/error";

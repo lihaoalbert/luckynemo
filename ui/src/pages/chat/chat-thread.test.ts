@@ -1,5 +1,5 @@
 // Control UI tests cover build chat items behavior.
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it } from "vitest";
 import type { MessageGroup } from "../../lib/chat/chat-types.ts";
 import { extractToolCardsCached as extractToolCards } from "../../lib/chat/tool-cards.ts";

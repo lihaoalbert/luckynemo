@@ -1,7 +1,7 @@
 // Hook install service installs hook packages from archives and local sources.
 
 import path from "node:path";
-import { normalizeTrimmedStringList } from "@openclaw/normalization-core/string-normalization";
+import { normalizeTrimmedStringList } from "@luckynemo/normalization-core/string-normalization";
 import { MANIFEST_KEY } from "../compat/legacy-names.js";
 import { resolveSafeInstallDir, unscopedPackageName } from "../infra/install-safe-path.js";
 import type { NpmIntegrityDrift, NpmSpecResolution } from "../infra/install-source-utils.js";

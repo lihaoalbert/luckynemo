@@ -2,7 +2,7 @@
 import { spawnSync } from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it } from "vitest";
 import { expectNoReaddirSyncDuring } from "../test-utils/fs-scan-assertions.js";
 import { listGitTrackedFiles, toRepoRelativePath } from "../test-utils/repo-files.js";
@@ -165,7 +165,7 @@ function readBundledPluginRecords(): BundledPluginRecord[] {
 }
 
 function resolveAllowedPackageNamesForId(pluginId: string): string[] {
-  return ALLOWED_PACKAGE_SUFFIXES.map((suffix) => `@openclaw/${pluginId}${suffix}`);
+  return ALLOWED_PACKAGE_SUFFIXES.map((suffix) => `@luckynemo/${pluginId}${suffix}`);
 }
 
 function resolveBundledPluginMismatches(
@@ -198,7 +198,7 @@ describe("bundled plugin naming guardrails", () => {
   it.each([
     {
       name: "keeps bundled workspace package names anchored to the plugin id",
-      message: `Bundled extension package names must stay anchored to the manifest id via @openclaw/<id> or an approved suffix (${ALLOWED_PACKAGE_SUFFIXES.join(", ")}). Update the plugin naming docs and this invariant before adding a new naming form.`,
+      message: `Bundled extension package names must stay anchored to the manifest id via @luckynemo/<id> or an approved suffix (${ALLOWED_PACKAGE_SUFFIXES.join(", ")}). Update the plugin naming docs and this invariant before adding a new naming form.`,
       collectMismatches: (records: BundledPluginRecord[]) =>
         records
           .filter(

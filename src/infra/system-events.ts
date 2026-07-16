@@ -2,11 +2,11 @@
 // prefixed to the next prompt. We intentionally avoid persistence to keep
 // events ephemeral. Events are session-scoped and require an explicit key.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import {
   normalizeOptionalLowercaseString,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { channelRouteDedupeKey } from "../plugin-sdk/channel-route.js";
 import { sanitizeInboundSystemTags } from "../security/system-tags.js";
 import { resolveGlobalMap } from "../shared/global-singleton.js";

@@ -1,5 +1,5 @@
 // Covers session delivery queue recovery behavior.
-import { MAX_DATE_TIMESTAMP_MS } from "@openclaw/normalization-core/number-coercion";
+import { MAX_DATE_TIMESTAMP_MS } from "@luckynemo/normalization-core/number-coercion";
 import { describe, expect, it, vi } from "vitest";
 import { withTempDir } from "../test-helpers/temp-dir.js";
 import { upsertDeliveryQueueEntry } from "./delivery-queue-sqlite.js";

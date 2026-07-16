@@ -13,7 +13,7 @@
 import crypto from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { canUseRootFileOpen, openRootFileSync } from "../infra/boundary-file-read.js";
 import { resolvePathViaExistingAncestorSync } from "../infra/boundary-path.js";
 import { mergeDeep as mergeDeepValues } from "../infra/deep-merge.js";

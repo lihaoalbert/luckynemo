@@ -1,18 +1,18 @@
 {
-  "name": "@openclaw/moonshot-provider",
+  "name": "@luckynemo/moonshot-provider",
   "version": "2026.7.2",
   "description": "OpenClaw Moonshot provider plugin",
   "type": "module",
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [
       "./index.ts"
     ],
     "install": {
-      "clawhubSpec": "clawhub:@openclaw/moonshot-provider",
-      "npmSpec": "@openclaw/moonshot-provider",
+      "clawhubSpec": "clawhub:@luckynemo/moonshot-provider",
+      "npmSpec": "@luckynemo/moonshot-provider",
       "defaultChoice": "npm",
       "minHostVersion": ">=2026.6.9"
     },

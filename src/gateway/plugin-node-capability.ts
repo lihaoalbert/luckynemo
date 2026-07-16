@@ -5,7 +5,7 @@ import {
   asPositiveSafeInteger,
   isFutureDateTimestampMs,
   resolveExpiresAtMsFromDurationMs,
-} from "@openclaw/normalization-core/number-coercion";
+} from "@luckynemo/normalization-core/number-coercion";
 import { safeEqualSecret } from "../security/secret-equal.js";
 
 /** Path marker used to scope plugin-hosted node URLs with one-time capabilities. */

@@ -1,8 +1,8 @@
 // Resolves and checks packaged Control UI assets.
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { normalizeStringEntries } from "@openclaw/normalization-core/string-normalization";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { normalizeStringEntries } from "@luckynemo/normalization-core/string-normalization";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { runCommandWithTimeout } from "../process/exec.js";
 import { defaultRuntime, type RuntimeEnv } from "../runtime.js";
 import * as controlUiFsRuntime from "./control-ui-assets.fs.runtime.js";

@@ -1,7 +1,7 @@
 // Shared formatting helpers for status overview, gateway summaries, and JSON payloads.
 // These functions keep text and JSON status surfaces aligned without pulling in command orchestration.
 
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { resolveGatewayPort } from "../../config/config.js";
 import type { OpenClawConfig } from "../../config/types.js";
 import { resolveControlUiLinks } from "../../gateway/control-ui-links.js";

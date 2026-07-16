@@ -2,7 +2,7 @@
  * Tests that session abort requests stay scoped to the targeted agent.
  */
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { GatewayClient, GatewayRequestContext, RespondFn } from "./types.js";
 

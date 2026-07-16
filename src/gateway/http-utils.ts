@@ -5,7 +5,7 @@ import type { IncomingMessage } from "node:http";
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { listAgentIds, resolveDefaultAgentId } from "../agents/agent-scope.js";
 import { modelKey, parseModelRef, resolveDefaultModelForAgent } from "../agents/model-selection.js";
 import { createModelVisibilityPolicy } from "../agents/model-visibility-policy.js";

@@ -2,7 +2,7 @@
 import {
   collectManifestModelIdNormalizationPolicies,
   normalizeProviderModelIdWithPolicies,
-} from "@openclaw/model-catalog-core/provider-model-id-normalization";
+} from "@luckynemo/model-catalog-core/provider-model-id-normalization";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { getCurrentPluginMetadataSnapshot } from "./current-plugin-metadata-snapshot.js";
 import type { PluginManifestRecord } from "./manifest-registry.js";

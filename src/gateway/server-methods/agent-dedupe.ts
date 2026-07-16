@@ -1,4 +1,4 @@
-import { uniqueStrings } from "@openclaw/normalization-core/string-normalization";
+import { uniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import { setGatewayDedupeEntry } from "./agent-job.js";
 import type { GatewayRequestContext } from "./types.js";
 

@@ -1,5 +1,5 @@
 {
-  "name": "@openclaw/diffs-language-pack",
+  "name": "@luckynemo/diffs-language-pack",
   "version": "2026.7.2",
   "description": "OpenClaw diffs viewer syntax highlighting language pack",
   "repository": {
@@ -8,15 +8,15 @@
   },
   "type": "module",
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [
       "./index.ts"
     ],
     "install": {
-      "npmSpec": "@openclaw/diffs-language-pack",
-      "clawhubSpec": "clawhub:@openclaw/diffs-language-pack",
+      "npmSpec": "@luckynemo/diffs-language-pack",
+      "clawhubSpec": "clawhub:@luckynemo/diffs-language-pack",
       "localPath": "extensions/diffs-language-pack",
       "defaultChoice": "npm",
       "minHostVersion": ">=2026.5.27"

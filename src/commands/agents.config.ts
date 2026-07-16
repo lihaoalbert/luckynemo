@@ -2,8 +2,8 @@
 import {
   normalizeOptionalString,
   resolvePrimaryStringValue,
-} from "@openclaw/normalization-core/string-coerce";
-import { uniqueStrings } from "@openclaw/normalization-core/string-normalization";
+} from "@luckynemo/normalization-core/string-coerce";
+import { uniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import {
   listAgentEntries,
   resolveAgentDir,

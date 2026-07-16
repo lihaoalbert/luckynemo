@@ -1,7 +1,7 @@
 /** Computes which manifest-owned plugins need activation for commands, routes, providers, or capabilities. */
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
-import { uniqueStrings } from "@openclaw/normalization-core/string-normalization";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
+import { uniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import type { OpenClawConfig } from "../config/types.js";
 import { normalizePluginsConfig } from "./config-state.js";
 import {

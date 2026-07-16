@@ -1,6 +1,6 @@
 // Covers config snapshot redaction and restoration behavior.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import JSON5 from "json5";
 import { describe, expect, it } from "vitest";
 import { redactSnapshotTestHints as mainSchemaHints } from "../../test/helpers/config/redact-snapshot-test-hints.js";

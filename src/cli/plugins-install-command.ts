@@ -1,6 +1,6 @@
 // Plugin install command implementation for bundled, npm, path, git, ClawHub, and hook packs.
 import fs from "node:fs";
-import { uniqueStrings } from "@openclaw/normalization-core/string-normalization";
+import { uniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import { theme } from "../../packages/terminal-core/src/theme.js";
 import {
   assertConfigWriteAllowedInCurrentMode,

@@ -258,9 +258,9 @@ describe("parseSystemAgentOperation", () => {
       kind: "plugin-search",
       query: "calendar sync",
     });
-    expect(parseSystemAgentOperation("install npm plugin @openclaw/discord")).toEqual({
+    expect(parseSystemAgentOperation("install npm plugin @luckynemo/discord")).toEqual({
       kind: "plugin-install",
-      spec: "npm:@openclaw/discord",
+      spec: "npm:@luckynemo/discord",
     });
     expect(parseSystemAgentOperation("plugin install clawhub:openclaw-demo")).toEqual({
       kind: "plugin-install",

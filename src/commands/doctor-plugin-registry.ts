@@ -1,7 +1,7 @@
 /** Doctor repairs for stale plugin registry entries, managed npm shadows, and peer links. */
 import fs from "node:fs";
 import path from "node:path";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
 import { note } from "../../packages/terminal-core/src/note.js";
 import { formatCliCommand } from "../cli/command-format.js";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
@@ -148,7 +148,7 @@ function listStaleManagedNpmBundledPlugins(
     for (const packageName of Object.keys(dependencies).toSorted((left, right) =>
       left.localeCompare(right),
     )) {
-      if (!packageName.startsWith("@openclaw/")) {
+      if (!packageName.startsWith("@luckynemo/")) {
         continue;
       }
       const bundled = bundledByPackage.get(packageName);

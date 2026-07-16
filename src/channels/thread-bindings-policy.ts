@@ -1,6 +1,6 @@
 // Thread-binding policy resolution for channel/account session spawning.
-import { MAX_DATE_TIMESTAMP_MS } from "@openclaw/normalization-core/number-coercion";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { MAX_DATE_TIMESTAMP_MS } from "@luckynemo/normalization-core/number-coercion";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { normalizeAccountId } from "../routing/session-key.js";
 import {

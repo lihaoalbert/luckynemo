@@ -1,7 +1,7 @@
 // Resolves installed plugin directories for security trust audits.
 import fs from "node:fs/promises";
 import path from "node:path";
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
 
 const IGNORED_INSTALLED_PLUGIN_DIR_NAMES = new Set(["node_modules", ".openclaw-install-backups"]);
 

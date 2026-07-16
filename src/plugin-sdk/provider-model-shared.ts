@@ -1,9 +1,9 @@
 // Provider model helpers normalize model catalog entries shared by provider plugins.
-import { normalizeProviderId as normalizeProviderIdCore } from "@openclaw/model-catalog-core/provider-id";
+import { normalizeProviderId as normalizeProviderIdCore } from "@luckynemo/model-catalog-core/provider-id";
 import {
   normalizeAntigravityPreviewModelId as normalizeAntigravityPreviewModelIdCore,
   normalizeGooglePreviewModelId as normalizeGooglePreviewModelIdCore,
-} from "@openclaw/model-catalog-core/provider-model-id-normalize";
+} from "@luckynemo/model-catalog-core/provider-model-id-normalize";
 import {
   buildAnthropicReplayPolicyForModel,
   buildGoogleGeminiReplayPolicy,
@@ -38,12 +38,12 @@ export {
   supportsClaudeAdaptiveThinking,
   supportsClaudeNativeMaxEffort,
   supportsClaudeNativeXhighEffort,
-} from "@openclaw/llm-core";
+} from "@luckynemo/llm-core";
 export type {
   UnifiedModelCatalogEntry,
   UnifiedModelCatalogKind,
   UnifiedModelCatalogSource,
-} from "@openclaw/model-catalog-core/model-catalog-types";
+} from "@luckynemo/model-catalog-core/model-catalog-types";
 export type {
   BedrockDiscoveryConfig,
   ModelCompatConfig,

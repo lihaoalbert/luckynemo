@@ -1,7 +1,7 @@
 /** Safety checks for deleting agents whose workspaces may overlap other agents. */
 import fs from "node:fs";
 import path from "node:path";
-import { lowercasePreservingWhitespace } from "@openclaw/normalization-core/string-coerce";
+import { lowercasePreservingWhitespace } from "@luckynemo/normalization-core/string-coerce";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { isPathInside } from "../infra/path-guards.js";
 import { normalizeAgentId } from "../routing/session-key.js";

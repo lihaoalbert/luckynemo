@@ -3,7 +3,7 @@ import { execFileSync } from "node:child_process";
 import fsSync from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { uniqueStrings } from "@openclaw/normalization-core/string-normalization";
+import { uniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 
 /** Options that scope npm config and cache paths for project-local installs. */
 export type NpmProjectInstallEnvOptions = {

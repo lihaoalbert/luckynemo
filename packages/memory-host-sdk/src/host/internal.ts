@@ -4,7 +4,7 @@ import fsSync from "node:fs";
 import fs from "node:fs/promises";
 import { homedir } from "node:os";
 import path from "node:path";
-import { normalizeStringEntries, uniqueStrings } from "@openclaw/normalization-core";
+import { normalizeStringEntries, uniqueStrings } from "@luckynemo/normalization-core";
 import { runWithConcurrency as runWithConcurrencyImpl } from "./concurrency.js";
 import { MEMORY_HOST_ROOT_FILENAME } from "./config-utils.js";
 import { estimateStructuredEmbeddingInputBytes } from "./embedding-input-limits.js";

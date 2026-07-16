@@ -1,11 +1,11 @@
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 // Runs synchronous extra security audit checks.
 import {
   normalizeOptionalLowercaseString,
   normalizeOptionalString,
   normalizeStringifiedOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
-import { normalizeUniqueStringEntries } from "@openclaw/normalization-core/string-normalization";
+} from "@luckynemo/normalization-core/string-coerce";
+import { normalizeUniqueStringEntries } from "@luckynemo/normalization-core/string-normalization";
 import { resolveConfiguredToolPolicies } from "../agents/agent-tools.policy.js";
 import { resolveSandboxConfigForAgent } from "../agents/sandbox/config.js";
 import { isDangerousNetworkMode, normalizeNetworkMode } from "../agents/sandbox/network-mode.js";

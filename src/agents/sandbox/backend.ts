@@ -3,7 +3,7 @@
  *
  * Stores process-wide backend factories so core and plugins can register Docker, SSH, or custom sandbox providers.
  */
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
 import type {
   RegisteredSandboxBackend,
   SandboxBackendFactory,

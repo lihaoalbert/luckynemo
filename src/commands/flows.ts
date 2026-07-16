@@ -1,7 +1,7 @@
 /** CLI commands for listing, inspecting, and cancelling TaskFlow records. */
-import { timestampMsToIsoString } from "@openclaw/normalization-core/number-coercion";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { timestampMsToIsoString } from "@luckynemo/normalization-core/number-coercion";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { sanitizeTerminalText } from "../../packages/terminal-core/src/safe-text.js";
 import { isRich, theme } from "../../packages/terminal-core/src/theme.js";
 import { formatCliCommand } from "../cli/command-format.js";

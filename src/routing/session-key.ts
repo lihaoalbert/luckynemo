@@ -1,9 +1,9 @@
-import { isValidAgentId, normalizeAgentId } from "@openclaw/normalization-core/agent-id";
+import { isValidAgentId, normalizeAgentId } from "@luckynemo/normalization-core/agent-id";
 // Routing session key helpers build stable session keys from route targets.
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import type { ChatType } from "../channels/chat-type.js";
 import {
   isCronRunSessionKey,

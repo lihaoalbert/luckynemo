@@ -1,6 +1,6 @@
 /** Formats model-fallback notice state for UI/status messages and persisted transition tracking. */
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { formatRawAssistantErrorForUi } from "../agents/embedded-agent-helpers.js";
 import { areRuntimeModelRefsEquivalent } from "../agents/model-runtime-aliases.js";
 import type { OpenClawConfig } from "../config/types.openclaw.js";

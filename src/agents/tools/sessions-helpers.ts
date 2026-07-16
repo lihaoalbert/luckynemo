@@ -20,7 +20,10 @@ export {
   resolveVisibleSessionReference,
   shouldResolveSessionIdInput,
 } from "./sessions-resolution.js";
-import { normalizeOptionalString, type FastMode } from "@openclaw/normalization-core/string-coerce";
+import {
+  normalizeOptionalString,
+  type FastMode,
+} from "@luckynemo/normalization-core/string-coerce";
 import { getRuntimeConfig } from "../../config/config.js";
 import type { OpenClawConfig } from "../../config/types.openclaw.js";
 import { parseRawSessionConversationRef } from "../../sessions/session-key-utils.js";

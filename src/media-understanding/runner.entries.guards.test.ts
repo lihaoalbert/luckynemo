@@ -106,7 +106,7 @@ describe("media-understanding missing provider errors", () => {
   it("includes the catalog repair hint for a media provider contract", async () => {
     const message = await getMissingProviderError("groq");
     expect(message).toMatch(/^Media provider not available: groq .*openclaw plugins install/);
-    expect(message).toContain("@openclaw/groq-provider");
+    expect(message).toContain("@luckynemo/groq-provider");
     expect(message).toContain("openclaw plugins registry --refresh");
     expect(message).toContain("stop and start the gateway service");
     expect(message).toContain("openclaw doctor --fix");

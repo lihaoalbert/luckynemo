@@ -29,7 +29,7 @@ const os = loadNodeOs();
 import {
   resolveTimerTimeoutMs,
   clampTimerTimeoutMs,
-} from "@openclaw/normalization-core/number-coercion";
+} from "@luckynemo/normalization-core/number-coercion";
 import { getEnvApiKey } from "../env-api-keys.js";
 import { getAiTransportHost, resolveAiTransportHeaderSentinels } from "../host.js";
 import { parseRetryAfterHttpDateMs } from "../internal/retry-after.js";

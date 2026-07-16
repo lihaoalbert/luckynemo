@@ -1,6 +1,6 @@
 /** Dependency-light normalization helpers for stored cron run diagnostics. */
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
-import { sliceUtf16Safe, truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
+import { sliceUtf16Safe, truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 
 const MAX_ENTRIES = 10;
 const MAX_ENTRY_CHARS = 1_000;

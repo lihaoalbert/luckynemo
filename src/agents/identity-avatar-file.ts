@@ -1,7 +1,7 @@
 // Internal local-avatar resolution and pinned file reads.
 import fs from "node:fs";
 import path from "node:path";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { openRootFileSync } from "../infra/boundary-file-read.js";
 import { readFileDescriptorBoundedSync } from "../infra/file-descriptor-read.js";

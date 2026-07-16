@@ -1,7 +1,7 @@
 /**
  * Formats cron-style current-time prompt text with local and UTC references.
  */
-import { resolveDateTimestampMs } from "@openclaw/normalization-core/number-coercion";
+import { resolveDateTimestampMs } from "@luckynemo/normalization-core/number-coercion";
 import {
   type TimeFormatPreference,
   formatUserTime,

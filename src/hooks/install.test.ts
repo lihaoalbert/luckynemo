@@ -43,7 +43,7 @@ const sharedArchivePathByName = new Map<string, string>();
 
 const fixturesDir = path.resolve(process.cwd(), "test", "fixtures", "hooks-install");
 const zipHooksBuffer = await createZipHookPackBuffer({
-  packageName: "@openclaw/zip-hooks",
+  packageName: "@luckynemo/zip-hooks",
   hookName: "zip-hook",
   hookDescription: "Zip hook",
   heading: "Zip Hook",
@@ -54,7 +54,7 @@ const tarTraversalBuffer = fs.readFileSync(path.join(fixturesDir, "tar-traversal
 const tarEvilIdBuffer = fs.readFileSync(path.join(fixturesDir, "tar-evil-id.tar"));
 const tarReservedIdBuffer = fs.readFileSync(path.join(fixturesDir, "tar-reserved-id.tar"));
 const npmPackHooksBuffer = await createTarGzHookPackBuffer({
-  packageName: "@openclaw/test-hooks",
+  packageName: "@luckynemo/test-hooks",
   hookName: "one-hook",
   hookDescription: "One hook",
   heading: "One Hook",
@@ -126,7 +126,7 @@ function writeHookPackManifest(params: {
   fs.writeFileSync(
     path.join(params.pkgDir, "package.json"),
     JSON.stringify({
-      name: "@openclaw/test-hooks",
+      name: "@luckynemo/test-hooks",
       version: "0.0.1",
       openclaw: {
         hooks: params.hooks,
@@ -336,7 +336,7 @@ describe("installHooksFromPath", () => {
     const pkgDir = makeTempDir();
     fs.writeFileSync(
       path.join(pkgDir, "package.json"),
-      JSON.stringify({ name: "@openclaw/test-hooks", openclaw }),
+      JSON.stringify({ name: "@luckynemo/test-hooks", openclaw }),
     );
 
     const result = await installHooksFromPath({ path: pkgDir, hooksDir: makeTempDir() });
@@ -892,7 +892,7 @@ describe("installHooksFromNpmSpec", () => {
             expect.objectContaining({
               installPolicyRequest: {
                 kind: "plugin-npm",
-                requestedSpecifier: "@openclaw/test-hooks@0.0.1",
+                requestedSpecifier: "@luckynemo/test-hooks@0.0.1",
                 source: {
                   kind: "npm",
                   authority: "third-party",
@@ -914,7 +914,7 @@ describe("installHooksFromNpmSpec", () => {
 
     try {
       const result = await installHooksFromNpmSpec({
-        spec: "@openclaw/test-hooks@0.0.1",
+        spec: "@luckynemo/test-hooks@0.0.1",
       });
 
       expect(result.ok).toBe(true);
@@ -941,8 +941,8 @@ describe("installHooksFromNpmSpec", () => {
           code: 0,
           stdout: JSON.stringify([
             {
-              id: "@openclaw/test-hooks@0.0.1",
-              name: "@openclaw/test-hooks",
+              id: "@luckynemo/test-hooks@0.0.1",
+              name: "@luckynemo/test-hooks",
               version: "0.0.1",
               filename: packedName,
               integrity: "sha512-hook-test",
@@ -960,7 +960,7 @@ describe("installHooksFromNpmSpec", () => {
 
     const hooksDir = path.join(stateDir, "hooks");
     const result = await installHooksFromNpmSpec({
-      spec: "@openclaw/test-hooks@0.0.1",
+      spec: "@luckynemo/test-hooks@0.0.1",
       hooksDir,
       logger: { info: () => {}, warn: () => {} },
     });
@@ -970,13 +970,13 @@ describe("installHooksFromNpmSpec", () => {
     }
     expect(result.hookPackId).toBe("test-hooks");
     expect(result.packageKind).toBe("hook-only");
-    expect(result.npmResolution?.resolvedSpec).toBe("@openclaw/test-hooks@0.0.1");
+    expect(result.npmResolution?.resolvedSpec).toBe("@luckynemo/test-hooks@0.0.1");
     expect(result.npmResolution?.integrity).toBe("sha512-hook-test");
     expect(fs.existsSync(path.join(result.targetDir, "hooks", "one-hook", "HOOK.md"))).toBe(true);
 
     expectSingleNpmPackIgnoreScriptsCall({
       calls: run.mock.calls as Array<[unknown, unknown]>,
-      expectedSpec: "@openclaw/test-hooks@0.0.1",
+      expectedSpec: "@luckynemo/test-hooks@0.0.1",
     });
 
     expect(packTmpDir).not.toBe("");
@@ -986,8 +986,8 @@ describe("installHooksFromNpmSpec", () => {
   it("aborts when integrity drift callback rejects the fetched artifact", async () => {
     const run = runCommandWithTimeoutMock;
     mockNpmPackMetadataResult(run, {
-      id: "@openclaw/test-hooks@0.0.1",
-      name: "@openclaw/test-hooks",
+      id: "@luckynemo/test-hooks@0.0.1",
+      name: "@luckynemo/test-hooks",
       version: "0.0.1",
       filename: "test-hooks-0.0.1.tgz",
       integrity: "sha512-new",
@@ -996,7 +996,7 @@ describe("installHooksFromNpmSpec", () => {
 
     const onIntegrityDrift = vi.fn(async () => false);
     const result = await installHooksFromNpmSpec({
-      spec: "@openclaw/test-hooks@0.0.1",
+      spec: "@luckynemo/test-hooks@0.0.1",
       expectedIntegrity: "sha512-old",
       onIntegrityDrift,
     });
@@ -1013,8 +1013,8 @@ describe("installHooksFromNpmSpec", () => {
 
     const run = runCommandWithTimeoutMock;
     mockNpmPackMetadataResult(run, {
-      id: "@openclaw/test-hooks@0.0.2-beta.1",
-      name: "@openclaw/test-hooks",
+      id: "@luckynemo/test-hooks@0.0.2-beta.1",
+      name: "@luckynemo/test-hooks",
       version: "0.0.2-beta.1",
       filename: "test-hooks-0.0.2-beta.1.tgz",
       integrity: "sha512-beta",
@@ -1022,13 +1022,13 @@ describe("installHooksFromNpmSpec", () => {
     });
 
     const result = await installHooksFromNpmSpec({
-      spec: "@openclaw/test-hooks",
+      spec: "@luckynemo/test-hooks",
       logger: { info: () => {}, warn: () => {} },
     });
     expect(result.ok).toBe(false);
     if (!result.ok) {
       expect(result.error).toContain("prerelease version 0.0.2-beta.1");
-      expect(result.error).toContain('"@openclaw/test-hooks@beta"');
+      expect(result.error).toContain('"@luckynemo/test-hooks@beta"');
     }
   });
 });

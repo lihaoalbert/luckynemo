@@ -1,5 +1,5 @@
 /** Read-only Gateway config tool for regular agents. */
-import { readStringValue } from "@openclaw/normalization-core/string-coerce";
+import { readStringValue } from "@luckynemo/normalization-core/string-coerce";
 import { Type } from "typebox";
 import { GatewayClientRequestError } from "../../gateway/client.js";
 import { parseConfigPathArrayIndex } from "../../shared/path-array-index.js";

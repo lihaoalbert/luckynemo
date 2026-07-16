@@ -1,10 +1,10 @@
 {
-  "name": "@openclaw/tencent-provider",
+  "name": "@luckynemo/tencent-provider",
   "version": "2026.7.2",
   "description": "OpenClaw Tencent Cloud provider plugin (TokenHub + Token Plan)",
   "type": "module",
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [
@@ -12,8 +12,8 @@
     ],
     "setupEntry": "./setup-api.ts",
     "install": {
-      "clawhubSpec": "clawhub:@openclaw/tencent-provider",
-      "npmSpec": "@openclaw/tencent-provider",
+      "clawhubSpec": "clawhub:@luckynemo/tencent-provider",
+      "npmSpec": "@luckynemo/tencent-provider",
       "defaultChoice": "npm",
       "minHostVersion": ">=2026.6.9"
     },

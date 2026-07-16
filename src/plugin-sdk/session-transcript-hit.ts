@@ -1,6 +1,6 @@
 // Session transcript hit helpers describe and load matched transcript snippets for plugins.
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { normalizeOptionalString } from "../../packages/normalization-core/src/string-coerce.js";
 import { uniqueStrings } from "../../packages/normalization-core/src/string-normalization.js";
 import { parseUsageCountedSessionIdFromFileName } from "../config/sessions/artifacts.js";

@@ -6,7 +6,7 @@
  * active runs (projection, timeout ownership, terminal dedupe), but they must
  * remain abortable by authorized requesters after chat.send terminalizes.
  */
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 
 export type QueuedChatTurnEntry = {
   controller: AbortController;

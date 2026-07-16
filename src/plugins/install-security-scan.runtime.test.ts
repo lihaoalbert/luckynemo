@@ -80,7 +80,7 @@ describe("install security scan official bypass", () => {
   it("bypasses plugin install friction for official ClawHub sources", async () => {
     const result = await scanBundleInstallSourceRuntime({
       logger: {},
-      pluginId: "@openclaw/matrix",
+      pluginId: "@luckynemo/matrix",
       sourceDir: "/tmp/openclaw-official-clawhub-plugin",
       source: { kind: "clawhub", authority: "official", mutable: false, network: true },
     });
@@ -110,8 +110,8 @@ describe("install security scan official bypass", () => {
   it("runs only operator policy for official immutable npm sources", async () => {
     const result = await preflightPluginNpmInstallPolicyRuntime({
       logger: {},
-      packageName: "@openclaw/matrix",
-      requestedSpecifier: "@openclaw/matrix@latest",
+      packageName: "@luckynemo/matrix",
+      requestedSpecifier: "@luckynemo/matrix@latest",
       source: { kind: "npm", authority: "official", mutable: false, network: true },
       sourcePath: "/tmp/openclaw-official-npm",
       sourcePathKind: "directory",
@@ -131,7 +131,7 @@ describe("install security scan official bypass", () => {
 
     const result = await scanBundleInstallSourceRuntime({
       logger: {},
-      pluginId: "@openclaw/matrix",
+      pluginId: "@luckynemo/matrix",
       sourceDir: "/tmp/openclaw-official-clawhub-plugin",
       source: { kind: "clawhub", authority: "official", mutable: false, network: true },
     });

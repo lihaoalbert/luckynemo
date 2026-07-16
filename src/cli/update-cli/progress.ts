@@ -1,6 +1,6 @@
 // Update command presentation helpers: spinner lifecycle, failure hints, and result summaries.
 import { spinner } from "@clack/prompts";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import { theme } from "../../../packages/terminal-core/src/theme.js";
 import { formatDurationPrecise } from "../../infra/format-time/format-duration.ts";
 import type {

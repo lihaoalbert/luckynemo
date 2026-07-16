@@ -1,4 +1,4 @@
-import { isHttpUrl } from "@openclaw/net-policy/url-protocol";
+import { isHttpUrl } from "@luckynemo/net-policy/url-protocol";
 
 /** Normalizes cron webhook URLs while rejecting empty, malformed, and non-HTTP(S) values. */
 export function normalizeHttpWebhookUrl(value: unknown): string | null {

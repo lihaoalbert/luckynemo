@@ -22,7 +22,7 @@ function withoutAiRuntimeDependency(value) {
   if (!Array.isArray(value)) {
     return value;
   }
-  const next = value.filter((entry) => entry !== "@openclaw/ai");
+  const next = value.filter((entry) => entry !== "@luckynemo/ai");
   return next.length > 0 ? next : undefined;
 }
 
@@ -41,7 +41,7 @@ function prepare(root) {
   fs.renameSync(aiRuntimeSource, aiRuntimeTarget);
 
   packageJson.dependencies ??= {};
-  packageJson.dependencies["@openclaw/ai"] = "file:.openclaw-fixture/packages/ai";
+  packageJson.dependencies["@luckynemo/ai"] = "file:.openclaw-fixture/packages/ai";
   packageJson.bundleDependencies = withoutAiRuntimeDependency(packageJson.bundleDependencies);
   packageJson.bundledDependencies = withoutAiRuntimeDependency(packageJson.bundledDependencies);
   if (packageJson.bundleDependencies === undefined) {

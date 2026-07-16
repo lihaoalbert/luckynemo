@@ -1,7 +1,7 @@
 {
   "entries": [
     {
-      "name": "@openclaw/amazon-bedrock-provider",
+      "name": "@luckynemo/amazon-bedrock-provider",
       "description": "OpenClaw Amazon Bedrock provider plugin",
       "source": "official",
       "kind": "provider",
@@ -19,14 +19,14 @@
           }
         ],
         "install": {
-          "npmSpec": "@openclaw/amazon-bedrock-provider",
+          "npmSpec": "@luckynemo/amazon-bedrock-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.5.12-beta.1"
         }
       }
     },
     {
-      "name": "@openclaw/amazon-bedrock-mantle-provider",
+      "name": "@luckynemo/amazon-bedrock-mantle-provider",
       "description": "OpenClaw Amazon Bedrock Mantle provider plugin",
       "source": "official",
       "kind": "provider",
@@ -44,14 +44,14 @@
           }
         ],
         "install": {
-          "npmSpec": "@openclaw/amazon-bedrock-mantle-provider",
+          "npmSpec": "@luckynemo/amazon-bedrock-mantle-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.5.12-beta.1"
         }
       }
     },
     {
-      "name": "@openclaw/anthropic-vertex-provider",
+      "name": "@luckynemo/anthropic-vertex-provider",
       "description": "OpenClaw Anthropic Vertex provider plugin",
       "source": "official",
       "kind": "provider",
@@ -69,14 +69,14 @@
           }
         ],
         "install": {
-          "npmSpec": "@openclaw/anthropic-vertex-provider",
+          "npmSpec": "@luckynemo/anthropic-vertex-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.5.12-beta.1"
         }
       }
     },
     {
-      "name": "@openclaw/arcee-provider",
+      "name": "@luckynemo/arcee-provider",
       "description": "OpenClaw Arcee provider plugin.",
       "source": "official",
       "kind": "provider",
@@ -134,15 +134,15 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/arcee-provider",
-          "npmSpec": "@openclaw/arcee-provider",
+          "clawhubSpec": "clawhub:@luckynemo/arcee-provider",
+          "npmSpec": "@luckynemo/arcee-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.8"
         }
       }
     },
     {
-      "name": "@openclaw/cerebras-provider",
+      "name": "@luckynemo/cerebras-provider",
       "description": "OpenClaw Cerebras provider plugin.",
       "source": "official",
       "kind": "provider",
@@ -191,15 +191,15 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/cerebras-provider",
-          "npmSpec": "@openclaw/cerebras-provider",
+          "clawhubSpec": "clawhub:@luckynemo/cerebras-provider",
+          "npmSpec": "@luckynemo/cerebras-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.8"
         }
       }
     },
     {
-      "name": "@openclaw/chutes-provider",
+      "name": "@luckynemo/chutes-provider",
       "description": "OpenClaw Chutes.ai provider plugin.",
       "source": "official",
       "kind": "provider",
@@ -262,15 +262,15 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/chutes-provider",
-          "npmSpec": "@openclaw/chutes-provider",
+          "clawhubSpec": "clawhub:@luckynemo/chutes-provider",
+          "npmSpec": "@luckynemo/chutes-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.8"
         }
       }
     },
     {
-      "name": "@openclaw/cohere-provider",
+      "name": "@luckynemo/cohere-provider",
       "description": "OpenClaw Cohere provider plugin",
       "source": "official",
       "kind": "provider",
@@ -308,15 +308,15 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/cohere-provider",
-          "npmSpec": "@openclaw/cohere-provider",
+          "clawhubSpec": "clawhub:@luckynemo/cohere-provider",
+          "npmSpec": "@luckynemo/cohere-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.8"
         }
       }
     },
     {
-      "name": "@openclaw/cloudflare-ai-gateway-provider",
+      "name": "@luckynemo/cloudflare-ai-gateway-provider",
       "description": "OpenClaw Cloudflare AI Gateway provider plugin.",
       "source": "official",
       "kind": "provider",
@@ -358,15 +358,15 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/cloudflare-ai-gateway-provider",
-          "npmSpec": "@openclaw/cloudflare-ai-gateway-provider",
+          "clawhubSpec": "clawhub:@luckynemo/cloudflare-ai-gateway-provider",
+          "npmSpec": "@luckynemo/cloudflare-ai-gateway-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.8"
         }
       }
     },
     {
-      "name": "@openclaw/codex",
+      "name": "@luckynemo/codex",
       "description": "OpenClaw Codex harness and model provider plugin",
       "source": "official",
       "kind": "provider",
@@ -400,14 +400,14 @@
           }
         ],
         "install": {
-          "npmSpec": "@openclaw/codex",
+          "npmSpec": "@luckynemo/codex",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.5.1-beta.1"
         }
       }
     },
     {
-      "name": "@openclaw/deepinfra-provider",
+      "name": "@luckynemo/deepinfra-provider",
       "description": "OpenClaw DeepInfra provider plugin.",
       "source": "official",
       "kind": "provider",
@@ -474,15 +474,15 @@
           ]
         },
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/deepinfra-provider",
-          "npmSpec": "@openclaw/deepinfra-provider",
+          "clawhubSpec": "clawhub:@luckynemo/deepinfra-provider",
+          "npmSpec": "@luckynemo/deepinfra-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.8"
         }
       }
     },
     {
-      "name": "@openclaw/deepseek-provider",
+      "name": "@luckynemo/deepseek-provider",
       "description": "OpenClaw DeepSeek provider plugin.",
       "source": "official",
       "kind": "provider",
@@ -531,15 +531,15 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/deepseek-provider",
-          "npmSpec": "@openclaw/deepseek-provider",
+          "clawhubSpec": "clawhub:@luckynemo/deepseek-provider",
+          "npmSpec": "@luckynemo/deepseek-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.8"
         }
       }
     },
     {
-      "name": "@openclaw/featherless-provider",
+      "name": "@luckynemo/featherless-provider",
       "description": "OpenClaw Featherless AI provider plugin.",
       "source": "official",
       "kind": "provider",
@@ -581,15 +581,15 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/featherless-provider",
-          "npmSpec": "@openclaw/featherless-provider",
+          "clawhubSpec": "clawhub:@luckynemo/featherless-provider",
+          "npmSpec": "@luckynemo/featherless-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.11"
         }
       }
     },
     {
-      "name": "@openclaw/gmi-provider",
+      "name": "@luckynemo/gmi-provider",
       "description": "OpenClaw GMI Cloud provider plugin",
       "source": "official",
       "kind": "provider",
@@ -632,15 +632,15 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/gmi-provider",
-          "npmSpec": "@openclaw/gmi-provider",
+          "clawhubSpec": "clawhub:@luckynemo/gmi-provider",
+          "npmSpec": "@luckynemo/gmi-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.8"
         }
       }
     },
     {
-      "name": "@openclaw/longcat-provider",
+      "name": "@luckynemo/longcat-provider",
       "description": "OpenClaw LongCat provider plugin",
       "source": "official",
       "kind": "provider",
@@ -675,15 +675,15 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/longcat-provider",
-          "npmSpec": "@openclaw/longcat-provider",
+          "clawhubSpec": "clawhub:@luckynemo/longcat-provider",
+          "npmSpec": "@luckynemo/longcat-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.8"
         }
       }
     },
     {
-      "name": "@openclaw/meta-provider",
+      "name": "@luckynemo/meta-provider",
       "description": "OpenClaw Meta provider plugin.",
       "source": "official",
       "kind": "provider",
@@ -724,15 +724,15 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/meta-provider",
-          "npmSpec": "@openclaw/meta-provider",
+          "clawhubSpec": "clawhub:@luckynemo/meta-provider",
+          "npmSpec": "@luckynemo/meta-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.11"
         }
       }
     },
     {
-      "name": "@openclaw/groq-provider",
+      "name": "@luckynemo/groq-provider",
       "description": "OpenClaw Groq media-understanding provider.",
       "source": "official",
       "kind": "provider",
@@ -786,15 +786,15 @@
           ]
         },
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/groq-provider",
-          "npmSpec": "@openclaw/groq-provider",
+          "clawhubSpec": "clawhub:@luckynemo/groq-provider",
+          "npmSpec": "@luckynemo/groq-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.8"
         }
       }
     },
     {
-      "name": "@openclaw/kilocode-provider",
+      "name": "@luckynemo/kilocode-provider",
       "description": "OpenClaw Kilo Gateway provider plugin.",
       "source": "official",
       "kind": "provider",
@@ -836,15 +836,15 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/kilocode-provider",
-          "npmSpec": "@openclaw/kilocode-provider",
+          "clawhubSpec": "clawhub:@luckynemo/kilocode-provider",
+          "npmSpec": "@luckynemo/kilocode-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.8"
         }
       }
     },
     {
-      "name": "@openclaw/kimi-provider",
+      "name": "@luckynemo/kimi-provider",
       "description": "OpenClaw Kimi provider plugin.",
       "source": "official",
       "kind": "provider",
@@ -889,15 +889,15 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/kimi-provider",
-          "npmSpec": "@openclaw/kimi-provider",
+          "clawhubSpec": "clawhub:@luckynemo/kimi-provider",
+          "npmSpec": "@luckynemo/kimi-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.8"
         }
       }
     },
     {
-      "name": "@openclaw/pixverse-provider",
+      "name": "@luckynemo/pixverse-provider",
       "description": "OpenClaw PixVerse video provider plugin",
       "source": "official",
       "kind": "provider",
@@ -931,14 +931,14 @@
           }
         ],
         "install": {
-          "npmSpec": "@openclaw/pixverse-provider",
+          "npmSpec": "@luckynemo/pixverse-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.5.26"
         }
       }
     },
     {
-      "name": "@openclaw/qianfan-provider",
+      "name": "@luckynemo/qianfan-provider",
       "description": "OpenClaw Qianfan provider plugin.",
       "source": "official",
       "kind": "provider",
@@ -979,15 +979,15 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/qianfan-provider",
-          "npmSpec": "@openclaw/qianfan-provider",
+          "clawhubSpec": "clawhub:@luckynemo/qianfan-provider",
+          "npmSpec": "@luckynemo/qianfan-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.8"
         }
       }
     },
     {
-      "name": "@openclaw/qwen-provider",
+      "name": "@luckynemo/qwen-provider",
       "description": "OpenClaw Qwen Cloud provider plugin.",
       "source": "official",
       "kind": "provider",
@@ -1212,15 +1212,15 @@
           ]
         },
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/qwen-provider",
-          "npmSpec": "@openclaw/qwen-provider",
+          "clawhubSpec": "clawhub:@luckynemo/qwen-provider",
+          "npmSpec": "@luckynemo/qwen-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.8"
         }
       }
     },
     {
-      "name": "@openclaw/fireworks-provider",
+      "name": "@luckynemo/fireworks-provider",
       "description": "OpenClaw Fireworks provider plugin",
       "source": "official",
       "kind": "provider",
@@ -1265,15 +1265,15 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/fireworks-provider",
-          "npmSpec": "@openclaw/fireworks-provider",
+          "clawhubSpec": "clawhub:@luckynemo/fireworks-provider",
+          "npmSpec": "@luckynemo/fireworks-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.9"
         }
       }
     },
     {
-      "name": "@openclaw/moonshot-provider",
+      "name": "@luckynemo/moonshot-provider",
       "description": "OpenClaw Moonshot provider plugin",
       "source": "official",
       "kind": "provider",
@@ -1373,15 +1373,15 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/moonshot-provider",
-          "npmSpec": "@openclaw/moonshot-provider",
+          "clawhubSpec": "clawhub:@luckynemo/moonshot-provider",
+          "npmSpec": "@luckynemo/moonshot-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.9"
         }
       }
     },
     {
-      "name": "@openclaw/tencent-provider",
+      "name": "@luckynemo/tencent-provider",
       "description": "OpenClaw Tencent Cloud provider plugin (TokenHub + Token Plan)",
       "source": "official",
       "kind": "provider",
@@ -1453,15 +1453,15 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/tencent-provider",
-          "npmSpec": "@openclaw/tencent-provider",
+          "clawhubSpec": "clawhub:@luckynemo/tencent-provider",
+          "npmSpec": "@luckynemo/tencent-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.9"
         }
       }
     },
     {
-      "name": "@openclaw/venice-provider",
+      "name": "@luckynemo/venice-provider",
       "description": "OpenClaw Venice provider plugin",
       "source": "official",
       "kind": "provider",
@@ -1503,15 +1503,15 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/venice-provider",
-          "npmSpec": "@openclaw/venice-provider",
+          "clawhubSpec": "clawhub:@luckynemo/venice-provider",
+          "npmSpec": "@luckynemo/venice-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.9"
         }
       }
     },
     {
-      "name": "@openclaw/vercel-ai-gateway-provider",
+      "name": "@luckynemo/vercel-ai-gateway-provider",
       "description": "OpenClaw Vercel AI Gateway provider plugin",
       "source": "official",
       "kind": "provider",
@@ -1553,15 +1553,15 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/vercel-ai-gateway-provider",
-          "npmSpec": "@openclaw/vercel-ai-gateway-provider",
+          "clawhubSpec": "clawhub:@luckynemo/vercel-ai-gateway-provider",
+          "npmSpec": "@luckynemo/vercel-ai-gateway-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.9"
         }
       }
     },
     {
-      "name": "@openclaw/zai-provider",
+      "name": "@luckynemo/zai-provider",
       "description": "OpenClaw Z.AI provider plugin",
       "source": "official",
       "kind": "provider",
@@ -1684,15 +1684,15 @@
           ]
         },
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/zai-provider",
-          "npmSpec": "@openclaw/zai-provider",
+          "clawhubSpec": "clawhub:@luckynemo/zai-provider",
+          "npmSpec": "@luckynemo/zai-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.9"
         }
       }
     },
     {
-      "name": "@openclaw/stepfun-provider",
+      "name": "@luckynemo/stepfun-provider",
       "description": "OpenClaw StepFun provider plugin.",
       "source": "official",
       "kind": "provider",
@@ -1796,8 +1796,8 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/stepfun-provider",
-          "npmSpec": "@openclaw/stepfun-provider",
+          "clawhubSpec": "clawhub:@luckynemo/stepfun-provider",
+          "npmSpec": "@luckynemo/stepfun-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.9"
         }

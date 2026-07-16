@@ -1,5 +1,5 @@
 /** Tests bash command aliases and chat shortcut handling. */
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { OpenClawConfig } from "../../config/config.js";
 import { handleBashCommand } from "./commands-bash.js";

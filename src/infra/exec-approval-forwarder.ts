@@ -1,5 +1,5 @@
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
-import { normalizeStringEntries } from "@openclaw/normalization-core/string-normalization";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
+import { normalizeStringEntries } from "@luckynemo/normalization-core/string-normalization";
 import type { ReplyPayload } from "../auto-reply/types.js";
 import {
   getLoadedChannelPlugin,

@@ -11,7 +11,7 @@ function createDemoModule(repoRoot: string, filename: string, source: string): s
   fs.mkdirSync(path.dirname(modulePath), { recursive: true });
   fs.writeFileSync(
     path.join(packageRoot, "package.json"),
-    JSON.stringify({ name: "@openclaw/demo", type: "module" }),
+    JSON.stringify({ name: "@luckynemo/demo", type: "module" }),
     "utf8",
   );
   fs.writeFileSync(modulePath, source, "utf8");

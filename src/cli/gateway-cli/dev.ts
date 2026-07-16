@@ -2,7 +2,7 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
 import { extractFrontmatterBlock } from "../../../packages/markdown-core/src/frontmatter.js";
 import { resolveWorkspaceTemplateSearchDirs } from "../../agents/workspace-templates.js";
 import { resolveDefaultAgentWorkspaceDir } from "../../agents/workspace.js";

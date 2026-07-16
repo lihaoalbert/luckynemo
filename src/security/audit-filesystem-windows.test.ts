@@ -1,7 +1,7 @@
 // Covers Windows filesystem security audit behavior.
 import fs from "node:fs/promises";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterAll, beforeAll, describe, expect, it } from "vitest";
 import { collectSecurityAuditFindings } from "./audit.test-support.js";
 import { AsyncTempCaseFactory } from "./test-temp-cases.js";

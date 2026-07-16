@@ -1,4 +1,4 @@
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 // Resolves CLI command path policy from the declarative command catalog.
 import { isGatewayConfigBypassCommandPath } from "../gateway/explicit-connection-policy.js";
 import { getCommandPathWithRootOptions } from "./argv.js";

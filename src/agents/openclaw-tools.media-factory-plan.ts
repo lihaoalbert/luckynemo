@@ -3,7 +3,7 @@
  *
  * Combines config, tool policy, plugin capability metadata, and auth-profile availability before tool construction.
  */
-import { uniqueStrings } from "@openclaw/normalization-core/string-normalization";
+import { uniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import {
   resolveAgentModelFallbackValues,
   resolveAgentModelPrimaryValue,

@@ -1,7 +1,7 @@
 // Runtime LLM helpers adapt plugin provider hooks into the core model runtime.
-import { parseModelCatalogRef } from "@openclaw/model-catalog-core/model-catalog-refs";
-import { asFiniteNumber } from "@openclaw/normalization-core/number-coercion";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { parseModelCatalogRef } from "@luckynemo/model-catalog-core/model-catalog-refs";
+import { asFiniteNumber } from "@luckynemo/normalization-core/number-coercion";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { modelKey } from "../../agents/model-ref-shared.js";
 import { normalizeModelRef } from "../../agents/model-selection.js";
 import type { NormalizedUsage, UsageLike } from "../../agents/usage.js";

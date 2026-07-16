@@ -748,7 +748,7 @@ describe("channelsAddCommand", () => {
         blurb: "WhatsApp channel",
       },
       install: {
-        npmSpec: "@openclaw/whatsapp",
+        npmSpec: "@luckynemo/whatsapp",
       },
     };
     catalogMocks.listChannelPluginCatalogEntries.mockReturnValue([catalogEntry]);

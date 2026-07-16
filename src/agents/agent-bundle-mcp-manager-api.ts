@@ -1,5 +1,5 @@
 /** Module-level session MCP runtime manager entry APIs. */
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import type { PluginManifestRegistry } from "../plugins/manifest-registry.js";
 import { resolveGlobalSingleton } from "../shared/global-singleton.js";

@@ -1,18 +1,18 @@
-import type { OpenAICompletionsOptions } from "@openclaw/ai/internal/openai";
-import { getEnvApiKey } from "@openclaw/ai/internal/runtime";
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
+import type { OpenAICompletionsOptions } from "@luckynemo/ai/internal/openai";
+import { getEnvApiKey } from "@luckynemo/ai/internal/runtime";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
 import {
   asDateTimestampMs,
   resolveTimerTimeoutMs,
-} from "@openclaw/normalization-core/number-coercion";
+} from "@luckynemo/normalization-core/number-coercion";
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import {
   normalizeStringEntries,
   uniqueStrings,
-} from "@openclaw/normalization-core/string-normalization";
+} from "@luckynemo/normalization-core/string-normalization";
 import pMap from "p-map";
 import { Type } from "typebox";
 import { formatErrorMessage } from "../infra/errors.js";

@@ -18,14 +18,14 @@ import { useAutoCleanupTempDirTracker } from "./helpers/temp-dir.js";
 const tempDirs = useAutoCleanupTempDirTracker(afterEach);
 
 describe("collectSourcePackWorkspaceDependencyErrors", () => {
-  it("rejects the plain source pack that pnpm rewrites without bundling @openclaw/ai", () => {
+  it("rejects the plain source pack that pnpm rewrites without bundling @luckynemo/ai", () => {
     const rootDir = tempDirs.make("openclaw-source-pack-workspace-");
     const aiDir = path.join(rootDir, "packages", "ai");
     const packDir = path.join(rootDir, "pack");
     const extractDir = path.join(rootDir, "extract");
     const version = "2099.1.2-test.0";
     const rootPackageJson = {
-      dependencies: { "@openclaw/ai": "workspace:*" },
+      dependencies: { "@luckynemo/ai": "workspace:*" },
       name: "openclaw-source-pack-regression",
       version,
     };
@@ -39,7 +39,7 @@ describe("collectSourcePackWorkspaceDependencyErrors", () => {
     writeFileSync(path.join(rootDir, "pnpm-workspace.yaml"), 'packages:\n  - "packages/*"\n');
     writeFileSync(
       path.join(aiDir, "package.json"),
-      `${JSON.stringify({ name: "@openclaw/ai", version }, null, 2)}\n`,
+      `${JSON.stringify({ name: "@luckynemo/ai", version }, null, 2)}\n`,
     );
 
     const install = spawnSync(
@@ -78,14 +78,14 @@ describe("collectSourcePackWorkspaceDependencyErrors", () => {
       bundleDependencies?: string[];
       dependencies?: Record<string, string>;
     };
-    expect(packedPackageJson.dependencies?.["@openclaw/ai"]).toBe(version);
+    expect(packedPackageJson.dependencies?.["@luckynemo/ai"]).toBe(version);
     expect(packedPackageJson.bundleDependencies).toBeUndefined();
     expect(existsSync(path.join(extractDir, "package", "node_modules", "@openclaw", "ai"))).toBe(
       false,
     );
     expect(collectSourcePackWorkspaceDependencyErrors(rootPackageJson, {})).toEqual([
-      "plain root packing cannot safely resolve @openclaw/ai from workspace:*: pnpm rewrites the workspace dependency to an exact version without bundling the package",
-      "use `node scripts/package-openclaw-for-docker.mjs --allow-unreleased-changelog` for a self-contained source package; official npm release automation prepares and publishes @openclaw/ai separately",
+      "plain root packing cannot safely resolve @luckynemo/ai from workspace:*: pnpm rewrites the workspace dependency to an exact version without bundling the package",
+      "use `node scripts/package-openclaw-for-docker.mjs --allow-unreleased-changelog` for a self-contained source package; official npm release automation prepares and publishes @luckynemo/ai separately",
     ]);
     expect(
       collectSourcePackWorkspaceDependencyErrors(rootPackageJson, {

@@ -1,6 +1,6 @@
 /** Updates installed plugins across npm, ClawHub, marketplace, Git, and bundled bridge sources. */
 import path from "node:path";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import type { PluginInstallRecord } from "../config/types.plugins.js";
 import type { ClawHubTrustErrorCode } from "../infra/clawhub-install-trust.js";
@@ -491,7 +491,7 @@ async function resolveTrustedOfficialPrereleaseFallbackMetadataForUpdate(params:
   const parsedSpec = parseRegistryNpmSpec(params.spec);
   if (
     !parsedSpec ||
-    !parsedSpec.name.startsWith("@openclaw/") ||
+    !parsedSpec.name.startsWith("@luckynemo/") ||
     !params.metadata.version ||
     isPrereleaseResolutionAllowed({
       spec: parsedSpec,

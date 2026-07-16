@@ -1,5 +1,5 @@
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
-import { uniqueStrings } from "@openclaw/normalization-core/string-normalization";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
+import { uniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import { normalizeConfiguredMcpServers } from "../config/mcp-config-normalize.js";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { normalizePluginsConfig } from "../plugins/config-state.js";

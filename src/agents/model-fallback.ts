@@ -1,7 +1,7 @@
 /**
  * Runs model and image fallback chains across provider/model candidates.
  */
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { TRANSCRIPT_NOT_CONTINUABLE_ERROR_CODE } from "../../packages/agent-core/src/errors.js";
 import { sanitizeForLog } from "../../packages/terminal-core/src/ansi.js";
 import {

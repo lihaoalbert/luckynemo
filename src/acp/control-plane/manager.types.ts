@@ -7,7 +7,7 @@ import type {
   AcpRuntimePromptMode,
   AcpRuntimeSessionMode,
   AcpRuntimeStatus,
-} from "@openclaw/acp-core/runtime/types";
+} from "@luckynemo/acp-core/runtime/types";
 import type {
   SessionAcpIdentity,
   AcpSessionRuntimeOptions,

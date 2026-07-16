@@ -3,7 +3,7 @@ import { createHash } from "node:crypto";
 import {
   asDateTimestampMs,
   resolveExpiresAtMsFromDurationMs,
-} from "@openclaw/normalization-core/number-coercion";
+} from "@luckynemo/normalization-core/number-coercion";
 import type { CommandContext } from "../auto-reply/reply/commands-types.js";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { createCorePluginStateSyncKeyedStore } from "../plugin-state/plugin-state-store.js";

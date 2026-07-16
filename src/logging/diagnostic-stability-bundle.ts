@@ -3,8 +3,8 @@ import fs from "node:fs";
 import path from "node:path";
 import process from "node:process";
 import v8 from "node:v8";
-import { expectDefined } from "@openclaw/normalization-core";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { expectDefined } from "@luckynemo/normalization-core";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { resolveStateDir } from "../config/paths.js";
 import type {
   DiagnosticMemoryPressureEvent,

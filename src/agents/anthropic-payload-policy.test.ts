@@ -1,4 +1,4 @@
-import { SYSTEM_PROMPT_CACHE_BOUNDARY } from "@openclaw/ai/internal/shared";
+import { SYSTEM_PROMPT_CACHE_BOUNDARY } from "@luckynemo/ai/internal/shared";
 /**
  * Tests Anthropic payload policy mutation.
  * Covers service tier, cache-control retention, prompt cache boundaries, and

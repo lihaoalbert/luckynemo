@@ -1,5 +1,5 @@
 import fs from "node:fs";
-import { normalizeOptionalLowercaseString as normalizeString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalLowercaseString as normalizeString } from "@luckynemo/normalization-core/string-coerce";
 import { loadSessionStore, updateSessionStore } from "../../../config/sessions/store.js";
 import { resolveAllAgentSessionStoreTargetsSync } from "../../../config/sessions/targets.js";
 import type { SessionEntry } from "../../../config/sessions/types.js";

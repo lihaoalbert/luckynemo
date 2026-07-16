@@ -1,5 +1,5 @@
 // Model-backed compaction request construction.
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { resolveAgentWorkspaceDir } from "../../agents/agent-scope.js";
 import { compactEmbeddedAgentSession } from "../../agents/embedded-agent.js";
 import { resolvePersistedSessionRuntimeId } from "../../agents/session-runtime-compat.js";

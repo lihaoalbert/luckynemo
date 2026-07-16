@@ -1,5 +1,5 @@
 // Browser tests cover profiles plugin behavior.
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it } from "vitest";
 import { resolveBrowserConfig } from "./config.js";
 import {

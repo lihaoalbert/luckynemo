@@ -3,7 +3,7 @@ import os from "node:os";
 import {
   normalizeOptionalLowercaseString,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { formatErrorMessage } from "../infra/errors.js";
 import { runCommandWithTimeout, runExec } from "../process/exec.js";
 

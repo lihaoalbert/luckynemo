@@ -1,7 +1,7 @@
 // Agent command tests cover local agent runs, session routing, and command runtime behavior.
 import fs from "node:fs";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { buildChannelOutboundSessionRoute } from "openclaw/plugin-sdk/core";
 import { withTempHome as withTempHomeBase } from "openclaw/plugin-sdk/test-env";
 import { beforeEach, describe, expect, it, type MockInstance, vi } from "vitest";

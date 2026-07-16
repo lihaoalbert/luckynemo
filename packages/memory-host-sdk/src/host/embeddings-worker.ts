@@ -2,7 +2,7 @@
 import { fork, type ChildProcess } from "node:child_process";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { DEFAULT_LOCAL_MODEL } from "./embedding-defaults.js";
 import {
   createLocalEmbeddingWorkerFailureError,

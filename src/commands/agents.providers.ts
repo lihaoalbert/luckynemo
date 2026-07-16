@@ -1,5 +1,5 @@
 // Provider/account summary helpers for `openclaw agents list`.
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
 import { isChannelVisibleInConfiguredLists } from "../channels/plugins/exposure.js";
 import { resolveChannelDefaultAccountId } from "../channels/plugins/helpers.js";
 import { normalizeChannelId } from "../channels/plugins/index.js";

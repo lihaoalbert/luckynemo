@@ -1,5 +1,5 @@
 {
-  "name": "@openclaw/brave-plugin",
+  "name": "@luckynemo/brave-plugin",
   "version": "2026.7.2",
   "description": "OpenClaw Brave Search provider plugin for web search.",
   "repository": {
@@ -8,14 +8,14 @@
   },
   "type": "module",
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [
       "./index.ts"
     ],
     "install": {
-      "npmSpec": "@openclaw/brave-plugin",
+      "npmSpec": "@luckynemo/brave-plugin",
       "defaultChoice": "npm",
       "minHostVersion": ">=2026.4.10",
       "allowInvalidConfigRecovery": true

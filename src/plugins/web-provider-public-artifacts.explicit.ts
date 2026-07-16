@@ -1,6 +1,6 @@
 // Extracts explicit public artifacts from web provider plugin manifests.
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
-import { sortUniqueStrings } from "@openclaw/normalization-core/string-normalization";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
+import { sortUniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import { loadBundledPluginPublicArtifactModuleFromCandidatesSync } from "./public-surface-loader.js";
 import type {
   PluginWebFetchProviderEntry,

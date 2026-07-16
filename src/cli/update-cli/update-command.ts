@@ -1,7 +1,7 @@
 // Main update orchestration for source checkouts and package installs.
 import path from "node:path";
 import { confirm, isCancel } from "@clack/prompts";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
 import { stylePromptMessage } from "../../../packages/terminal-core/src/prompt-style.js";
 import { theme } from "../../../packages/terminal-core/src/theme.js";
 import {

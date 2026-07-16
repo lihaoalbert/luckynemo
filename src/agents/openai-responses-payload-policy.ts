@@ -1,10 +1,10 @@
-import { supportsOpenAIReasoningEffort } from "@openclaw/ai/internal/openai";
+import { supportsOpenAIReasoningEffort } from "@luckynemo/ai/internal/openai";
 /**
  * OpenAI Responses payload policy.
  * Classifies endpoint capabilities and applies store, prompt-cache,
  * server-compaction, service-tier, and reasoning payload rules.
  */
-import { readStringValue } from "@openclaw/normalization-core/string-coerce";
+import { readStringValue } from "@luckynemo/normalization-core/string-coerce";
 import { parseStrictPositiveInteger } from "../infra/parse-finite-number.js";
 import { asBoolean } from "../utils/boolean.js";
 

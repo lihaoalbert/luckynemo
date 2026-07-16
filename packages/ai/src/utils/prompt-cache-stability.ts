@@ -3,7 +3,7 @@
  * deterministic across platform newlines, trailing whitespace, and input
  * ordering.
  */
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import { sanitizeSurrogates } from "./sanitize-unicode.js";
 
 /** Normalize structured prompt text before hashing or snapshot comparison. */

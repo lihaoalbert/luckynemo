@@ -1,5 +1,6 @@
 // Mistral provider adapts Mistral streams and tool calls to the runtime.
 import { randomUUID } from "node:crypto";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { HTTPClient, Mistral, type Fetcher } from "@mistralai/mistralai";
 import type {
   ChatCompletionStreamRequest,
@@ -8,7 +9,6 @@ import type {
   ContentChunk,
   FunctionTool,
 } from "@mistralai/mistralai/models/components";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
 import { getEnvApiKey } from "../env-api-keys.js";
 import { getAiTransportHost } from "../host.js";
 import { calculateCost, clampThinkingLevel } from "../model-utils.js";

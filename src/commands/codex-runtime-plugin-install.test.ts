@@ -137,7 +137,7 @@ describe("Codex runtime plugin install repair", () => {
       installed: false,
       pluginId: "codex",
       status: "failed",
-      error: "npm registry returned EAI_AGAIN while fetching @openclaw/codex",
+      error: "npm registry returned EAI_AGAIN while fetching @luckynemo/codex",
     });
     const { ensureCodexRuntimePluginForModelSelection } =
       await import("./codex-runtime-plugin-install.js");
@@ -153,7 +153,7 @@ describe("Codex runtime plugin install repair", () => {
       required: true,
       installed: false,
       status: "failed",
-      reason: "npm registry returned EAI_AGAIN while fetching @openclaw/codex",
+      reason: "npm registry returned EAI_AGAIN while fetching @luckynemo/codex",
     });
   });
 
@@ -173,7 +173,7 @@ describe("Codex runtime plugin install repair", () => {
         entry: {
           pluginId: "codex",
           label: "Codex",
-          install: { npmSpec: "@openclaw/codex", defaultChoice: "npm" },
+          install: { npmSpec: "@luckynemo/codex", defaultChoice: "npm" },
           trustedSourceLinkedOfficialInstall: true,
         },
       }),

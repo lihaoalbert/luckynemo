@@ -3,8 +3,8 @@
  */
 import fs from "node:fs";
 import os from "node:os";
-import { normalizeProviderIdForAuth } from "@openclaw/model-catalog-core/provider-id";
-import { normalizeOptionalString as normalizeOptionalPathInput } from "@openclaw/normalization-core/string-coerce";
+import { normalizeProviderIdForAuth } from "@luckynemo/model-catalog-core/provider-id";
+import { normalizeOptionalString as normalizeOptionalPathInput } from "@luckynemo/normalization-core/string-coerce";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { getShellEnvAppliedKeys } from "../infra/shell-env.js";
 import { resolvePluginSetupProvider } from "../plugins/setup-registry.js";

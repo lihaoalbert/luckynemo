@@ -16,7 +16,7 @@ import {
   type OpenAIApiReasoningEffort,
   type OpenAIReasoningEffort,
   type OpenAIToolProjection,
-} from "@openclaw/ai/internal/openai";
+} from "@luckynemo/ai/internal/openai";
 import {
   calculateCost,
   createFirstStreamEventAbortController,
@@ -25,14 +25,14 @@ import {
   getFirstStreamEventTimeoutMs,
   parseStreamingJson,
   withFirstStreamEventTimeout,
-} from "@openclaw/ai/internal/runtime";
+} from "@luckynemo/ai/internal/runtime";
 import {
   describeToolResultMediaPlaceholder,
   extractToolResultText,
   stripSystemPromptCacheBoundary,
-} from "@openclaw/ai/internal/shared";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+} from "@luckynemo/ai/internal/shared";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import OpenAI, { AzureOpenAI } from "openai";
 import type {
   FunctionTool,

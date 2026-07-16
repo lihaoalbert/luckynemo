@@ -1,4 +1,4 @@
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { resolveAttachGrant } from "../mcp-grant-store.js";
 import { closeMcpLoopbackServer } from "../mcp-http.js";

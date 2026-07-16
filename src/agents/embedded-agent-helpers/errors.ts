@@ -1,12 +1,12 @@
-import { isConfiguredContextSizeOverflowError } from "@openclaw/ai/internal/runtime";
+import { isConfiguredContextSizeOverflowError } from "@luckynemo/ai/internal/runtime";
 /**
  * Classifies provider/runtime failures and formats assistant-facing error text.
  */
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalLowercaseString,
-} from "@openclaw/normalization-core/string-coerce";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+} from "@luckynemo/normalization-core/string-coerce";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import type { OpenClawConfig } from "../../config/types.openclaw.js";
 import type { AssistantMessage } from "../../llm/types.js";
 import { createSubsystemLogger } from "../../logging/subsystem.js";

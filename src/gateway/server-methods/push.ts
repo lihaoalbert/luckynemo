@@ -1,6 +1,6 @@
 // Push gateway methods send APNs/web-push test notifications and manage web
 // push subscriptions/VAPID public-key access for UI clients.
-import { normalizeStringifiedOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeStringifiedOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import {
   ErrorCodes,
   errorShape,

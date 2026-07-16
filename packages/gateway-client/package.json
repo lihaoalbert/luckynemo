@@ -1,5 +1,5 @@
 {
-  "name": "@openclaw/gateway-client",
+  "name": "@luckynemo/gateway-client",
   "version": "0.0.0-private",
   "private": true,
   "files": [
@@ -34,9 +34,9 @@
     "build": "tsdown src/index.ts src/browser.ts src/readiness.ts src/timeouts.ts --no-config --platform node --format esm --dts --out-dir dist --clean"
   },
   "dependencies": {
-    "@openclaw/gateway-protocol": "workspace:*",
-    "@openclaw/net-policy": "workspace:*",
-    "@openclaw/retry": "workspace:*",
+    "@luckynemo/gateway-protocol": "workspace:*",
+    "@luckynemo/net-policy": "workspace:*",
+    "@luckynemo/retry": "workspace:*",
     "ws": "8.21.0"
   }
 }

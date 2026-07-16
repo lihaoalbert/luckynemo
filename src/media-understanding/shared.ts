@@ -1,7 +1,7 @@
 // Shared provider HTTP/audio helpers for media-understanding integrations,
 // including guarded fetches, deadlines, retries, and multipart upload bodies.
 import path from "node:path";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import {
   assertOkOrThrowHttpError,
   createProviderHttpError,
@@ -16,7 +16,7 @@ import {
   resolveDateTimestampMs,
   resolveExpiresAtMsFromDurationMs,
   resolveTimerTimeoutMs,
-} from "@openclaw/normalization-core/number-coercion";
+} from "@luckynemo/normalization-core/number-coercion";
 import type {
   ProviderRequestCapability,
   ProviderRequestTransport,

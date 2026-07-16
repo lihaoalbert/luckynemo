@@ -3,14 +3,14 @@
  * Records failures under the store lock, applies WHAM usage probes for OpenAI
  * OAuth profiles, and exposes display helpers for unavailable profiles.
  */
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
 import {
   asDateTimestampMs,
   isFutureDateTimestampMs,
   positiveSecondsToSafeMilliseconds,
   resolveExpiresAtMsFromDurationMs,
   resolveExpiresAtMsFromEpochSeconds,
-} from "@openclaw/normalization-core/number-coercion";
+} from "@luckynemo/normalization-core/number-coercion";
 import type { OpenClawConfig } from "../../config/types.openclaw.js";
 import { createSubsystemLogger } from "../../logging/subsystem.js";
 import { readProviderJsonResponse } from "../provider-http-errors.js";

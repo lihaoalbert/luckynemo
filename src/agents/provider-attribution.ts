@@ -3,14 +3,14 @@
  *
  * Classifies provider routes so transports know which attribution headers, payload features, and endpoint policies apply.
  */
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalLowercaseString,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
-import { normalizeTrimmedStringList } from "@openclaw/normalization-core/string-normalization";
+} from "@luckynemo/normalization-core/string-coerce";
+import { normalizeTrimmedStringList } from "@luckynemo/normalization-core/string-normalization";
 import { listOpenClawPluginManifestMetadata } from "../plugins/manifest-metadata-scan.js";
 import { listOfficialExternalProviderEndpointManifests } from "../plugins/official-external-provider-endpoints.js";
 import { asBoolean } from "../utils/boolean.js";

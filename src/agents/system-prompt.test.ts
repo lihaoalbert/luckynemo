@@ -1,4 +1,4 @@
-import { SYSTEM_PROMPT_CACHE_BOUNDARY } from "@openclaw/ai/internal/shared";
+import { SYSTEM_PROMPT_CACHE_BOUNDARY } from "@luckynemo/ai/internal/shared";
 // System prompt tests cover the main prompt facade, prompt-surface routing, and
 // user-visible sections for owners, tools, safety, skills, and subagents.
 import { describe, expect, it } from "vitest";

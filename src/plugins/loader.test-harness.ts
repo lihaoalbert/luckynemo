@@ -1,7 +1,7 @@
 /** Broad plugin loader coverage for manifest discovery, runtime registration, and diagnostics. */
 import fs from "node:fs";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { expect } from "vitest";
 import { listRegisteredAgentHarnesses } from "../agents/harness/registry.js";
 import { clearRuntimeConfigSnapshot } from "../config/runtime-snapshot.js";

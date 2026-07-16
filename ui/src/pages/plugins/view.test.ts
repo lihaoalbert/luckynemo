@@ -1,6 +1,6 @@
 /* @vitest-environment jsdom */
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { nothing, render } from "lit";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { i18n } from "../../i18n/index.ts";
@@ -369,7 +369,7 @@ describe("renderPlugins", () => {
           {
             score: 0.9,
             package: {
-              name: "@openclaw/calendar-plus",
+              name: "@luckynemo/calendar-plus",
               displayName: "Calendar Plus",
               family: "code-plugin",
               channel: "official",
@@ -403,7 +403,7 @@ describe("renderPlugins", () => {
     expect(link?.target).toBe("_blank");
 
     const result = container.querySelector<HTMLElement>(
-      '[data-package-name="@openclaw/calendar-plus"]',
+      '[data-package-name="@luckynemo/calendar-plus"]',
     );
     expect(result?.dataset.pluginSource).toBe("clawhub");
     expect(normalizedText(result)).toContain("Official");
@@ -411,9 +411,9 @@ describe("renderPlugins", () => {
     expect(normalizedText(result)).toContain("149.3K");
     expect(normalizedText(result)).toContain("Code plugin");
     result?.querySelector<HTMLButtonElement>('[aria-label="Install Calendar Plus"]')?.click();
-    expect(onInstall).toHaveBeenCalledWith(clawHubKey("@openclaw/calendar-plus"), {
+    expect(onInstall).toHaveBeenCalledWith(clawHubKey("@luckynemo/calendar-plus"), {
       source: "clawhub",
-      packageName: "@openclaw/calendar-plus",
+      packageName: "@luckynemo/calendar-plus",
     });
   });
 
@@ -452,7 +452,7 @@ describe("renderPlugins", () => {
   });
 
   it("renders row-local risk acknowledgement and busy state", () => {
-    const packageName = "@openclaw/calendar-plus";
+    const packageName = "@luckynemo/calendar-plus";
     const key = clawHubKey(packageName);
     const onInstall = vi.fn();
     const container = mount(

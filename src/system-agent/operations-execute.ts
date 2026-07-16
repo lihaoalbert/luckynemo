@@ -1,5 +1,5 @@
 // Public operation dispatcher. Parsing and mutation helpers live in focused modules.
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { buildAgentMainSessionKey, normalizeAgentId } from "../routing/session-key.js";
 import type { RuntimeEnv } from "../runtime.js";
 import { resolveUserPath, shortenHomePath } from "../utils.js";

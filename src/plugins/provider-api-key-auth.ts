@@ -1,6 +1,6 @@
 /** Builds API-key provider auth methods that write profiles and config updates. */
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
-import { normalizeUniqueStringEntries } from "@openclaw/normalization-core/string-normalization";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
+import { normalizeUniqueStringEntries } from "@luckynemo/normalization-core/string-normalization";
 import { upsertAuthProfileWithLock } from "../agents/auth-profiles/profiles.js";
 import { resolveAgentModelPrimaryValue } from "../config/model-input.js";
 import type { OpenClawConfig } from "../config/types.openclaw.js";

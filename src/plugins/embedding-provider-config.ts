@@ -1,4 +1,4 @@
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 
 type ConfiguredModelProvider = NonNullable<

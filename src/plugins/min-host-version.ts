@@ -14,7 +14,7 @@ type MinHostVersionRequirement = {
   minimumLabel: string;
 };
 
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 
 /** Result of checking a plugin minHostVersion against the current host. */
 type MinHostVersionCheckResult =

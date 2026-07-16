@@ -1,7 +1,7 @@
 // Builds the gateway-visible combined session store across agent-specific stores.
 // Gateway callers need canonical per-agent keys even when stores are split by `{agentId}`.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { resolveDefaultAgentId } from "../../agents/agent-scope.js";
 import {
   canonicalizeSpawnedByForAgent,

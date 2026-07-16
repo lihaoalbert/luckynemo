@@ -1,5 +1,5 @@
 // Maps CLI send dependency sources into outbound send dependencies with legacy aliases.
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import { normalizeChannelId } from "../channels/registry.js";
 import {
   resolveLegacyOutboundSendDepKeys,

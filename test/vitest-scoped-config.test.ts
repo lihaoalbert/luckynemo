@@ -168,24 +168,24 @@ describe("resolveVitestIsolation", () => {
         },
       );
       expect(() =>
-        findAlias(sharedVitestConfig.resolve.alias, `@openclaw/plugin-sdk/${subpath}`),
-      ).toThrow(`missing alias @openclaw/plugin-sdk/${subpath}`);
+        findAlias(sharedVitestConfig.resolve.alias, `@luckynemo/plugin-sdk/${subpath}`),
+      ).toThrow(`missing alias @luckynemo/plugin-sdk/${subpath}`);
     }
   });
 
   it("aliases private core packages to source for clean checkout tests", () => {
-    expect(findAlias(sharedVitestConfig.resolve.alias, "@openclaw/media-core/mime")).toEqual({
-      find: "@openclaw/media-core/mime",
+    expect(findAlias(sharedVitestConfig.resolve.alias, "@luckynemo/media-core/mime")).toEqual({
+      find: "@luckynemo/media-core/mime",
       replacement: path.join(process.cwd(), "packages", "media-core", "src", "mime.ts"),
     });
-    expect(findAlias(sharedVitestConfig.resolve.alias, "@openclaw/acp-core/runtime/types")).toEqual(
-      {
-        find: "@openclaw/acp-core/runtime/types",
-        replacement: path.join(process.cwd(), "packages", "acp-core", "src", "runtime", "types.ts"),
-      },
-    );
-    expect(findAlias(sharedVitestConfig.resolve.alias, "@openclaw/retry")).toEqual({
-      find: "@openclaw/retry",
+    expect(
+      findAlias(sharedVitestConfig.resolve.alias, "@luckynemo/acp-core/runtime/types"),
+    ).toEqual({
+      find: "@luckynemo/acp-core/runtime/types",
+      replacement: path.join(process.cwd(), "packages", "acp-core", "src", "runtime", "types.ts"),
+    });
+    expect(findAlias(sharedVitestConfig.resolve.alias, "@luckynemo/retry")).toEqual({
+      find: "@luckynemo/retry",
       replacement: path.join(process.cwd(), "packages", "retry", "src", "index.ts"),
     });
   });

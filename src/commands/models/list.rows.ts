@@ -1,9 +1,9 @@
 /** Row builders used by `openclaw models list` source orchestration. */
-import type { NormalizedModelCatalogRow } from "@openclaw/model-catalog-core/model-catalog-types";
+import type { NormalizedModelCatalogRow } from "@luckynemo/model-catalog-core/model-catalog-types";
 import {
   normalizeProviderId,
   normalizeProviderIdForAuth,
-} from "@openclaw/model-catalog-core/provider-id";
+} from "@luckynemo/model-catalog-core/provider-id";
 import { DEFAULT_CONTEXT_TOKENS } from "../../agents/defaults.js";
 import {
   projectModelCatalogEntryForRoute,

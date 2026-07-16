@@ -1,5 +1,5 @@
 // Input provenance helpers normalize source metadata for session messages.
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import type { AgentMessage } from "../../packages/agent-core/src/types.js";
 import { isStringOption } from "../utils/string-readers.js";
 

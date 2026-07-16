@@ -1,5 +1,5 @@
 {
-  "name": "@openclaw/markdown-core",
+  "name": "@luckynemo/markdown-core",
   "version": "0.0.0-private",
   "private": true,
   "files": [
@@ -56,7 +56,7 @@
     }
   },
   "dependencies": {
-    "@openclaw/normalization-core": "workspace:*",
+    "@luckynemo/normalization-core": "workspace:*",
     "markdown-it": "14.3.0",
     "markdown-it-cjk-friendly": "2.0.2",
     "yaml": "2.9.0"

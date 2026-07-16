@@ -7,7 +7,7 @@ import { fileURLToPath } from "node:url";
 import {
   addTimerTimeoutGraceMs,
   clampTimerTimeoutMs,
-} from "@openclaw/normalization-core/number-coercion";
+} from "@luckynemo/normalization-core/number-coercion";
 import { resolveNpmRunner } from "../../npm-runner.mjs";
 import { resolvePnpmRunner } from "../../pnpm-runner.mjs";
 import { buildCmdExeCommandLine, resolveWindowsCmdExePath } from "../../windows-cmd-helpers.mjs";

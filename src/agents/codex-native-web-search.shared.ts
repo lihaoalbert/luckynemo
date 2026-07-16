@@ -1,7 +1,7 @@
 /**
  * Shared config normalization for Codex native web search.
  */
-import { normalizeUniqueTrimmedStringList } from "@openclaw/normalization-core/string-normalization";
+import { normalizeUniqueTrimmedStringList } from "@luckynemo/normalization-core/string-normalization";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { isRecord } from "../utils.js";
 

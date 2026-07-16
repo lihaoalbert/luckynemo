@@ -1,6 +1,6 @@
 /** Builds bounded, redacted diagnostics for cron run logs and UI surfaces. */
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { isToolAllowedByPolicyName } from "../agents/tool-policy-match.js";
 import { normalizeToolName as normalizePolicyToolName } from "../agents/tool-policy.js";
 import { getReplyPayloadMetadata } from "../auto-reply/reply-payload.js";

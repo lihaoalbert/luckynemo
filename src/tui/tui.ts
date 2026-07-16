@@ -13,7 +13,7 @@ import {
   Text,
   TUI,
 } from "@earendil-works/pi-tui";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import type { CommandEntry } from "../../packages/gateway-protocol/src/index.js";
 import { resolveAgentIdByWorkspacePath, resolveDefaultAgentId } from "../agents/agent-scope.js";
 import { getRuntimeConfig, type OpenClawConfig } from "../config/config.js";

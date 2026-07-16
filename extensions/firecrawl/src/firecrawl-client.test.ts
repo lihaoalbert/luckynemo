@@ -1,6 +1,6 @@
 // Firecrawl tests cover firecrawl client behavior — URL safety,
 // scrape payload parsing, and search-item extraction.
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 
 let firecrawlClient: typeof import("./firecrawl-client.js").testing;

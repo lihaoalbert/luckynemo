@@ -1,7 +1,7 @@
 // Appends the read-only diagnosis section for `openclaw status --all`.
 // Every line that can include logs, config, or connection details is redacted before display.
 
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import type { ProgressReporter } from "../../cli/progress.js";
 import { formatConfigIssueLine } from "../../config/issue-format.js";
 import {

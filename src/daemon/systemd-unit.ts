@@ -1,5 +1,5 @@
 /** Renders and parses systemd unit snippets for managed gateway services. */
-import { normalizeStringEntries } from "@openclaw/normalization-core/string-normalization";
+import { normalizeStringEntries } from "@luckynemo/normalization-core/string-normalization";
 import { splitArgsPreservingQuotes } from "./arg-split.js";
 import type { GatewayServiceRenderArgs } from "./service-types.js";
 

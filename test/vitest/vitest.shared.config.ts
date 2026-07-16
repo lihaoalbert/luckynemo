@@ -86,7 +86,7 @@ function hasWorkerOverride(env: Record<string, string | undefined>): boolean {
 
 function sourcePackageAlias(packageId: string, subpath?: string) {
   return {
-    find: `@openclaw/${packageId}${subpath ? `/${subpath}` : ""}`,
+    find: `@luckynemo/${packageId}${subpath ? `/${subpath}` : ""}`,
     replacement: path.join(
       repoRoot,
       "packages",
@@ -178,47 +178,47 @@ export const sharedVitestConfig = {
         replacement: path.join(repoRoot, "src", "extensionAPI.ts"),
       },
       {
-        find: "@openclaw/qa-channel/api.js",
+        find: "@luckynemo/qa-channel/api.js",
         replacement: path.join(repoRoot, "extensions", "qa-channel", "api.ts"),
       },
       {
-        find: "@openclaw/discord/api.js",
+        find: "@luckynemo/discord/api.js",
         replacement: path.join(repoRoot, "extensions", "discord", "api.ts"),
       },
       {
-        find: "@openclaw/matrix/test-api.js",
+        find: "@luckynemo/matrix/test-api.js",
         replacement: path.join(repoRoot, "extensions", "matrix", "test-api.ts"),
       },
       {
-        find: "@openclaw/slack/api.js",
+        find: "@luckynemo/slack/api.js",
         replacement: path.join(repoRoot, "extensions", "slack", "api.ts"),
       },
       {
-        find: "@openclaw/whatsapp/api.js",
+        find: "@luckynemo/whatsapp/api.js",
         replacement: path.join(repoRoot, "extensions", "whatsapp", "api.ts"),
       },
       {
-        find: "@openclaw/gateway-client/browser",
+        find: "@luckynemo/gateway-client/browser",
         replacement: path.join(repoRoot, "packages", "gateway-client", "src", "browser.ts"),
       },
       {
-        find: "@openclaw/gateway-client/readiness",
+        find: "@luckynemo/gateway-client/readiness",
         replacement: path.join(repoRoot, "packages", "gateway-client", "src", "readiness.ts"),
       },
       {
-        find: "@openclaw/gateway-client/timeouts",
+        find: "@luckynemo/gateway-client/timeouts",
         replacement: path.join(repoRoot, "packages", "gateway-client", "src", "timeouts.ts"),
       },
       {
-        find: "@openclaw/gateway-client",
+        find: "@luckynemo/gateway-client",
         replacement: path.join(repoRoot, "packages", "gateway-client", "src", "index.ts"),
       },
       {
-        find: "@openclaw/gateway-protocol/client-info",
+        find: "@luckynemo/gateway-protocol/client-info",
         replacement: path.join(repoRoot, "packages", "gateway-protocol", "src", "client-info.ts"),
       },
       {
-        find: "@openclaw/gateway-protocol/connect-error-details",
+        find: "@luckynemo/gateway-protocol/connect-error-details",
         replacement: path.join(
           repoRoot,
           "packages",
@@ -228,15 +228,15 @@ export const sharedVitestConfig = {
         ),
       },
       {
-        find: "@openclaw/gateway-protocol/frame-guards",
+        find: "@luckynemo/gateway-protocol/frame-guards",
         replacement: path.join(repoRoot, "packages", "gateway-protocol", "src", "frame-guards.ts"),
       },
       {
-        find: "@openclaw/gateway-protocol/schema",
+        find: "@luckynemo/gateway-protocol/schema",
         replacement: path.join(repoRoot, "packages", "gateway-protocol", "src", "schema.ts"),
       },
       {
-        find: "@openclaw/gateway-protocol/startup-unavailable",
+        find: "@luckynemo/gateway-protocol/startup-unavailable",
         replacement: path.join(
           repoRoot,
           "packages",
@@ -246,11 +246,11 @@ export const sharedVitestConfig = {
         ),
       },
       {
-        find: "@openclaw/gateway-protocol/version",
+        find: "@luckynemo/gateway-protocol/version",
         replacement: path.join(repoRoot, "packages", "gateway-protocol", "src", "version.ts"),
       },
       {
-        find: "@openclaw/gateway-protocol",
+        find: "@luckynemo/gateway-protocol",
         replacement: path.join(repoRoot, "packages", "gateway-protocol", "src", "index.ts"),
       },
       {
@@ -258,23 +258,23 @@ export const sharedVitestConfig = {
         replacement: path.join(repoRoot, "packages", "ai", "src", "internal", "$1.ts"),
       },
       {
-        find: "@openclaw/ai/diagnostics",
+        find: "@luckynemo/ai/diagnostics",
         replacement: path.join(repoRoot, "packages", "ai", "src", "utils", "diagnostics.ts"),
       },
       {
-        find: "@openclaw/ai/event-stream",
+        find: "@luckynemo/ai/event-stream",
         replacement: path.join(repoRoot, "packages", "ai", "src", "utils", "event-stream.ts"),
       },
       {
-        find: "@openclaw/ai/providers",
+        find: "@luckynemo/ai/providers",
         replacement: path.join(repoRoot, "packages", "ai", "src", "providers.ts"),
       },
       {
-        find: "@openclaw/ai/types",
+        find: "@luckynemo/ai/types",
         replacement: path.join(repoRoot, "packages", "ai", "src", "types.ts"),
       },
       {
-        find: "@openclaw/ai/validation",
+        find: "@luckynemo/ai/validation",
         replacement: path.join(repoRoot, "packages", "ai", "src", "validation.ts"),
       },
       {
@@ -282,27 +282,27 @@ export const sharedVitestConfig = {
         replacement: path.join(repoRoot, "packages", "ai", "src", "$1.ts"),
       },
       {
-        find: "@openclaw/ai",
+        find: "@luckynemo/ai",
         replacement: path.join(repoRoot, "packages", "ai", "src", "index.ts"),
       },
       {
-        find: "@openclaw/llm-core/diagnostics",
+        find: "@luckynemo/llm-core/diagnostics",
         replacement: path.join(repoRoot, "packages", "llm-core", "src", "utils", "diagnostics.ts"),
       },
       {
-        find: "@openclaw/llm-core/event-stream",
+        find: "@luckynemo/llm-core/event-stream",
         replacement: path.join(repoRoot, "packages", "llm-core", "src", "utils", "event-stream.ts"),
       },
       {
-        find: "@openclaw/llm-core/validation",
+        find: "@luckynemo/llm-core/validation",
         replacement: path.join(repoRoot, "packages", "llm-core", "src", "validation.ts"),
       },
       {
-        find: "@openclaw/llm-core",
+        find: "@luckynemo/llm-core",
         replacement: path.join(repoRoot, "packages", "llm-core", "src", "index.ts"),
       },
       {
-        find: "@openclaw/model-catalog-core/configured-model-refs",
+        find: "@luckynemo/model-catalog-core/configured-model-refs",
         replacement: path.join(
           repoRoot,
           "packages",
@@ -312,7 +312,7 @@ export const sharedVitestConfig = {
         ),
       },
       {
-        find: "@openclaw/model-catalog-core/model-catalog-refs",
+        find: "@luckynemo/model-catalog-core/model-catalog-refs",
         replacement: path.join(
           repoRoot,
           "packages",
@@ -322,7 +322,7 @@ export const sharedVitestConfig = {
         ),
       },
       {
-        find: "@openclaw/model-catalog-core/model-catalog-normalize",
+        find: "@luckynemo/model-catalog-core/model-catalog-normalize",
         replacement: path.join(
           repoRoot,
           "packages",
@@ -332,7 +332,7 @@ export const sharedVitestConfig = {
         ),
       },
       {
-        find: "@openclaw/model-catalog-core/model-catalog-types",
+        find: "@luckynemo/model-catalog-core/model-catalog-types",
         replacement: path.join(
           repoRoot,
           "packages",
@@ -342,11 +342,11 @@ export const sharedVitestConfig = {
         ),
       },
       {
-        find: "@openclaw/model-catalog-core/provider-id",
+        find: "@luckynemo/model-catalog-core/provider-id",
         replacement: path.join(repoRoot, "packages", "model-catalog-core", "src", "provider-id.ts"),
       },
       {
-        find: "@openclaw/model-catalog-core/provider-model-id-normalization",
+        find: "@luckynemo/model-catalog-core/provider-model-id-normalization",
         replacement: path.join(
           repoRoot,
           "packages",
@@ -356,7 +356,7 @@ export const sharedVitestConfig = {
         ),
       },
       {
-        find: "@openclaw/model-catalog-core/provider-model-id-normalize",
+        find: "@luckynemo/model-catalog-core/provider-model-id-normalize",
         replacement: path.join(
           repoRoot,
           "packages",
@@ -366,19 +366,19 @@ export const sharedVitestConfig = {
         ),
       },
       {
-        find: "@openclaw/model-catalog-core",
+        find: "@luckynemo/model-catalog-core",
         replacement: path.join(repoRoot, "packages", "model-catalog-core", "src", "index.ts"),
       },
       {
-        find: "@openclaw/net-policy/ip",
+        find: "@luckynemo/net-policy/ip",
         replacement: path.join(repoRoot, "packages", "net-policy", "src", "ip.ts"),
       },
       {
-        find: "@openclaw/net-policy/ipv4",
+        find: "@luckynemo/net-policy/ipv4",
         replacement: path.join(repoRoot, "packages", "net-policy", "src", "ipv4.ts"),
       },
       {
-        find: "@openclaw/net-policy/redact-sensitive-url",
+        find: "@luckynemo/net-policy/redact-sensitive-url",
         replacement: path.join(
           repoRoot,
           "packages",
@@ -388,23 +388,23 @@ export const sharedVitestConfig = {
         ),
       },
       {
-        find: "@openclaw/net-policy/url-protocol",
+        find: "@luckynemo/net-policy/url-protocol",
         replacement: path.join(repoRoot, "packages", "net-policy", "src", "url-protocol.ts"),
       },
       {
-        find: "@openclaw/net-policy/url-userinfo",
+        find: "@luckynemo/net-policy/url-userinfo",
         replacement: path.join(repoRoot, "packages", "net-policy", "src", "url-userinfo.ts"),
       },
       {
-        find: "@openclaw/net-policy",
+        find: "@luckynemo/net-policy",
         replacement: path.join(repoRoot, "packages", "net-policy", "src", "index.ts"),
       },
       {
-        find: "@openclaw/normalization-core/agent-id",
+        find: "@luckynemo/normalization-core/agent-id",
         replacement: path.join(repoRoot, "packages", "normalization-core", "src", "agent-id.ts"),
       },
       {
-        find: "@openclaw/normalization-core/boolean-coercion",
+        find: "@luckynemo/normalization-core/boolean-coercion",
         replacement: path.join(
           repoRoot,
           "packages",
@@ -414,7 +414,7 @@ export const sharedVitestConfig = {
         ),
       },
       {
-        find: "@openclaw/normalization-core/error-coercion",
+        find: "@luckynemo/normalization-core/error-coercion",
         replacement: path.join(
           repoRoot,
           "packages",
@@ -424,7 +424,7 @@ export const sharedVitestConfig = {
         ),
       },
       {
-        find: "@openclaw/normalization-core/number-coercion",
+        find: "@luckynemo/normalization-core/number-coercion",
         replacement: path.join(
           repoRoot,
           "packages",
@@ -434,7 +434,7 @@ export const sharedVitestConfig = {
         ),
       },
       {
-        find: "@openclaw/normalization-core/record-coerce",
+        find: "@luckynemo/normalization-core/record-coerce",
         replacement: path.join(
           repoRoot,
           "packages",
@@ -444,11 +444,11 @@ export const sharedVitestConfig = {
         ),
       },
       {
-        find: "@openclaw/normalization-core/result",
+        find: "@luckynemo/normalization-core/result",
         replacement: path.join(repoRoot, "packages", "normalization-core", "src", "result.ts"),
       },
       {
-        find: "@openclaw/normalization-core/string-coerce",
+        find: "@luckynemo/normalization-core/string-coerce",
         replacement: path.join(
           repoRoot,
           "packages",
@@ -458,7 +458,7 @@ export const sharedVitestConfig = {
         ),
       },
       {
-        find: "@openclaw/normalization-core/string-normalization",
+        find: "@luckynemo/normalization-core/string-normalization",
         replacement: path.join(
           repoRoot,
           "packages",
@@ -468,7 +468,7 @@ export const sharedVitestConfig = {
         ),
       },
       {
-        find: "@openclaw/normalization-core/utf16-slice",
+        find: "@luckynemo/normalization-core/utf16-slice",
         replacement: path.join(repoRoot, "packages", "normalization-core", "src", "utf16-slice.ts"),
       },
       {
@@ -495,7 +495,7 @@ export const sharedVitestConfig = {
         replacement: path.join(repoRoot, "src", "plugin-sdk", `${subpath}.ts`),
       })),
       ...pluginSdkSubpaths.map((subpath) => ({
-        find: `@openclaw/plugin-sdk/${subpath}`,
+        find: `@luckynemo/plugin-sdk/${subpath}`,
         replacement: path.join(repoRoot, "packages", "plugin-sdk", "src", `${subpath}.ts`),
       })),
       {

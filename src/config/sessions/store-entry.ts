@@ -1,5 +1,5 @@
 // Store entry lookup resolves canonical keys and safe legacy aliases.
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import {
   normalizeSessionKeyPreservingOpaquePeerIds,
   parseThreadSessionSuffix,

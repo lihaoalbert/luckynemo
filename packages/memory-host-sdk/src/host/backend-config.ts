@@ -1,11 +1,11 @@
 // Memory Host SDK module implements backend config behavior.
 import fs from "node:fs";
 import path from "node:path";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import {
   normalizeStringEntries,
   uniqueStrings,
-} from "@openclaw/normalization-core/string-normalization";
+} from "@luckynemo/normalization-core/string-normalization";
 import {
   MEMORY_HOST_ROOT_FILENAME,
   type MemoryBackend,

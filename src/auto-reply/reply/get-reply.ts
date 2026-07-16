@@ -1,6 +1,6 @@
 // Main auto-reply pipeline: prepares context, runs commands, and dispatches agents.
 import fs from "node:fs/promises";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import {
   hasLegacyAutoFallbackWithoutOrigin,
   resolveAutoFallbackPrimaryProbe,

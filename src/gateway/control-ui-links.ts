@@ -1,5 +1,5 @@
 // Control UI link builder for local, LAN, tailnet, and custom gateway binds.
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { resolveAdvertisedLanHost } from "../infra/advertised-lan-host.js";
 import {
   inspectBestEffortPrimaryTailnetIPv4,

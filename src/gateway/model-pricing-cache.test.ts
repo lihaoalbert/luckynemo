@@ -1,7 +1,7 @@
 // Model pricing cache tests protect provider/model normalization, manifest
 // metadata lookup, fetch preconnect behavior, cache refresh, and logging.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { normalizeProviderModelIdWithRuntime } from "../agents/provider-model-normalization.runtime.js";
 import type { OpenClawConfig } from "../config/config.js";

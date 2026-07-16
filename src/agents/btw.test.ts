@@ -1,7 +1,7 @@
 /** Tests BTW side-question execution, session context, auth, and harness routing. */
 
-import { expectDefined } from "@openclaw/normalization-core";
-import { MAX_TIMER_TIMEOUT_MS } from "@openclaw/normalization-core/number-coercion";
+import { expectDefined } from "@luckynemo/normalization-core";
+import { MAX_TIMER_TIMEOUT_MS } from "@luckynemo/normalization-core/number-coercion";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { SessionEntry } from "../config/sessions.js";
 import {

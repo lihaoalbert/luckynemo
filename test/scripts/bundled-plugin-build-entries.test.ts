@@ -252,7 +252,7 @@ describe("bundled plugin build entries", () => {
       fs.writeFileSync(
         path.join(pluginDir, "package.json"),
         `${JSON.stringify({
-          name: `@openclaw/${pluginId}`,
+          name: `@luckynemo/${pluginId}`,
           openclaw: {
             extensions: ["./index.ts"],
             build: { bundledDist: false },

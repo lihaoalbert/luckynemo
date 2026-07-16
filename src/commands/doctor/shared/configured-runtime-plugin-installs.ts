@@ -1,5 +1,5 @@
 // Doctor helpers for installing plugins required by configured agent runtimes.
-import { asOptionalRecord } from "@openclaw/normalization-core/record-coerce";
+import { asOptionalRecord } from "@luckynemo/normalization-core/record-coerce";
 import {
   collectConfiguredAgentHarnessRuntimes,
   type ConfiguredAgentHarnessRuntimeOptions,
@@ -29,14 +29,14 @@ export const CONFIGURED_RUNTIME_PLUGIN_INSTALL_CANDIDATES: readonly ConfiguredRu
     {
       pluginId: "acpx",
       label: "ACPX Runtime",
-      npmSpec: "@openclaw/acpx",
+      npmSpec: "@luckynemo/acpx",
       trustedSourceLinkedOfficialInstall: true,
     },
     // Runtime-only configs do not have a provider/channel integration catalog entry.
     {
       pluginId: "codex",
       label: "Codex",
-      npmSpec: "@openclaw/codex",
+      npmSpec: "@luckynemo/codex",
       trustedSourceLinkedOfficialInstall: true,
       versionBoundToOpenClaw: true,
     },

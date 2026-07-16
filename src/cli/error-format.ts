@@ -1,5 +1,5 @@
 // Reusable CLI error-message formatters that keep recovery hints consistent across commands.
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { formatCliCommand } from "./command-format.js";
 
 const DEFAULT_GATEWAY_PORT_EXAMPLE = 18789;

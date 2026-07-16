@@ -13,7 +13,7 @@ import fs, {
 import { tmpdir } from "node:os";
 import path from "node:path";
 import { setTimeout as delay } from "node:timers/promises";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import {
   appendBoundedOutput,

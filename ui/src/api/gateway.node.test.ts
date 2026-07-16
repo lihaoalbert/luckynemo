@@ -5,7 +5,7 @@ import {
   GATEWAY_CLIENT_CAPS,
   MIN_CLIENT_PROTOCOL_VERSION,
   PROTOCOL_VERSION,
-} from "@openclaw/gateway-client/browser";
+} from "@luckynemo/gateway-client/browser";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
   loadDeviceAuthToken as loadScopedDeviceAuthToken,

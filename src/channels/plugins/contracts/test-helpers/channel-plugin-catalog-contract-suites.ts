@@ -135,7 +135,7 @@ export function describeChannelPluginCatalogEntriesContract() {
           writeCatalogFile(
             catalogPath,
             createCatalogEntry({
-              packageName: "@openclaw/demo-channel",
+              packageName: "@luckynemo/demo-channel",
               channelId: "demo-channel",
               label: "Demo Channel",
               blurb: "Demo entry",
@@ -302,7 +302,7 @@ export function describeChannelPluginCatalogEntriesContract() {
           const catalogPath = path.join(dir, "catalog.json");
           writeCatalogFile(catalogPath, {
             ...createCatalogEntry({
-              packageName: "@openclaw/prerelease-demo-channel",
+              packageName: "@luckynemo/prerelease-demo-channel",
               channelId: "prerelease-demo",
               label: "Prerelease Demo",
               blurb: "Prerelease package pinning fixture",
@@ -313,11 +313,11 @@ export function describeChannelPluginCatalogEntriesContract() {
             channelId: "prerelease-demo",
             catalogPaths: [catalogPath],
             expected: {
-              install: { npmSpec: "@openclaw/prerelease-demo-channel@2026.5.3-beta.1" },
+              install: { npmSpec: "@luckynemo/prerelease-demo-channel@2026.5.3-beta.1" },
               installSource: {
                 npm: {
-                  spec: "@openclaw/prerelease-demo-channel@2026.5.3-beta.1",
-                  packageName: "@openclaw/prerelease-demo-channel",
+                  spec: "@luckynemo/prerelease-demo-channel@2026.5.3-beta.1",
+                  packageName: "@luckynemo/prerelease-demo-channel",
                   selector: "2026.5.3-beta.1",
                   selectorKind: "exact-version",
                   exactVersion: true,
@@ -493,7 +493,7 @@ export function describeChannelPluginCatalogPathResolutionContract() {
           writeCatalogFile(
             catalogPath,
             createCatalogEntry({
-              packageName: "@openclaw/env-demo-channel",
+              packageName: "@luckynemo/env-demo-channel",
               channelId: "env-demo-channel",
               label: "Env Demo Channel",
               blurb: "Env demo entry",
@@ -522,7 +522,7 @@ export function describeChannelPluginCatalogPathResolutionContract() {
           writeCatalogFile(
             catalogPath,
             createCatalogEntry({
-              packageName: "@openclaw/default-env-demo",
+              packageName: "@luckynemo/default-env-demo",
               channelId: "default-env-demo",
               label: "Default Env Demo",
               blurb: "Default env demo entry",

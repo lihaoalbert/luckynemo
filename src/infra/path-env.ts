@@ -5,7 +5,7 @@ import path from "node:path";
 import {
   normalizeStringEntries,
   normalizeUniqueStringEntries,
-} from "@openclaw/normalization-core/string-normalization";
+} from "@luckynemo/normalization-core/string-normalization";
 import { resolveBrewPathDirs } from "./brew.js";
 import { isTruthyEnvValue } from "./env.js";
 import { tryProcessCwd } from "./safe-cwd.js";

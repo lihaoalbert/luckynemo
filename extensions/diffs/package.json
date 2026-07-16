@@ -1,5 +1,5 @@
 {
-  "name": "@openclaw/diffs",
+  "name": "@luckynemo/diffs",
   "version": "2026.7.2",
   "description": "OpenClaw read-only diff viewer plugin and file renderer for agents.",
   "repository": {
@@ -15,14 +15,14 @@
     "zod": "4.4.3"
   },
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [
       "./index.ts"
     ],
     "install": {
-      "npmSpec": "@openclaw/diffs",
+      "npmSpec": "@luckynemo/diffs",
       "localPath": "extensions/diffs",
       "defaultChoice": "npm",
       "minHostVersion": ">=2026.4.30"

@@ -1,5 +1,5 @@
 // Tests session update fanout and persisted lifecycle records.
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { createReplySessionEntryHandle } from "./session-entry-handle.js";
 

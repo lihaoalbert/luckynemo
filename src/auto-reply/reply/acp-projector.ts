@@ -1,10 +1,10 @@
 // Projects ACP runtime events into OpenClaw-visible session update records.
-import type { AcpRuntimeEvent, AcpSessionUpdateTag } from "@openclaw/acp-core/runtime/types";
+import type { AcpRuntimeEvent, AcpSessionUpdateTag } from "@luckynemo/acp-core/runtime/types";
 import {
   normalizeOptionalLowercaseString,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+} from "@luckynemo/normalization-core/string-coerce";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { resolveAcpToolTerminalOutcome } from "../../acp/tool-status.js";
 import { EmbeddedBlockChunker } from "../../agents/embedded-agent-block-chunker.js";
 import { formatToolSummary, resolveToolDisplay } from "../../agents/tool-display.js";

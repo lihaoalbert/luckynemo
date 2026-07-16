@@ -1,6 +1,6 @@
 // Imported by openai-transport-stream.test.ts to keep its mocked suite in one Vitest module graph.
-import { SYSTEM_PROMPT_CACHE_BOUNDARY } from "@openclaw/ai/internal/shared";
-import { expectDefined } from "@openclaw/normalization-core";
+import { SYSTEM_PROMPT_CACHE_BOUNDARY } from "@luckynemo/ai/internal/shared";
+import { expectDefined } from "@luckynemo/normalization-core";
 import type { Model } from "openclaw/plugin-sdk/llm";
 import { describe, expect, it } from "vitest";
 import { buildOpenAICompletionsParams } from "./openai-transport-stream.js";

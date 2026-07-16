@@ -1,5 +1,5 @@
 // Control UI chat module owns Chat thread item derivation and thread-local caches.
-import { asNullableRecord as asRecord } from "@openclaw/normalization-core/record-coerce";
+import { asNullableRecord as asRecord } from "@luckynemo/normalization-core/record-coerce";
 import {
   isToolCallContentType,
   isToolResultContentType,

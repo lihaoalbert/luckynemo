@@ -5,7 +5,7 @@
  */
 import fsSync, { promises as fs } from "node:fs";
 import path from "node:path";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { DEFAULT_SUBAGENT_ARCHIVE_AFTER_MINUTES } from "../config/agent-limits.js";
 import { getRuntimeConfig } from "../config/config.js";
 import { resolveAgentIdFromSessionKey, resolveStorePath } from "../config/sessions.js";

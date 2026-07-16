@@ -1,5 +1,5 @@
 // Builders for selection-driven /btw side questions (chat selection popup).
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 
 /** Cap quoted selection snippets so the /btw command stays bounded. */
 const CHAT_SELECTION_SNIPPET_MAX_CHARS = 600;

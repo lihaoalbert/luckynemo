@@ -1,6 +1,6 @@
 // Package script tests validate root package script invariants.
 import fs from "node:fs";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it } from "vitest";
 
 type RootPackageJson = {

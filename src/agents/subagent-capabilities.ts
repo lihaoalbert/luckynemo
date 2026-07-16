@@ -6,11 +6,11 @@
 import {
   resolveIntegerOption,
   resolveNonNegativeIntegerOption,
-} from "@openclaw/normalization-core/number-coercion";
+} from "@luckynemo/normalization-core/number-coercion";
 import {
   normalizeOptionalLowercaseString,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { DEFAULT_SUBAGENT_MAX_SPAWN_DEPTH } from "../config/agent-limits.js";
 import { resolveStorePath } from "../config/sessions.js";
 import { listSessionEntries } from "../config/sessions/session-accessor.js";

@@ -1,8 +1,8 @@
 /** macOS LaunchAgent installer, runtime inspection, and lifecycle controls. */
 import fs from "node:fs/promises";
 import path from "node:path";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { sanitizeForLog } from "../../packages/terminal-core/src/ansi.js";
 import { normalizeEnvVarKey } from "../infra/host-env-security.js";
 import { parseStrictInteger, parseStrictPositiveInteger } from "../infra/parse-finite-number.js";

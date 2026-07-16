@@ -2,13 +2,13 @@
 import {
   resolveRuntimeHandleIdentifiersFromIdentity,
   resolveSessionIdentityFromMeta,
-} from "@openclaw/acp-core/runtime/session-identity";
+} from "@luckynemo/acp-core/runtime/session-identity";
 import type {
   AcpRuntime,
   AcpRuntimeHandle,
   AcpRuntimeStatus,
-} from "@openclaw/acp-core/runtime/types";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/acp-core/runtime/types";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import type { OpenClawConfig } from "../../config/types.openclaw.js";
 import { logVerbose } from "../../globals.js";
 import type { ActiveTurnState, SessionAcpMeta } from "./manager.types.js";

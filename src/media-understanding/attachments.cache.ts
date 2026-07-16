@@ -6,8 +6,8 @@ import path from "node:path";
 import {
   isInboundPathAllowed,
   mergeInboundPathRoots,
-} from "@openclaw/media-core/inbound-path-policy";
-import { detectMime } from "@openclaw/media-core/mime";
+} from "@luckynemo/media-core/inbound-path-policy";
+import { detectMime } from "@luckynemo/media-core/mime";
 import { MediaUnderstandingSkipError } from "../../packages/media-understanding-common/src/errors.js";
 import { resolveStateDir } from "../config/paths.js";
 import { logVerbose, shouldLogVerbose } from "../globals.js";

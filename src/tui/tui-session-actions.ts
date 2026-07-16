@@ -1,7 +1,10 @@
 // Implements TUI session actions such as switching, forking, and resuming.
 import type { TUI } from "@earendil-works/pi-tui";
-import { asDateTimestampMs } from "@openclaw/normalization-core/number-coercion";
-import { normalizeOptionalString, type FastMode } from "@openclaw/normalization-core/string-coerce";
+import { asDateTimestampMs } from "@luckynemo/normalization-core/number-coercion";
+import {
+  normalizeOptionalString,
+  type FastMode,
+} from "@luckynemo/normalization-core/string-coerce";
 import type { SessionsPatchResult } from "../../packages/gateway-protocol/src/index.js";
 import { resolveSessionInfoModelSelection } from "../agents/model-selection-display.js";
 import {

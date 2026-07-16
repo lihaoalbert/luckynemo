@@ -3,7 +3,7 @@
  *
  * Chooses storage and command target session keys for channel-native command events.
  */
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 
 /**
  * Inputs for resolving where a native channel command should attach session state.

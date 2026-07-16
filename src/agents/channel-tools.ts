@@ -3,7 +3,7 @@
  * Discovers channel tools, message actions, prompt capabilities, reaction
  * guidance, and weakly-attached channel metadata for wrapped tools.
  */
-import { normalizeStringEntries } from "@openclaw/normalization-core/string-normalization";
+import { normalizeStringEntries } from "@luckynemo/normalization-core/string-normalization";
 import { getChannelPlugin, listChannelPlugins } from "../channels/plugins/index.js";
 import {
   createMessageActionDiscoveryContext,

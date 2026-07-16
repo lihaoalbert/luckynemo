@@ -3,8 +3,8 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { asFiniteNumber } from "@openclaw/normalization-core/number-coercion";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { asFiniteNumber } from "@luckynemo/normalization-core/number-coercion";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { hashCliReseedPrompt, parseCliReseedPrompt } from "../agents/cli-runner/reseed-envelope.js";
 import {
   isToolCallBlock,

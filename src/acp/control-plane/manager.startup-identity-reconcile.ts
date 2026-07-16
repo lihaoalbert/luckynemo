@@ -3,7 +3,7 @@ import {
   identityHasStableSessionId,
   isSessionIdentityPending,
   resolveSessionIdentityFromMeta,
-} from "@openclaw/acp-core/runtime/session-identity";
+} from "@luckynemo/acp-core/runtime/session-identity";
 import type { OpenClawConfig } from "../../config/types.openclaw.js";
 import { logVerbose } from "../../globals.js";
 import type {

@@ -171,12 +171,12 @@ function createNpmPackPluginInstallResult(
     targetDir: cliInstallPath(pluginId),
     version: "1.2.3",
     extensions: ["dist/index.js"],
-    manifestName: `@openclaw/${pluginId}`,
+    manifestName: `@luckynemo/${pluginId}`,
     npmTarballName: `openclaw-${pluginId}-1.2.3.tgz`,
     npmResolution: {
-      name: `@openclaw/${pluginId}`,
+      name: `@luckynemo/${pluginId}`,
       version: "1.2.3",
-      resolvedSpec: `@openclaw/${pluginId}@1.2.3`,
+      resolvedSpec: `@luckynemo/${pluginId}@1.2.3`,
       integrity: "sha512-pack-demo",
       shasum: "packdemosha",
       resolvedAt: "2026-05-06T00:00:00.000Z",
@@ -1941,13 +1941,13 @@ describe("plugins cli install", () => {
       lookup: { kind: "pluginId", value: "brave" },
     });
     expect(installPluginFromClawHub).not.toHaveBeenCalled();
-    expect(npmInstallCall().spec).toBe("@openclaw/brave-plugin");
+    expect(npmInstallCall().spec).toBe("@luckynemo/brave-plugin");
     expect(npmInstallCall().expectedPluginId).toBe("brave");
     expect(npmInstallCall().trustedSourceLinkedOfficialInstall).toBe(true);
     expect(runtimeLogsContain("outside ClawHub review")).toBe(false);
     const record = persistedInstallRecord("brave");
     expect(record.source).toBe("npm");
-    expect(record.spec).toBe("@openclaw/brave-plugin");
+    expect(record.spec).toBe("@luckynemo/brave-plugin");
     expect(record.installPath).toBe(cliInstallPath("brave"));
     expect(record.version).toBe("1.2.3");
     expect(writeConfigFile).toHaveBeenCalledWith(enabledCfg);
@@ -2147,7 +2147,7 @@ describe("plugins cli install", () => {
     expect(installPluginFromNpmSpec).not.toHaveBeenCalled();
     const record = persistedInstallRecord("demo");
     expect(record.source).toBe("npm");
-    expect(record.spec).toBe("@openclaw/demo@1.2.3");
+    expect(record.spec).toBe("@luckynemo/demo@1.2.3");
     expect(record.sourcePath).toBe(archivePath);
     expect(record.installPath).toBe(cliInstallPath("demo"));
     expect(record.version).toBe("1.2.3");
@@ -2195,9 +2195,9 @@ describe("plugins cli install", () => {
       warnings: [],
     });
 
-    await runPluginsCommand(["plugins", "install", "npm:@openclaw/discord"]);
+    await runPluginsCommand(["plugins", "install", "npm:@luckynemo/discord"]);
 
-    expect(npmInstallCall().spec).toBe("@openclaw/discord");
+    expect(npmInstallCall().spec).toBe("@luckynemo/discord");
     expect(npmInstallCall().expectedPluginId).toBe("discord");
     expect(npmInstallCall().trustedSourceLinkedOfficialInstall).toBe(true);
     expect(runtimeLogsContain("outside ClawHub review")).toBe(false);
@@ -2218,9 +2218,9 @@ describe("plugins cli install", () => {
       warnings: [],
     });
 
-    await runPluginsCommand(["plugins", "install", "@openclaw/discord"]);
+    await runPluginsCommand(["plugins", "install", "@luckynemo/discord"]);
 
-    expect(npmInstallCall().spec).toBe("@openclaw/discord");
+    expect(npmInstallCall().spec).toBe("@luckynemo/discord");
     expect(npmInstallCall().expectedPluginId).toBe("discord");
     expect(npmInstallCall().trustedSourceLinkedOfficialInstall).toBe(true);
     expect(installPluginFromClawHub).not.toHaveBeenCalled();
@@ -2236,11 +2236,11 @@ describe("plugins cli install", () => {
       const { lookup } = params as {
         lookup: { kind: "pluginId" | "npmSpec"; value: string };
       };
-      return lookup.kind === "npmSpec" && lookup.value === "@openclaw/discord"
+      return lookup.kind === "npmSpec" && lookup.value === "@luckynemo/discord"
         ? {
             pluginId: "discord",
             localPath: bundledPath,
-            npmSpec: "@openclaw/discord",
+            npmSpec: "@luckynemo/discord",
             version: "2026.5.24-beta.2",
           }
         : undefined;
@@ -2255,25 +2255,25 @@ describe("plugins cli install", () => {
     await runPluginsCommand([
       "plugins",
       "install",
-      "@openclaw/discord@2026.5.20",
+      "@luckynemo/discord@2026.5.20",
       "--pin",
       "--force",
     ]);
 
     expect(installPluginFromNpmSpec).not.toHaveBeenCalled();
     expect(findBundledPluginSourceMock).toHaveBeenCalledWith({
-      lookup: { kind: "npmSpec", value: "@openclaw/discord@2026.5.20" },
+      lookup: { kind: "npmSpec", value: "@luckynemo/discord@2026.5.20" },
     });
     expect(findBundledPluginSourceMock).toHaveBeenCalledWith({
-      lookup: { kind: "npmSpec", value: "@openclaw/discord" },
+      lookup: { kind: "npmSpec", value: "@luckynemo/discord" },
     });
     const record = persistedInstallRecord("discord");
     expect(record.source).toBe("path");
-    expect(record.spec).toBe("@openclaw/discord@2026.5.20");
+    expect(record.spec).toBe("@luckynemo/discord@2026.5.20");
     expect(record.sourcePath).toBe(bundledPath);
     expect(record.installPath).toBe(bundledPath);
     expect(runtimeLogsContain("ships with the current OpenClaw build")).toBe(true);
-    expect(runtimeLogsContain("npm:@openclaw/discord@2026.5.20")).toBe(true);
+    expect(runtimeLogsContain("npm:@luckynemo/discord@2026.5.20")).toBe(true);
   });
 
   it("marks catalog npm package installs with alternate selectors as trusted", async () => {
@@ -2412,7 +2412,7 @@ describe("plugins cli install", () => {
     });
 
     await expect(
-      runAcknowledgedPluginsInstallCommand(["plugins", "install", "npm:@openclaw/whatsapp"]),
+      runAcknowledgedPluginsInstallCommand(["plugins", "install", "npm:@luckynemo/whatsapp"]),
     ).rejects.toThrow("__exit__:1");
 
     expect(installPluginFromClawHub).not.toHaveBeenCalled();

@@ -1,11 +1,11 @@
 import { randomUUID } from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
-import { detectMime, normalizeMimeType } from "@openclaw/media-core/mime";
+import { detectMime, normalizeMimeType } from "@luckynemo/media-core/mime";
 import {
   normalizeOptionalString,
   normalizeStringifiedOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import type { Command } from "commander";
 import {
   GATEWAY_CLIENT_MODES,

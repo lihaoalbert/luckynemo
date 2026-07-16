@@ -1,6 +1,6 @@
 import { consume } from "@lit/context";
-import { redactSensitiveUrlLikeString } from "@openclaw/net-policy/redact-sensitive-url";
-import { asNullableRecord as asRecord } from "@openclaw/normalization-core/record-coerce";
+import { redactSensitiveUrlLikeString } from "@luckynemo/net-policy/redact-sensitive-url";
+import { asNullableRecord as asRecord } from "@luckynemo/normalization-core/record-coerce";
 import { html, type PropertyValues } from "lit";
 import { property, state } from "lit/decorators.js";
 import type { GatewayBrowserClient } from "../../api/gateway.ts";

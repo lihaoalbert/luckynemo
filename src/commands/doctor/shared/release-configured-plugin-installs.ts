@@ -1,5 +1,5 @@
 // Release-era repair for configs that imply official plugin installs before install records existed.
-import { normalizeNullableString as normalizeId } from "@openclaw/normalization-core/string-coerce";
+import { normalizeNullableString as normalizeId } from "@luckynemo/normalization-core/string-coerce";
 import { collectConfiguredAgentHarnessRuntimes } from "../../../agents/harness-runtimes.js";
 import { listPotentialConfiguredChannelPresenceSignals } from "../../../channels/config-presence.js";
 import { normalizeChatChannelId } from "../../../channels/registry.js";

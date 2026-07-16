@@ -1,5 +1,5 @@
 // Sender display-label helpers shared by channel ingress and audit surfaces.
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 
 export type SenderLabelParams = {
   name?: string;

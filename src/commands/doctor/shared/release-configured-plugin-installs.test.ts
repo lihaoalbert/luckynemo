@@ -817,7 +817,7 @@ describe("configured plugin install release step", () => {
   it("includes allow-only official plugin ids in the repair set", async () => {
     mocks.getOfficialExternalPluginCatalogEntry.mockImplementation((pluginId: string) => {
       if (pluginId === "lobster") {
-        return { name: "@openclaw/lobster" };
+        return { name: "@luckynemo/lobster" };
       }
       return undefined;
     });
@@ -837,7 +837,7 @@ describe("configured plugin install release step", () => {
   it("skips allow-only plugin ids that already have material plugin entries", async () => {
     mocks.getOfficialExternalPluginCatalogEntry.mockImplementation((pluginId: string) => {
       if (pluginId === "lobster") {
-        return { name: "@openclaw/lobster" };
+        return { name: "@luckynemo/lobster" };
       }
       return undefined;
     });

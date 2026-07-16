@@ -1,8 +1,8 @@
 // Diagnostic support redaction helpers scrub support bundle files and paths.
 import path from "node:path";
-import { isSensitiveUrlQueryParamName } from "@openclaw/net-policy/redact-sensitive-url";
-import { asOptionalRecord } from "@openclaw/normalization-core/record-coerce";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { isSensitiveUrlQueryParamName } from "@luckynemo/net-policy/redact-sensitive-url";
+import { asOptionalRecord } from "@luckynemo/normalization-core/record-coerce";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { REDACTED_SENTINEL } from "../config/redact-snapshot.js";
 import { isSecretRefShape } from "../config/redact-snapshot.secret-ref.js";
 import { isBlockedObjectKey } from "../infra/prototype-keys.js";

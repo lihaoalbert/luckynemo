@@ -1,5 +1,5 @@
 /** Generic core consumers for provider-owned model route facts. */
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
 import { resolveMergedModelProviderEntry } from "../config/model-provider-config.js";
 import type { ModelApi, ModelProviderConfig } from "../config/types.models.js";
 import type { OpenClawConfig } from "../config/types.openclaw.js";

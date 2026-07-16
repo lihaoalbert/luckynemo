@@ -3,12 +3,12 @@
  * Redacts and summarizes arguments into short labels/details for chat and UI
  * tool update streams.
  */
-import { asOptionalObjectRecord as asRecord } from "@openclaw/normalization-core/record-coerce";
+import { asOptionalObjectRecord as asRecord } from "@luckynemo/normalization-core/record-coerce";
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
-import { sliceUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+} from "@luckynemo/normalization-core/string-coerce";
+import { sliceUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { parseStrictFiniteNumber } from "../infra/parse-finite-number.js";
 import { redactToolPayloadText } from "../logging/redact.js";
 import { resolveExecDetail, type ToolDetailMode } from "./tool-display-exec.js";

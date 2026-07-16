@@ -8,7 +8,7 @@ import {
 
 describe("managed npm plugin install paths", () => {
   it("keeps generation project names compact for nested Windows runtime binaries", () => {
-    const packageName = "@openclaw/codex";
+    const packageName = "@luckynemo/codex";
     const generationKey = [
       packageName,
       "2026.6.10",
@@ -46,7 +46,7 @@ describe("managed npm plugin install paths", () => {
   });
 
   it("keeps generation project names under the recoverable package prefix", () => {
-    const packageName = "@openclaw/codex";
+    const packageName = "@luckynemo/codex";
     const projectDir = resolvePluginNpmGenerationProjectDir({
       npmDir: "/tmp/openclaw/npm",
       packageName,

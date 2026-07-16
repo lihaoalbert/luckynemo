@@ -1,8 +1,8 @@
 // Resolves plugin auto-enable preference ordering across candidate plugins.
 import fs from "node:fs";
 import path from "node:path";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
-import { normalizeStringEntries } from "@openclaw/normalization-core/string-normalization";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
+import { normalizeStringEntries } from "@luckynemo/normalization-core/string-normalization";
 import { findChatChannelMeta, normalizeChatChannelId } from "../channels/registry.js";
 import type { PluginManifestRegistry } from "../plugins/manifest-registry.js";
 import { isRecord, resolveConfigDir, resolveUserPath } from "../utils.js";

@@ -1,5 +1,5 @@
 // Legacy session runtime config migrations for retired maintenance/fork sizing keys.
-import { normalizeStringifiedOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeStringifiedOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { parseDurationMs } from "../../../cli/parse-duration.js";
 import {
   defineLegacyConfigMigration,

@@ -1256,7 +1256,7 @@ describe("gatherDaemonStatus", () => {
     loadInstalledPluginIndexInstallRecords.mockResolvedValueOnce({
       whatsapp: {
         source: "npm",
-        resolvedName: "@openclaw/whatsapp",
+        resolvedName: "@luckynemo/whatsapp",
         resolvedVersion: "2026.5.4",
       },
     } as never);
@@ -1281,7 +1281,7 @@ describe("gatherDaemonStatus", () => {
     loadInstalledPluginIndexInstallRecords.mockResolvedValueOnce({
       whatsapp: {
         source: "npm",
-        resolvedName: "@openclaw/whatsapp",
+        resolvedName: "@luckynemo/whatsapp",
         resolvedVersion: "2026.5.3",
       },
     } as never);
@@ -1319,7 +1319,7 @@ describe("gatherDaemonStatus", () => {
     loadInstalledPluginIndexInstallRecords.mockResolvedValueOnce({
       whatsapp: {
         source: "npm",
-        resolvedName: "@openclaw/whatsapp",
+        resolvedName: "@luckynemo/whatsapp",
         resolvedVersion: "2026.5.3",
       },
     } as never);

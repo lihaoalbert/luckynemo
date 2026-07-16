@@ -495,7 +495,7 @@ async function runMeasured(
 
 async function runPluginLifecycleMatrix() {
   const pluginId = "lifecycle-claw";
-  const packageName = "@openclaw/lifecycle-claw";
+  const packageName = "@luckynemo/lifecycle-claw";
   const resourceDir = tempDirs.make("openclaw-plugin-lifecycle-matrix-");
   const npmPrefix = "/tmp/npm-prefix";
   const env = createMatrixStateEnv(resourceDir);

@@ -5,7 +5,7 @@
  */
 import fs from "node:fs/promises";
 import path from "node:path";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import type { ExecHost } from "../infra/exec-approvals.js";
 import { safeStatSync } from "../infra/path-guards.js";
 import type { BashSandboxConfig } from "./bash-tools.shared.js";

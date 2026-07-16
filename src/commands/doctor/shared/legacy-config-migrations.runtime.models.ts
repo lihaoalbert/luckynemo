@@ -1,6 +1,6 @@
 // Legacy model runtime config migrations for stale model refs, compat fields, and catalog data.
 import { isDeepStrictEqual } from "node:util";
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
 import { splitTrailingAuthProfile } from "../../../agents/model-ref-profile.js";
 import {
   defineLegacyConfigMigration,

@@ -24,7 +24,7 @@ describe("plugin npm runtime build checks", () => {
     writeFileSync(
       join(packageDir, "package.json"),
       JSON.stringify({
-        name: `@openclaw/${pluginId}`,
+        name: `@luckynemo/${pluginId}`,
         version: "2026.6.2",
         type: "module",
         openclaw: {

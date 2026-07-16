@@ -1,6 +1,6 @@
-import { SENSITIVE_URL_HINT_TAG } from "@openclaw/net-policy/redact-sensitive-url";
+import { SENSITIVE_URL_HINT_TAG } from "@luckynemo/net-policy/redact-sensitive-url";
 // Covers canonical config schema defaults, validation, and sensitive redaction.
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { beforeAll, describe, expect, it } from "vitest";
 import { buildConfigSchema, lookupConfigSchema } from "./schema.js";
 import { applyDerivedTags } from "./schema.tags.js";

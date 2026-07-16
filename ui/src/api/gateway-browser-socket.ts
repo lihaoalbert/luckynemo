@@ -1,7 +1,7 @@
 import type {
   GatewayProtocolSocket,
   GatewayProtocolSocketHandlers,
-} from "@openclaw/gateway-client/browser";
+} from "@luckynemo/gateway-client/browser";
 
 export function createBrowserGatewaySocket(
   url: string,

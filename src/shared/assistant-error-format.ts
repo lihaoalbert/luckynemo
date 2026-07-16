@@ -1,6 +1,6 @@
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 // Assistant error formatting helpers normalize assistant-visible error payloads.
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 const ERROR_PAYLOAD_PREFIX_RE =
   /^(?:error|(?:[a-z][\w-]*\s+)?api\s*error|apierror|openai\s*error|anthropic\s*error|gateway\s*error|codex\s*error)(?:\s+\d{3})?[:\s-]+/i;
 const HTTP_STATUS_DELIMITER_RE = /(?:\s*:\s*|\s+)/;

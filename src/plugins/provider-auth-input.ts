@@ -1,9 +1,9 @@
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 /** Normalizes provider auth input metadata collected from plugin setup flows. */
 import {
   normalizeOptionalLowercaseString,
   normalizeStringifiedOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { isMalformedApiKeyInput } from "../agents/auth-profiles/credential-state.js";
 import { resolveEnvApiKey } from "../agents/model-auth-env.js";
 import type { OpenClawConfig } from "../config/types.js";

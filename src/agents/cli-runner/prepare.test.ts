@@ -3,8 +3,8 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { SYSTEM_PROMPT_CACHE_BOUNDARY } from "@openclaw/ai/internal/shared";
-import { expectDefined } from "@openclaw/normalization-core";
+import { SYSTEM_PROMPT_CACHE_BOUNDARY } from "@luckynemo/ai/internal/shared";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { CURRENT_SESSION_VERSION } from "openclaw/plugin-sdk/agent-sessions";
 import { Type } from "typebox";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";

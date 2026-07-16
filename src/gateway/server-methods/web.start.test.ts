@@ -2,7 +2,7 @@
  * Tests web.start gateway method behavior and backend launch responses.
  */
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { ChannelRuntimeSnapshot } from "../server-channel-runtime.types.js";
 import type { GatewayRequestHandlerOptions } from "./types.js";
@@ -89,11 +89,11 @@ describe("webHandlers web.login.start", () => {
       pluginId: "whatsapp",
       channelId: "whatsapp",
       label: "WhatsApp",
-      installSpec: "clawhub:@openclaw/whatsapp",
-      installCommand: "openclaw plugins install clawhub:@openclaw/whatsapp",
+      installSpec: "clawhub:@luckynemo/whatsapp",
+      installCommand: "openclaw plugins install clawhub:@luckynemo/whatsapp",
       doctorFixCommand: "openclaw doctor --fix",
       repairHint:
-        "Install the official external plugin with: openclaw plugins install clawhub:@openclaw/whatsapp, or run: openclaw doctor --fix.",
+        "Install the official external plugin with: openclaw plugins install clawhub:@luckynemo/whatsapp, or run: openclaw doctor --fix.",
     });
     const respond = vi.fn();
 
@@ -115,7 +115,7 @@ describe("webHandlers web.login.start", () => {
       expect.objectContaining({
         code: "INVALID_REQUEST",
         message:
-          "web login provider is not available. Install the official external plugin with: openclaw plugins install clawhub:@openclaw/whatsapp, or run: openclaw doctor --fix.",
+          "web login provider is not available. Install the official external plugin with: openclaw plugins install clawhub:@luckynemo/whatsapp, or run: openclaw doctor --fix.",
       }),
     );
     expect(mocks.resolveMissingOfficialExternalChannelPluginRepairHint).toHaveBeenCalledWith({
@@ -133,22 +133,22 @@ describe("webHandlers web.login.start", () => {
               pluginId: "whatsapp",
               channelId: "whatsapp",
               label: "WhatsApp",
-              installSpec: "clawhub:@openclaw/whatsapp",
-              installCommand: "openclaw plugins install clawhub:@openclaw/whatsapp",
+              installSpec: "clawhub:@luckynemo/whatsapp",
+              installCommand: "openclaw plugins install clawhub:@luckynemo/whatsapp",
               doctorFixCommand: "openclaw doctor --fix",
               repairHint:
-                "Install the official external plugin with: openclaw plugins install clawhub:@openclaw/whatsapp, or run: openclaw doctor --fix.",
+                "Install the official external plugin with: openclaw plugins install clawhub:@luckynemo/whatsapp, or run: openclaw doctor --fix.",
             }
           : channelId === "signal"
             ? {
                 pluginId: "signal",
                 channelId: "signal",
                 label: "Signal",
-                installSpec: "clawhub:@openclaw/signal",
-                installCommand: "openclaw plugins install clawhub:@openclaw/signal",
+                installSpec: "clawhub:@luckynemo/signal",
+                installCommand: "openclaw plugins install clawhub:@luckynemo/signal",
                 doctorFixCommand: "openclaw doctor --fix",
                 repairHint:
-                  "Install the official external plugin with: openclaw plugins install clawhub:@openclaw/signal, or run: openclaw doctor --fix.",
+                  "Install the official external plugin with: openclaw plugins install clawhub:@luckynemo/signal, or run: openclaw doctor --fix.",
               }
             : null,
     );
@@ -183,7 +183,7 @@ describe("webHandlers web.login.start", () => {
       expect.objectContaining({
         code: "INVALID_REQUEST",
         message:
-          "web login provider is not available. Configured official external channel plugins are missing for WhatsApp, Signal. Install them with: openclaw plugins install clawhub:@openclaw/whatsapp; openclaw plugins install clawhub:@openclaw/signal, or run: openclaw doctor --fix.",
+          "web login provider is not available. Configured official external channel plugins are missing for WhatsApp, Signal. Install them with: openclaw plugins install clawhub:@luckynemo/whatsapp; openclaw plugins install clawhub:@luckynemo/signal, or run: openclaw doctor --fix.",
       }),
     );
   });

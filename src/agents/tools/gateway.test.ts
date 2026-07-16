@@ -1,6 +1,6 @@
 // Gateway call helper tests pin URL override, token, and RPC scope behavior for
 // agent tools that route through the local gateway client.
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterAll, afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { verifyAgentRuntimeIdentityToken } from "../../gateway/agent-runtime-identity-token.js";
 import type { CallGatewayOptions } from "../../gateway/call.js";

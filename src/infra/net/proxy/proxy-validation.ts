@@ -2,7 +2,7 @@
 // APNs destinations through an explicit HTTP(S) forward proxy.
 import { randomUUID } from "node:crypto";
 import { createServer, type Server } from "node:http";
-import { isHttpUrl } from "@openclaw/net-policy/url-protocol";
+import { isHttpUrl } from "@luckynemo/net-policy/url-protocol";
 import type { ProxyConfig } from "../../../config/zod-schema.proxy.js";
 import { probeApnsHttp2ReachabilityViaProxy } from "../../push-apns-http2.js";
 import { fetchWithRuntimeDispatcher } from "../runtime-fetch.js";

@@ -1,13 +1,13 @@
 // Orchestrates security audit collection and report formatting.
 import fs from "node:fs/promises";
 import path from "node:path";
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
-import { asNullableRecord } from "@openclaw/normalization-core/record-coerce";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
+import { asNullableRecord } from "@luckynemo/normalization-core/record-coerce";
 import {
   normalizeOptionalLowercaseString,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
-import { normalizeStringEntries } from "@openclaw/normalization-core/string-normalization";
+} from "@luckynemo/normalization-core/string-coerce";
+import { normalizeStringEntries } from "@luckynemo/normalization-core/string-normalization";
 import { resolveAgentWorkspaceDir, resolveDefaultAgentId } from "../agents/agent-scope.js";
 import { resolveExecDefaults } from "../agents/exec-defaults.js";
 import { resolveSandboxConfigForAgent } from "../agents/sandbox/config.js";

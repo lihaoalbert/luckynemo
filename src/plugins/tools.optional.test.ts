@@ -1,5 +1,5 @@
 // Verifies optional plugin tool registration and absence handling.
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { DEFAULT_PLUGIN_TOOLS_ALLOWLIST_ENTRY } from "../agents/tool-policy.js";
 import { resetLogger, setLoggerOverride } from "../logging/logger.js";

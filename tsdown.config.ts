@@ -201,7 +201,7 @@ const explicitNeverBundleDependencies = [
   "@lancedb/lancedb",
   "@larksuiteoapi/node-sdk",
   "@matrix-org/matrix-sdk-crypto-nodejs",
-  "@openclaw/ai",
+  "@luckynemo/ai",
   "@vitest/expect",
   "jimp",
   "matrix-js-sdk",
@@ -223,13 +223,13 @@ function shouldAlwaysBundleDependency(id: string): boolean {
     id === "openclaw/plugin-sdk/ssrf-runtime-internal" ||
     id === "@openclaw/fs-safe" ||
     id.startsWith("@openclaw/fs-safe/") ||
-    id === "@openclaw/normalization-core" ||
-    id.startsWith("@openclaw/normalization-core/") ||
-    id === "@openclaw/retry" ||
-    id === "@openclaw/media-core" ||
-    id.startsWith("@openclaw/media-core/") ||
-    ["@openclaw/acp-core", "@openclaw/workboard-contract"].includes(id) ||
-    id.startsWith("@openclaw/acp-core/") ||
+    id === "@luckynemo/normalization-core" ||
+    id.startsWith("@luckynemo/normalization-core/") ||
+    id === "@luckynemo/retry" ||
+    id === "@luckynemo/media-core" ||
+    id.startsWith("@luckynemo/media-core/") ||
+    ["@luckynemo/acp-core", "@luckynemo/workboard-contract"].includes(id) ||
+    id.startsWith("@luckynemo/acp-core/") ||
     id === "zod" ||
     id.startsWith("zod/")
   );
@@ -407,10 +407,10 @@ function buildLlmCoreDistEntries(): Record<string, string> {
 
 function shouldExternalizeAgentCoreDependency(id: string): boolean {
   return (
-    id === "@openclaw/ai" ||
-    id.startsWith("@openclaw/ai/") ||
-    id === "@openclaw/llm-core" ||
-    id.startsWith("@openclaw/llm-core/") ||
+    id === "@luckynemo/ai" ||
+    id.startsWith("@luckynemo/ai/") ||
+    id === "@luckynemo/llm-core" ||
+    id.startsWith("@luckynemo/llm-core/") ||
     id === "ignore" ||
     id === "openclaw" ||
     id.startsWith("openclaw/") ||
@@ -426,7 +426,7 @@ function shouldExternalizeGatewayProtocolDependency(id: string): boolean {
 }
 
 function shouldExternalizeGatewayClientDependency(id: string): boolean {
-  return ["ws", "@openclaw/net-policy", "@openclaw/gateway-protocol"].some(
+  return ["ws", "@luckynemo/net-policy", "@luckynemo/gateway-protocol"].some(
     (dependency) => id === dependency || id.startsWith(`${dependency}/`),
   );
 }

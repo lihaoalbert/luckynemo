@@ -1,6 +1,6 @@
 // Gateway auth-token source conflict detector.
 // Warns when local env auth can diverge from managed gateway config auth.
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { normalizeSecretInputString, resolveSecretInputRef } from "../config/types.secrets.js";
 

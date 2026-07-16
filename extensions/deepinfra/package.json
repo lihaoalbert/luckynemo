@@ -1,5 +1,5 @@
 {
-  "name": "@openclaw/deepinfra-provider",
+  "name": "@luckynemo/deepinfra-provider",
   "version": "2026.7.2",
   "description": "OpenClaw DeepInfra provider plugin.",
   "repository": {
@@ -8,15 +8,15 @@
   },
   "type": "module",
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [
       "./index.ts"
     ],
     "install": {
-      "clawhubSpec": "clawhub:@openclaw/deepinfra-provider",
-      "npmSpec": "@openclaw/deepinfra-provider",
+      "clawhubSpec": "clawhub:@luckynemo/deepinfra-provider",
+      "npmSpec": "@luckynemo/deepinfra-provider",
       "defaultChoice": "npm",
       "minHostVersion": ">=2026.6.8"
     },

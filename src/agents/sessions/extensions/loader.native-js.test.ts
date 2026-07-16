@@ -196,7 +196,7 @@ export default async function extension(api) {
     const firstPath = join(dir, "first.js");
     const secondPath = join(dir, "second.js");
     const source = `
-require("@openclaw/plugin-sdk/agent-sessions");
+require("@luckynemo/plugin-sdk/agent-sessions");
 module.exports = async function(api) {
   api.registerCommand("should-not-native-load", {
     description: "probe",

@@ -1,7 +1,7 @@
 // Inspects gateway port listeners and connection state.
 import os from "node:os";
-import { expectDefined } from "@openclaw/normalization-core";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { expectDefined } from "@luckynemo/normalization-core";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import { runCommandWithTimeout } from "../process/exec.js";
 import { parseStrictPositiveInteger } from "./parse-finite-number.js";
 import { buildPortHints } from "./ports-format.js";

@@ -2,7 +2,7 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import type { PluginInstallRecord } from "../config/types.plugins.js";
 import {
@@ -102,8 +102,8 @@ describe("plugin index install records store", () => {
       {
         twitch: {
           source: "npm",
-          spec: "@openclaw/plugin-twitch@1.0.0",
-          installPath: "plugins/npm/@openclaw/plugin-twitch",
+          spec: "@luckynemo/plugin-twitch@1.0.0",
+          installPath: "plugins/npm/@luckynemo/plugin-twitch",
         },
       },
       {
@@ -123,8 +123,8 @@ describe("plugin index install records store", () => {
     expect(persisted.generatedAtMs).toBe(1777118400000);
     expectRecordFields(persisted.installRecords?.twitch, {
       source: "npm",
-      spec: "@openclaw/plugin-twitch@1.0.0",
-      installPath: "plugins/npm/@openclaw/plugin-twitch",
+      spec: "@luckynemo/plugin-twitch@1.0.0",
+      installPath: "plugins/npm/@luckynemo/plugin-twitch",
     });
     expect(persisted.plugins).toHaveLength(1);
     expect(persisted.plugins?.[0]?.pluginId).toBe("twitch");
@@ -132,8 +132,8 @@ describe("plugin index install records store", () => {
     await expect(readPersistedInstalledPluginIndexInstallRecords({ stateDir })).resolves.toEqual({
       twitch: {
         source: "npm",
-        spec: "@openclaw/plugin-twitch@1.0.0",
-        installPath: "plugins/npm/@openclaw/plugin-twitch",
+        spec: "@luckynemo/plugin-twitch@1.0.0",
+        installPath: "plugins/npm/@luckynemo/plugin-twitch",
       },
     });
   });
@@ -331,34 +331,34 @@ describe("plugin index install records store", () => {
     const stateDir = makeStateDir();
     const discordDir = writeManagedNpmPlugin({
       stateDir,
-      packageName: "@openclaw/discord",
+      packageName: "@luckynemo/discord",
       pluginId: "discord",
       version: "2026.5.2",
     });
     const codexDir = writeManagedNpmPlugin({
       stateDir,
-      packageName: "@openclaw/codex",
+      packageName: "@luckynemo/codex",
       pluginId: "codex",
       version: "2026.5.2",
     });
     const loaded = await loadInstalledPluginIndexInstallRecords({ stateDir });
     expectRecordFields(loaded.codex, {
       source: "npm",
-      spec: "@openclaw/codex@2026.5.2",
+      spec: "@luckynemo/codex@2026.5.2",
       installPath: codexDir,
       version: "2026.5.2",
-      resolvedName: "@openclaw/codex",
+      resolvedName: "@luckynemo/codex",
       resolvedVersion: "2026.5.2",
-      resolvedSpec: "@openclaw/codex@2026.5.2",
+      resolvedSpec: "@luckynemo/codex@2026.5.2",
     });
     expectRecordFields(loaded.discord, {
       source: "npm",
-      spec: "@openclaw/discord@2026.5.2",
+      spec: "@luckynemo/discord@2026.5.2",
       installPath: discordDir,
       version: "2026.5.2",
-      resolvedName: "@openclaw/discord",
+      resolvedName: "@luckynemo/discord",
       resolvedVersion: "2026.5.2",
-      resolvedSpec: "@openclaw/discord@2026.5.2",
+      resolvedSpec: "@luckynemo/discord@2026.5.2",
     });
     const loadedSync = loadInstalledPluginIndexInstallRecordsSync({ stateDir });
     expectRecordFields(loadedSync.codex, { source: "npm", installPath: codexDir });
@@ -369,7 +369,7 @@ describe("plugin index install records store", () => {
     const stateDir = makeStateDir();
     const discordDir = writeManagedNpmPlugin({
       stateDir,
-      packageName: "@openclaw/discord",
+      packageName: "@luckynemo/discord",
       pluginId: "discord",
       version: "2026.5.2",
       layout: "legacy",
@@ -377,7 +377,7 @@ describe("plugin index install records store", () => {
     const loaded = await loadInstalledPluginIndexInstallRecords({ stateDir });
     expectRecordFields(loaded.discord, {
       source: "npm",
-      spec: "@openclaw/discord@2026.5.2",
+      spec: "@luckynemo/discord@2026.5.2",
       installPath: discordDir,
       version: "2026.5.2",
     });
@@ -387,7 +387,7 @@ describe("plugin index install records store", () => {
     const stateDir = makeStateDir();
     writeManagedNpmPlugin({
       stateDir,
-      packageName: "@openclaw/discord",
+      packageName: "@luckynemo/discord",
       pluginId: "discord",
       version: "2026.5.2",
     });
@@ -396,7 +396,7 @@ describe("plugin index install records store", () => {
       {
         discord: {
           source: "npm",
-          spec: "@openclaw/discord@beta",
+          spec: "@luckynemo/discord@beta",
           installPath: path.join(stateDir, "custom", "discord"),
           integrity: "sha512-persisted",
         },
@@ -407,7 +407,7 @@ describe("plugin index install records store", () => {
     const loaded = await loadInstalledPluginIndexInstallRecords({ stateDir });
     expectRecordFields(loaded.discord, {
       source: "npm",
-      spec: "@openclaw/discord@beta",
+      spec: "@luckynemo/discord@beta",
       installPath: path.join(stateDir, "custom", "discord"),
       integrity: "sha512-persisted",
     });
@@ -417,7 +417,7 @@ describe("plugin index install records store", () => {
     const stateDir = makeStateDir();
     const codexDir = writeManagedNpmPlugin({
       stateDir,
-      packageName: "@openclaw/codex",
+      packageName: "@luckynemo/codex",
       pluginId: "codex",
       version: "2026.5.18-beta.1",
     });
@@ -426,12 +426,12 @@ describe("plugin index install records store", () => {
       {
         codex: {
           source: "npm",
-          spec: "@openclaw/codex@2026.5.16-beta.1",
+          spec: "@luckynemo/codex@2026.5.16-beta.1",
           installPath: codexDir,
           version: "2026.5.16-beta.1",
-          resolvedName: "@openclaw/codex",
+          resolvedName: "@luckynemo/codex",
           resolvedVersion: "2026.5.16-beta.1",
-          resolvedSpec: "@openclaw/codex@2026.5.16-beta.1",
+          resolvedSpec: "@luckynemo/codex@2026.5.16-beta.1",
           integrity: "sha512-stale",
           shasum: "stale",
           installedAt: "2026-05-16T01:42:54.609Z",
@@ -444,12 +444,12 @@ describe("plugin index install records store", () => {
     const loaded = await loadInstalledPluginIndexInstallRecords({ stateDir });
     const record = expectRecordFields(loaded.codex, {
       source: "npm",
-      spec: "@openclaw/codex@2026.5.18-beta.1",
+      spec: "@luckynemo/codex@2026.5.18-beta.1",
       installPath: codexDir,
       version: "2026.5.18-beta.1",
-      resolvedName: "@openclaw/codex",
+      resolvedName: "@luckynemo/codex",
       resolvedVersion: "2026.5.18-beta.1",
-      resolvedSpec: "@openclaw/codex@2026.5.18-beta.1",
+      resolvedSpec: "@luckynemo/codex@2026.5.18-beta.1",
     });
     expect(record.integrity).toBeUndefined();
     expect(record.shasum).toBeUndefined();
@@ -467,13 +467,13 @@ describe("plugin index install records store", () => {
     const stateDir = makeStateDir();
     const codexDir = writeManagedNpmPlugin({
       stateDir,
-      packageName: "@openclaw/codex",
+      packageName: "@luckynemo/codex",
       pluginId: "codex",
       version: "2026.5.18-beta.1",
     });
     expectRecordFields(loadInstalledPluginIndexInstallRecordsSync({ stateDir }).codex, {
       source: "npm",
-      spec: "@openclaw/codex@2026.5.18-beta.1",
+      spec: "@luckynemo/codex@2026.5.18-beta.1",
       installPath: codexDir,
       version: "2026.5.18-beta.1",
     });
@@ -494,22 +494,22 @@ describe("plugin index install records store", () => {
 
     expectRecordFields(loadInstalledPluginIndexInstallRecordsSync({ stateDir }).codex, {
       source: "npm",
-      spec: "@openclaw/codex@2026.5.18-beta.1",
+      spec: "@luckynemo/codex@2026.5.18-beta.1",
       installPath: codexDir,
       version: "2026.5.18-beta.1",
       resolvedVersion: "2026.5.18-beta.1",
-      resolvedSpec: "@openclaw/codex@2026.5.18-beta.1",
+      resolvedSpec: "@luckynemo/codex@2026.5.18-beta.1",
     });
 
     clearLoadInstalledPluginIndexInstallRecordsCache();
 
     expectRecordFields(loadInstalledPluginIndexInstallRecordsSync({ stateDir }).codex, {
       source: "npm",
-      spec: "@openclaw/codex@2026.5.18-beta.1",
+      spec: "@luckynemo/codex@2026.5.18-beta.1",
       installPath: codexDir,
       version: "2026.5.19-beta.1",
       resolvedVersion: "2026.5.19-beta.1",
-      resolvedSpec: "@openclaw/codex@2026.5.19-beta.1",
+      resolvedSpec: "@luckynemo/codex@2026.5.19-beta.1",
     });
   });
 

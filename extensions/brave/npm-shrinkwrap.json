@@ -1,11 +1,11 @@
 {
-  "name": "@openclaw/brave-plugin",
+  "name": "@luckynemo/brave-plugin",
   "version": "2026.7.2",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
-      "name": "@openclaw/brave-plugin",
+      "name": "@luckynemo/brave-plugin",
       "version": "2026.7.2"
     }
   }

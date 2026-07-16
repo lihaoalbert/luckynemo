@@ -1,4 +1,4 @@
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
 import {
   resolveMergedModelProviderConfig,
   resolveMergedModelProviderModels,

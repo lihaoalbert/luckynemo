@@ -1,13 +1,13 @@
 // Memory host dreaming helpers record and load memory dreaming artifacts.
 import path from "node:path";
-import { parseBoolean } from "@openclaw/normalization-core/boolean-coercion";
-import { asNullableRecord } from "@openclaw/normalization-core/record-coerce";
+import { parseBoolean } from "@luckynemo/normalization-core/boolean-coercion";
+import { asNullableRecord } from "@luckynemo/normalization-core/record-coerce";
 import {
   lowercasePreservingWhitespace,
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalLowercaseString,
   normalizeStringifiedOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { resolveAgentWorkspaceDir, resolveDefaultAgentId } from "../agents/agent-scope.js";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 

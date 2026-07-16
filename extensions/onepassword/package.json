@@ -1,11 +1,11 @@
 {
-  "name": "@openclaw/onepassword",
+  "name": "@luckynemo/onepassword",
   "version": "2026.7.2",
   "private": true,
   "description": "1Password secrets broker for OpenClaw",
   "type": "module",
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [

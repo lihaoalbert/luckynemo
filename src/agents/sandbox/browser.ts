@@ -7,7 +7,7 @@ import crypto from "node:crypto";
 import {
   normalizeOptionalLowercaseString,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { deriveDefaultBrowserCdpPortRange } from "../../config/port-defaults.js";
 import { isSameSsrFPolicy, type SsrFPolicy } from "../../infra/net/ssrf.js";
 import { startBrowserBridgeServer } from "../../plugin-sdk/browser-bridge.js";

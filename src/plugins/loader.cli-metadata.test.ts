@@ -198,7 +198,7 @@ describe("plugin loader CLI metadata", () => {
       path.join(pluginDir, "package.json"),
       JSON.stringify(
         {
-          name: "@openclaw/cli-metadata-channel",
+          name: "@luckynemo/cli-metadata-channel",
           openclaw: { extensions: ["./index.cjs"], setupEntry: "./setup-entry.cjs" },
         },
         null,
@@ -305,7 +305,7 @@ module.exports = {
       path.join(pluginDir, "package.json"),
       JSON.stringify(
         {
-          name: "@openclaw/bundled-skip-channel",
+          name: "@luckynemo/bundled-skip-channel",
           openclaw: { extensions: ["./index.cjs"] },
         },
         null,
@@ -373,7 +373,7 @@ module.exports = {
       path.join(pluginDir, "package.json"),
       JSON.stringify(
         {
-          name: "@openclaw/bundled-cli-channel",
+          name: "@luckynemo/bundled-cli-channel",
           openclaw: { extensions: ["./index.cjs"] },
         },
         null,
@@ -457,7 +457,7 @@ module.exports = {
       path.join(pluginDir, "package.json"),
       JSON.stringify(
         {
-          name: "@openclaw/bundled-skip-provider",
+          name: "@luckynemo/bundled-skip-provider",
           openclaw: { extensions: ["./index.cjs"] },
         },
         null,
@@ -521,7 +521,7 @@ module.exports = {
       path.join(pluginDir, "package.json"),
       JSON.stringify(
         {
-          name: "@openclaw/full-cli-metadata-channel",
+          name: "@luckynemo/full-cli-metadata-channel",
           openclaw: { extensions: ["./index.cjs"] },
         },
         null,
@@ -618,7 +618,7 @@ module.exports = {
       path.join(pluginDir, "package.json"),
       JSON.stringify(
         {
-          name: "@openclaw/discovery-cli-metadata-channel",
+          name: "@luckynemo/discovery-cli-metadata-channel",
           openclaw: { extensions: ["./index.cjs"] },
         },
         null,
@@ -724,7 +724,7 @@ module.exports = {
       path.join(pluginDir, "package.json"),
       JSON.stringify(
         {
-          name: "@openclaw/force-runtime-cli-channel",
+          name: "@luckynemo/force-runtime-cli-channel",
           openclaw: { extensions: ["./index.cjs"], setupEntry: "./setup-entry.cjs" },
         },
         null,

@@ -3,11 +3,11 @@
  * This state tracks order, last-good profile, and cooldown/failure metadata
  * separately from secret-bearing credentials.
  */
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
-import { asFiniteNumber } from "@openclaw/normalization-core/number-coercion";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
-import { normalizeTrimmedStringList } from "@openclaw/normalization-core/string-normalization";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
+import { asFiniteNumber } from "@luckynemo/normalization-core/number-coercion";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
+import { normalizeTrimmedStringList } from "@luckynemo/normalization-core/string-normalization";
 import type { OpenClawAgentDatabase } from "../../state/openclaw-agent-db.js";
 import { AUTH_STORE_VERSION } from "./constants.js";
 import { readPersistedAuthProfileStateRaw } from "./sqlite.js";

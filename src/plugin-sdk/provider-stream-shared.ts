@@ -1,5 +1,5 @@
 // Provider stream shared helpers implement reusable stream wrappers and payload policies.
-import { resolveOpenAIReasoningEffortForModel } from "@openclaw/ai/internal/openai";
+import { resolveOpenAIReasoningEffortForModel } from "@luckynemo/ai/internal/openai";
 import { normalizeLowercaseStringOrEmpty } from "../../packages/normalization-core/src/string-coerce.js";
 import {
   createPromotedPlainTextToolCallBlock,
@@ -18,9 +18,9 @@ import { mapThinkingLevelToReasoningEffort } from "../llm/providers/stream-wrapp
 import { streamWithPayloadPatch } from "../llm/providers/stream-wrappers/stream-payload-utils.js";
 import { streamSimple } from "../llm/stream.js";
 import { createAssistantMessageEventStream } from "../llm/utils/event-stream.js";
-export { applyAnthropicRefusal } from "@openclaw/ai/internal/anthropic";
-export { createDeferredEventBuffer } from "@openclaw/ai/internal/runtime";
-export { notifyLlmRequestActivity, onLlmRequestActivity } from "@openclaw/ai/internal/runtime";
+export { applyAnthropicRefusal } from "@luckynemo/ai/internal/anthropic";
+export { createDeferredEventBuffer } from "@luckynemo/ai/internal/runtime";
+export { notifyLlmRequestActivity, onLlmRequestActivity } from "@luckynemo/ai/internal/runtime";
 
 type ProviderWrapStreamFnContext = import("../plugins/types.js").ProviderWrapStreamFnContext;
 

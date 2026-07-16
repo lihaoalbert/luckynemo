@@ -1,7 +1,7 @@
 /** Shared behavioral contract testkit for ACP runtime adapter implementations. */
 import { randomUUID } from "node:crypto";
-import type { AcpRuntime, AcpRuntimeEvent } from "@openclaw/acp-core/runtime/types";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import type { AcpRuntime, AcpRuntimeEvent } from "@luckynemo/acp-core/runtime/types";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { expect } from "vitest";
 import { toAcpRuntimeError } from "./errors.js";
 

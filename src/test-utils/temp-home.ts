@@ -2,7 +2,7 @@
 import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { captureEnv, setTestEnvValue } from "./env.js";
 import { cleanupSessionStateForTest } from "./session-state-cleanup.js";
 

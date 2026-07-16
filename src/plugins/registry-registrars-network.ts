@@ -1,4 +1,4 @@
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import type { ChannelPlugin } from "../channels/plugins/types.plugin.js";
 import { createPluginGatewayMethodDescriptor } from "../gateway/methods/registry.js";
 import type { OperatorScope } from "../gateway/operator-scopes.js";

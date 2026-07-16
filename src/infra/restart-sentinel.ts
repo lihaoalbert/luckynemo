@@ -1,8 +1,8 @@
 // Persists restart sentinel state that coordinates deferred restarts.
 import { readFile, rm } from "node:fs/promises";
 import path from "node:path";
-import { isRecord as isPlainRecord } from "@openclaw/normalization-core/record-coerce";
-import { sliceUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { isRecord as isPlainRecord } from "@luckynemo/normalization-core/record-coerce";
+import { sliceUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { formatCliCommand } from "../cli/command-format.js";
 import { resolveStateDir } from "../config/paths.js";
 import type { DB as OpenClawStateKyselyDatabase } from "../state/openclaw-state-db.generated.js";

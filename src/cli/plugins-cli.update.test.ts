@@ -304,7 +304,7 @@ describe("plugins cli update", () => {
     const installRecords = {
       alpha: {
         source: "npm",
-        spec: "@openclaw/alpha@1.0.0",
+        spec: "@luckynemo/alpha@1.0.0",
         installPath: "/tmp/alpha",
       },
     } as const;
@@ -372,7 +372,7 @@ describe("plugins cli update", () => {
   it("uses resolved shipped install records instead of raw env placeholders", async () => {
     const cfg = createTrackedPluginConfig({
       pluginId: "alpha",
-      spec: "@openclaw/alpha@1.0.0",
+      spec: "@luckynemo/alpha@1.0.0",
     });
     primeUpdateConfigSnapshot({
       config: cfg,
@@ -403,7 +403,7 @@ describe("plugins cli update", () => {
   it("rejects invalid config snapshots before updater side effects", async () => {
     const cfg = createTrackedPluginConfig({
       pluginId: "alpha",
-      spec: "@openclaw/alpha@1.0.0",
+      spec: "@luckynemo/alpha@1.0.0",
     });
     primeUpdateConfigSnapshot({
       config: cfg,
@@ -452,16 +452,16 @@ describe("plugins cli update", () => {
     const cfg = { plugins: {} } as OpenClawConfig;
     const pluginRecords = createTrackedPluginConfig({
       pluginId: "voice-call",
-      spec: "@openclaw/voice-call@1.0.0",
+      spec: "@luckynemo/voice-call@1.0.0",
     }).plugins?.installs;
     const nextConfig = {
       ...cfg,
       plugins: {
         ...cfg.plugins,
         installs: {
-          "@openclaw/voice-call": {
+          "@luckynemo/voice-call": {
             source: "npm",
-            spec: "@openclaw/voice-call@1.1.0",
+            spec: "@luckynemo/voice-call@1.1.0",
           },
         },
       },
@@ -473,9 +473,9 @@ describe("plugins cli update", () => {
       changed: true,
       outcomes: [
         {
-          pluginId: "@openclaw/voice-call",
+          pluginId: "@luckynemo/voice-call",
           status: "updated",
-          message: "Updated @openclaw/voice-call.",
+          message: "Updated @luckynemo/voice-call.",
         },
       ],
     });
@@ -542,7 +542,7 @@ describe("plugins cli update", () => {
     setInstalledPluginIndexInstallRecords({
       "voice-call": {
         source: "npm",
-        spec: "@openclaw/voice-call",
+        spec: "@luckynemo/voice-call",
         installPath: "/tmp/voice-call",
       },
     });
@@ -564,8 +564,8 @@ describe("plugins cli update", () => {
       label: "ClawHub",
       record: {
         source: "clawhub",
-        spec: "clawhub:@openclaw/voice-call",
-        clawhubPackage: "@openclaw/voice-call",
+        spec: "clawhub:@luckynemo/voice-call",
+        clawhubPackage: "@luckynemo/voice-call",
         installPath: "/tmp/voice-call",
       },
     },
@@ -631,7 +631,7 @@ describe("plugins cli update", () => {
     setInstalledPluginIndexInstallRecords({
       "voice-call": {
         source: "npm",
-        spec: "@openclaw/voice-call",
+        spec: "@luckynemo/voice-call",
         installPath: "/tmp/voice-call",
       },
     });
@@ -664,7 +664,7 @@ describe("plugins cli update", () => {
         installs: {
           legacy: {
             source: "npm",
-            spec: "@openclaw/legacy@1.0.0",
+            spec: "@luckynemo/legacy@1.0.0",
             installPath: "/tmp/legacy",
           },
         },
@@ -753,12 +753,12 @@ describe("plugins cli update", () => {
     const pluginsPath = path.join(tempRoot, "plugins.json5");
     const cfg = createTrackedPluginConfig({
       pluginId: "alpha",
-      spec: "@openclaw/alpha@1.0.0",
+      spec: "@luckynemo/alpha@1.0.0",
     });
     const pluginsRaw = `${JSON.stringify(cfg.plugins, null, 2)}\n`;
     const nextConfig = createTrackedPluginConfig({
       pluginId: "alpha",
-      spec: "@openclaw/alpha@1.1.0",
+      spec: "@luckynemo/alpha@1.1.0",
     });
     fs.writeFileSync(pluginsPath, pluginsRaw);
     primeUpdateConfigSnapshot({
@@ -799,17 +799,17 @@ describe("plugins cli update", () => {
     const pluginsPath = path.join(tempRoot, "plugins.json5");
     const legacyRecord = {
       source: "npm",
-      spec: "@openclaw/legacy@1.0.0",
+      spec: "@luckynemo/legacy@1.0.0",
       installPath: "/tmp/legacy",
     } as const;
     const indexedRecord = {
       source: "npm",
-      spec: "@openclaw/alpha@1.0.0",
+      spec: "@luckynemo/alpha@1.0.0",
       installPath: "/tmp/alpha",
     } as const;
     const updatedIndexedRecord = {
       ...indexedRecord,
-      spec: "@openclaw/alpha@1.1.0",
+      spec: "@luckynemo/alpha@1.1.0",
     } as const;
     const cfg = {
       plugins: {
@@ -892,7 +892,7 @@ describe("plugins cli update", () => {
         installs: {
           alpha: {
             source: "npm",
-            spec: "@openclaw/alpha@1.0.0",
+            spec: "@luckynemo/alpha@1.0.0",
             installPath: "/tmp/alpha",
           },
         },
@@ -990,8 +990,8 @@ describe("plugins cli update", () => {
   it("does not sync official catalog specs for manual plugin updates", async () => {
     const config = createTrackedPluginConfig({
       pluginId: "codex",
-      spec: "@openclaw/codex@2026.5.28",
-      resolvedName: "@openclaw/codex",
+      spec: "@luckynemo/codex@2026.5.28",
+      resolvedName: "@luckynemo/codex",
     });
     loadConfig.mockReturnValue(config);
     setInstalledPluginIndexInstallRecords(config.plugins?.installs ?? {});
@@ -1013,8 +1013,8 @@ describe("plugins cli update", () => {
   it("syncs official catalog specs with beta channel context for update --all", async () => {
     const config = createTrackedPluginConfig({
       pluginId: "codex",
-      spec: "@openclaw/codex@2026.6.8-beta.1",
-      resolvedName: "@openclaw/codex",
+      spec: "@luckynemo/codex@2026.6.8-beta.1",
+      resolvedName: "@luckynemo/codex",
     });
     config.update = { channel: "beta" };
     loadConfig.mockReturnValue(config);
@@ -1037,8 +1037,8 @@ describe("plugins cli update", () => {
   it("passes extended-stable channel and installed core version to update --all", async () => {
     const config = createTrackedPluginConfig({
       pluginId: "codex",
-      spec: "@openclaw/codex",
-      resolvedName: "@openclaw/codex",
+      spec: "@luckynemo/codex",
+      resolvedName: "@luckynemo/codex",
     });
     config.update = { channel: "extended-stable" };
     loadConfig.mockReturnValue(config);
@@ -1117,7 +1117,7 @@ describe("plugins cli update", () => {
         installs: {
           alpha: {
             source: "npm",
-            spec: "@openclaw/alpha@1.0.0",
+            spec: "@luckynemo/alpha@1.0.0",
           },
         },
       },
@@ -1127,7 +1127,7 @@ describe("plugins cli update", () => {
         installs: {
           alpha: {
             source: "npm",
-            spec: "@openclaw/alpha@1.1.0",
+            spec: "@luckynemo/alpha@1.1.0",
           },
         },
       },
@@ -1195,11 +1195,11 @@ describe("plugins cli update", () => {
         installs: {
           alpha: {
             source: "npm",
-            spec: "@openclaw/alpha@1.0.0",
+            spec: "@luckynemo/alpha@1.0.0",
           },
           beta: {
             source: "npm",
-            spec: "@openclaw/beta@1.0.0",
+            spec: "@luckynemo/beta@1.0.0",
           },
         },
       },
@@ -1209,11 +1209,11 @@ describe("plugins cli update", () => {
         installs: {
           alpha: {
             source: "npm",
-            spec: "@openclaw/alpha@1.1.0",
+            spec: "@luckynemo/alpha@1.1.0",
           },
           beta: {
             source: "npm",
-            spec: "@openclaw/beta@1.0.0",
+            spec: "@luckynemo/beta@1.0.0",
           },
         },
       },
@@ -1253,8 +1253,8 @@ describe("plugins cli update", () => {
         installs: {
           demo: {
             source: "clawhub",
-            spec: "clawhub:@openclaw/plugin-demo@1.0.0",
-            clawhubPackage: "@openclaw/plugin-demo",
+            spec: "clawhub:@luckynemo/plugin-demo@1.0.0",
+            clawhubPackage: "@luckynemo/plugin-demo",
           },
         },
       },
@@ -1292,8 +1292,8 @@ describe("plugins cli update", () => {
         installs: {
           demo: {
             source: "clawhub",
-            spec: "clawhub:@openclaw/plugin-demo",
-            clawhubPackage: "@openclaw/plugin-demo",
+            spec: "clawhub:@luckynemo/plugin-demo",
+            clawhubPackage: "@luckynemo/plugin-demo",
           },
         },
       },
@@ -1331,8 +1331,8 @@ describe("plugins cli update", () => {
         installs: {
           demo: {
             source: "clawhub",
-            spec: "clawhub:@openclaw/plugin-demo",
-            clawhubPackage: "@openclaw/plugin-demo",
+            spec: "clawhub:@luckynemo/plugin-demo",
+            clawhubPackage: "@luckynemo/plugin-demo",
           },
         },
       },
@@ -1346,7 +1346,7 @@ describe("plugins cli update", () => {
           status: "skipped",
           code: "clawhub_security_unavailable",
           message:
-            'Skipped demo ClawHub update: ClawHub security data for "@openclaw/plugin-demo@1.1.0" is unavailable, so OpenClaw left the existing installed plugin unchanged. Try again later or choose a different version.',
+            'Skipped demo ClawHub update: ClawHub security data for "@luckynemo/plugin-demo@1.1.0" is unavailable, so OpenClaw left the existing installed plugin unchanged. Try again later or choose a different version.',
         },
       ],
       changed: false,

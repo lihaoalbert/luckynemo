@@ -1,7 +1,7 @@
 // Trajectory cleanup helpers remove old trajectory files by retention policy.
 import fs from "node:fs";
 import path from "node:path";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
 import { resolveSessionFilePath } from "../config/sessions/paths.js";
 import { parseSqliteSessionFileMarker } from "../config/sessions/sqlite-marker.js";
 import { isPathInside } from "../infra/path-guards.js";

@@ -6,6 +6,7 @@ import { createHash, randomUUID } from "node:crypto";
 import fs from "node:fs";
 import fsPromises from "node:fs/promises";
 import path from "node:path";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import {
   auth,
   type OAuthClientProvider,
@@ -17,7 +18,6 @@ import type {
   OAuthTokens,
 } from "@modelcontextprotocol/sdk/shared/auth.js";
 import type { FetchLike } from "@modelcontextprotocol/sdk/shared/transport.js";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
 import { resolveStateDir } from "../config/paths.js";
 import { type FileLockOptions, withFileLock } from "../infra/file-lock.js";
 import { resolveGlobalSingleton } from "../shared/global-singleton.js";

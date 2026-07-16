@@ -1,10 +1,10 @@
 // Message-action param normalization hydrates media sources, sandbox paths,
 // base64 buffers, JSON params, and plugin-owned media aliases.
-import { canonicalizeBase64, estimateBase64DecodedBytes } from "@openclaw/media-core/base64";
-import { basenameFromAnyPath } from "@openclaw/media-core/file-name";
-import { extensionForMime } from "@openclaw/media-core/mime";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { canonicalizeBase64, estimateBase64DecodedBytes } from "@luckynemo/media-core/base64";
+import { basenameFromAnyPath } from "@luckynemo/media-core/file-name";
+import { extensionForMime } from "@luckynemo/media-core/mime";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { assertMediaNotDataUrl, resolveSandboxedMediaSource } from "../../agents/sandbox-paths.js";
 import { readStringArrayParam, readStringParam } from "../../agents/tools/common.js";
 import { resolveChannelMessageToolMediaSourceParamKeys } from "../../channels/plugins/message-action-discovery.js";

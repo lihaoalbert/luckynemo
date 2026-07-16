@@ -1,7 +1,7 @@
 // Session utility performance tests protect resolver cache scaling for large
 // session lists with repeated provider/model tuples.
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { beforeAll, describe, test, expect, vi } from "vitest";
 import * as thinking from "../auto-reply/thinking.js";
 import type { OpenClawConfig } from "../config/config.js";

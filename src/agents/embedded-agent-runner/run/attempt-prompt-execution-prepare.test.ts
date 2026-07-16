@@ -12,7 +12,7 @@ const hoisted = vi.hoisted(() => ({
   withSessionWriteLock: vi.fn(async (operation: () => unknown) => await operation()),
 }));
 
-vi.mock("@openclaw/media-core/constants", () => ({ MAX_IMAGE_BYTES: 1_234 }));
+vi.mock("@luckynemo/media-core/constants", () => ({ MAX_IMAGE_BYTES: 1_234 }));
 vi.mock("../../image-sanitization.js", () => ({
   resolveImageSanitizationLimits: hoisted.resolveImageSanitizationLimits,
 }));

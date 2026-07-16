@@ -1,5 +1,5 @@
-import { expectDefined } from "@openclaw/normalization-core";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { expectDefined } from "@luckynemo/normalization-core";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { normalizeSkillIndexName } from "../discovery/skill-index.js";
 import { assertInsideWorkspace } from "../lifecycle/workspace-skill-write.js";
 import {

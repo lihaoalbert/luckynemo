@@ -1,9 +1,9 @@
 // Gateway exec approval manager.
 // Tracks pending operator decisions and short-lived resolved approval records.
 import { randomUUID } from "node:crypto";
-import { expectDefined } from "@openclaw/normalization-core";
-import { resolveExpiresAtMsFromDurationMs } from "@openclaw/normalization-core/number-coercion";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { expectDefined } from "@luckynemo/normalization-core";
+import { resolveExpiresAtMsFromDurationMs } from "@luckynemo/normalization-core/number-coercion";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import { buildApprovalPresentation } from "../infra/approval-presentation.js";
 import { buildApprovalResolutionRef } from "../infra/approval-resolution-ref.js";
 import type {

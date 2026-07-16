@@ -1,5 +1,5 @@
 // Doctor runtime checks inspect tool names, browser residue, and runtime state.
-import { redactSensitiveUrlLikeString } from "@openclaw/net-policy/redact-sensitive-url";
+import { redactSensitiveUrlLikeString } from "@luckynemo/net-policy/redact-sensitive-url";
 import { TOOL_NAME_SEPARATOR } from "../agents/agent-bundle-mcp-names.js";
 import {
   type McpToolCatalogDiagnostic,

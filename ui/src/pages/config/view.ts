@@ -1,5 +1,5 @@
 // Control UI view renders config screen content.
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import JSON5 from "json5";
 import { html, nothing, type TemplateResult } from "lit";
 import type { ConfigUiHints } from "../../api/types.ts";

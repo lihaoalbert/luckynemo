@@ -4,7 +4,7 @@
  * Tail storage is byte-bounded but decoded as UTF-8, so truncation avoids
  * splitting multi-byte characters in display output.
  */
-import { resolveIntegerOption } from "@openclaw/normalization-core/number-coercion";
+import { resolveIntegerOption } from "@luckynemo/normalization-core/number-coercion";
 
 /** Normalizes optional positive numeric limits to a finite integer. */
 export function normalizePositiveLimit(value: number | undefined, fallback: number): number {

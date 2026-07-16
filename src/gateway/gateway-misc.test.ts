@@ -4,7 +4,7 @@ import * as fs from "node:fs/promises";
 import type { IncomingMessage, ServerResponse } from "node:http";
 import * as os from "node:os";
 import * as path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { beforeAll, beforeEach, describe, expect, it, test, vi } from "vitest";
 import type { RequestFrame } from "../../packages/gateway-protocol/src/index.js";
 import {

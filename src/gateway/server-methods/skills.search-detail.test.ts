@@ -1,7 +1,7 @@
 // Skill search/detail tests cover ClawHub search and detail gateway responses,
 // including validation and external error mapping.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const searchSkillsFromClawHubMock = vi.fn();

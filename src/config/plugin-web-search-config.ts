@@ -1,5 +1,5 @@
 // Normalizes plugin web-search configuration and defaults.
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
 
 type PluginWebSearchConfigCarrier = {
   plugins?: {

@@ -1,7 +1,7 @@
 // Creates and propagates lightweight W3C diagnostic trace contexts.
 import { AsyncLocalStorage } from "node:async_hooks";
 import { randomBytes } from "node:crypto";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 
 const TRACEPARENT_VERSION = "00";
 const DEFAULT_TRACE_FLAGS = "01";

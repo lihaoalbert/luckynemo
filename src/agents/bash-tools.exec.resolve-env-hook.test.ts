@@ -3,7 +3,7 @@
  * Verifies plugin-provided env values are filtered and forwarded to the chosen
  * exec host without leaking unsafe overrides.
  */
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 import type { ExecuteNodeHostCommandParams } from "./bash-tools.exec-host-node.types.js";
 import type { BashSandboxConfig } from "./bash-tools.shared.js";

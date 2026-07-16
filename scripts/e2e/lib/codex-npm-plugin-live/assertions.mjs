@@ -287,7 +287,7 @@ function normalizePluginSpec(spec) {
 }
 
 function assertPlugin() {
-  const spec = process.argv[3] || "npm:@openclaw/codex";
+  const spec = process.argv[3] || "npm:@luckynemo/codex";
   const list = readJson("/tmp/openclaw-codex-plugins-list.json");
   const inspect = readJson("/tmp/openclaw-codex-plugin-inspect.json");
   const plugin = (list.plugins || []).find((entry) => entry.id === "codex");
@@ -369,7 +369,7 @@ function codexInstallPath() {
 }
 
 function codexNpmProjectRoot() {
-  return npmProjectRootForInstalledPackage(codexInstallPath(), "@openclaw/codex");
+  return npmProjectRootForInstalledPackage(codexInstallPath(), "@luckynemo/codex");
 }
 
 function findCodexPackageJson(packageName) {
@@ -382,13 +382,13 @@ function assertNpmDeps() {
   const installPath = codexInstallPath();
   const pluginPackageJson = path.join(installPath, "package.json");
   if (!fs.existsSync(pluginPackageJson)) {
-    throw new Error(`missing npm-installed @openclaw/codex package.json: ${pluginPackageJson}`);
+    throw new Error(`missing npm-installed @luckynemo/codex package.json: ${pluginPackageJson}`);
   }
   assertPathInside(npmRoot, installPath, "codex plugin install path");
   assertPathInside(npmRoot, pluginPackageJson, "codex plugin package");
 
   const pluginPackage = readJson(pluginPackageJson);
-  if (pluginPackage.name !== "@openclaw/codex") {
+  if (pluginPackage.name !== "@luckynemo/codex") {
     throw new Error(`unexpected codex package name: ${pluginPackage.name}`);
   }
 

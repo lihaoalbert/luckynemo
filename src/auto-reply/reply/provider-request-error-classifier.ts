@@ -1,5 +1,5 @@
 // Classifies provider request failures into retry and user-facing categories.
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import {
   AUTH_INVALID_TOKEN_USER_TEXT,
   classifyProviderRuntimeFailureKind,

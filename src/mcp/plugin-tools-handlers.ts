@@ -1,4 +1,4 @@
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
 // Plugin MCP tool handlers route plugin tool calls through the active runtime.
 import {
   isToolWrappedWithBeforeToolCallHook,

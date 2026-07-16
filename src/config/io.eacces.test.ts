@@ -2,7 +2,7 @@
 import fsNode from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { withEnvAsync } from "../test-utils/env.js";
 import { createConfigIO, resetConfigRuntimeState, writeConfigFile } from "./io.js";

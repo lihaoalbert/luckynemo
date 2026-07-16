@@ -1,9 +1,9 @@
 // Interactive payload helpers normalize structured interactive UI payloads.
-import { asOptionalRecord as toRecord } from "@openclaw/normalization-core/record-coerce";
+import { asOptionalRecord as toRecord } from "@luckynemo/normalization-core/record-coerce";
 import {
   normalizeOptionalLowercaseString,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { isWellFormedApprovalId } from "../../packages/gateway-protocol/src/schema/approval-id.js";
 
 export type InteractiveButtonStyle = "primary" | "secondary" | "success" | "danger";

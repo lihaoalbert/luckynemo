@@ -1,6 +1,6 @@
 // Resolves event-triggered work to the correct session key and target.
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import type { SessionScope } from "../config/types.base.js";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { resolveAgentRoute } from "../routing/resolve-route.js";

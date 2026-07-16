@@ -249,7 +249,7 @@ describe("Control UI Vite config", () => {
   });
 
   it("resolves root tsconfig package aliases for source imports", () => {
-    expect(findStringAlias("@openclaw/net-policy/ip")?.replacement).toBe(
+    expect(findStringAlias("@luckynemo/net-policy/ip")?.replacement).toBe(
       path.join(repoRoot, "packages/net-policy/src/ip.ts"),
     );
   });
@@ -257,9 +257,9 @@ describe("Control UI Vite config", () => {
   it("resolves Control UI dev-server source aliases for internal packages", () => {
     const aliases = resolveSourcePackageAliasesForVite();
     expect(
-      aliases.find((alias) => alias.find === "@openclaw/normalization-core/string-coerce"),
+      aliases.find((alias) => alias.find === "@luckynemo/normalization-core/string-coerce"),
     )?.toEqual({
-      find: "@openclaw/normalization-core/string-coerce",
+      find: "@luckynemo/normalization-core/string-coerce",
       replacement: path.join(repoRoot, "packages/normalization-core/src/string-coerce.ts"),
     });
   });
@@ -274,9 +274,11 @@ describe("Control UI Vite config", () => {
 
   it("keeps specific tsconfig aliases ahead of broad package aliases", () => {
     const aliases = resolveTsconfigPathAliasesForVite();
-    const netPolicyIpIndex = aliases.findIndex((alias) => alias.find === "@openclaw/net-policy/ip");
+    const netPolicyIpIndex = aliases.findIndex(
+      (alias) => alias.find === "@luckynemo/net-policy/ip",
+    );
     const netPolicyPackageIndex = aliases.findIndex(
-      (alias) => alias.find === "@openclaw/net-policy",
+      (alias) => alias.find === "@luckynemo/net-policy",
     );
     const netPolicyWildcardIndex = aliases.findIndex(
       (alias) =>

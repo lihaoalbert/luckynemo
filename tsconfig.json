@@ -28,225 +28,225 @@
       "openclaw/extension-api": ["./src/extensionAPI.ts"],
       "openclaw/plugin-sdk": ["./src/plugin-sdk/index.ts"],
       "openclaw/plugin-sdk/*": ["./src/plugin-sdk/*.ts"],
-      "@openclaw/ai": ["./packages/ai/src/index.ts"],
-      "@openclaw/ai/diagnostics": ["./packages/ai/src/utils/diagnostics.ts"],
-      "@openclaw/ai/event-stream": ["./packages/ai/src/utils/event-stream.ts"],
-      "@openclaw/ai/providers": ["./packages/ai/src/providers.ts"],
-      "@openclaw/ai/types": ["./packages/ai/src/types.ts"],
-      "@openclaw/ai/validation": ["./packages/ai/src/validation.ts"],
-      "@openclaw/ai/internal/*": ["./packages/ai/src/internal/*.ts"],
-      "@openclaw/agent-core": ["./packages/agent-core/src/index.ts"],
-      "@openclaw/agent-core/*": ["./packages/agent-core/src/*"],
-      "@openclaw/llm-core": ["./packages/llm-core/src/index.ts"],
-      "@openclaw/llm-core/diagnostics": ["./packages/llm-core/src/utils/diagnostics.ts"],
-      "@openclaw/llm-core/event-stream": ["./packages/llm-core/src/utils/event-stream.ts"],
-      "@openclaw/llm-core/validation": ["./packages/llm-core/src/validation.ts"],
-      "@openclaw/llm-core/*": ["./packages/llm-core/src/*"],
-      "@openclaw/model-catalog-core": ["./packages/model-catalog-core/src/index.ts"],
-      "@openclaw/model-catalog-core/configured-model-refs": [
+      "@luckynemo/ai": ["./packages/ai/src/index.ts"],
+      "@luckynemo/ai/diagnostics": ["./packages/ai/src/utils/diagnostics.ts"],
+      "@luckynemo/ai/event-stream": ["./packages/ai/src/utils/event-stream.ts"],
+      "@luckynemo/ai/providers": ["./packages/ai/src/providers.ts"],
+      "@luckynemo/ai/types": ["./packages/ai/src/types.ts"],
+      "@luckynemo/ai/validation": ["./packages/ai/src/validation.ts"],
+      "@luckynemo/ai/internal/*": ["./packages/ai/src/internal/*.ts"],
+      "@luckynemo/agent-core": ["./packages/agent-core/src/index.ts"],
+      "@luckynemo/agent-core/*": ["./packages/agent-core/src/*"],
+      "@luckynemo/llm-core": ["./packages/llm-core/src/index.ts"],
+      "@luckynemo/llm-core/diagnostics": ["./packages/llm-core/src/utils/diagnostics.ts"],
+      "@luckynemo/llm-core/event-stream": ["./packages/llm-core/src/utils/event-stream.ts"],
+      "@luckynemo/llm-core/validation": ["./packages/llm-core/src/validation.ts"],
+      "@luckynemo/llm-core/*": ["./packages/llm-core/src/*"],
+      "@luckynemo/model-catalog-core": ["./packages/model-catalog-core/src/index.ts"],
+      "@luckynemo/model-catalog-core/configured-model-refs": [
         "./packages/model-catalog-core/src/configured-model-refs.ts"
       ],
-      "@openclaw/model-catalog-core/model-catalog-normalize": [
+      "@luckynemo/model-catalog-core/model-catalog-normalize": [
         "./packages/model-catalog-core/src/model-catalog-normalize.ts"
       ],
-      "@openclaw/model-catalog-core/model-catalog-refs": [
+      "@luckynemo/model-catalog-core/model-catalog-refs": [
         "./packages/model-catalog-core/src/model-catalog-refs.ts"
       ],
-      "@openclaw/model-catalog-core/model-catalog-types": [
+      "@luckynemo/model-catalog-core/model-catalog-types": [
         "./packages/model-catalog-core/src/model-catalog-types.ts"
       ],
-      "@openclaw/model-catalog-core/provider-id": [
+      "@luckynemo/model-catalog-core/provider-id": [
         "./packages/model-catalog-core/src/provider-id.ts"
       ],
-      "@openclaw/model-catalog-core/provider-model-id-normalization": [
+      "@luckynemo/model-catalog-core/provider-model-id-normalization": [
         "./packages/model-catalog-core/src/provider-model-id-normalization.ts"
       ],
-      "@openclaw/model-catalog-core/provider-model-id-normalize": [
+      "@luckynemo/model-catalog-core/provider-model-id-normalize": [
         "./packages/model-catalog-core/src/provider-model-id-normalize.ts"
       ],
-      "@openclaw/model-catalog-core/*": ["./packages/model-catalog-core/src/*"],
-      "@openclaw/gateway-client": ["./packages/gateway-client/src/index.ts"],
-      "@openclaw/gateway-client/browser": ["./packages/gateway-client/src/browser.ts"],
-      "@openclaw/gateway-client/*": ["./packages/gateway-client/src/*"],
-      "@openclaw/gateway-protocol": ["./packages/gateway-protocol/src/index.ts"],
-      "@openclaw/gateway-protocol/client-info": [
+      "@luckynemo/model-catalog-core/*": ["./packages/model-catalog-core/src/*"],
+      "@luckynemo/gateway-client": ["./packages/gateway-client/src/index.ts"],
+      "@luckynemo/gateway-client/browser": ["./packages/gateway-client/src/browser.ts"],
+      "@luckynemo/gateway-client/*": ["./packages/gateway-client/src/*"],
+      "@luckynemo/gateway-protocol": ["./packages/gateway-protocol/src/index.ts"],
+      "@luckynemo/gateway-protocol/client-info": [
         "./packages/gateway-protocol/src/client-info.ts"
       ],
-      "@openclaw/gateway-protocol/connect-error-details": [
+      "@luckynemo/gateway-protocol/connect-error-details": [
         "./packages/gateway-protocol/src/connect-error-details.ts"
       ],
-      "@openclaw/gateway-protocol/frame-guards": [
+      "@luckynemo/gateway-protocol/frame-guards": [
         "./packages/gateway-protocol/src/frame-guards.ts"
       ],
-      "@openclaw/gateway-protocol/schema": ["./packages/gateway-protocol/src/schema.ts"],
-      "@openclaw/gateway-protocol/startup-unavailable": [
+      "@luckynemo/gateway-protocol/schema": ["./packages/gateway-protocol/src/schema.ts"],
+      "@luckynemo/gateway-protocol/startup-unavailable": [
         "./packages/gateway-protocol/src/startup-unavailable.ts"
       ],
-      "@openclaw/gateway-protocol/version": ["./packages/gateway-protocol/src/version.ts"],
-      "@openclaw/gateway-protocol/*": ["./packages/gateway-protocol/src/*"],
-      "@openclaw/media-generation-core": ["./packages/media-generation-core/src/index.ts"],
-      "@openclaw/media-generation-core/capability-model-ref": [
+      "@luckynemo/gateway-protocol/version": ["./packages/gateway-protocol/src/version.ts"],
+      "@luckynemo/gateway-protocol/*": ["./packages/gateway-protocol/src/*"],
+      "@luckynemo/media-generation-core": ["./packages/media-generation-core/src/index.ts"],
+      "@luckynemo/media-generation-core/capability-model-ref": [
         "./packages/media-generation-core/src/capability-model-ref.ts"
       ],
-      "@openclaw/media-generation-core/catalog": [
+      "@luckynemo/media-generation-core/catalog": [
         "./packages/media-generation-core/src/catalog.ts"
       ],
-      "@openclaw/media-generation-core/model-ref": [
+      "@luckynemo/media-generation-core/model-ref": [
         "./packages/media-generation-core/src/model-ref.ts"
       ],
-      "@openclaw/media-generation-core/normalization": [
+      "@luckynemo/media-generation-core/normalization": [
         "./packages/media-generation-core/src/normalization.ts"
       ],
-      "@openclaw/media-generation-core/*": ["./packages/media-generation-core/src/*"],
-      "@openclaw/media-core": ["./packages/media-core/src/index.ts"],
-      "@openclaw/media-core/base64": ["./packages/media-core/src/base64.ts"],
-      "@openclaw/media-core/constants": ["./packages/media-core/src/constants.ts"],
-      "@openclaw/media-core/content-length": ["./packages/media-core/src/content-length.ts"],
-      "@openclaw/media-core/file-name": ["./packages/media-core/src/file-name.ts"],
-      "@openclaw/media-core/inbound-path-policy": [
+      "@luckynemo/media-generation-core/*": ["./packages/media-generation-core/src/*"],
+      "@luckynemo/media-core": ["./packages/media-core/src/index.ts"],
+      "@luckynemo/media-core/base64": ["./packages/media-core/src/base64.ts"],
+      "@luckynemo/media-core/constants": ["./packages/media-core/src/constants.ts"],
+      "@luckynemo/media-core/content-length": ["./packages/media-core/src/content-length.ts"],
+      "@luckynemo/media-core/file-name": ["./packages/media-core/src/file-name.ts"],
+      "@luckynemo/media-core/inbound-path-policy": [
         "./packages/media-core/src/inbound-path-policy.ts"
       ],
-      "@openclaw/media-core/inline-image-data-url": [
+      "@luckynemo/media-core/inline-image-data-url": [
         "./packages/media-core/src/inline-image-data-url.ts"
       ],
-      "@openclaw/media-core/media-source-url": [
+      "@luckynemo/media-core/media-source-url": [
         "./packages/media-core/src/media-source-url.ts"
       ],
-      "@openclaw/media-core/mime": ["./packages/media-core/src/mime.ts"],
-      "@openclaw/media-core/read-byte-stream-with-limit": [
+      "@luckynemo/media-core/mime": ["./packages/media-core/src/mime.ts"],
+      "@luckynemo/media-core/read-byte-stream-with-limit": [
         "./packages/media-core/src/read-byte-stream-with-limit.ts"
       ],
-      "@openclaw/media-core/*": ["./packages/media-core/src/*"],
-      "@openclaw/media-understanding-common/*": [
+      "@luckynemo/media-core/*": ["./packages/media-core/src/*"],
+      "@luckynemo/media-understanding-common/*": [
         "./packages/media-understanding-common/src/*"
       ],
-      "@openclaw/markdown-core": ["./packages/markdown-core/src/index.ts"],
-      "@openclaw/markdown-core/code-spans": ["./packages/markdown-core/src/code-spans.ts"],
-      "@openclaw/markdown-core/fences": ["./packages/markdown-core/src/fences.ts"],
-      "@openclaw/markdown-core/frontmatter": ["./packages/markdown-core/src/frontmatter.ts"],
-      "@openclaw/markdown-core/ir": ["./packages/markdown-core/src/ir.ts"],
-      "@openclaw/markdown-core/render": ["./packages/markdown-core/src/render.ts"],
-      "@openclaw/markdown-core/render-aware-chunking": [
+      "@luckynemo/markdown-core": ["./packages/markdown-core/src/index.ts"],
+      "@luckynemo/markdown-core/code-spans": ["./packages/markdown-core/src/code-spans.ts"],
+      "@luckynemo/markdown-core/fences": ["./packages/markdown-core/src/fences.ts"],
+      "@luckynemo/markdown-core/frontmatter": ["./packages/markdown-core/src/frontmatter.ts"],
+      "@luckynemo/markdown-core/ir": ["./packages/markdown-core/src/ir.ts"],
+      "@luckynemo/markdown-core/render": ["./packages/markdown-core/src/render.ts"],
+      "@luckynemo/markdown-core/render-aware-chunking": [
         "./packages/markdown-core/src/render-aware-chunking.ts"
       ],
-      "@openclaw/markdown-core/tables": ["./packages/markdown-core/src/tables.ts"],
-      "@openclaw/markdown-core/types": ["./packages/markdown-core/src/types.ts"],
-      "@openclaw/markdown-core/*": ["./packages/markdown-core/src/*"],
-      "@openclaw/normalization-core": ["./packages/normalization-core/src/index.ts"],
-      "@openclaw/normalization-core/agent-id": [
+      "@luckynemo/markdown-core/tables": ["./packages/markdown-core/src/tables.ts"],
+      "@luckynemo/markdown-core/types": ["./packages/markdown-core/src/types.ts"],
+      "@luckynemo/markdown-core/*": ["./packages/markdown-core/src/*"],
+      "@luckynemo/normalization-core": ["./packages/normalization-core/src/index.ts"],
+      "@luckynemo/normalization-core/agent-id": [
         "./packages/normalization-core/src/agent-id.ts"
       ],
-      "@openclaw/normalization-core/boolean-coercion": [
+      "@luckynemo/normalization-core/boolean-coercion": [
         "./packages/normalization-core/src/boolean-coercion.ts"
       ],
-      "@openclaw/normalization-core/error-coercion": [
+      "@luckynemo/normalization-core/error-coercion": [
         "./packages/normalization-core/src/error-coercion.ts"
       ],
-      "@openclaw/normalization-core/expect": ["./packages/normalization-core/src/expect.ts"],
-      "@openclaw/normalization-core/number-coercion": [
+      "@luckynemo/normalization-core/expect": ["./packages/normalization-core/src/expect.ts"],
+      "@luckynemo/normalization-core/number-coercion": [
         "./packages/normalization-core/src/number-coercion.ts"
       ],
-      "@openclaw/normalization-core/record-coerce": [
+      "@luckynemo/normalization-core/record-coerce": [
         "./packages/normalization-core/src/record-coerce.ts"
       ],
-      "@openclaw/normalization-core/result": [
+      "@luckynemo/normalization-core/result": [
         "./packages/normalization-core/src/result.ts"
       ],
-      "@openclaw/normalization-core/string-coerce": [
+      "@luckynemo/normalization-core/string-coerce": [
         "./packages/normalization-core/src/string-coerce.ts"
       ],
-      "@openclaw/normalization-core/string-normalization": [
+      "@luckynemo/normalization-core/string-normalization": [
         "./packages/normalization-core/src/string-normalization.ts"
       ],
-      "@openclaw/normalization-core/utf16-slice": [
+      "@luckynemo/normalization-core/utf16-slice": [
         "./packages/normalization-core/src/utf16-slice.ts"
       ],
-      "@openclaw/normalization-core/*": ["./packages/normalization-core/src/*"],
-      "@openclaw/retry": ["./packages/retry/src/index.ts"],
-      "@openclaw/workboard-contract": ["./packages/workboard-contract/src/index.ts"],
-      "@openclaw/acp-core": ["./packages/acp-core/src/index.ts"],
-      "@openclaw/acp-core/meta": ["./packages/acp-core/src/meta.ts"],
-      "@openclaw/acp-core/numeric-options": ["./packages/acp-core/src/numeric-options.ts"],
-      "@openclaw/acp-core/normalize-text": ["./packages/acp-core/src/normalize-text.ts"],
-      "@openclaw/acp-core/record-shared": ["./packages/acp-core/src/record-shared.ts"],
-      "@openclaw/acp-core/session": ["./packages/acp-core/src/session.ts"],
-      "@openclaw/acp-core/session-interaction-mode": [
+      "@luckynemo/normalization-core/*": ["./packages/normalization-core/src/*"],
+      "@luckynemo/retry": ["./packages/retry/src/index.ts"],
+      "@luckynemo/workboard-contract": ["./packages/workboard-contract/src/index.ts"],
+      "@luckynemo/acp-core": ["./packages/acp-core/src/index.ts"],
+      "@luckynemo/acp-core/meta": ["./packages/acp-core/src/meta.ts"],
+      "@luckynemo/acp-core/numeric-options": ["./packages/acp-core/src/numeric-options.ts"],
+      "@luckynemo/acp-core/normalize-text": ["./packages/acp-core/src/normalize-text.ts"],
+      "@luckynemo/acp-core/record-shared": ["./packages/acp-core/src/record-shared.ts"],
+      "@luckynemo/acp-core/session": ["./packages/acp-core/src/session.ts"],
+      "@luckynemo/acp-core/session-interaction-mode": [
         "./packages/acp-core/src/session-interaction-mode.ts"
       ],
-      "@openclaw/acp-core/session-lineage-meta": [
+      "@luckynemo/acp-core/session-lineage-meta": [
         "./packages/acp-core/src/session-lineage-meta.ts"
       ],
-      "@openclaw/acp-core/types": ["./packages/acp-core/src/types.ts"],
-      "@openclaw/acp-core/runtime/error-text": [
+      "@luckynemo/acp-core/types": ["./packages/acp-core/src/types.ts"],
+      "@luckynemo/acp-core/runtime/error-text": [
         "./packages/acp-core/src/runtime/error-text.ts"
       ],
-      "@openclaw/acp-core/runtime/errors": ["./packages/acp-core/src/runtime/errors.ts"],
-      "@openclaw/acp-core/runtime/session-identifiers": [
+      "@luckynemo/acp-core/runtime/errors": ["./packages/acp-core/src/runtime/errors.ts"],
+      "@luckynemo/acp-core/runtime/session-identifiers": [
         "./packages/acp-core/src/runtime/session-identifiers.ts"
       ],
-      "@openclaw/acp-core/runtime/session-identity": [
+      "@luckynemo/acp-core/runtime/session-identity": [
         "./packages/acp-core/src/runtime/session-identity.ts"
       ],
-      "@openclaw/acp-core/runtime/types": ["./packages/acp-core/src/runtime/types.ts"],
-      "@openclaw/acp-core/*": ["./packages/acp-core/src/*"],
-      "@openclaw/terminal-core": ["./packages/terminal-core/src/index.ts"],
-      "@openclaw/terminal-core/ansi": ["./packages/terminal-core/src/ansi.ts"],
-      "@openclaw/terminal-core/decorative-emoji": [
+      "@luckynemo/acp-core/runtime/types": ["./packages/acp-core/src/runtime/types.ts"],
+      "@luckynemo/acp-core/*": ["./packages/acp-core/src/*"],
+      "@luckynemo/terminal-core": ["./packages/terminal-core/src/index.ts"],
+      "@luckynemo/terminal-core/ansi": ["./packages/terminal-core/src/ansi.ts"],
+      "@luckynemo/terminal-core/decorative-emoji": [
         "./packages/terminal-core/src/decorative-emoji.ts"
       ],
-      "@openclaw/terminal-core/health-style": [
+      "@luckynemo/terminal-core/health-style": [
         "./packages/terminal-core/src/health-style.ts"
       ],
-      "@openclaw/terminal-core/links": ["./packages/terminal-core/src/links.ts"],
-      "@openclaw/terminal-core/note": ["./packages/terminal-core/src/note.ts"],
-      "@openclaw/terminal-core/osc-progress": ["./packages/terminal-core/src/osc-progress.ts"],
-      "@openclaw/terminal-core/palette": ["./packages/terminal-core/src/palette.ts"],
-      "@openclaw/terminal-core/progress-line": [
+      "@luckynemo/terminal-core/links": ["./packages/terminal-core/src/links.ts"],
+      "@luckynemo/terminal-core/note": ["./packages/terminal-core/src/note.ts"],
+      "@luckynemo/terminal-core/osc-progress": ["./packages/terminal-core/src/osc-progress.ts"],
+      "@luckynemo/terminal-core/palette": ["./packages/terminal-core/src/palette.ts"],
+      "@luckynemo/terminal-core/progress-line": [
         "./packages/terminal-core/src/progress-line.ts"
       ],
-      "@openclaw/terminal-core/prompt-select-styled": [
+      "@luckynemo/terminal-core/prompt-select-styled": [
         "./packages/terminal-core/src/prompt-select-styled.ts"
       ],
-      "@openclaw/terminal-core/prompt-select-styled-params": [
+      "@luckynemo/terminal-core/prompt-select-styled-params": [
         "./packages/terminal-core/src/prompt-select-styled-params.ts"
       ],
-      "@openclaw/terminal-core/prompt-style": [
+      "@luckynemo/terminal-core/prompt-style": [
         "./packages/terminal-core/src/prompt-style.ts"
       ],
-      "@openclaw/terminal-core/restore": ["./packages/terminal-core/src/restore.ts"],
-      "@openclaw/terminal-core/safe-text": ["./packages/terminal-core/src/safe-text.ts"],
-      "@openclaw/terminal-core/stream-writer": [
+      "@luckynemo/terminal-core/restore": ["./packages/terminal-core/src/restore.ts"],
+      "@luckynemo/terminal-core/safe-text": ["./packages/terminal-core/src/safe-text.ts"],
+      "@luckynemo/terminal-core/stream-writer": [
         "./packages/terminal-core/src/stream-writer.ts"
       ],
-      "@openclaw/terminal-core/table": ["./packages/terminal-core/src/table.ts"],
-      "@openclaw/terminal-core/terminal-link": [
+      "@luckynemo/terminal-core/table": ["./packages/terminal-core/src/table.ts"],
+      "@luckynemo/terminal-core/terminal-link": [
         "./packages/terminal-core/src/terminal-link.ts"
       ],
-      "@openclaw/terminal-core/theme": ["./packages/terminal-core/src/theme.ts"],
-      "@openclaw/terminal-core/*": ["./packages/terminal-core/src/*"],
-      "@openclaw/net-policy": ["./packages/net-policy/src/index.ts"],
-      "@openclaw/net-policy/ip": ["./packages/net-policy/src/ip.ts"],
-      "@openclaw/net-policy/ipv4": ["./packages/net-policy/src/ipv4.ts"],
-      "@openclaw/net-policy/redact-sensitive-url": [
+      "@luckynemo/terminal-core/theme": ["./packages/terminal-core/src/theme.ts"],
+      "@luckynemo/terminal-core/*": ["./packages/terminal-core/src/*"],
+      "@luckynemo/net-policy": ["./packages/net-policy/src/index.ts"],
+      "@luckynemo/net-policy/ip": ["./packages/net-policy/src/ip.ts"],
+      "@luckynemo/net-policy/ipv4": ["./packages/net-policy/src/ipv4.ts"],
+      "@luckynemo/net-policy/redact-sensitive-url": [
         "./packages/net-policy/src/redact-sensitive-url.ts"
       ],
-      "@openclaw/net-policy/url-protocol": ["./packages/net-policy/src/url-protocol.ts"],
-      "@openclaw/net-policy/url-userinfo": ["./packages/net-policy/src/url-userinfo.ts"],
-      "@openclaw/net-policy/*": ["./packages/net-policy/src/*"],
-      "@openclaw/web-content-core/provider-runtime-shared": [
+      "@luckynemo/net-policy/url-protocol": ["./packages/net-policy/src/url-protocol.ts"],
+      "@luckynemo/net-policy/url-userinfo": ["./packages/net-policy/src/url-userinfo.ts"],
+      "@luckynemo/net-policy/*": ["./packages/net-policy/src/*"],
+      "@luckynemo/web-content-core/provider-runtime-shared": [
         "./packages/web-content-core/src/provider-runtime-shared.ts"
       ],
-      "@openclaw/web-content-core/*": ["./packages/web-content-core/src/*"],
-      "@openclaw/speech-core": ["./packages/speech-core/runtime-api.ts"],
-      "@openclaw/speech-core/runtime-api": ["./packages/speech-core/runtime-api.ts"],
-      "@openclaw/speech-core/speaker": ["./packages/speech-core/speaker.ts"],
-      "@openclaw/speech-core/voice-models": ["./packages/speech-core/voice-models.ts"],
-      "@openclaw/speech-core/*": ["./packages/speech-core/*"],
-      "@openclaw/sdk": ["./packages/sdk/src/index.ts"],
-      "@openclaw/plugin-sdk": ["./src/plugin-sdk/index.ts"],
-      "@openclaw/plugin-sdk/*": ["./src/plugin-sdk/*.ts"],
+      "@luckynemo/web-content-core/*": ["./packages/web-content-core/src/*"],
+      "@luckynemo/speech-core": ["./packages/speech-core/runtime-api.ts"],
+      "@luckynemo/speech-core/runtime-api": ["./packages/speech-core/runtime-api.ts"],
+      "@luckynemo/speech-core/speaker": ["./packages/speech-core/speaker.ts"],
+      "@luckynemo/speech-core/voice-models": ["./packages/speech-core/voice-models.ts"],
+      "@luckynemo/speech-core/*": ["./packages/speech-core/*"],
+      "@luckynemo/sdk": ["./packages/sdk/src/index.ts"],
+      "@luckynemo/plugin-sdk": ["./src/plugin-sdk/index.ts"],
+      "@luckynemo/plugin-sdk/*": ["./src/plugin-sdk/*.ts"],
       "openclaw/plugin-sdk/account-id": ["./src/plugin-sdk/account-id.ts"],
-      "@openclaw/*": ["./extensions/*"]
+      "@luckynemo/*": ["./extensions/*"]
     }
   },
   "include": ["src/**/*", "ui/**/*", "extensions/**/*", "packages/**/*"],

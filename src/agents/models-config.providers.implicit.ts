@@ -6,11 +6,11 @@
 import {
   findNormalizedProviderValue,
   normalizeProviderId,
-} from "@openclaw/model-catalog-core/provider-id";
+} from "@luckynemo/model-catalog-core/provider-id";
 import {
   normalizeStringEntries,
   uniqueStrings,
-} from "@openclaw/normalization-core/string-normalization";
+} from "@luckynemo/normalization-core/string-normalization";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { formatErrorMessage } from "../infra/errors.js";
 import { createSubsystemLogger } from "../logging/subsystem.js";

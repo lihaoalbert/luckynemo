@@ -102,7 +102,7 @@ function pluginRecord(
     manifestPath: `${rootDir}/openclaw.plugin.json`,
     manifestHash: `${pluginId}-manifest-v1`,
     source: `${rootDir}/index.js`,
-    packageName: `@openclaw/${pluginId}`,
+    packageName: `@luckynemo/${pluginId}`,
     packageVersion: "1.0.0",
     installRecordHash: `${pluginId}-install-v1`,
     packageJson: { path: `${rootDir}/package.json`, hash: `${pluginId}-package-v1` },
@@ -1315,7 +1315,7 @@ describe("verified OpenClaw inference binding", () => {
         fs.mkdirSync(path.dirname(runtimeSource), { recursive: true });
         fs.writeFileSync(runtimeSource, "export const runtimeRevision = 1;\n", "utf8");
         fs.writeFileSync(manifestPath, '{"id":"provider-owner"}\n', "utf8");
-        fs.writeFileSync(packageJsonPath, '{"name":"@openclaw/provider-owner"}\n', "utf8");
+        fs.writeFileSync(packageJsonPath, '{"name":"@luckynemo/provider-owner"}\n', "utf8");
 
         const record = pluginRecord("provider-owner", {
           origin,
@@ -1332,7 +1332,7 @@ describe("verified OpenClaw inference binding", () => {
         fs.mkdirSync(codexRootDir, { recursive: true });
         fs.writeFileSync(codexSource, "export const runtime = 'codex';\n", "utf8");
         fs.writeFileSync(codexManifestPath, '{"id":"codex"}\n', "utf8");
-        fs.writeFileSync(codexPackageJsonPath, '{"name":"@openclaw/codex"}\n', "utf8");
+        fs.writeFileSync(codexPackageJsonPath, '{"name":"@luckynemo/codex"}\n', "utf8");
         const codexRecord = pluginRecord("codex", {
           rootDir: codexRootDir,
           manifestPath: codexManifestPath,

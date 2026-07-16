@@ -1,7 +1,7 @@
 // Realtime transcription websocket tests cover websocket session lifecycle.
 import { createServer } from "node:http";
 import type { AddressInfo } from "node:net";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type WebSocket from "ws";
 import { WebSocketServer } from "ws";

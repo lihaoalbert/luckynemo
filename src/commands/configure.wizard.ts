@@ -1,7 +1,7 @@
 // Main interactive configure/update wizard implementation.
 import fsPromises from "node:fs/promises";
 import nodePath from "node:path";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { note } from "../../packages/terminal-core/src/note.js";
 import { describeCodexNativeWebSearch } from "../agents/codex-native-web-search.shared.js";
 import { formatCliCommand } from "../cli/command-format.js";

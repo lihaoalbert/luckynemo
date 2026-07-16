@@ -1,6 +1,6 @@
 // HTTP endpoint adapter for invoking gateway tools from OpenAI-compatible clients.
 import type { IncomingMessage, ServerResponse } from "node:http";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { normalizeMessageChannel } from "../utils/message-channel.js";
 import type { AuthRateLimiter } from "./auth-rate-limit.js";
 import type { ResolvedGatewayAuth } from "./auth.js";

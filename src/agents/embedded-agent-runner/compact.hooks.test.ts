@@ -1,6 +1,6 @@
 // Hook integration coverage for direct and queued embedded compaction.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import type { AgentMessage } from "openclaw/plugin-sdk/agent-core";
 import { beforeAll, beforeEach, describe, expect, it, vi, type Mock } from "vitest";
 import { createReplyOperation } from "../../auto-reply/reply/reply-run-registry.js";

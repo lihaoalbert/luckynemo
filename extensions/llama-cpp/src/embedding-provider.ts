@@ -145,7 +145,7 @@ function formatLlamaCppSetupError(err: unknown): string {
         : undefined,
     missing && detail ? `Detail: ${detail}` : null,
     "To enable local GGUF embeddings:",
-    "1) Install the official provider plugin: openclaw plugins install @openclaw/llama-cpp-provider",
+    "1) Install the official provider plugin: openclaw plugins install @luckynemo/llama-cpp-provider",
     "2) Use Node 24 for native installs/updates.",
     "3) If you use pnpm from source: pnpm approve-builds, then pnpm rebuild node-llama-cpp.",
     'Or set agents.defaults.memorySearch.provider to a remote embedding provider such as "openai", "ollama", "lmstudio", or "voyage".',

@@ -1,5 +1,5 @@
 {
-  "name": "@openclaw/llama-cpp-provider",
+  "name": "@luckynemo/llama-cpp-provider",
   "version": "2026.7.2",
   "description": "OpenClaw llama.cpp embedding provider plugin",
   "repository": {
@@ -11,14 +11,14 @@
     "node-llama-cpp": "3.19.0"
   },
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [
       "./index.ts"
     ],
     "install": {
-      "npmSpec": "@openclaw/llama-cpp-provider",
+      "npmSpec": "@luckynemo/llama-cpp-provider",
       "defaultChoice": "npm",
       "minHostVersion": ">=2026.6.2"
     },

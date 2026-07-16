@@ -1,6 +1,6 @@
 // Doctor warnings and repairs for legacy OpenAI Codex model/provider routing.
-import { asOptionalRecord as asMutableRecord } from "@openclaw/normalization-core/record-coerce";
-import { normalizeOptionalLowercaseString as normalizeString } from "@openclaw/normalization-core/string-coerce";
+import { asOptionalRecord as asMutableRecord } from "@luckynemo/normalization-core/record-coerce";
+import { normalizeOptionalLowercaseString as normalizeString } from "@luckynemo/normalization-core/string-coerce";
 import type { OpenClawConfig } from "../../../config/types.openclaw.js";
 import { detectWindowsSpawnCommandInlineArgs } from "../../../plugin-sdk/windows-spawn.js";
 import {

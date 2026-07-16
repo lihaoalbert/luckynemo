@@ -1,6 +1,6 @@
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 // Shares direct-message policy normalization for channel audits.
-import { normalizeStringEntries } from "@openclaw/normalization-core/string-normalization";
+import { normalizeStringEntries } from "@luckynemo/normalization-core/string-normalization";
 import { resolveGroupAllowFromSources } from "../channels/allow-from.js";
 import { resolveControlCommandGate } from "../channels/command-gating.js";
 import { resolveDmAllowAuditState } from "../channels/message-access/dm-allow-state.js";

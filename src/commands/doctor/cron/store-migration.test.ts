@@ -1,5 +1,5 @@
 // Cron store migration tests cover doctor migration of persisted cron stores.
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it } from "vitest";
 import { normalizeStoredCronJobs } from "./store-migration.js";
 

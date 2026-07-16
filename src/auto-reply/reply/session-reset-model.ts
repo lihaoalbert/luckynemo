@@ -1,6 +1,6 @@
 /** Applies model override tokens embedded in reset/new command text. */
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import type { ModelCatalogEntry } from "../../agents/model-catalog.types.js";
 import {
   buildAllowedModelSetWithFallbacks,

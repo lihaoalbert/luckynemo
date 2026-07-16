@@ -4,9 +4,9 @@
  * This wraps a small reviewer prompt around pending exec requests and converts
  * the model response into conservative allow-once or ask decisions.
  */
-import { resolveTimerTimeoutMs } from "@openclaw/normalization-core/number-coercion";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { resolveTimerTimeoutMs } from "@luckynemo/normalization-core/number-coercion";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { z } from "zod";
 import { sanitizeTerminalText } from "../../packages/terminal-core/src/safe-text.js";
 import type { AgentModelConfig } from "../config/types.agents-shared.js";

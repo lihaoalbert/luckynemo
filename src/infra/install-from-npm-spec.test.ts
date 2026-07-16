@@ -52,7 +52,7 @@ describe("installFromValidatedNpmSpecArchive", () => {
 
     await expect(
       installFromValidatedNpmSpecArchive({
-        spec: "  @openclaw/demo@beta  ",
+        spec: "  @luckynemo/demo@beta  ",
         timeoutMs: 45_000,
         tempDirPrefix: "openclaw-npm-",
         expectedIntegrity: "sha512-demo",
@@ -65,7 +65,7 @@ describe("installFromValidatedNpmSpecArchive", () => {
 
     expect(installFromNpmSpecArchiveWithInstallerMock).toHaveBeenCalledWith({
       tempDirPrefix: "openclaw-npm-",
-      spec: "@openclaw/demo@beta",
+      spec: "@luckynemo/demo@beta",
       timeoutMs: 45_000,
       expectedIntegrity: "sha512-demo",
       onIntegrityDrift,

@@ -4,7 +4,7 @@
  * Replaces the raw schema-driven form as the default settings experience.
  */
 
-import { sliceUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { sliceUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { html, nothing, type TemplateResult } from "lit";
 import type { SystemInfoResult } from "../../../../packages/gateway-protocol/src/index.js";
 import { formatFastModeValue } from "../../../../src/shared/fast-mode.js";

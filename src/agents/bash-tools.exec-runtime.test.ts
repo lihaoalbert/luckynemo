@@ -4,7 +4,7 @@
  * system events, and process lifecycle behavior.
  */
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 import type { GatewayActiveWorkInspectors } from "../infra/gateway-active-work.js";
 import type { RunExit } from "../process/supervisor/types.js";

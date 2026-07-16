@@ -1,5 +1,5 @@
 // Normalizes channel capability metadata from config and plugin manifests.
-import { normalizeStringEntries } from "@openclaw/normalization-core/string-normalization";
+import { normalizeStringEntries } from "@luckynemo/normalization-core/string-normalization";
 import { normalizeAnyChannelId } from "../channels/registry.js";
 import { resolveAccountEntry } from "../routing/account-lookup.js";
 import { normalizeAccountId } from "../routing/session-key.js";

@@ -1,5 +1,5 @@
 {
-  "name": "@openclaw/stepfun-provider",
+  "name": "@luckynemo/stepfun-provider",
   "version": "2026.7.2",
   "description": "OpenClaw StepFun provider plugin.",
   "repository": {
@@ -8,15 +8,15 @@
   },
   "type": "module",
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [
       "./index.ts"
     ],
     "install": {
-      "clawhubSpec": "clawhub:@openclaw/stepfun-provider",
-      "npmSpec": "@openclaw/stepfun-provider",
+      "clawhubSpec": "clawhub:@luckynemo/stepfun-provider",
+      "npmSpec": "@luckynemo/stepfun-provider",
       "defaultChoice": "npm",
       "minHostVersion": ">=2026.6.9"
     },

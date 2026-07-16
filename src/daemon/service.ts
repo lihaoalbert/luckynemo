@@ -2,7 +2,7 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import { parseTcpPort, parseTcpPortFromArgs } from "../infra/tcp-port.js";
 import { VERSION } from "../version.js";
 import { assertFutureConfigActionAllowed } from "./future-config-guard.js";

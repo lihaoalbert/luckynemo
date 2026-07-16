@@ -1,8 +1,8 @@
 /** Doctor migration for legacy plugin manifest capability keys into contracts.* fields. */
 import fs from "node:fs";
 import path from "node:path";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
-import { normalizeTrimmedStringList } from "@openclaw/normalization-core/string-normalization";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
+import { normalizeTrimmedStringList } from "@luckynemo/normalization-core/string-normalization";
 import { z } from "zod";
 import { note } from "../../packages/terminal-core/src/note.js";
 import type { OpenClawConfig } from "../config/types.openclaw.js";

@@ -9,13 +9,13 @@ let monolithicSdk = null;
 let diagnosticEventsModule = null;
 const moduleLoaders = new Map();
 const pluginSdkSubpathsCache = new Map();
-const pluginSdkPackageNames = ["openclaw/plugin-sdk", "@openclaw/plugin-sdk"];
+const pluginSdkPackageNames = ["openclaw/plugin-sdk", "@luckynemo/plugin-sdk"];
 const pluginSdkSourceExtensions = [".ts", ".mts", ".js", ".mjs", ".cts", ".cjs"];
 const privateQaExcludedPluginSdkSubpaths = new Set(["ssrf-runtime-internal"]);
 // Subpath -> source entry for private/bundled workspace packages that internal
 // source imports by package name. Dist paths mirror each package's export map.
 const workspacePackageAliasEntries = {
-  "@openclaw/llm-core": {
+  "@luckynemo/llm-core": {
     dir: "llm-core",
     subpaths: {
       "": { srcFile: "src/index.ts", distFile: "dist/index.mjs" },
@@ -28,7 +28,7 @@ const workspacePackageAliasEntries = {
       validation: { srcFile: "src/validation.ts", distFile: "dist/validation.mjs" },
     },
   },
-  "@openclaw/ai": {
+  "@luckynemo/ai": {
     dir: "ai",
     subpaths: {
       "": { srcFile: "src/index.ts", distFile: "dist/index.mjs" },
@@ -59,7 +59,7 @@ const workspacePackageAliasEntries = {
       },
     },
   },
-  "@openclaw/markdown-core": {
+  "@luckynemo/markdown-core": {
     dir: "markdown-core",
     subpaths: {
       "": { srcFile: "src/index.ts", distFile: "dist/index.mjs" },
@@ -76,7 +76,7 @@ const workspacePackageAliasEntries = {
       types: { srcFile: "src/types.ts", distFile: "dist/types.mjs" },
     },
   },
-  "@openclaw/normalization-core": {
+  "@luckynemo/normalization-core": {
     dir: "normalization-core",
     subpaths: {
       "": { srcFile: "src/index.ts", distFile: "dist/index.mjs" },
@@ -111,7 +111,7 @@ const workspacePackageAliasEntries = {
       },
     },
   },
-  "@openclaw/retry": {
+  "@luckynemo/retry": {
     dir: "retry",
     subpaths: {
       "": { srcFile: "src/index.ts", distFile: "dist/index.mjs" },

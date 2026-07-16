@@ -4,7 +4,7 @@ import { createRequire } from "node:module";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
 import vm from "node:vm";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it } from "vitest";
 
 const require = createRequire(import.meta.url);
@@ -481,11 +481,11 @@ describe("plugin-sdk root alias", () => {
     expect((lazyModule.moduleExports.slowHelper as () => string)()).toBe("loaded");
     const aliasMap = (lazyModule.createJitiOptions.at(-1)?.alias ?? {}) as Record<string, string>;
     expect(aliasMap["openclaw/plugin-sdk"]).toBe(rootAliasPath);
-    expect(aliasMap["@openclaw/plugin-sdk"]).toBe(rootAliasPath);
+    expect(aliasMap["@luckynemo/plugin-sdk"]).toBe(rootAliasPath);
     expect(aliasMap["openclaw/plugin-sdk/group-access"]).toContain(
       path.join("src", "plugin-sdk", "group-access.ts"),
     );
-    expect(aliasMap["@openclaw/plugin-sdk/group-access"]).toContain(
+    expect(aliasMap["@luckynemo/plugin-sdk/group-access"]).toContain(
       path.join("src", "plugin-sdk", "group-access.ts"),
     );
   });
@@ -502,7 +502,7 @@ describe("plugin-sdk root alias", () => {
 
     expect((lazyModule.moduleExports.slowHelper as () => string)()).toBe("loaded");
     const aliasMap = (lazyModule.createJitiOptions.at(-1)?.alias ?? {}) as Record<string, string>;
-    expect(aliasMap["@openclaw/llm-core"]).toBe(sourceLlmCorePath);
+    expect(aliasMap["@luckynemo/llm-core"]).toBe(sourceLlmCorePath);
   });
 
   it("keeps AI runtime transitive package imports on the source graph", () => {
@@ -529,15 +529,15 @@ describe("plugin-sdk root alias", () => {
 
     expect((lazyModule.moduleExports.slowHelper as () => string)()).toBe("loaded");
     const aliasMap = (lazyModule.createJitiOptions.at(-1)?.alias ?? {}) as Record<string, string>;
-    expect(aliasMap["@openclaw/ai/internal/retry-after"]).toBe(sourcePaths.aiRetryAfter);
-    expect(aliasMap["@openclaw/ai/internal/runtime"]).toBe(sourcePaths.aiRuntime);
-    expect(aliasMap["@openclaw/markdown-core/code-spans"]).toBe(sourcePaths.codeSpans);
-    expect(aliasMap["@openclaw/markdown-core/fences"]).toBe(sourcePaths.fences);
-    expect(aliasMap["@openclaw/normalization-core/number-coercion"]).toBe(
+    expect(aliasMap["@luckynemo/ai/internal/retry-after"]).toBe(sourcePaths.aiRetryAfter);
+    expect(aliasMap["@luckynemo/ai/internal/runtime"]).toBe(sourcePaths.aiRuntime);
+    expect(aliasMap["@luckynemo/markdown-core/code-spans"]).toBe(sourcePaths.codeSpans);
+    expect(aliasMap["@luckynemo/markdown-core/fences"]).toBe(sourcePaths.fences);
+    expect(aliasMap["@luckynemo/normalization-core/number-coercion"]).toBe(
       sourcePaths.numberCoercion,
     );
-    expect(aliasMap["@openclaw/normalization-core/result"]).toBe(sourcePaths.result);
-    expect(aliasMap["@openclaw/retry"]).toBe(sourcePaths.retry);
+    expect(aliasMap["@luckynemo/normalization-core/result"]).toBe(sourcePaths.result);
+    expect(aliasMap["@luckynemo/retry"]).toBe(sourcePaths.retry);
   });
 
   it("keeps bootstrap plugin-sdk aliases deterministic and ignores unsafe subpaths", () => {
@@ -559,48 +559,48 @@ describe("plugin-sdk root alias", () => {
     );
     expect(aliasKeys).toEqual([
       "openclaw/plugin-sdk/alpha",
-      "@openclaw/plugin-sdk/alpha",
+      "@luckynemo/plugin-sdk/alpha",
       "openclaw/plugin-sdk/group-access",
-      "@openclaw/plugin-sdk/group-access",
+      "@luckynemo/plugin-sdk/group-access",
       "openclaw/plugin-sdk/zeta",
-      "@openclaw/plugin-sdk/zeta",
-      "@openclaw/llm-core",
-      "@openclaw/llm-core/diagnostics",
-      "@openclaw/llm-core/event-stream",
-      "@openclaw/llm-core/types",
-      "@openclaw/llm-core/validation",
-      "@openclaw/ai",
-      "@openclaw/ai/providers",
-      "@openclaw/ai/diagnostics",
-      "@openclaw/ai/event-stream",
-      "@openclaw/ai/types",
-      "@openclaw/ai/validation",
-      "@openclaw/ai/internal/anthropic",
-      "@openclaw/ai/internal/openai",
-      "@openclaw/ai/internal/retry-after",
-      "@openclaw/ai/internal/runtime",
-      "@openclaw/ai/internal/shared",
-      "@openclaw/markdown-core",
-      "@openclaw/markdown-core/code-spans",
-      "@openclaw/markdown-core/fences",
-      "@openclaw/markdown-core/frontmatter",
-      "@openclaw/markdown-core/ir",
-      "@openclaw/markdown-core/render",
-      "@openclaw/markdown-core/render-aware-chunking",
-      "@openclaw/markdown-core/tables",
-      "@openclaw/markdown-core/types",
-      "@openclaw/normalization-core",
-      "@openclaw/normalization-core/boolean-coercion",
-      "@openclaw/normalization-core/error-coercion",
-      "@openclaw/normalization-core/number-coercion",
-      "@openclaw/normalization-core/record-coerce",
-      "@openclaw/normalization-core/result",
-      "@openclaw/normalization-core/string-coerce",
-      "@openclaw/normalization-core/string-normalization",
-      "@openclaw/normalization-core/utf16-slice",
-      "@openclaw/retry",
+      "@luckynemo/plugin-sdk/zeta",
+      "@luckynemo/llm-core",
+      "@luckynemo/llm-core/diagnostics",
+      "@luckynemo/llm-core/event-stream",
+      "@luckynemo/llm-core/types",
+      "@luckynemo/llm-core/validation",
+      "@luckynemo/ai",
+      "@luckynemo/ai/providers",
+      "@luckynemo/ai/diagnostics",
+      "@luckynemo/ai/event-stream",
+      "@luckynemo/ai/types",
+      "@luckynemo/ai/validation",
+      "@luckynemo/ai/internal/anthropic",
+      "@luckynemo/ai/internal/openai",
+      "@luckynemo/ai/internal/retry-after",
+      "@luckynemo/ai/internal/runtime",
+      "@luckynemo/ai/internal/shared",
+      "@luckynemo/markdown-core",
+      "@luckynemo/markdown-core/code-spans",
+      "@luckynemo/markdown-core/fences",
+      "@luckynemo/markdown-core/frontmatter",
+      "@luckynemo/markdown-core/ir",
+      "@luckynemo/markdown-core/render",
+      "@luckynemo/markdown-core/render-aware-chunking",
+      "@luckynemo/markdown-core/tables",
+      "@luckynemo/markdown-core/types",
+      "@luckynemo/normalization-core",
+      "@luckynemo/normalization-core/boolean-coercion",
+      "@luckynemo/normalization-core/error-coercion",
+      "@luckynemo/normalization-core/number-coercion",
+      "@luckynemo/normalization-core/record-coerce",
+      "@luckynemo/normalization-core/result",
+      "@luckynemo/normalization-core/string-coerce",
+      "@luckynemo/normalization-core/string-normalization",
+      "@luckynemo/normalization-core/utf16-slice",
+      "@luckynemo/retry",
       "openclaw/plugin-sdk",
-      "@openclaw/plugin-sdk",
+      "@luckynemo/plugin-sdk",
     ]);
   });
 
@@ -625,11 +625,11 @@ describe("plugin-sdk root alias", () => {
     expect((lazyModule.moduleExports.slowHelper as () => string)()).toBe("loaded");
     const aliasMap = (lazyModule.createJitiOptions.at(-1)?.alias ?? {}) as Record<string, string>;
     expect(aliasMap["openclaw/plugin-sdk/qa-lab"]).toBe(qaLabPath);
-    expect(aliasMap["@openclaw/plugin-sdk/qa-lab"]).toBe(qaLabPath);
+    expect(aliasMap["@luckynemo/plugin-sdk/qa-lab"]).toBe(qaLabPath);
     expect(aliasMap).not.toHaveProperty("openclaw/plugin-sdk/../escape");
     expect(aliasMap).not.toHaveProperty("openclaw/plugin-sdk/nested/path");
     expect(aliasMap).not.toHaveProperty("openclaw/plugin-sdk/ssrf-runtime-internal");
-    expect(aliasMap).not.toHaveProperty("@openclaw/plugin-sdk/ssrf-runtime-internal");
+    expect(aliasMap).not.toHaveProperty("@luckynemo/plugin-sdk/ssrf-runtime-internal");
   });
 
   it("keeps non-QA private local-only plugin-sdk subpaths out of the CJS root alias", () => {
@@ -652,7 +652,7 @@ describe("plugin-sdk root alias", () => {
     expect((lazyModule.moduleExports.slowHelper as () => string)()).toBe("loaded");
     const aliasMap = (lazyModule.createJitiOptions.at(-1)?.alias ?? {}) as Record<string, string>;
     expect(aliasMap).not.toHaveProperty("openclaw/plugin-sdk/codex-mcp-projection");
-    expect(aliasMap).not.toHaveProperty("@openclaw/plugin-sdk/codex-mcp-projection");
+    expect(aliasMap).not.toHaveProperty("@luckynemo/plugin-sdk/codex-mcp-projection");
     expect(aliasMap).not.toHaveProperty("openclaw/plugin-sdk/qa-runtime");
   });
 
@@ -673,7 +673,7 @@ describe("plugin-sdk root alias", () => {
     expect(aliasMap["openclaw/plugin-sdk/channel-runtime"]).toBe(
       path.join(packageRoot, "src", "plugin-sdk", "channel-runtime.mts"),
     );
-    expect(aliasMap["@openclaw/plugin-sdk/channel-runtime"]).toBe(
+    expect(aliasMap["@luckynemo/plugin-sdk/channel-runtime"]).toBe(
       path.join(packageRoot, "src", "plugin-sdk", "channel-runtime.mts"),
     );
   });

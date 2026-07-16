@@ -2,7 +2,7 @@
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { normalizeChatChannelId } from "../../../channels/ids.js";
 import { listRouteBindings } from "../../../config/bindings.js";
 import type { OpenClawConfig } from "../../../config/types.openclaw.js";

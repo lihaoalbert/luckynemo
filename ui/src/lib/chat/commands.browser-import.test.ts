@@ -47,8 +47,8 @@ describe("slash command browser import", () => {
     );
 
     expect(importDeclarations(commands)).toEqual([
-      'import { asNullableRecord as asRecord } from "@openclaw/normalization-core/record-coerce";',
-      'import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";',
+      'import { asNullableRecord as asRecord } from "@luckynemo/normalization-core/record-coerce";',
+      'import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";',
       'import type { CommandEntry } from "../../../../packages/gateway-protocol/src/index.js";',
       'import { buildBuiltinChatCommands } from "../../../../src/auto-reply/commands-registry.shared.js";',
       'import { t } from "../../i18n/index.ts";',

@@ -38,7 +38,7 @@ export type {
 export type { MemorySearchConfig } from "../config/types.tools.js";
 export { root } from "../infra/fs-safe.js";
 export { createSubsystemLogger } from "../logging/subsystem.js";
-export { detectMime } from "@openclaw/media-core/mime";
+export { detectMime } from "@luckynemo/media-core/mime";
 export {
   onInternalSessionTranscriptUpdate,
   onSessionTranscriptUpdate,

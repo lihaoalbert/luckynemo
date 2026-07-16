@@ -1,9 +1,9 @@
 // Session active-run cancellation and agent-scope resolution.
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import {
   normalizeOptionalString,
   readStringValue,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import {
   ErrorCodes,
   errorShape,

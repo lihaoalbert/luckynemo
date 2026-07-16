@@ -4,7 +4,7 @@
  * Configured model values can cap provider metadata, and local endpoints get
  * more actionable remediation text.
  */
-import { findNormalizedProviderValue } from "@openclaw/model-catalog-core/provider-id";
+import { findNormalizedProviderValue } from "@luckynemo/model-catalog-core/provider-id";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { resolveProviderEndpoint } from "./provider-attribution.js";
 

@@ -4,7 +4,7 @@ import fs from "node:fs";
 import { createServer, type Server } from "node:http";
 import os from "node:os";
 import path from "node:path";
-import { MAX_TIMER_TIMEOUT_MS } from "@openclaw/normalization-core/number-coercion";
+import { MAX_TIMER_TIMEOUT_MS } from "@luckynemo/normalization-core/number-coercion";
 import { describe, expect, it, vi } from "vitest";
 import {
   GATEWAY_READY_OUTPUT_MAX_CHARS,

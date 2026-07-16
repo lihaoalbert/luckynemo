@@ -1,6 +1,6 @@
 // Detects and decodes Windows console output encodings.
 import { spawnSync } from "node:child_process";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import { getWindowsCmdExePath } from "./windows-install-roots.js";
 
 const WINDOWS_CODEPAGE_ENCODING_MAP: Record<number, string> = {

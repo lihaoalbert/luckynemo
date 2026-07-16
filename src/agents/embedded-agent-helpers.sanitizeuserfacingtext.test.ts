@@ -3,7 +3,7 @@
  * Includes reasoning/tool-call cleanup and internal event prompt formatting.
  */
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it } from "vitest";
 import {
   downgradeOpenAIFunctionCallReasoningPairs,

@@ -3,12 +3,12 @@
  */
 import { readFile } from "node:fs/promises";
 import { join } from "node:path";
-import { resolveClaudeFable5ModelIdentity } from "@openclaw/llm-core";
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
+import { resolveClaudeFable5ModelIdentity } from "@luckynemo/llm-core";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { getRuntimeConfig } from "../config/config.js";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { createSubsystemLogger } from "../logging/subsystem.js";

@@ -1021,7 +1021,7 @@ describe("uninstallPlugin", () => {
         {
           private: true,
           dependencies: {
-            "@openclaw/kitchen-sink": "1.0.0",
+            "@luckynemo/kitchen-sink": "1.0.0",
             "is-number": "7.0.0",
           },
         },
@@ -1038,7 +1038,7 @@ describe("uninstallPlugin", () => {
         installs: {
           "openclaw-kitchen-sink-fixture": {
             source: "npm",
-            spec: "@openclaw/kitchen-sink@1.0.0",
+            spec: "@luckynemo/kitchen-sink@1.0.0",
             installPath: pluginDir,
           },
         },
@@ -1057,14 +1057,14 @@ describe("uninstallPlugin", () => {
       cleanup: {
         kind: "npm",
         npmRoot,
-        packageName: "@openclaw/kitchen-sink",
+        packageName: "@luckynemo/kitchen-sink",
       },
     });
 
     const applied = await applyPluginUninstallDirectoryRemoval(plan.directoryRemoval);
 
     expect(applied).toEqual({ directoryRemoved: true, warnings: [] });
-    expectNpmUninstallCommand({ packageName: "@openclaw/kitchen-sink", npmRoot });
+    expectNpmUninstallCommand({ packageName: "@luckynemo/kitchen-sink", npmRoot });
     await expectPathAccessState(pluginDir, "missing");
   });
 
@@ -1074,7 +1074,7 @@ describe("uninstallPlugin", () => {
     const npmBaseDir = path.join(stateDir, "npm");
     const npmRoot = resolvePluginNpmProjectDir({
       npmDir: npmBaseDir,
-      packageName: "@openclaw/kitchen-sink",
+      packageName: "@luckynemo/kitchen-sink",
     });
     const pluginDir = path.join(npmRoot, "node_modules", "@openclaw", "kitchen-sink");
     const hoistedDir = path.join(npmRoot, "node_modules", "is-number");
@@ -1086,7 +1086,7 @@ describe("uninstallPlugin", () => {
         {
           private: true,
           dependencies: {
-            "@openclaw/kitchen-sink": "1.0.0",
+            "@luckynemo/kitchen-sink": "1.0.0",
             "is-number": "7.0.0",
           },
         },
@@ -1103,7 +1103,7 @@ describe("uninstallPlugin", () => {
         installs: {
           "openclaw-kitchen-sink-fixture": {
             source: "npm",
-            spec: "@openclaw/kitchen-sink@1.0.0",
+            spec: "@luckynemo/kitchen-sink@1.0.0",
             installPath: pluginDir,
           },
         },
@@ -1122,14 +1122,14 @@ describe("uninstallPlugin", () => {
       cleanup: {
         kind: "npm",
         npmRoot,
-        packageName: "@openclaw/kitchen-sink",
+        packageName: "@luckynemo/kitchen-sink",
       },
     });
 
     const applied = await applyPluginUninstallDirectoryRemoval(plan.directoryRemoval);
 
     expect(applied).toEqual({ directoryRemoved: true, warnings: [] });
-    expectNpmUninstallCommand({ packageName: "@openclaw/kitchen-sink", npmRoot });
+    expectNpmUninstallCommand({ packageName: "@luckynemo/kitchen-sink", npmRoot });
     await expectPathAccessState(pluginDir, "missing");
   });
 

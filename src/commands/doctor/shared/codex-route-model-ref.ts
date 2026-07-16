@@ -1,6 +1,6 @@
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
-import { asOptionalRecord as asMutableRecord } from "@openclaw/normalization-core/record-coerce";
-import { normalizeOptionalLowercaseString as normalizeString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
+import { asOptionalRecord as asMutableRecord } from "@luckynemo/normalization-core/record-coerce";
+import { normalizeOptionalLowercaseString as normalizeString } from "@luckynemo/normalization-core/string-coerce";
 import { normalizeOptionalAgentRuntimeId } from "../../../agents/agent-runtime-id.js";
 import { resolveConfiguredProviderFallback } from "../../../agents/configured-provider-fallback.js";
 import { DEFAULT_MODEL, DEFAULT_PROVIDER } from "../../../agents/defaults.js";

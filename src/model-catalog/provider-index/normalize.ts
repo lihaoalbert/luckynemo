@@ -1,7 +1,7 @@
 // Provider-index normalization validates generated discovery metadata and rejects unsafe provider entries.
-import { normalizeModelCatalog } from "@openclaw/model-catalog-core/model-catalog-normalize";
-import { normalizeModelCatalogProviderId } from "@openclaw/model-catalog-core/model-catalog-refs";
-import type { ModelCatalogProvider } from "@openclaw/model-catalog-core/model-catalog-types";
+import { normalizeModelCatalog } from "@luckynemo/model-catalog-core/model-catalog-normalize";
+import { normalizeModelCatalogProviderId } from "@luckynemo/model-catalog-core/model-catalog-refs";
+import type { ModelCatalogProvider } from "@luckynemo/model-catalog-core/model-catalog-types";
 import { asFiniteNumber } from "../../../packages/normalization-core/src/number-coercion.js";
 import { normalizeOptionalString } from "../../../packages/normalization-core/src/string-coerce.js";
 import { normalizeUniqueTrimmedStringList } from "../../../packages/normalization-core/src/string-normalization.js";

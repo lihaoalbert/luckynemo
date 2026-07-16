@@ -67,7 +67,7 @@ export async function createSystemAgentVerifiedInferenceTestFixture(
         manifestPath: `/plugins/${pluginId}/openclaw.plugin.json`,
         manifestHash: `${pluginId}-manifest-v1`,
         source: `/plugins/${pluginId}/index.js`,
-        packageName: `@openclaw/${pluginId}`,
+        packageName: `@luckynemo/${pluginId}`,
         packageVersion: "1.0.0",
         installRecordHash: `${pluginId}-install-v1`,
         packageJson: {

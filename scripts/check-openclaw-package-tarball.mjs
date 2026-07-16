@@ -74,18 +74,18 @@ const PACKAGE_DEPENDENCY_SECTIONS = [
   "peerDependencies",
   "devDependencies",
 ];
-const REQUIRED_BUNDLED_WORKSPACE_DEPENDENCIES = ["@openclaw/ai"];
+const REQUIRED_BUNDLED_WORKSPACE_DEPENDENCIES = ["@luckynemo/ai"];
 // Strict Docker artifacts bundle this private runtime rather than resolving it
 // from npm. Keep the concrete load-bearing entries explicit instead of
 // reimplementing Node's conditional package-exports resolver here.
 const REQUIRED_BUNDLED_WORKSPACE_RUNTIME_ENTRIES = new Map([
   [
-    "@openclaw/ai",
+    "@luckynemo/ai",
     [
-      { specifier: "@openclaw/ai", entry: "dist/index.mjs" },
-      { specifier: "@openclaw/ai/providers", entry: "dist/providers.mjs" },
+      { specifier: "@luckynemo/ai", entry: "dist/index.mjs" },
+      { specifier: "@luckynemo/ai/providers", entry: "dist/providers.mjs" },
       {
-        specifier: "@openclaw/ai/internal/runtime",
+        specifier: "@luckynemo/ai/internal/runtime",
         entry: "dist/internal/runtime.mjs",
       },
     ],

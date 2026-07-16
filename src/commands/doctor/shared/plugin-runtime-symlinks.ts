@@ -1,7 +1,7 @@
 // Doctor detection and cleanup for stale global plugin-runtime symlinks.
 import fs from "node:fs/promises";
 import path from "node:path";
-import { sortUniqueStrings } from "@openclaw/normalization-core/string-normalization";
+import { sortUniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import { note } from "../../../../packages/terminal-core/src/note.js";
 import type { HealthFinding } from "../../../flows/health-checks.js";
 import { resolveOpenClawPackageRootSync } from "../../../infra/openclaw-root.js";

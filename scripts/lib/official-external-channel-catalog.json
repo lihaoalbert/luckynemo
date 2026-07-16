@@ -161,7 +161,7 @@
       }
     },
     {
-      "name": "@openclaw/clickclack",
+      "name": "@luckynemo/clickclack",
       "description": "OpenClaw ClickClack channel plugin",
       "source": "official",
       "kind": "channel",
@@ -187,8 +187,8 @@
           }
         },
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/clickclack",
-          "npmSpec": "@openclaw/clickclack",
+          "clawhubSpec": "clawhub:@luckynemo/clickclack",
+          "npmSpec": "@luckynemo/clickclack",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.9",
           "allowInvalidConfigRecovery": true
@@ -196,7 +196,7 @@
       }
     },
     {
-      "name": "@openclaw/discord",
+      "name": "@luckynemo/discord",
       "description": "OpenClaw Discord channel plugin",
       "source": "official",
       "kind": "channel",
@@ -214,7 +214,7 @@
           "preferSessionLookupForAnnounceTarget": true
         },
         "install": {
-          "npmSpec": "@openclaw/discord",
+          "npmSpec": "@luckynemo/discord",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.4.10",
           "allowInvalidConfigRecovery": true
@@ -222,7 +222,7 @@
       }
     },
     {
-      "name": "@openclaw/feishu",
+      "name": "@luckynemo/feishu",
       "description": "OpenClaw Feishu/Lark channel plugin",
       "source": "official",
       "kind": "channel",
@@ -239,14 +239,14 @@
           "quickstartAllowFrom": true
         },
         "install": {
-          "npmSpec": "@openclaw/feishu",
+          "npmSpec": "@luckynemo/feishu",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.5.29"
         }
       }
     },
     {
-      "name": "@openclaw/googlechat",
+      "name": "@luckynemo/googlechat",
       "description": "OpenClaw Google Chat channel plugin",
       "source": "official",
       "kind": "channel",
@@ -289,14 +289,14 @@
           ]
         },
         "install": {
-          "npmSpec": "@openclaw/googlechat",
+          "npmSpec": "@luckynemo/googlechat",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.4.10"
         }
       }
     },
     {
-      "name": "@openclaw/irc",
+      "name": "@luckynemo/irc",
       "description": "OpenClaw IRC channel plugin",
       "source": "official",
       "kind": "channel",
@@ -327,8 +327,8 @@
           "systemImage": "network"
         },
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/irc",
-          "npmSpec": "@openclaw/irc",
+          "clawhubSpec": "clawhub:@luckynemo/irc",
+          "npmSpec": "@luckynemo/irc",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.9",
           "allowInvalidConfigRecovery": true
@@ -336,7 +336,7 @@
       }
     },
     {
-      "name": "@openclaw/line",
+      "name": "@luckynemo/line",
       "description": "OpenClaw LINE channel plugin",
       "source": "official",
       "kind": "channel",
@@ -354,14 +354,14 @@
           "quickstartAllowFrom": true
         },
         "install": {
-          "npmSpec": "@openclaw/line",
+          "npmSpec": "@luckynemo/line",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.4.10"
         }
       }
     },
     {
-      "name": "@openclaw/mattermost",
+      "name": "@luckynemo/mattermost",
       "description": "OpenClaw Mattermost channel plugin",
       "source": "official",
       "kind": "channel",
@@ -380,8 +380,8 @@
           "order": 65
         },
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/mattermost",
-          "npmSpec": "@openclaw/mattermost",
+          "clawhubSpec": "clawhub:@luckynemo/mattermost",
+          "npmSpec": "@luckynemo/mattermost",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.9",
           "allowInvalidConfigRecovery": true
@@ -389,7 +389,7 @@
       }
     },
     {
-      "name": "@openclaw/matrix",
+      "name": "@luckynemo/matrix",
       "description": "OpenClaw Matrix channel plugin",
       "source": "official",
       "kind": "channel",
@@ -434,8 +434,8 @@
           ]
         },
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/matrix",
-          "npmSpec": "@openclaw/matrix",
+          "clawhubSpec": "clawhub:@luckynemo/matrix",
+          "npmSpec": "@luckynemo/matrix",
           "defaultChoice": "clawhub",
           "minHostVersion": ">=2026.4.10",
           "allowInvalidConfigRecovery": true
@@ -443,7 +443,7 @@
       }
     },
     {
-      "name": "@openclaw/msteams",
+      "name": "@luckynemo/msteams",
       "description": "OpenClaw Microsoft Teams channel plugin",
       "source": "official",
       "kind": "channel",
@@ -459,14 +459,14 @@
           "order": 60
         },
         "install": {
-          "npmSpec": "@openclaw/msteams",
+          "npmSpec": "@luckynemo/msteams",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.4.10"
         }
       }
     },
     {
-      "name": "@openclaw/nextcloud-talk",
+      "name": "@luckynemo/nextcloud-talk",
       "description": "OpenClaw Nextcloud Talk channel plugin",
       "source": "official",
       "kind": "channel",
@@ -483,14 +483,14 @@
           "quickstartAllowFrom": true
         },
         "install": {
-          "npmSpec": "@openclaw/nextcloud-talk",
+          "npmSpec": "@luckynemo/nextcloud-talk",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.4.10"
         }
       }
     },
     {
-      "name": "@openclaw/nostr",
+      "name": "@luckynemo/nostr",
       "description": "OpenClaw Nostr channel plugin for NIP-04 encrypted DMs",
       "source": "official",
       "kind": "channel",
@@ -506,14 +506,14 @@
           "quickstartAllowFrom": true
         },
         "install": {
-          "npmSpec": "@openclaw/nostr",
+          "npmSpec": "@luckynemo/nostr",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.4.10"
         }
       }
     },
     {
-      "name": "@openclaw/qqbot",
+      "name": "@luckynemo/qqbot",
       "description": "OpenClaw QQ Bot channel plugin",
       "source": "official",
       "kind": "channel",
@@ -529,14 +529,14 @@
           "systemImage": "bubble.left.and.bubble.right"
         },
         "install": {
-          "npmSpec": "@openclaw/qqbot",
+          "npmSpec": "@luckynemo/qqbot",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.4.10"
         }
       }
     },
     {
-      "name": "@openclaw/signal",
+      "name": "@luckynemo/signal",
       "description": "OpenClaw Signal channel plugin",
       "source": "official",
       "kind": "channel",
@@ -567,8 +567,8 @@
           ]
         },
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/signal",
-          "npmSpec": "@openclaw/signal",
+          "clawhubSpec": "clawhub:@luckynemo/signal",
+          "npmSpec": "@luckynemo/signal",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.9",
           "allowInvalidConfigRecovery": true
@@ -576,7 +576,7 @@
       }
     },
     {
-      "name": "@openclaw/slack",
+      "name": "@luckynemo/slack",
       "description": "OpenClaw Slack channel plugin",
       "source": "official",
       "kind": "channel",
@@ -603,7 +603,7 @@
           }
         },
         "install": {
-          "npmSpec": "@openclaw/slack",
+          "npmSpec": "@luckynemo/slack",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.5.12-beta.1",
           "allowInvalidConfigRecovery": true
@@ -611,7 +611,7 @@
       }
     },
     {
-      "name": "@openclaw/sms",
+      "name": "@luckynemo/sms",
       "description": "OpenClaw SMS channel plugin for Twilio text messages.",
       "source": "official",
       "kind": "channel",
@@ -638,8 +638,8 @@
           "quickstartAllowFrom": true
         },
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/sms",
-          "npmSpec": "@openclaw/sms",
+          "clawhubSpec": "clawhub:@luckynemo/sms",
+          "npmSpec": "@luckynemo/sms",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.9",
           "allowInvalidConfigRecovery": true
@@ -647,7 +647,7 @@
       }
     },
     {
-      "name": "@openclaw/synology-chat",
+      "name": "@luckynemo/synology-chat",
       "description": "Synology Chat channel plugin for OpenClaw",
       "source": "official",
       "kind": "channel",
@@ -662,14 +662,14 @@
           "order": 90
         },
         "install": {
-          "npmSpec": "@openclaw/synology-chat",
+          "npmSpec": "@luckynemo/synology-chat",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.4.10"
         }
       }
     },
     {
-      "name": "@openclaw/raft",
+      "name": "@luckynemo/raft",
       "description": "OpenClaw Raft channel plugin",
       "source": "official",
       "kind": "channel",
@@ -712,14 +712,14 @@
           }
         },
         "install": {
-          "npmSpec": "@openclaw/raft",
+          "npmSpec": "@luckynemo/raft",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.8"
         }
       }
     },
     {
-      "name": "@openclaw/tlon",
+      "name": "@luckynemo/tlon",
       "description": "OpenClaw Tlon/Urbit channel plugin",
       "source": "official",
       "kind": "channel",
@@ -735,14 +735,14 @@
           "quickstartAllowFrom": true
         },
         "install": {
-          "npmSpec": "@openclaw/tlon",
+          "npmSpec": "@luckynemo/tlon",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.4.10"
         }
       }
     },
     {
-      "name": "@openclaw/twitch",
+      "name": "@luckynemo/twitch",
       "description": "OpenClaw Twitch channel plugin",
       "source": "official",
       "kind": "channel",
@@ -756,14 +756,14 @@
           "aliases": ["twitch-chat"]
         },
         "install": {
-          "npmSpec": "@openclaw/twitch",
+          "npmSpec": "@luckynemo/twitch",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.4.10"
         }
       }
     },
     {
-      "name": "@openclaw/whatsapp",
+      "name": "@luckynemo/whatsapp",
       "description": "OpenClaw WhatsApp channel plugin",
       "source": "official",
       "kind": "channel",
@@ -779,15 +779,15 @@
           "systemImage": "message"
         },
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/whatsapp",
-          "npmSpec": "@openclaw/whatsapp",
+          "clawhubSpec": "clawhub:@luckynemo/whatsapp",
+          "npmSpec": "@luckynemo/whatsapp",
           "defaultChoice": "clawhub",
           "minHostVersion": ">=2026.4.25"
         }
       }
     },
     {
-      "name": "@openclaw/zalo",
+      "name": "@luckynemo/zalo",
       "description": "OpenClaw Zalo channel plugin",
       "source": "official",
       "kind": "channel",
@@ -804,14 +804,14 @@
           "quickstartAllowFrom": true
         },
         "install": {
-          "npmSpec": "@openclaw/zalo",
+          "npmSpec": "@luckynemo/zalo",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.4.10"
         }
       }
     },
     {
-      "name": "@openclaw/zalouser",
+      "name": "@luckynemo/zalouser",
       "description": "OpenClaw Zalo Personal Account plugin via native zca-js integration",
       "source": "official",
       "kind": "channel",
@@ -828,7 +828,7 @@
           "quickstartAllowFrom": false
         },
         "install": {
-          "npmSpec": "@openclaw/zalouser",
+          "npmSpec": "@luckynemo/zalouser",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.4.10"
         }

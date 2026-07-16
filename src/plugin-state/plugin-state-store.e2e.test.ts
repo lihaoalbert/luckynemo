@@ -1,6 +1,6 @@
 // Plugin state store E2E tests cover persisted plugin state across runtime calls.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { withOpenClawTestState } from "../test-utils/openclaw-test-state.js";
 import {

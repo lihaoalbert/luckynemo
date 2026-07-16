@@ -2,8 +2,8 @@
 import { createHash } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
 import { root, type Root } from "@openclaw/fs-safe";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
 import {
   LEGACY_NODE_HOST_CONFIG_CLAIM_SUFFIX,
   LEGACY_NODE_HOST_CONFIG_FILE,

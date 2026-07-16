@@ -3,7 +3,7 @@ import {
   clampOpenAIPromptCacheKey,
   type OpenAICompletionsToolChoice,
   type OpenAIReasoningEffort,
-} from "@openclaw/ai/internal/openai";
+} from "@luckynemo/ai/internal/openai";
 import type { ModelCompatConfig } from "../config/types.models.js";
 import type { Api, Model, Usage } from "../llm/types.js";
 import { createSubsystemLogger } from "../logging/subsystem.js";

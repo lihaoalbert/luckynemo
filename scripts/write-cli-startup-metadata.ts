@@ -680,7 +680,7 @@ async function renderSourceCommandHelpText(
   command: SourceCommandHelpCommand,
   renderContext: RootHelpRenderContext = createIsolatedRootHelpRenderContext(),
 ): Promise<string> {
-  return await spawnText(["openclaw.mjs", command, "--help"], {
+  return await spawnText(["luckynemo.mjs", command, "--help"], {
     cwd: rootDir,
     env: {
       ...renderContext.env,

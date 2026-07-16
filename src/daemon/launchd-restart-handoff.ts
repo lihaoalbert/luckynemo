@@ -2,8 +2,8 @@
 import { spawn } from "node:child_process";
 import os from "node:os";
 import path from "node:path";
-import { err, ok, type Result } from "@openclaw/normalization-core/result";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { err, ok, type Result } from "@luckynemo/normalization-core/result";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { sanitizeForLog } from "../../packages/terminal-core/src/ansi.js";
 import { formatErrorMessage } from "../infra/errors.js";
 import { sanitizeHostExecEnv } from "../infra/host-env-security.js";

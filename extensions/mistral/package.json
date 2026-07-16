@@ -1,11 +1,11 @@
 {
-  "name": "@openclaw/mistral-provider",
+  "name": "@luckynemo/mistral-provider",
   "version": "2026.7.2",
   "private": true,
   "description": "OpenClaw Mistral provider plugin",
   "type": "module",
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [

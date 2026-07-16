@@ -1,6 +1,6 @@
 // Covers plugin status reporting from config, discovery, and registry state.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 import type { PluginMemoryEmbeddingProviderRegistration } from "./registry.test-fixtures.js";
 import {

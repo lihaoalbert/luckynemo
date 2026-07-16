@@ -1,5 +1,5 @@
 {
-  "name": "@openclaw/browser-plugin",
+  "name": "@luckynemo/browser-plugin",
   "version": "2026.7.2",
   "private": true,
   "description": "OpenClaw browser tool plugin",
@@ -12,7 +12,7 @@
     "ws": "8.21.0"
   },
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*",
+    "@luckynemo/plugin-sdk": "workspace:*",
     "undici": "8.6.0"
   },
   "openclaw": {

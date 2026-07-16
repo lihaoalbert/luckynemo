@@ -4,7 +4,7 @@ import type {
   AcpRuntimeCapabilities,
   AcpRuntimeHandle,
   AcpRuntimeStatus,
-} from "@openclaw/acp-core/runtime/types";
+} from "@luckynemo/acp-core/runtime/types";
 import type { OpenClawConfig } from "../../config/types.openclaw.js";
 import { logVerbose } from "../../globals.js";
 import { toErrorObject } from "../../infra/errors.js";

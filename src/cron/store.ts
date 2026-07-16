@@ -2,8 +2,8 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { DatabaseSync } from "node:sqlite";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { expandHomePrefix } from "../infra/home-dir.js";
 import { requireNodeSqlite } from "../infra/node-sqlite.js";
 import { replaceFileAtomic } from "../infra/replace-file.js";

@@ -3,8 +3,8 @@
  *
  * Resolves whether a session is sandboxed and explains policy blocks before tool execution.
  */
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
-import { sliceUtf16Safe, truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
+import { sliceUtf16Safe, truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { formatCliCommand } from "../../cli/command-format.js";
 import {
   canonicalizeMainSessionAlias,

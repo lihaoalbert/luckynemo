@@ -15,7 +15,7 @@ export function posixCodexPlatformPackageRepairFunction(): string {
   grep -F 'Missing optional dependency @openai/codex-' "$output_file" >/dev/null 2>&1 || return 1
   state_home="\${OPENCLAW_PARALLELS_HOME:-\${HOME:-}}"
   codex_manifest=""
-  for candidate in "$state_home"/.openclaw/npm/projects/*/node_modules/@openclaw/codex/package.json; do
+  for candidate in "$state_home"/.openclaw/npm/projects/*/node_modules/@luckynemo/codex/package.json; do
     [ -f "$candidate" ] || continue
     codex_manifest="$candidate"
     break
@@ -24,7 +24,7 @@ export function posixCodexPlatformPackageRepairFunction(): string {
     echo "codex-platform-repair: managed Codex project not found" >&2
     return 1
   fi
-  project_root="\${codex_manifest%/node_modules/@openclaw/codex/package.json}"
+  project_root="\${codex_manifest%/node_modules/@luckynemo/codex/package.json}"
   cache_dir="$(mktemp -d "\${TMPDIR:-/tmp}/openclaw-npm-cache.XXXXXX")"
   echo "codex-platform-repair: retrying managed npm install once with a fresh cache" >&2
   repair_rc=0

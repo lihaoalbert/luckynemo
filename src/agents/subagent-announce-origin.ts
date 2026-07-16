@@ -3,7 +3,7 @@
  *
  * Merges requester and session delivery context while avoiding stale thread ids after retargeting.
  */
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { getLoadedChannelPluginForRead } from "../channels/plugins/registry-loaded.js";
 import type { ChannelId } from "../channels/plugins/types.public.js";
 import {

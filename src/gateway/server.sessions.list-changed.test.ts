@@ -2,7 +2,7 @@
  * Gateway sessions.list changed-state tests.
  */
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import {
   createPluginRegistryFixture,
   registerTestPlugin,

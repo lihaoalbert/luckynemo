@@ -4,7 +4,7 @@ import { readFileSync } from "node:fs";
 import { createServer, type IncomingMessage, type Server as HttpServer } from "node:http";
 import { createServer as createTcpServer, type Server as TcpServer, type Socket } from "node:net";
 import path from "node:path";
-import { MAX_TIMER_TIMEOUT_MS } from "@openclaw/normalization-core/number-coercion";
+import { MAX_TIMER_TIMEOUT_MS } from "@luckynemo/normalization-core/number-coercion";
 import { describe, expect, it } from "vitest";
 import { createBoundedChildOutput } from "../../../helpers/bounded-child-output.js";
 

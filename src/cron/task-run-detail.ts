@@ -1,7 +1,7 @@
 /** Read-side cron codec between task-ledger detail and the stable run-history wire shape.
  * Deliberately free of agent/runtime imports so history reads stay dependency-light;
  * the event->entry write codec lives in task-run-event-codec.ts. */
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { CRON_JOB_EXECUTION_TIMEOUT_ERROR } from "./execution-error-constants.js";
 import { normalizeCronRunDiagnostics } from "./run-diagnostics-normalize.js";
 

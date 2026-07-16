@@ -1,5 +1,5 @@
 {
-  "name": "@openclaw/deepseek-provider",
+  "name": "@luckynemo/deepseek-provider",
   "version": "2026.7.2",
   "description": "OpenClaw DeepSeek provider plugin.",
   "repository": {
@@ -8,15 +8,15 @@
   },
   "type": "module",
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [
       "./index.ts"
     ],
     "install": {
-      "clawhubSpec": "clawhub:@openclaw/deepseek-provider",
-      "npmSpec": "@openclaw/deepseek-provider",
+      "clawhubSpec": "clawhub:@luckynemo/deepseek-provider",
+      "npmSpec": "@luckynemo/deepseek-provider",
       "defaultChoice": "npm",
       "minHostVersion": ">=2026.6.8"
     },

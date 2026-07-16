@@ -7,7 +7,7 @@ import { createHash } from "node:crypto";
 import syncFs from "node:fs";
 import fs from "node:fs/promises";
 import path from "node:path";
-import { readStringValue } from "@openclaw/normalization-core/string-coerce";
+import { readStringValue } from "@luckynemo/normalization-core/string-coerce";
 import { extractFrontmatterBlock } from "../../packages/markdown-core/src/frontmatter.js";
 import { resolveLegacyStateDirs, resolveStateDir } from "../config/paths.js";
 import { openRootFile } from "../infra/boundary-file-read.js";

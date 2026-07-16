@@ -1,6 +1,6 @@
 // Legacy runtime agent config migrations for memory, heartbeat, sandbox, and runtime policy keys.
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
-import { uniqueStrings } from "@openclaw/normalization-core/string-normalization";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
+import { uniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import {
   isCanonicalToolProviderPolicyKey,
   normalizeToolProviderPolicyKey,

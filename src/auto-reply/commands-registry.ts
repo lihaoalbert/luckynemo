@@ -1,6 +1,6 @@
 /** Command-registry facade for native specs, text aliases, argument parsing, and menus. */
-import { expectDefined } from "@openclaw/normalization-core";
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
+import { expectDefined } from "@luckynemo/normalization-core";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
 import { DEFAULT_MODEL, DEFAULT_PROVIDER } from "../agents/defaults.js";
 import {
   buildConfiguredModelCatalog,

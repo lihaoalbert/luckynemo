@@ -1,9 +1,9 @@
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
-import { isRecord as hasRecord } from "@openclaw/normalization-core/record-coerce";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
+import { isRecord as hasRecord } from "@luckynemo/normalization-core/record-coerce";
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalLowercaseString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import type { ToolPolicyConfig } from "../config/types.tools.js";
 
 export function normalizeToolProviderPolicyKey(value: string): string {

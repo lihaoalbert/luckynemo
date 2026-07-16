@@ -8,7 +8,7 @@ describe("createOptionalChannelSetupSurface", () => {
     const setup = createOptionalChannelSetupSurface({
       channel: "example",
       label: "Example",
-      npmSpec: "@openclaw/example",
+      npmSpec: "@luckynemo/example",
       docsPath: "/channels/example",
     });
 
@@ -20,11 +20,11 @@ describe("createOptionalChannelSetupSurface", () => {
         input: {},
       }),
     ).toBe(
-      "Example setup requires @openclaw/example to be installed. Docs: https://docs.openclaw.ai/channels/example",
+      "Example setup requires @luckynemo/example to be installed. Docs: https://docs.openclaw.ai/channels/example",
     );
     expect(setup.setupWizard.channel).toBe("example");
     expect(setup.setupWizard.status.unconfiguredHint).toBe(
-      "Example setup requires @openclaw/example to be installed. Docs: https://docs.openclaw.ai/channels/example",
+      "Example setup requires @luckynemo/example to be installed. Docs: https://docs.openclaw.ai/channels/example",
     );
     await expect(
       runSetupWizardFinalize({
@@ -35,6 +35,6 @@ describe("createOptionalChannelSetupSurface", () => {
           exit: async () => {},
         },
       }),
-    ).rejects.toThrow("@openclaw/example");
+    ).rejects.toThrow("@luckynemo/example");
   });
 });

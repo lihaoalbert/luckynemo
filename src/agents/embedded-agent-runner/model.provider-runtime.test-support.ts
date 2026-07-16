@@ -1,5 +1,5 @@
 // Provider-runtime mock used by model resolution tests.
-import { lowercasePreservingWhitespace } from "@openclaw/normalization-core/string-coerce";
+import { lowercasePreservingWhitespace } from "@luckynemo/normalization-core/string-coerce";
 
 type OpenRouterModelCapabilities = NonNullable<
   ReturnType<typeof import("./openrouter-model-capabilities.js").getOpenRouterModelCapabilities>

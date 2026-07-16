@@ -1,10 +1,10 @@
 /** Cron job scheduling, validation, creation, and patch helpers. */
 import crypto from "node:crypto";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import {
   normalizeOptionalString,
   normalizeOptionalThreadValue,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { resolveCronTriggerMinIntervalMs } from "../../config/cron-limits.js";
 import type { CronConfig } from "../../config/types.cron.js";
 import { normalizeAgentId } from "../../routing/session-key.js";

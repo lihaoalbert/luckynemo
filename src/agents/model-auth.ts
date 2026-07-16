@@ -7,8 +7,8 @@ import path from "node:path";
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalLowercaseString,
-} from "@openclaw/normalization-core/string-coerce";
-import { normalizeUniqueStringEntries } from "@openclaw/normalization-core/string-normalization";
+} from "@luckynemo/normalization-core/string-coerce";
+import { normalizeUniqueStringEntries } from "@luckynemo/normalization-core/string-normalization";
 import { formatCliCommand } from "../cli/command-format.js";
 import {
   getRuntimeConfigSnapshot,

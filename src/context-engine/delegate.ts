@@ -1,5 +1,5 @@
 // Context-engine delegates bridge custom engines to built-in compaction and memory prompt paths.
-import { normalizeStructuredPromptSection } from "@openclaw/ai/internal/shared";
+import { normalizeStructuredPromptSection } from "@luckynemo/ai/internal/shared";
 import { parseSqliteSessionFileMarker } from "../config/sessions/sqlite-marker.js";
 import type { MemoryCitationsMode } from "../config/types.memory.js";
 import { buildMemoryPromptSection } from "../plugins/memory-state.js";

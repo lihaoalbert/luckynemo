@@ -1,5 +1,5 @@
 // Verifies marketplace feed and source profile config parsing.
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it } from "vitest";
 import { OpenClawSchema } from "./zod-schema.js";
 

@@ -1,4 +1,4 @@
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import type { ReplyPayload } from "../../auto-reply/reply-payload.js";
 import {
   appendLocalMediaParentRoots,

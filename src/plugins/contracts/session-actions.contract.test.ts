@@ -1,6 +1,6 @@
 // Session action contract tests cover plugin session action metadata and execution contracts.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import {
   createPluginRegistryFixture,
   registerTestPlugin,

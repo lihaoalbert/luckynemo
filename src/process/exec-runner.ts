@@ -1,6 +1,6 @@
 import process from "node:process";
-import { expectDefined } from "@openclaw/normalization-core";
-import { toErrorObject } from "@openclaw/normalization-core/error-coercion";
+import { expectDefined } from "@luckynemo/normalization-core";
+import { toErrorObject } from "@luckynemo/normalization-core/error-coercion";
 import {
   decodeWindowsOutputBuffer,
   resolveWindowsConsoleEncoding,

@@ -1,7 +1,7 @@
 // Resolves bundled source overlays used by plugin packaging.
 import fs from "node:fs";
 import path from "node:path";
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
 import { buildLegacyBundledRootPath } from "./bundled-load-path-aliases.js";
 
 function decodeMountInfoPath(value: string): string {

@@ -633,13 +633,13 @@ Official external packages need one install, then a Gateway restart.
 For example, Discord is an official external package:
 
 \`\`\`bash
-openclaw plugins install @openclaw/discord
+openclaw plugins install @luckynemo/discord
 openclaw gateway restart
 openclaw plugins inspect discord --runtime --json
 \`\`\`
 
 During the launch cutover, ordinary bare package specs still install from npm.
-Use \`clawhub:@openclaw/discord\` or \`npm:@openclaw/discord\` when you need an
+Use \`clawhub:@luckynemo/discord\` or \`npm:@luckynemo/discord\` when you need an
 explicit source. After install, follow the plugin's setup doc, such as
 [Discord](/channels/discord), to add credentials and channel config. See
 [Manage plugins](/plugins/manage-plugins) for update, uninstall, and publishing

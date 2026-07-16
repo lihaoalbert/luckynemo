@@ -1,7 +1,7 @@
 // Purpose-scoped local agent runtime identity token for Gateway clients.
 import { createHmac } from "node:crypto";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { normalizeChatType } from "../channels/chat-type.js";
 import type { ChannelId, ChannelThreadingToolContext } from "../channels/plugins/types.public.js";
 import { ensureExecApprovalsSnapshot, loadExecApprovalsAsync } from "../infra/exec-approvals.js";

@@ -1,5 +1,5 @@
 /** Builds the per-run built-in and plugin tool inventory. */
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import type {
   SourceReplyDeliveryMode,
   TaskSuggestionDeliveryMode,

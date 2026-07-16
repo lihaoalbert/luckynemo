@@ -1,6 +1,6 @@
 /** Runs queued follow-up agent turns and routes their delivery payloads. */
 import crypto from "node:crypto";
-import { readStringValue } from "@openclaw/normalization-core/string-coerce";
+import { readStringValue } from "@luckynemo/normalization-core/string-coerce";
 import { hasOutboundReplyContent } from "openclaw/plugin-sdk/reply-payload";
 import { normalizeOptionalAgentRuntimeId } from "../../agents/agent-runtime-id.js";
 import {

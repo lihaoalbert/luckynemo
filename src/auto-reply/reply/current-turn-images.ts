@@ -1,6 +1,6 @@
 // Tracks image attachments that belong to the current reply turn.
-import { mimeTypeFromFilePath } from "@openclaw/media-core/mime";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { mimeTypeFromFilePath } from "@luckynemo/media-core/mime";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import type { OpenClawConfig } from "../../config/types.openclaw.js";
 import { logVerbose } from "../../globals.js";
 import { formatErrorMessage } from "../../infra/errors.js";

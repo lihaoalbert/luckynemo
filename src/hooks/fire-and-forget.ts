@@ -1,5 +1,5 @@
 // Fire-and-forget hook helpers schedule hook work without blocking hot paths.
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { logVerbose } from "../globals.js";
 import { formatErrorMessage } from "../infra/errors.js";
 import { resolveGlobalSingleton } from "../shared/global-singleton.js";

@@ -1,5 +1,5 @@
 import path from "node:path";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { packageNameMatchesId } from "../infra/install-safe-path.js";
 import type { InstallPolicySource } from "../security/install-policy.js";

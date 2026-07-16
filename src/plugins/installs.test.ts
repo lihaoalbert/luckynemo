@@ -50,17 +50,17 @@ describe("buildNpmResolutionInstallFields", () => {
     {
       name: "maps npm resolution metadata into install record fields",
       input: {
-        name: "@openclaw/demo",
+        name: "@luckynemo/demo",
         version: "1.2.3",
-        resolvedSpec: "@openclaw/demo@1.2.3",
+        resolvedSpec: "@luckynemo/demo@1.2.3",
         integrity: "sha512-abc",
         shasum: "deadbeef",
         resolvedAt: "2026-02-22T00:00:00.000Z",
       },
       expected: createExpectedResolutionFields({
-        resolvedName: "@openclaw/demo",
+        resolvedName: "@luckynemo/demo",
         resolvedVersion: "1.2.3",
-        resolvedSpec: "@openclaw/demo@1.2.3",
+        resolvedSpec: "@luckynemo/demo@1.2.3",
         integrity: "sha512-abc",
         shasum: "deadbeef",
         resolvedAt: "2026-02-22T00:00:00.000Z",
@@ -74,10 +74,10 @@ describe("buildNpmResolutionInstallFields", () => {
     {
       name: "keeps missing partial resolution fields undefined",
       input: {
-        name: "@openclaw/demo",
+        name: "@luckynemo/demo",
       },
       expected: createExpectedResolutionFields({
-        resolvedName: "@openclaw/demo",
+        resolvedName: "@luckynemo/demo",
       }),
     },
   ] as const)("$name", expectResolutionFieldsCase);
@@ -87,47 +87,47 @@ describe("resolveNpmInstallRecordSpec", () => {
   it("uses an exact resolved registry spec when managed installs request pinning", () => {
     expect(
       resolveNpmInstallRecordSpec({
-        requestedSpec: "@openclaw/codex",
+        requestedSpec: "@luckynemo/codex",
         resolution: {
-          name: "@openclaw/codex",
+          name: "@luckynemo/codex",
           version: "2026.5.30-beta.1",
-          resolvedSpec: "@openclaw/codex@2026.5.30-beta.1",
+          resolvedSpec: "@luckynemo/codex@2026.5.30-beta.1",
         },
         pinResolvedRegistrySpec: true,
       }),
-    ).toBe("@openclaw/codex@2026.5.30-beta.1");
+    ).toBe("@luckynemo/codex@2026.5.30-beta.1");
   });
 
   it("keeps moving specs unless the caller owns managed pinning", () => {
     expect(
       resolveNpmInstallRecordSpec({
-        requestedSpec: "@openclaw/codex",
+        requestedSpec: "@luckynemo/codex",
         resolution: {
-          name: "@openclaw/codex",
+          name: "@luckynemo/codex",
           version: "2026.5.30-beta.1",
-          resolvedSpec: "@openclaw/codex@2026.5.30-beta.1",
+          resolvedSpec: "@luckynemo/codex@2026.5.30-beta.1",
         },
       }),
-    ).toBe("@openclaw/codex");
+    ).toBe("@luckynemo/codex");
   });
 
   it("does not replace the requested spec with tags or non-registry resolutions", () => {
     expect(
       resolveNpmInstallRecordSpec({
-        requestedSpec: "@openclaw/codex",
+        requestedSpec: "@luckynemo/codex",
         resolution: {
-          name: "@openclaw/codex",
+          name: "@luckynemo/codex",
           version: "2026.5.30-beta.1",
-          resolvedSpec: "@openclaw/codex@beta",
+          resolvedSpec: "@luckynemo/codex@beta",
         },
         pinResolvedRegistrySpec: true,
       }),
-    ).toBe("@openclaw/codex");
+    ).toBe("@luckynemo/codex");
     expect(
       resolveNpmInstallRecordSpec({
         requestedSpec: "file:codex.tgz",
         resolution: {
-          name: "@openclaw/codex",
+          name: "@luckynemo/codex",
           version: "2026.5.30-beta.1",
           resolvedSpec: "file:codex.tgz",
         },

@@ -4,7 +4,7 @@ import {
   normalizeOptionalLowercaseString,
   normalizeOptionalString,
   resolvePrimaryStringValue,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { note } from "../../packages/terminal-core/src/note.js";
 import { resolveModelAgentRuntimeMetadata } from "../agents/agent-runtime-metadata.js";
 import {

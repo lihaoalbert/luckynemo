@@ -8,7 +8,7 @@ import { afterEach, describe, expect, it } from "vitest";
 import { cleanupTempDirs, makeTempDir } from "../helpers/temp-dir.js";
 
 const SCRIPT_PATH = "scripts/e2e/lib/clawhub-fixture-server.cjs";
-const PACKAGE_NAME = "@openclaw/kitchen-sink";
+const PACKAGE_NAME = "@luckynemo/kitchen-sink";
 const PACKAGE_PATH = `/api/v1/packages/${encodeURIComponent(PACKAGE_NAME)}`;
 const KITCHEN_SINK_VERSION = "0.2.5";
 const tempDirs: string[] = [];

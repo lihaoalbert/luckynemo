@@ -38,7 +38,7 @@ describe("plugin fixture commands", () => {
 
     expect(result.status).toBe(0);
     expect(readJson(path.join(pluginRoot, "package.json"))).toMatchObject({
-      name: "@openclaw/demo-plugin",
+      name: "@luckynemo/demo-plugin",
       version: "0.1.0",
       openclaw: { extensions: ["./index.js"] },
     });

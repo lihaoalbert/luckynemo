@@ -1,4 +1,4 @@
-import { err, ok, type Result } from "@openclaw/normalization-core/result";
+import { err, ok, type Result } from "@luckynemo/normalization-core/result";
 import { isBlockedObjectKey } from "../infra/prototype-keys.js";
 // Applies runtime-only config overrides without mutating persisted config.
 import { isPlainObject } from "../utils.js";

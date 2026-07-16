@@ -1,5 +1,5 @@
 // Resolves provider thinking-level policy from plugin metadata.
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
 import { getCurrentPluginMetadataSnapshot } from "./current-plugin-metadata-snapshot.js";
 import { resolveProviderPolicySurface } from "./provider-public-artifacts.js";
 import type {

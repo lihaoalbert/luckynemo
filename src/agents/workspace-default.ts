@@ -5,7 +5,7 @@
  */
 import os from "node:os";
 import path from "node:path";
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
 import { resolveRequiredHomeDir } from "../infra/home-dir.js";
 
 /** Resolve the default agent workspace directory from env/profile/home state. */

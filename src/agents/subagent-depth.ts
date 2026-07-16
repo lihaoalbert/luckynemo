@@ -3,7 +3,7 @@
  *
  * Reads persisted session store state to recover spawn depth and parent lineage across restarts.
  */
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { resolveStorePath } from "../config/sessions/paths.js";
 import { listSessionEntries } from "../config/sessions/session-accessor.js";
 import type { OpenClawConfig } from "../config/types.openclaw.js";

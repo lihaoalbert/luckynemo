@@ -27,7 +27,7 @@ function parseModelRefId(model: string | undefined): string | undefined {
 
 /**
  * Returns true when the selected model should trigger the external
- * `@openclaw/copilot` runtime plugin install.
+ * `@luckynemo/copilot` runtime plugin install.
  *
  * Gating contract (review #2, P1):
  *   - Model ref must use the `github-copilot/*` provider prefix.

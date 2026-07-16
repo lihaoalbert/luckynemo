@@ -17,7 +17,7 @@ type TtsCoreModule = typeof import("openclaw/plugin-sdk/speech-core");
 type SummarizeTextDeps = NonNullable<Parameters<TtsCoreModule["summarizeText"]>[1]>;
 
 const speechCoreRuntimeApiModuleId = resolveWorkspacePackagePublicModuleUrl({
-  packageName: "@openclaw/speech-core",
+  packageName: "@luckynemo/speech-core",
   artifactBasename: "runtime-api.js",
 });
 

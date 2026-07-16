@@ -1,5 +1,5 @@
 import path from "node:path";
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
 import {
   resolveAgentConfig,
   resolveAgentDir,

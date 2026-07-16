@@ -102,10 +102,10 @@ function runAssertInstalled({
       installRecords: {
         [pluginId]: {
           installPath,
-          resolvedSpec: "@openclaw/kitchen-sink@latest",
+          resolvedSpec: "@luckynemo/kitchen-sink@latest",
           resolvedVersion: "1.0.0",
           source: "npm",
-          spec: "@openclaw/kitchen-sink@latest",
+          spec: "@luckynemo/kitchen-sink@latest",
         },
       },
     });
@@ -120,7 +120,7 @@ function runAssertInstalled({
         KITCHEN_SINK_ID: pluginId,
         KITCHEN_SINK_LABEL: label,
         KITCHEN_SINK_SOURCE: "npm",
-        KITCHEN_SINK_SPEC: "npm:@openclaw/kitchen-sink@latest",
+        KITCHEN_SINK_SPEC: "npm:@luckynemo/kitchen-sink@latest",
         KITCHEN_SINK_SURFACE_MODE: "full",
         KITCHEN_SINK_TMP_DIR: scratchRoot,
       },
@@ -171,14 +171,14 @@ function runAssertClawhubInstalled({
           artifactFormat: "zip",
           artifactKind: "legacy-zip",
           clawhubFamily: "code-plugin",
-          clawhubPackage: "@openclaw/kitchen-sink",
+          clawhubPackage: "@luckynemo/kitchen-sink",
           integrity: "sha256-test",
           installPath,
-          resolvedSpec: "clawhub:@openclaw/kitchen-sink@latest",
+          resolvedSpec: "clawhub:@luckynemo/kitchen-sink@latest",
           resolvedVersion: "1.0.0",
           resolvedAt: 1,
           source: "clawhub",
-          spec: "clawhub:@openclaw/kitchen-sink@latest",
+          spec: "clawhub:@luckynemo/kitchen-sink@latest",
           version: "1.0.0",
         },
       },
@@ -193,7 +193,7 @@ function runAssertClawhubInstalled({
         KITCHEN_SINK_ID: pluginId,
         KITCHEN_SINK_LABEL: label,
         KITCHEN_SINK_SOURCE: "clawhub",
-        KITCHEN_SINK_SPEC: "clawhub:@openclaw/kitchen-sink@latest",
+        KITCHEN_SINK_SPEC: "clawhub:@luckynemo/kitchen-sink@latest",
         KITCHEN_SINK_SURFACE_MODE: "basic",
         KITCHEN_SINK_TMP_DIR: scratchRoot,
       },
@@ -284,7 +284,7 @@ describe("kitchen-sink plugin assertions", () => {
             ...process.env,
             KITCHEN_SINK_EXPECT_FAILURE_OUTPUT_MAX_BYTES: "64",
             KITCHEN_SINK_SOURCE: "npm",
-            KITCHEN_SINK_SPEC: "npm:@openclaw/kitchen-sink@0.0.0",
+            KITCHEN_SINK_SPEC: "npm:@luckynemo/kitchen-sink@0.0.0",
           },
         },
       );
@@ -725,9 +725,9 @@ export HOME="$HOME_DIR"
 export KITCHEN_SINK_SWEEP_SOURCE_ONLY=1
 export KITCHEN_SINK_TMP_DIR="$SCRATCH_ROOT"
 export KITCHEN_SINK_SOURCE=npm
-export KITCHEN_SINK_SPEC=npm:@openclaw/kitchen-sink@0.0.0
+export KITCHEN_SINK_SPEC=npm:@luckynemo/kitchen-sink@0.0.0
 source scripts/e2e/lib/kitchen-sink-plugin/sweep.sh
-run_expect_failure "install/failure" bash -c 'printf "%s\\n" "npm ERR! No matching version @openclaw/kitchen-sink@0.0.0"; exit 1'
+run_expect_failure "install/failure" bash -c 'printf "%s\\n" "npm ERR! No matching version @luckynemo/kitchen-sink@0.0.0"; exit 1'
 test -f "$SCRATCH_ROOT/kitchen-sink-expected-failure-install_failure.log"
 scan_logs_for_unexpected_errors
 `,

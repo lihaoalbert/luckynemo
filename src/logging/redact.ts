@@ -1,6 +1,6 @@
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 // Redaction helpers scrub secrets and sensitive identifiers from log output.
-import { sliceUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { sliceUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { compileConfigRegex } from "../security/config-regex.js";
 import { readLoggingConfig } from "./config.js";

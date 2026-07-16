@@ -1,10 +1,10 @@
 // Provider-index model-catalog planner converts installable provider previews into normalized discovery rows.
-import { normalizeModelCatalogProviderRows } from "@openclaw/model-catalog-core/model-catalog-normalize";
-import { normalizeModelCatalogProviderId } from "@openclaw/model-catalog-core/model-catalog-refs";
+import { normalizeModelCatalogProviderRows } from "@luckynemo/model-catalog-core/model-catalog-normalize";
+import { normalizeModelCatalogProviderId } from "@luckynemo/model-catalog-core/model-catalog-refs";
 import type {
   ModelCatalogProvider,
   NormalizedModelCatalogRow,
-} from "@openclaw/model-catalog-core/model-catalog-types";
+} from "@luckynemo/model-catalog-core/model-catalog-types";
 import type { OpenClawProviderIndex } from "./provider-index/index.js";
 
 // Provider-index planner converts ClawHub-style preview catalog entries into

@@ -5,15 +5,15 @@ import type {
   ToolCallLocation,
   ToolKind,
 } from "@agentclientprotocol/sdk";
-import { asRecord } from "@openclaw/acp-core/record-shared";
-import { hasHttpUrlPrefix } from "@openclaw/net-policy/url-protocol";
+import { asRecord } from "@luckynemo/acp-core/record-shared";
+import { hasHttpUrlPrefix } from "@luckynemo/net-policy/url-protocol";
 import {
   hasNonEmptyString,
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalString,
   readStringValue,
-} from "@openclaw/normalization-core/string-coerce";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+} from "@luckynemo/normalization-core/string-coerce";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 
 type GatewayAttachment = {
   type: string;

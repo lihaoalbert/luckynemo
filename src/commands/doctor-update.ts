@@ -1,7 +1,7 @@
 /** Optional pre-doctor update prompt for source checkouts and package installs. */
 import fs from "node:fs/promises";
 import path from "node:path";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import { note } from "../../packages/terminal-core/src/note.js";
 import { formatCliCommand } from "../cli/command-format.js";
 import { createUpdateProgress } from "../cli/update-cli/progress.js";

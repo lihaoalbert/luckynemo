@@ -1,6 +1,6 @@
 /** Recovery helpers for stale ACP persistent session ids and early runtime exits. */
-import { resolveSessionIdentityFromMeta } from "@openclaw/acp-core/runtime/session-identity";
-import type { AcpRuntime } from "@openclaw/acp-core/runtime/types";
+import { resolveSessionIdentityFromMeta } from "@luckynemo/acp-core/runtime/session-identity";
+import type { AcpRuntime } from "@luckynemo/acp-core/runtime/types";
 import type { OpenClawConfig } from "../../config/types.openclaw.js";
 import { logVerbose } from "../../globals.js";
 import { formatErrorMessage, toErrorObject } from "../../infra/errors.js";

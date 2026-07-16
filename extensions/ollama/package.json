@@ -1,5 +1,5 @@
 {
-  "name": "@openclaw/ollama-provider",
+  "name": "@luckynemo/ollama-provider",
   "version": "2026.7.2",
   "private": true,
   "description": "OpenClaw Ollama provider plugin",
@@ -8,7 +8,7 @@
     "typebox": "1.3.3"
   },
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [

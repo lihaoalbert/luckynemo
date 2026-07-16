@@ -1,11 +1,11 @@
 {
-  "name": "@openclaw/qianfan-provider",
+  "name": "@luckynemo/qianfan-provider",
   "version": "2026.7.2",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
-      "name": "@openclaw/qianfan-provider",
+      "name": "@luckynemo/qianfan-provider",
       "version": "2026.7.2"
     }
   }

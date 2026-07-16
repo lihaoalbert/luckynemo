@@ -2,8 +2,8 @@
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
-import { normalizeTrimmedStringList } from "@openclaw/normalization-core/string-normalization";
+} from "@luckynemo/normalization-core/string-coerce";
+import { normalizeTrimmedStringList } from "@luckynemo/normalization-core/string-normalization";
 import { getActivePluginChannelRegistry } from "../../plugins/runtime.js";
 import { resolveTextCommand } from "../commands-registry.js";
 import { resolveCommandSurfaceChannel } from "./channel-context.js";

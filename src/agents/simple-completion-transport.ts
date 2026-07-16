@@ -1,4 +1,4 @@
-import { getApiProvider } from "@openclaw/ai/internal/runtime";
+import { getApiProvider } from "@luckynemo/ai/internal/runtime";
 /**
  * Simple completion transport preparation.
  *

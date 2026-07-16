@@ -6,7 +6,7 @@ import {
   asDateTimestampMs,
   isFutureDateTimestampMs,
   resolveExpiresAtMsFromDurationMs,
-} from "@openclaw/normalization-core/number-coercion";
+} from "@luckynemo/normalization-core/number-coercion";
 import { DEFAULT_MAX_ARCHIVE_BYTES_ZIP } from "../../infra/archive.js";
 import { sha256Hex } from "../../infra/crypto-digest.js";
 import { formatErrorMessage } from "../../infra/errors.js";

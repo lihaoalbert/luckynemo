@@ -1,4 +1,4 @@
-import { resolveModelBoundThinkingReplayMode } from "@openclaw/ai/internal/anthropic";
+import { resolveModelBoundThinkingReplayMode } from "@luckynemo/ai/internal/anthropic";
 /**
  * Normalizes transcript messages before provider transport replay. It drops
  * unsafe failed turns, maps tool-call ids across model boundaries, and fills

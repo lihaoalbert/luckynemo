@@ -259,7 +259,7 @@ describe("createEmbeddingProvider", () => {
 
   it("reports the llama.cpp plugin install command when local is unregistered", async () => {
     await expect(createEmbeddingProvider(createOptions("local"))).rejects.toThrow(
-      "openclaw plugins install @openclaw/llama-cpp-provider",
+      "openclaw plugins install @luckynemo/llama-cpp-provider",
     );
   });
 

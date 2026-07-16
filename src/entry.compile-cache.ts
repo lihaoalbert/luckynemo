@@ -5,7 +5,7 @@ import { enableCompileCache, getCompileCacheDir } from "node:module";
 import os from "node:os";
 import path from "node:path";
 import process from "node:process";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { isTerminalInteractiveRespawnArgv } from "./cli/respawn-policy.js";
 import { attachChildProcessBridge } from "./process/child-process-bridge.js";
 import {

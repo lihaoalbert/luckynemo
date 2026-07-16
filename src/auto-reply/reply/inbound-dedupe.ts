@@ -2,7 +2,7 @@
 import {
   normalizeOptionalLowercaseString,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { resolveGlobalDedupeCache, type DedupeCache } from "../../infra/dedupe.js";
 import { channelRouteDedupeKey } from "../../plugin-sdk/channel-route.js";
 import { parseAgentSessionKey } from "../../sessions/session-key-utils.js";

@@ -1,6 +1,6 @@
 import os from "node:os";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import {
   createPluginRegistryFixture,
   registerVirtualTestPlugin,
@@ -461,7 +461,7 @@ describe("llama.cpp provider plugin", () => {
     });
 
     expect(llamaCppEmbeddingProviderAdapter.formatSetupError?.(err)).toContain(
-      "openclaw plugins install @openclaw/llama-cpp-provider",
+      "openclaw plugins install @luckynemo/llama-cpp-provider",
     );
   });
 });

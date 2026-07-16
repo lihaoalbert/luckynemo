@@ -7,7 +7,7 @@ import {
   normalizeNullableString,
   normalizeOptionalString,
   normalizeStringifiedOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { getPairingAdapter } from "../channels/plugins/pairing.js";
 import type { ChannelPairingAdapter } from "../channels/plugins/pairing.types.js";
 import { resolveOAuthDir, resolveStateDir } from "../config/paths.js";

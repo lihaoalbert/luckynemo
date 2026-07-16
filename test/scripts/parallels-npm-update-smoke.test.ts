@@ -2,7 +2,7 @@
 import { chmodSync, existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from "node:fs";
 import { tmpdir } from "node:os";
 import path from "node:path";
-import { MAX_TIMER_TIMEOUT_MS } from "@openclaw/normalization-core/number-coercion";
+import { MAX_TIMER_TIMEOUT_MS } from "@luckynemo/normalization-core/number-coercion";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { runWindowsBackgroundPowerShell } from "../../scripts/e2e/parallels/guest-transports.ts";
 import { run as hostCommandRun } from "../../scripts/e2e/parallels/host-command.ts";

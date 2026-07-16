@@ -2,7 +2,7 @@
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalLowercaseString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import type { OpenClawConfig } from "../config/types.js";
 import { matchPluginCommand } from "../plugins/commands.js";
 import { listChatCommands, listChatCommandsForConfig } from "./commands-registry-list.js";

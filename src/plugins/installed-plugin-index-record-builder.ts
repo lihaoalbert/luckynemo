@@ -1,6 +1,6 @@
 /** Builds installed-index records from normalized plugin manifest registry entries. */
 import path from "node:path";
-import { normalizeSortedUniqueStringEntries } from "@openclaw/normalization-core/string-normalization";
+import { normalizeSortedUniqueStringEntries } from "@luckynemo/normalization-core/string-normalization";
 import type { OpenClawConfig } from "../config/types.js";
 import type { PluginCompatCode } from "./compat/registry.js";
 import { normalizePluginsConfig, resolveEffectiveEnableState } from "./config-state.js";

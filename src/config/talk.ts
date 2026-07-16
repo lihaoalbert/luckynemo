@@ -2,7 +2,7 @@
 import {
   normalizeFastMode,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { normalizeThinkLevel } from "../auto-reply/thinking.js";
 import { isRecord } from "../utils.js";
 import type {

@@ -1,5 +1,5 @@
 // Ollama tests cover index plugin behavior.
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import {
   describeImageWithModel,
   describeImagesWithModel,

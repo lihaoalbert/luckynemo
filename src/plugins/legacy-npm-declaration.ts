@@ -1,6 +1,6 @@
 /** Reads legacy npm plugin declaration files left by early plugin installs. */
 import path from "node:path";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
 import { tryReadJsonSync } from "../infra/json-files.js";
 import { parseRegistryNpmSpec } from "../infra/npm-registry-spec.js";
 import { validatePluginId } from "./install-paths.js";

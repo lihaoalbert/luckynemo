@@ -1,6 +1,6 @@
 // Doctor repair for dmPolicy allowlists whose sender entries only exist in pairing stores.
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
-import { normalizeUniqueStringEntries } from "@openclaw/normalization-core/string-normalization";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
+import { normalizeUniqueStringEntries } from "@luckynemo/normalization-core/string-normalization";
 import { normalizeChatChannelId } from "../../../channels/ids.js";
 import { setCanonicalDmAllowFrom } from "../../../channels/plugins/dm-access.js";
 import type { OpenClawConfig } from "../../../config/types.openclaw.js";

@@ -1,5 +1,5 @@
 // Browser tests cover browser request.shared control state plugin behavior.
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { getFreePort } from "../browser/test-port.js";
 import type { OpenClawConfig } from "../config/config.js";

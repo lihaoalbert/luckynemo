@@ -1,8 +1,8 @@
 // Validates and normalizes provider asset attachments for music generation.
-import { maxBytesForKind } from "@openclaw/media-core/constants";
-import { extensionForMime } from "@openclaw/media-core/mime";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { maxBytesForKind } from "@luckynemo/media-core/constants";
+import { extensionForMime } from "@luckynemo/media-core/mime";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { readResponseWithLimit } from "../infra/http-body.js";
 import { fetchProviderDownloadResponse } from "../media-understanding/shared.js";
 import type { GeneratedMusicAsset } from "./types.js";

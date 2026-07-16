@@ -3,7 +3,7 @@
  * Verifies snapshots are cloned and isolated across agent-specific stores.
  */
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it, vi } from "vitest";
 import {
   clearRuntimeAuthProfileStoreSnapshot,

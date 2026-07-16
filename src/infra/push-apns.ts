@@ -2,12 +2,12 @@
 import { createHash, createPrivateKey, sign as signJwt } from "node:crypto";
 import fs from "node:fs/promises";
 import path from "node:path";
-import { resolveTimerTimeoutMs } from "@openclaw/normalization-core/number-coercion";
+import { resolveTimerTimeoutMs } from "@luckynemo/normalization-core/number-coercion";
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+} from "@luckynemo/normalization-core/string-coerce";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { resolveStateDir } from "../config/paths.js";
 import type { DeviceIdentity } from "./device-identity.js";
 import { formatErrorMessage, toErrorObject } from "./errors.js";

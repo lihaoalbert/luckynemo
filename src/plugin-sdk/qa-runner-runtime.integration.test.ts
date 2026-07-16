@@ -91,12 +91,12 @@ describe("plugin-sdk qa-runner-runtime linked plugin smoke", () => {
     fs.writeFileSync(
       path.join(pluginDir, "package.json"),
       JSON.stringify({
-        name: "@openclaw/qa-linked",
+        name: "@luckynemo/qa-linked",
         type: "module",
         openclaw: {
           extensions: ["./index.js"],
           install: {
-            npmSpec: "@openclaw/qa-linked",
+            npmSpec: "@luckynemo/qa-linked",
           },
         },
       }),

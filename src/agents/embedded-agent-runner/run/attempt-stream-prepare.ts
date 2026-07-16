@@ -1,7 +1,7 @@
 /**
  * Prepares stream subscription, tool execution, and the active run queue.
  */
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { isSilentReplyText, SILENT_REPLY_TOKEN } from "../../../auto-reply/tokens.js";
 import {
   freezeDiagnosticTraceContext,

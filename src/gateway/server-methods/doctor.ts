@@ -2,8 +2,8 @@
 // cron state, and REM harness previews for operator diagnostics.
 import fs from "node:fs/promises";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
-import { asOptionalRecord } from "@openclaw/normalization-core/record-coerce";
+import { expectDefined } from "@luckynemo/normalization-core";
+import { asOptionalRecord } from "@luckynemo/normalization-core/record-coerce";
 import { resolveAgentWorkspaceDir, resolveDefaultAgentId } from "../../agents/agent-scope.js";
 import type { OpenClawConfig } from "../../config/types.openclaw.js";
 import {

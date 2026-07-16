@@ -1,6 +1,6 @@
 // Channel resolution exposes read-only outbound runtime facades and performs
 // optional bootstrap for deliverable channels that are not loaded yet.
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
 import type { ChannelMessageAdapterShape } from "../../channels/message/types.js";
 import { getChannelPlugin, getLoadedChannelPlugin } from "../../channels/plugins/index.js";
 import type { ChannelPlugin } from "../../channels/plugins/types.plugin.js";

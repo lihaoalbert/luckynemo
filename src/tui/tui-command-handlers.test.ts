@@ -1,7 +1,7 @@
 // Covers TUI slash command handlers and backend call wiring.
 
 import type { OverlayHandle } from "@earendil-works/pi-tui";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it, vi } from "vitest";
 import { createCommandHandlers } from "./tui-command-handlers.js";
 import {

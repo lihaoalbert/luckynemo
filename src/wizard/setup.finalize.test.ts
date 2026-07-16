@@ -1,6 +1,6 @@
 // Setup finalize tests cover writing final onboarding config and artifacts.
 import fs from "node:fs/promises";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { createWizardPrompter as buildWizardPrompter } from "../../test/helpers/wizard-prompter.js";
 import type * as AuthChoiceModelCheck from "../commands/auth-choice.model-check.js";

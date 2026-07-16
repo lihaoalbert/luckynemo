@@ -1,4 +1,4 @@
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 // Dashboard session titles use the shared utility-model completion path.
 import { generateConversationLabel } from "../auto-reply/reply/conversation-label-generator.js";
 import { updateSessionEntry } from "../config/sessions/session-accessor.js";

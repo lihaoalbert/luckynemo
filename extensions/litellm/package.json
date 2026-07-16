@@ -1,11 +1,11 @@
 {
-  "name": "@openclaw/litellm-provider",
+  "name": "@luckynemo/litellm-provider",
   "version": "2026.7.2",
   "private": true,
   "description": "OpenClaw LiteLLM provider plugin",
   "type": "module",
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [

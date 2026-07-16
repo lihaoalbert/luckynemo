@@ -5,8 +5,8 @@ import type {
   SelectListTheme,
   SettingsListTheme,
 } from "@earendil-works/pi-tui";
-import { expectDefined } from "@openclaw/normalization-core";
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
+import { expectDefined } from "@luckynemo/normalization-core";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
 import chalk from "chalk";
 import type { SearchableSelectListTheme } from "../components/searchable-select-list.js";
 

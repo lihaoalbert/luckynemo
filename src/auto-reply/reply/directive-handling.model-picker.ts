@@ -1,5 +1,5 @@
 // Builds model picker choices and endpoint labels for model directives.
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { findNormalizedProviderValue, normalizeProviderId } from "../../agents/model-selection.js";
 import type { OpenClawConfig } from "../../config/types.openclaw.js";
 

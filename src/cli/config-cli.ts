@@ -1,12 +1,12 @@
 // Config CLI command implementation for get/set/unset/patch/validate and secret refs.
 import fs from "node:fs";
-import { expectDefined } from "@openclaw/normalization-core";
-import { isRecord as isPlainRecord } from "@openclaw/normalization-core/record-coerce";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { expectDefined } from "@luckynemo/normalization-core";
+import { isRecord as isPlainRecord } from "@luckynemo/normalization-core/record-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import {
   normalizeStringEntries,
   uniqueValues,
-} from "@openclaw/normalization-core/string-normalization";
+} from "@luckynemo/normalization-core/string-normalization";
 import type { Command } from "commander";
 import JSON5 from "json5";
 import { formatDocsLink } from "../../packages/terminal-core/src/links.js";

@@ -7,7 +7,7 @@ import "../infra/fs-safe-defaults.js";
 import type fsSync from "node:fs";
 import fs from "node:fs/promises";
 import path from "node:path";
-import { MAX_TIMER_TIMEOUT_MS } from "@openclaw/normalization-core/number-coercion";
+import { MAX_TIMER_TIMEOUT_MS } from "@luckynemo/normalization-core/number-coercion";
 import { parseSqliteSessionFileMarker } from "../config/sessions/sqlite-marker.js";
 import { createFileLockManager } from "../infra/file-lock-manager.js";
 import { readGatewayProcessArgsSync as readProcessArgsSync } from "../infra/gateway-processes.js";

@@ -1,7 +1,7 @@
 // Config snapshots and pre/post-update config restoration.
 import { existsSync } from "node:fs";
 import fs from "node:fs/promises";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
 import { theme } from "../../../packages/terminal-core/src/theme.js";
 import { createPreUpdateConfigSnapshot } from "../../config/backup-rotation.js";
 import {

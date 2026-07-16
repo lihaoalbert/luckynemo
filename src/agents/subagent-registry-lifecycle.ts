@@ -3,7 +3,7 @@
  *
  * Completes/fails task runs, clears delivery state, emits lifecycle events, and cleans attached resources.
  */
-import { uniqueStrings } from "@openclaw/normalization-core/string-normalization";
+import { uniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import { isSilentReplyText, SILENT_REPLY_TOKEN } from "../auto-reply/tokens.js";
 import type { cleanupBrowserSessionsForLifecycleEnd } from "../browser-lifecycle-cleanup.js";
 import { formatSqliteSessionFileMarker } from "../config/sessions/sqlite-marker.js";

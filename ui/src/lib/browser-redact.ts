@@ -1,5 +1,5 @@
 // Browser-safe redaction for tool details rendered by the Control UI.
-import { sliceUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { sliceUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 
 const PAYMENT_CREDENTIAL_KEYS =
   "card[-_]?number|card[-_]?cvc|card[-_]?cvv|cvc|cvv|security[-_]?code|securityCode|payment[-_]?credential|paymentCredential|shared[-_]?payment[-_]?token|sharedPaymentToken";

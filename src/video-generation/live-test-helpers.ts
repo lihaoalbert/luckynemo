@@ -1,5 +1,5 @@
 // Video live test helpers resolve live provider test settings from environment.
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import type { OpenClawConfig } from "../config/types.js";
 import {
   parseLiveCsvFilter,

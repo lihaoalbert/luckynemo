@@ -122,7 +122,7 @@ describe("listChannelCatalogEntries", () => {
     const supplied: Record<string, PluginInstallRecord> = {
       slack: {
         source: "npm",
-        spec: "@openclaw/slack@1.0.0",
+        spec: "@luckynemo/slack@1.0.0",
       } as PluginInstallRecord,
     };
 

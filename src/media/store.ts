@@ -8,11 +8,11 @@ import {
   basenameFromAnyPath,
   extnameFromAnyPath,
   nameFromAnyPath,
-} from "@openclaw/media-core/file-name";
-import { detectMime, extensionForMime } from "@openclaw/media-core/mime";
-import { hasHttpUrlPrefix } from "@openclaw/net-policy/url-protocol";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+} from "@luckynemo/media-core/file-name";
+import { detectMime, extensionForMime } from "@luckynemo/media-core/mime";
+import { hasHttpUrlPrefix } from "@luckynemo/net-policy/url-protocol";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { fileStore } from "../infra/file-store.js";
 import { sanitizeUntrustedFileName } from "../infra/fs-safe-advanced.js";
 import { isPathInside } from "../infra/fs-safe.js";

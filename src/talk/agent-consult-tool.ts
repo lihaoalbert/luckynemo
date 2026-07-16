@@ -7,7 +7,7 @@
 import {
   normalizeOptionalLowercaseString,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import type { RealtimeVoiceTool } from "./provider-types.js";
 
 /** Stable provider-facing tool name for realtime voice agent delegation. */

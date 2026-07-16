@@ -1,7 +1,7 @@
 // Section-level value and row builders for the standard status report.
 // These helpers own compact operator text for agents, tasks, memory, health, sessions, and footers.
 
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import {
   buildPairingConnectRecoveryTitle,
   describePairingConnectRequirement,

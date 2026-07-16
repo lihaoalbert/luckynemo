@@ -20,7 +20,7 @@ function fixtureFeed(): OfficialExternalPluginCatalogFeed {
     entries: [
       {
         type: "plugin",
-        id: "@openclaw/signed-feed-proof",
+        id: "@luckynemo/signed-feed-proof",
         title: "Signed Feed Proof",
         state: "available",
         publisher: { id: "openclaw", trust: "official" },

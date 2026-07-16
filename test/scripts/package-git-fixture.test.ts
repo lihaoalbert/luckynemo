@@ -15,8 +15,8 @@ describe("package git fixture", () => {
       path.join(root, "package.json"),
       `${JSON.stringify(
         {
-          dependencies: { "@openclaw/ai": "2026.6.11", chalk: "5.6.2" },
-          bundleDependencies: ["@openclaw/ai", "chalk"],
+          dependencies: { "@luckynemo/ai": "2026.6.11", chalk: "5.6.2" },
+          bundleDependencies: ["@luckynemo/ai", "chalk"],
         },
         null,
         2,
@@ -25,7 +25,7 @@ describe("package git fixture", () => {
     writeFileSync(path.join(root, "npm-shrinkwrap.json"), "{}\n");
     writeFileSync(
       path.join(root, "node_modules", "@openclaw", "ai", "package.json"),
-      `${JSON.stringify({ name: "@openclaw/ai", version: "2026.6.11" })}\n`,
+      `${JSON.stringify({ name: "@luckynemo/ai", version: "2026.6.11" })}\n`,
     );
 
     const result = spawnSync(
@@ -36,7 +36,7 @@ describe("package git fixture", () => {
 
     expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0);
     const packageJson = JSON.parse(readFileSync(path.join(root, "package.json"), "utf8"));
-    expect(packageJson.dependencies["@openclaw/ai"]).toBe("file:.openclaw-fixture/packages/ai");
+    expect(packageJson.dependencies["@luckynemo/ai"]).toBe("file:.openclaw-fixture/packages/ai");
     expect(packageJson.bundleDependencies).toEqual(["chalk"]);
     expect(() => readFileSync(path.join(root, "npm-shrinkwrap.json"), "utf8")).toThrow();
     expect(
@@ -46,6 +46,6 @@ describe("package git fixture", () => {
           "utf8",
         ),
       ).name,
-    ).toBe("@openclaw/ai");
+    ).toBe("@luckynemo/ai");
   });
 });

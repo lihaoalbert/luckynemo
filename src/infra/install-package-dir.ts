@@ -1,7 +1,7 @@
 // Installs package directories under canonical plugin roots.
 import fs from "node:fs/promises";
 import path from "node:path";
-import { isRecord as isObjectRecord } from "@openclaw/normalization-core/record-coerce";
+import { isRecord as isObjectRecord } from "@luckynemo/normalization-core/record-coerce";
 import { runCommandWithTimeout, type SpawnResult } from "../process/exec.js";
 import { pathExists } from "./fs-safe.js";
 import { assertCanonicalPathWithinBase } from "./install-safe-path.js";

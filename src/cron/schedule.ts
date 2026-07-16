@@ -1,5 +1,5 @@
 /** Computes at/every/cron schedule timestamps with bounded Croner caching. */
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { Cron } from "croner";
 import { parseAbsoluteTimeMs } from "./parse.js";
 import { coerceFiniteScheduleNumber } from "./schedule-number.js";

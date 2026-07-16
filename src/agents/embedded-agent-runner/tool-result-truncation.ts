@@ -3,8 +3,8 @@
  */
 import { createHash } from "node:crypto";
 import { existsSync } from "node:fs";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
-import { sliceUtf16Safe, truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
+import { sliceUtf16Safe, truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { loadTranscriptEvents } from "../../config/sessions/session-accessor.js";
 import { parseSqliteSessionFileMarker } from "../../config/sessions/sqlite-marker.js";
 import type { OpenClawConfig } from "../../config/types.openclaw.js";

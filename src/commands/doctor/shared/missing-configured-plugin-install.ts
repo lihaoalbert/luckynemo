@@ -2,7 +2,7 @@
 import { existsSync } from "node:fs";
 import { readFile, rm } from "node:fs/promises";
 import path from "node:path";
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
 import { stripAnsi } from "../../../../packages/terminal-core/src/ansi.js";
 import { sanitizeTerminalText } from "../../../../packages/terminal-core/src/safe-text.js";
 import {

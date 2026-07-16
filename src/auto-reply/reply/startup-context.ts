@@ -1,9 +1,9 @@
 // Loads startup context snippets injected into the first reply turn.
 import fs from "node:fs";
 import path from "node:path";
-import { resolveIntegerOption } from "@openclaw/normalization-core/number-coercion";
-import { uniqueStrings } from "@openclaw/normalization-core/string-normalization";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { resolveIntegerOption } from "@luckynemo/normalization-core/number-coercion";
+import { uniqueStrings } from "@luckynemo/normalization-core/string-normalization";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { formatDateStamp, resolveUserTimezone } from "../../agents/date-time.js";
 import type { OpenClawConfig } from "../../config/config.js";
 import { openRootFile } from "../../infra/boundary-file-read.js";

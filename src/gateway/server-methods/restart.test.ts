@@ -1,7 +1,7 @@
 // Restart method tests cover safe restart scheduling, deferral flags, and
 // response payloads returned by gateway.restart.request.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { restartHandlers } from "./restart.js";
 

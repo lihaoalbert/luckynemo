@@ -1,7 +1,7 @@
 // Plugin synchronization and convergence after the core update.
 import path from "node:path";
 import { confirm, isCancel, text } from "@clack/prompts";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { stripAnsi } from "../../../packages/terminal-core/src/ansi.js";
 import { stylePromptMessage } from "../../../packages/terminal-core/src/prompt-style.js";
 import { sanitizeTerminalText } from "../../../packages/terminal-core/src/safe-text.js";

@@ -59,17 +59,17 @@ describe("resolvePluginUpdateSelection", () => {
       resolvePluginUpdateSelection({
         installs: {
           "voice-call": createNpmInstall({
-            spec: "@openclaw/voice-call",
+            spec: "@luckynemo/voice-call",
             installPath: "/tmp/voice-call",
-            resolvedName: "@openclaw/voice-call",
+            resolvedName: "@luckynemo/voice-call",
           }),
         },
-        rawId: "@openclaw/voice-call@beta",
+        rawId: "@luckynemo/voice-call@beta",
       }),
     ).toEqual({
       pluginIds: ["voice-call"],
       specOverrides: {
-        "voice-call": "@openclaw/voice-call@beta",
+        "voice-call": "@luckynemo/voice-call@beta",
       },
     });
   });

@@ -1,5 +1,5 @@
 // Tests session export command packaging, filesystem writes, and prompt bundle capture.
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { HandleCommandsParams } from "./commands-types.js";
 

@@ -1,7 +1,7 @@
 /**
  * Filters provider/model refs for model picker visibility.
  */
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { listCliRuntimeProviderIds } from "./cli-backends.js";
 

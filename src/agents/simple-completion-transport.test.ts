@@ -1,4 +1,4 @@
-import { registerApiProvider, unregisterApiProviders } from "@openclaw/ai/internal/runtime";
+import { registerApiProvider, unregisterApiProviders } from "@luckynemo/ai/internal/runtime";
 // Simple completion transport tests cover provider-specific stream alias
 // selection before the generic completion helper invokes the LLM layer.
 import type { Model } from "openclaw/plugin-sdk/llm";

@@ -1,6 +1,6 @@
 // Control UI view renders workboard screen content.
 
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { html, nothing, type TemplateResult } from "lit";
 import type { GatewayBrowserClient } from "../../api/gateway.ts";
 import type { AgentsListResult, GatewaySessionRow } from "../../api/types.ts";

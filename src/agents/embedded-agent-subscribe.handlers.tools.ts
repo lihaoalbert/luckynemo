@@ -6,11 +6,11 @@
 import {
   asOptionalObjectRecord,
   asOptionalRecord as readRecordField,
-} from "@openclaw/normalization-core/record-coerce";
+} from "@luckynemo/normalization-core/record-coerce";
 import {
   normalizeOptionalLowercaseString,
   readStringValue,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import {
   HEARTBEAT_RESPONSE_TOOL_NAME,
   normalizeHeartbeatToolResponse,

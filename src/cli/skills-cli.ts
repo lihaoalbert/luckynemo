@@ -1,5 +1,5 @@
 // Skills CLI for workspace status, install/update, ClawHub verification, and workshop proposals.
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import type { Command } from "commander";
 import {
   GATEWAY_CLIENT_MODES,

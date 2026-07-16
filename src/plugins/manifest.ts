@@ -1,9 +1,9 @@
 /** Loads and normalizes OpenClaw plugin manifests, including contracts and config schemas. */
 import fs from "node:fs";
 import path from "node:path";
-import { normalizeModelCatalog } from "@openclaw/model-catalog-core/model-catalog-normalize";
-import { normalizeModelCatalogProviderId } from "@openclaw/model-catalog-core/model-catalog-refs";
-import type { ModelCatalog } from "@openclaw/model-catalog-core/model-catalog-types";
+import { normalizeModelCatalog } from "@luckynemo/model-catalog-core/model-catalog-normalize";
+import { normalizeModelCatalogProviderId } from "@luckynemo/model-catalog-core/model-catalog-refs";
+import type { ModelCatalog } from "@luckynemo/model-catalog-core/model-catalog-types";
 import { normalizeOptionalString } from "../../packages/normalization-core/src/string-coerce.js";
 import { normalizeTrimmedStringList } from "../../packages/normalization-core/src/string-normalization.js";
 import type { ChannelConfigRuntimeSchema } from "../channels/plugins/types.config.js";

@@ -29,7 +29,7 @@ import {
   resolveGatewayStartupRetryAfterMs,
   MIN_CLIENT_PROTOCOL_VERSION,
   PROTOCOL_VERSION,
-} from "@openclaw/gateway-client/browser";
+} from "@luckynemo/gateway-client/browser";
 import {
   clearDeviceAuthToken,
   loadDeviceAuthToken,

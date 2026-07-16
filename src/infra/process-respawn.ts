@@ -1,6 +1,6 @@
 // Respawns the gateway process when no supervisor handles restart.
 import { spawn, type ChildProcess } from "node:child_process";
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
 import { isContainerEnvironment } from "./container-environment.js";
 import { formatErrorMessage } from "./errors.js";
 import { triggerOpenClawRestart } from "./restart.js";

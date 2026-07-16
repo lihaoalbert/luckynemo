@@ -1,6 +1,6 @@
 /** OpenRouter free-model scanner and fallback updater for model commands. */
 import { cancel, multiselect as clackMultiselect, isCancel } from "@clack/prompts";
-import { getEnvApiKey } from "@openclaw/ai/internal/runtime";
+import { getEnvApiKey } from "@luckynemo/ai/internal/runtime";
 import { styleSelectParams } from "../../../packages/terminal-core/src/prompt-select-styled-params.js";
 import { stylePromptTitle } from "../../../packages/terminal-core/src/prompt-style.js";
 import { resolveApiKeyForProvider } from "../../agents/model-auth.js";

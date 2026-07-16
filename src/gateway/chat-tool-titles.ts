@@ -16,7 +16,7 @@
  * never re-bills the same calls.
  */
 import { createHash } from "node:crypto";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { DEFAULT_PROVIDER } from "../agents/defaults.js";
 import { splitTrailingAuthProfile } from "../agents/model-ref-profile.js";
 import { parseModelRef } from "../agents/model-selection-normalize.js";

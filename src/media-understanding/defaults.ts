@@ -1,7 +1,7 @@
 // Media-understanding default model/provider selection from config, manifest
 // metadata, and capability declarations.
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
-import { uniqueStrings } from "@openclaw/normalization-core/string-normalization";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
+import { uniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import { providerSupportsCapability } from "../../packages/media-understanding-common/src/provider-supports.js";
 import { resolveRuntimeConfigCacheKey } from "../config/runtime-snapshot.js";
 import type { OpenClawConfig } from "../config/types.js";

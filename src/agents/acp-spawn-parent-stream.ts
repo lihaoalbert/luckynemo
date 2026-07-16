@@ -1,9 +1,9 @@
 /** Relays child ACP session stream updates back into the requester parent session. */
 import { mkdir } from "node:fs/promises";
 import path from "node:path";
-import { asFiniteNumber } from "@openclaw/normalization-core/number-coercion";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
-import { sliceUtf16Safe, truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { asFiniteNumber } from "@luckynemo/normalization-core/number-coercion";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
+import { sliceUtf16Safe, truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { readAcpSessionEntry } from "../acp/runtime/session-meta.js";
 import {
   isAcpTagVisible,

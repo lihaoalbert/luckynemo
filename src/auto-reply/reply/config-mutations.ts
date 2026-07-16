@@ -1,4 +1,4 @@
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 /** Config mutation helpers used by chat commands that edit OpenClaw config. */
 import { setConfigValueAtPath, unsetConfigValueAtPath } from "../../config/config-paths.js";
 import {

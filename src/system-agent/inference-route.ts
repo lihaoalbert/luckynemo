@@ -1,6 +1,6 @@
 // Resolves the configured default agent route shared by OpenClaw inference calls.
 import { isDeepStrictEqual } from "node:util";
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
 import {
   cliBackendAcceptsAuthProfileForwarding,
   resolveCliExecutionAuthProfileId,

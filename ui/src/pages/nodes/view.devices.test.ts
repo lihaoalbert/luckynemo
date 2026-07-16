@@ -1,5 +1,5 @@
 /* @vitest-environment jsdom */
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { render } from "lit";
 import { describe, expect, it } from "vitest";
 import type { InventoryRemovalRequest } from "../../lib/nodes/index.ts";

@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { streamOpenAICompletions, streamOpenAIResponses } from "@openclaw/ai/internal/openai";
+import { streamOpenAICompletions, streamOpenAIResponses } from "@luckynemo/ai/internal/openai";
 /**
  * Cache-stability gate for the prompt-cache bust fix (issue #3658).
  *

@@ -1,6 +1,6 @@
 // Android node capability live tests verify paired node command allowlists and remote policy behavior.
 import { randomUUID } from "node:crypto";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterAll, beforeAll, describe, expect, it, vi } from "vitest";
 import { unwrapRemoteConfigSnapshot } from "../../test/helpers/gateway/android-node-capabilities-policy-config.js";
 import { shouldFetchRemotePolicyConfig } from "../../test/helpers/gateway/android-node-capabilities-policy-source.js";

@@ -4,7 +4,7 @@
  * compatible with Codex's MCP config shape.
  */
 import crypto from "node:crypto";
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
 import {
   loadEnabledBundleMcpConfig,
   type BundleMcpConfig,

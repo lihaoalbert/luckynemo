@@ -29,7 +29,7 @@ const RUN_ATTEMPT = 2;
 const REPOSITORY = "openclaw/openclaw";
 const WORKFLOW_PATH = ".github/workflows/plugin-npm-release.yml";
 const ARTIFACT_NAME = "plugin-npm-package-meta-2026.7.1-beta.3";
-const PACKAGE_NAME = "@openclaw/meta-provider";
+const PACKAGE_NAME = "@luckynemo/meta-provider";
 const PRODUCER_JOB_NAME = `Preflight plugin npm package (${PACKAGE_NAME})`;
 const PACKAGE_VERSION = "2026.7.1-beta.3";
 const PACKAGE_DIR = "extensions/meta";
@@ -683,7 +683,7 @@ describe("plugin publication artifact", () => {
       ["workflow event", { workflowEvent: "workflow_call" }],
       ["workflow head branch", { workflowHeadBranch: "release/2026.7.1" }],
       ["target SHA", { targetSha: "4".repeat(40) }],
-      ["package name", { packageName: "@openclaw/not-meta" }],
+      ["package name", { packageName: "@luckynemo/not-meta" }],
       ["package dir", { packageDir: "extensions/not-meta" }],
       ["package version", { version: "2026.7.1-beta.2" }],
       ["publication route", { route: "npm-oidc" }],
@@ -1736,8 +1736,8 @@ describe("plugin publication artifact", () => {
         },
       },
       {
-        manifestOverrides: { name: "@openclaw/not-meta" },
-        params: { packageName: "@openclaw/not-meta" },
+        manifestOverrides: { name: "@luckynemo/not-meta" },
+        params: { packageName: "@luckynemo/not-meta" },
       },
       {
         params: { packageDir: "extensions/not-meta" },

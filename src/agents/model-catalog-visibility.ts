@@ -3,7 +3,7 @@
  * combines explicit policy, configured models, defaults, and runtime
  * auth-backed availability.
  */
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import type {
   ModelAuthAvailabilityEvaluation,

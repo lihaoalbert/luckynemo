@@ -1,5 +1,5 @@
 // Delivery lookup recovers routable channel context from persisted session stores.
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import {
   resolveSessionStoreAgentId,
   resolveSessionStoreKey,

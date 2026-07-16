@@ -1,7 +1,7 @@
 import { arch, platform, release } from "node:os";
 import { zstdDecompressSync } from "node:zlib";
 // ChatGPT Responses provider tests cover stream handling and timeout behavior.
-import { MAX_TIMER_TIMEOUT_MS } from "@openclaw/normalization-core/number-coercion";
+import { MAX_TIMER_TIMEOUT_MS } from "@luckynemo/normalization-core/number-coercion";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { configureAiTransportHost } from "../host.js";
 import type { Context, Model } from "../types.js";

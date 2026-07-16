@@ -1,6 +1,6 @@
 // Non-interactive daemon install tests cover gateway service planning, token resolution, and systemd handling.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { OpenClawConfig } from "../../../config/config.js";
 import { installGatewayDaemonNonInteractive } from "./daemon-install.js";

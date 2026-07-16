@@ -1,5 +1,5 @@
 // Resolves or installs channel plugins needed by setup/onboarding flows.
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
 import { resolveAgentWorkspaceDir, resolveDefaultAgentId } from "../../agents/agent-scope.js";
 import {
   listRawChannelPluginCatalogEntries,

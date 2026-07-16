@@ -3,7 +3,7 @@ import crypto from "node:crypto";
 import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
-import { normalizeUniqueStringEntries } from "@openclaw/normalization-core/string-normalization";
+import { normalizeUniqueStringEntries } from "@luckynemo/normalization-core/string-normalization";
 import pMap from "p-map";
 import {
   resolveAgentDir,

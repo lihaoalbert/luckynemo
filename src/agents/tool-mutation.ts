@@ -3,11 +3,11 @@
  *
  * Identifies mutating tool calls and file targets so retry/recovery logic can reason about side effects.
  */
-import { asOptionalObjectRecord as asRecord } from "@openclaw/normalization-core/record-coerce";
+import { asOptionalObjectRecord as asRecord } from "@luckynemo/normalization-core/record-coerce";
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalLowercaseString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { isLikelyMutatingToolName } from "./tool-mutation-names.js";
 
 export { isLikelyMutatingToolName };

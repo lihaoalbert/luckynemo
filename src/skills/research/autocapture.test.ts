@@ -1,7 +1,7 @@
 // Research autocapture tests cover capture policy, persistence, and config gating.
 import fs from "node:fs/promises";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { loadSessionEntry, upsertSessionEntry } from "../../config/sessions/session-accessor.js";
 import {

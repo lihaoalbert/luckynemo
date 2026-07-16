@@ -1,6 +1,6 @@
 // Structured plugin catalog and lifecycle operations shared by Gateway-facing surfaces.
 import path from "node:path";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { MANIFEST_KEY } from "../compat/legacy-names.js";
 import {
   assertConfigWriteAllowedInCurrentMode,

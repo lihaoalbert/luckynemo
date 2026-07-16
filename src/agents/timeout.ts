@@ -6,7 +6,7 @@
 import {
   clampTimerTimeoutMs,
   MAX_TIMER_TIMEOUT_MS,
-} from "@openclaw/normalization-core/number-coercion";
+} from "@luckynemo/normalization-core/number-coercion";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 
 const DEFAULT_AGENT_TIMEOUT_SECONDS = 48 * 60 * 60;

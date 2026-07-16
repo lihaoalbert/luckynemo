@@ -2,8 +2,8 @@
 import { createHash } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
-import { err as resultError, ok, type Result } from "@openclaw/normalization-core/result";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { err as resultError, ok, type Result } from "@luckynemo/normalization-core/result";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import { clearAgentHarnesses } from "../agents/harness/registry.js";
 import { resolveConfigEnvVars } from "../config/env-substitution.js";
 import { createConfigRuntimeEnv } from "../config/env-vars.js";

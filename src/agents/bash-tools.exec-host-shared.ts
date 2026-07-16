@@ -4,7 +4,7 @@
  * follow-up dispatch, and approval-pending tool result rendering.
  */
 import crypto from "node:crypto";
-import { resolveExpiresAtMsFromDurationMs } from "@openclaw/normalization-core/number-coercion";
+import { resolveExpiresAtMsFromDurationMs } from "@luckynemo/normalization-core/number-coercion";
 import { isApprovalNotFoundError } from "../infra/approval-errors.js";
 import { formatErrorMessage } from "../infra/errors.js";
 import { buildExecApprovalUnavailableReplyPayload } from "../infra/exec-approval-reply.js";

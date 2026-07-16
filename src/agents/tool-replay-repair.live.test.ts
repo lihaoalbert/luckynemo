@@ -1,7 +1,7 @@
 // Live tool replay repair tests validate repaired historical transcripts across
 // selected real model providers.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import type { AgentMessage } from "openclaw/plugin-sdk/agent-core";
 import { SessionManager } from "openclaw/plugin-sdk/agent-sessions";
 import type { Context, Model } from "openclaw/plugin-sdk/llm";

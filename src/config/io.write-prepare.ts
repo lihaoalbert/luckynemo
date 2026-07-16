@@ -1,7 +1,7 @@
 // Prepares config writes by diffing current state and preserving metadata.
 import { isDeepStrictEqual } from "node:util";
-import { normalizeConfiguredProviderCatalogModelId } from "@openclaw/model-catalog-core/provider-model-id-normalization";
-import { expectDefined } from "@openclaw/normalization-core";
+import { normalizeConfiguredProviderCatalogModelId } from "@luckynemo/model-catalog-core/provider-model-id-normalization";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { isBlockedObjectKey } from "../infra/prototype-keys.js";
 import { parseConfigPathArrayIndex } from "../shared/path-array-index.js";
 import { isRecord } from "../utils.js";

@@ -775,7 +775,7 @@ describe("loadOpenClawPlugins", () => {
               path.join(globalDir, "package.json"),
               JSON.stringify(
                 {
-                  name: "@openclaw/memory-lancedb",
+                  name: "@luckynemo/memory-lancedb",
                   version: "2026.5.12-beta.1",
                   openclaw: { extensions: ["./index.cjs"] },
                 },
@@ -797,8 +797,8 @@ describe("loadOpenClawPlugins", () => {
                   installs: {
                     "memory-lancedb": {
                       source: "npm",
-                      spec: "@openclaw/memory-lancedb",
-                      resolvedName: "@openclaw/memory-lancedb",
+                      spec: "@luckynemo/memory-lancedb",
+                      resolvedName: "@luckynemo/memory-lancedb",
                       resolvedVersion: "2026.5.12-beta.1",
                       installPath: globalDir,
                     },

@@ -1,5 +1,5 @@
 import { consume } from "@lit/context";
-import { asNullableRecord as catalogRawRecord } from "@openclaw/normalization-core/record-coerce";
+import { asNullableRecord as catalogRawRecord } from "@luckynemo/normalization-core/record-coerce";
 import { html, nothing } from "lit";
 import { property, state as litState } from "lit/decorators.js";
 import type {

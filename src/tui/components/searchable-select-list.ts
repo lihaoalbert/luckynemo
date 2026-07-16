@@ -9,8 +9,8 @@ import {
   type SelectListTheme,
   truncateToWidth,
 } from "@earendil-works/pi-tui";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
-import { uniqueStrings } from "@openclaw/normalization-core/string-normalization";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
+import { uniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import { stripAnsi, visibleWidth } from "../../../packages/terminal-core/src/ansi.js";
 
 const ANSI_ESCAPE = String.fromCharCode(27);

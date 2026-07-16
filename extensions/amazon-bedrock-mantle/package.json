@@ -1,5 +1,5 @@
 {
-  "name": "@openclaw/amazon-bedrock-mantle-provider",
+  "name": "@luckynemo/amazon-bedrock-mantle-provider",
   "version": "2026.7.2",
   "description": "OpenClaw Amazon Bedrock Mantle provider plugin for OpenAI-compatible model routing.",
   "repository": {
@@ -12,14 +12,14 @@
     "@aws/bedrock-token-generator": "1.1.0"
   },
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [
       "./index.ts"
     ],
     "install": {
-      "npmSpec": "@openclaw/amazon-bedrock-mantle-provider",
+      "npmSpec": "@luckynemo/amazon-bedrock-mantle-provider",
       "defaultChoice": "npm",
       "minHostVersion": ">=2026.5.12-beta.1"
     },

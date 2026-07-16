@@ -1,6 +1,6 @@
 import path from "node:path";
 import { performance } from "node:perf_hooks";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { ErrorCodes, errorShape } from "../../../packages/gateway-protocol/src/index.js";
 import { resolveAgentWorkspaceDir } from "../../agents/agent-scope.js";
 import { ensureSandboxWorkspaceForSession } from "../../agents/sandbox/context.js";

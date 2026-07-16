@@ -1,5 +1,5 @@
 // Control UI chat module implements chat welcome behavior.
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { html, nothing } from "lit";
 import type { GatewaySessionRow, SessionsListResult } from "../../../api/types.ts";
 import {

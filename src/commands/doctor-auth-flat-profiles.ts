@@ -1,8 +1,8 @@
 /** Doctor repairs for legacy auth profile JSON stores and OpenAI provider-id migrations. */
 import fs from "node:fs";
 import path from "node:path";
-import { collectConfiguredModelRefs } from "@openclaw/model-catalog-core/configured-model-refs";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
+import { collectConfiguredModelRefs } from "@luckynemo/model-catalog-core/configured-model-refs";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
 import { note } from "../../packages/terminal-core/src/note.js";
 import { resolveAgentDir, resolveDefaultAgentDir, listAgentIds } from "../agents/agent-scope.js";
 import { AUTH_STORE_VERSION } from "../agents/auth-profiles/constants.js";

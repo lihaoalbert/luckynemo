@@ -2,7 +2,7 @@
  * Manages reusable Claude CLI stdio sessions for CLI-backed agent turns.
  */
 import crypto from "node:crypto";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
 import type { ReplyBackendHandle } from "../../auto-reply/reply/reply-run-registry.js";
 import type { CliBackendConfig } from "../../config/types.js";
 import { createAbortError as createNamedAbortError } from "../../infra/abort-signal.js";

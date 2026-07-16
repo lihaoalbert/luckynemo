@@ -1,6 +1,6 @@
 // Session binding service multiplexes channel adapters and the generic current
 // conversation store behind one bind/list/resolve/touch/unbind API.
-import { uniqueValues } from "@openclaw/normalization-core/string-normalization";
+import { uniqueValues } from "@luckynemo/normalization-core/string-normalization";
 import { resolveGlobalMap } from "../../shared/global-singleton.js";
 import {
   testing as genericCurrentConversationBindingTesting,

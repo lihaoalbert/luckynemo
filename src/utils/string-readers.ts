@@ -1,7 +1,7 @@
 import {
   normalizeOptionalString,
   readStringValue,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 
 type StringOptions<T extends string> = readonly T[] | ReadonlySet<T>;
 

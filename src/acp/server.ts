@@ -9,8 +9,8 @@ import {
   ndJsonStream,
   type AnyMessage,
 } from "@agentclientprotocol/sdk";
-import type { AcpServerOptions } from "@openclaw/acp-core/types";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import type { AcpServerOptions } from "@luckynemo/acp-core/types";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import {
   GATEWAY_CLIENT_CAPS,
   GATEWAY_CLIENT_MODES,

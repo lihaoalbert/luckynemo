@@ -1,8 +1,8 @@
 // Gateway setup prompt shared constants.
 // Provides Tailscale copy and Control UI origin updates for CLI setup flows.
-import { isIpv6Address, parseCanonicalIpAddress } from "@openclaw/net-policy/ip";
-import { expectDefined } from "@openclaw/normalization-core";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { isIpv6Address, parseCanonicalIpAddress } from "@luckynemo/net-policy/ip";
+import { expectDefined } from "@luckynemo/normalization-core";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { getTailnetHostname } from "../infra/tailscale.js";
 

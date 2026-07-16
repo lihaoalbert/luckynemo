@@ -1,7 +1,7 @@
 // Persistence helpers for plugin installs plus related config mutation.
 import fs from "node:fs";
 import path from "node:path";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
 import { theme } from "../../packages/terminal-core/src/theme.js";
 import {
   hashConfigIncludeRaw,

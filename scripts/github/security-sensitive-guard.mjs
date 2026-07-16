@@ -222,7 +222,7 @@ export function renderSecuritySensitiveAwarenessComment(changes) {
     "Maintainer follow-up:",
     "- Review whether each security-sensitive file change is intentional.",
     "- Confirm the change does not weaken secret, credential, or local-state protection.",
-    "- If this PR intentionally needs the change, a repository admin or member of `@openclaw/openclaw-secops` must approve the exact head SHA.",
+    "- If this PR intentionally needs the change, a repository admin or member of `@luckynemo/openclaw-secops` must approve the exact head SHA.",
   ].join("\n");
 }
 
@@ -232,7 +232,7 @@ export function renderAuthorizedSecuritySensitiveComment(override) {
     "",
     "### Security-sensitive change authorized",
     "",
-    "This PR includes security-sensitive file changes. A repository admin or member of `@openclaw/openclaw-secops` authorized this exact head SHA with `/allow-security-sensitive-change`.",
+    "This PR includes security-sensitive file changes. A repository admin or member of `@luckynemo/openclaw-secops` authorized this exact head SHA with `/allow-security-sensitive-change`.",
     "",
     `- Approved SHA: ${markdownCode(override.sha)}`,
     `- Approved by: @${sanitizeDisplayValue(override.login)}`,
@@ -250,7 +250,7 @@ export function renderTrustedSecuritySensitiveComment({ actor, headSha, changes 
     "",
     "### Security-sensitive changes noted",
     "",
-    "This PR includes security-sensitive file changes. The guard is informational because the PR author is a repository admin or a member of `@openclaw/openclaw-secops`.",
+    "This PR includes security-sensitive file changes. The guard is informational because the PR author is a repository admin or a member of `@luckynemo/openclaw-secops`.",
     "",
     `- Current SHA: ${markdownCode(headSha ?? "<head-sha>")}`,
     `- Trusted actor: @${sanitizeDisplayValue(actor.login)}`,
@@ -286,7 +286,7 @@ export function renderBlockedSecuritySensitiveComment({ headSha, changes }) {
     "Detected security-sensitive changes:",
     ...renderChangedFileLines(changes),
     "",
-    "If this PR intentionally needs these changes, ask a repository admin or member of `@openclaw/openclaw-secops` to comment:",
+    "If this PR intentionally needs these changes, ask a repository admin or member of `@luckynemo/openclaw-secops` to comment:",
     "",
     "```text",
     allowSecuritySensitiveCommand,

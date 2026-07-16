@@ -6,7 +6,7 @@
   "description": "Bundled fallback feed for official external OpenClaw plugins.",
   "entries": [
     {
-      "name": "@openclaw/acpx",
+      "name": "@luckynemo/acpx",
       "description": "OpenClaw ACP runtime backend",
       "source": "official",
       "kind": "plugin",
@@ -16,14 +16,14 @@
           "label": "ACPX Runtime"
         },
         "install": {
-          "npmSpec": "@openclaw/acpx",
+          "npmSpec": "@luckynemo/acpx",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.4.25"
         }
       }
     },
     {
-      "name": "@openclaw/brave-plugin",
+      "name": "@luckynemo/brave-plugin",
       "description": "OpenClaw Brave plugin",
       "source": "official",
       "kind": "plugin",
@@ -48,7 +48,7 @@
           }
         ],
         "install": {
-          "npmSpec": "@openclaw/brave-plugin",
+          "npmSpec": "@luckynemo/brave-plugin",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.4.10",
           "allowInvalidConfigRecovery": true
@@ -56,7 +56,7 @@
       }
     },
     {
-      "name": "@openclaw/copilot",
+      "name": "@luckynemo/copilot",
       "description": "OpenClaw GitHub Copilot agent runtime plugin",
       "source": "official",
       "kind": "plugin",
@@ -66,15 +66,15 @@
           "label": "GitHub Copilot agent runtime"
         },
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/copilot",
-          "npmSpec": "@openclaw/copilot",
+          "clawhubSpec": "clawhub:@luckynemo/copilot",
+          "npmSpec": "@luckynemo/copilot",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.5.28"
         }
       }
     },
     {
-      "name": "@openclaw/diagnostics-otel",
+      "name": "@luckynemo/diagnostics-otel",
       "description": "OpenClaw diagnostics OpenTelemetry exporter",
       "source": "official",
       "kind": "plugin",
@@ -84,15 +84,15 @@
           "label": "Diagnostics OpenTelemetry"
         },
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/diagnostics-otel",
-          "npmSpec": "@openclaw/diagnostics-otel",
+          "clawhubSpec": "clawhub:@luckynemo/diagnostics-otel",
+          "npmSpec": "@luckynemo/diagnostics-otel",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.4.25"
         }
       }
     },
     {
-      "name": "@openclaw/diagnostics-prometheus",
+      "name": "@luckynemo/diagnostics-prometheus",
       "description": "OpenClaw diagnostics Prometheus exporter",
       "source": "official",
       "kind": "plugin",
@@ -102,15 +102,15 @@
           "label": "Diagnostics Prometheus"
         },
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/diagnostics-prometheus",
-          "npmSpec": "@openclaw/diagnostics-prometheus",
+          "clawhubSpec": "clawhub:@luckynemo/diagnostics-prometheus",
+          "npmSpec": "@luckynemo/diagnostics-prometheus",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.4.25"
         }
       }
     },
     {
-      "name": "@openclaw/diffs",
+      "name": "@luckynemo/diffs",
       "description": "OpenClaw diff viewer plugin",
       "source": "official",
       "kind": "plugin",
@@ -124,15 +124,15 @@
           "order": 40
         },
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/diffs",
-          "npmSpec": "@openclaw/diffs",
+          "clawhubSpec": "clawhub:@luckynemo/diffs",
+          "npmSpec": "@luckynemo/diffs",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.4.30"
         }
       }
     },
     {
-      "name": "@openclaw/diffs-language-pack",
+      "name": "@luckynemo/diffs-language-pack",
       "description": "OpenClaw diffs viewer syntax highlighting language pack",
       "source": "official",
       "kind": "plugin",
@@ -142,15 +142,15 @@
           "label": "Diff Viewer Language Pack"
         },
         "install": {
-          "npmSpec": "@openclaw/diffs-language-pack",
-          "clawhubSpec": "clawhub:@openclaw/diffs-language-pack",
+          "npmSpec": "@luckynemo/diffs-language-pack",
+          "clawhubSpec": "clawhub:@luckynemo/diffs-language-pack",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.5.27"
         }
       }
     },
     {
-      "name": "@openclaw/exa-plugin",
+      "name": "@luckynemo/exa-plugin",
       "description": "OpenClaw Exa plugin.",
       "source": "official",
       "kind": "plugin",
@@ -184,15 +184,15 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/exa-plugin",
-          "npmSpec": "@openclaw/exa-plugin",
+          "clawhubSpec": "clawhub:@luckynemo/exa-plugin",
+          "npmSpec": "@luckynemo/exa-plugin",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.8"
         }
       }
     },
     {
-      "name": "@openclaw/firecrawl-plugin",
+      "name": "@luckynemo/firecrawl-plugin",
       "description": "OpenClaw Firecrawl plugin.",
       "source": "official",
       "kind": "plugin",
@@ -248,15 +248,15 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/firecrawl-plugin",
-          "npmSpec": "@openclaw/firecrawl-plugin",
+          "clawhubSpec": "clawhub:@luckynemo/firecrawl-plugin",
+          "npmSpec": "@luckynemo/firecrawl-plugin",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.8"
         }
       }
     },
     {
-      "name": "@openclaw/google-meet",
+      "name": "@luckynemo/google-meet",
       "description": "OpenClaw Google Meet participant plugin",
       "source": "official",
       "kind": "plugin",
@@ -266,14 +266,14 @@
           "label": "Google Meet"
         },
         "install": {
-          "npmSpec": "@openclaw/google-meet",
+          "npmSpec": "@luckynemo/google-meet",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.4.20"
         }
       }
     },
     {
-      "name": "@openclaw/gradium-speech",
+      "name": "@luckynemo/gradium-speech",
       "description": "OpenClaw Gradium speech plugin.",
       "source": "official",
       "kind": "plugin",
@@ -288,15 +288,15 @@
           ]
         },
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/gradium-speech",
-          "npmSpec": "@openclaw/gradium-speech",
+          "clawhubSpec": "clawhub:@luckynemo/gradium-speech",
+          "npmSpec": "@luckynemo/gradium-speech",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.8"
         }
       }
     },
     {
-      "name": "@openclaw/inworld-speech",
+      "name": "@luckynemo/inworld-speech",
       "description": "OpenClaw Inworld speech plugin.",
       "source": "official",
       "kind": "plugin",
@@ -311,15 +311,15 @@
           ]
         },
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/inworld-speech",
-          "npmSpec": "@openclaw/inworld-speech",
+          "clawhubSpec": "clawhub:@luckynemo/inworld-speech",
+          "npmSpec": "@luckynemo/inworld-speech",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.8"
         }
       }
     },
     {
-      "name": "@openclaw/lobster",
+      "name": "@luckynemo/lobster",
       "description": "Lobster workflow tool plugin (typed pipelines + resumable approvals)",
       "source": "official",
       "kind": "plugin",
@@ -333,15 +333,15 @@
           "order": 50
         },
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/lobster",
-          "npmSpec": "@openclaw/lobster",
+          "clawhubSpec": "clawhub:@luckynemo/lobster",
+          "npmSpec": "@luckynemo/lobster",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.4.25"
         }
       }
     },
     {
-      "name": "@openclaw/memory-lancedb",
+      "name": "@luckynemo/memory-lancedb",
       "description": "OpenClaw LanceDB-backed long-term memory plugin with auto-recall/capture",
       "source": "official",
       "kind": "plugin",
@@ -355,15 +355,15 @@
           "order": 70
         },
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/memory-lancedb",
-          "npmSpec": "@openclaw/memory-lancedb",
+          "clawhubSpec": "clawhub:@luckynemo/memory-lancedb",
+          "npmSpec": "@luckynemo/memory-lancedb",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.5.31"
         }
       }
     },
     {
-      "name": "@openclaw/llama-cpp-provider",
+      "name": "@luckynemo/llama-cpp-provider",
       "description": "OpenClaw llama.cpp embedding provider plugin",
       "source": "official",
       "kind": "plugin",
@@ -376,14 +376,14 @@
           "embeddingProviders": ["local"]
         },
         "install": {
-          "npmSpec": "@openclaw/llama-cpp-provider",
+          "npmSpec": "@luckynemo/llama-cpp-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.2"
         }
       }
     },
     {
-      "name": "@openclaw/openshell-sandbox",
+      "name": "@luckynemo/openshell-sandbox",
       "description": "OpenClaw OpenShell sandbox backend",
       "source": "official",
       "kind": "plugin",
@@ -393,14 +393,14 @@
           "label": "OpenShell Sandbox"
         },
         "install": {
-          "npmSpec": "@openclaw/openshell-sandbox",
+          "npmSpec": "@luckynemo/openshell-sandbox",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.5.12-beta.1"
         }
       }
     },
     {
-      "name": "@openclaw/parallel-plugin",
+      "name": "@luckynemo/parallel-plugin",
       "description": "OpenClaw Parallel web search plugin.",
       "source": "official",
       "kind": "plugin",
@@ -449,15 +449,15 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/parallel-plugin",
-          "npmSpec": "@openclaw/parallel-plugin",
+          "clawhubSpec": "clawhub:@luckynemo/parallel-plugin",
+          "npmSpec": "@luckynemo/parallel-plugin",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.8"
         }
       }
     },
     {
-      "name": "@openclaw/perplexity-plugin",
+      "name": "@luckynemo/perplexity-plugin",
       "description": "OpenClaw Perplexity plugin.",
       "source": "official",
       "kind": "plugin",
@@ -492,15 +492,15 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/perplexity-plugin",
-          "npmSpec": "@openclaw/perplexity-plugin",
+          "clawhubSpec": "clawhub:@luckynemo/perplexity-plugin",
+          "npmSpec": "@luckynemo/perplexity-plugin",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.8"
         }
       }
     },
     {
-      "name": "@openclaw/pixverse-provider",
+      "name": "@luckynemo/pixverse-provider",
       "description": "OpenClaw PixVerse video generation provider plugin",
       "source": "official",
       "kind": "plugin",
@@ -510,15 +510,15 @@
           "label": "PixVerse"
         },
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/pixverse-provider",
-          "npmSpec": "@openclaw/pixverse-provider",
+          "clawhubSpec": "clawhub:@luckynemo/pixverse-provider",
+          "npmSpec": "@luckynemo/pixverse-provider",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.5.26"
         }
       }
     },
     {
-      "name": "@openclaw/searxng-plugin",
+      "name": "@luckynemo/searxng-plugin",
       "description": "OpenClaw SearXNG plugin",
       "source": "official",
       "kind": "plugin",
@@ -553,8 +553,8 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/searxng-plugin",
-          "npmSpec": "@openclaw/searxng-plugin",
+          "clawhubSpec": "clawhub:@luckynemo/searxng-plugin",
+          "npmSpec": "@luckynemo/searxng-plugin",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.9",
           "allowInvalidConfigRecovery": true
@@ -562,7 +562,7 @@
       }
     },
     {
-      "name": "@openclaw/tavily-plugin",
+      "name": "@luckynemo/tavily-plugin",
       "description": "OpenClaw Tavily plugin",
       "source": "official",
       "kind": "plugin",
@@ -600,8 +600,8 @@
           }
         ],
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/tavily-plugin",
-          "npmSpec": "@openclaw/tavily-plugin",
+          "clawhubSpec": "clawhub:@luckynemo/tavily-plugin",
+          "npmSpec": "@luckynemo/tavily-plugin",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.6.9",
           "allowInvalidConfigRecovery": true
@@ -609,7 +609,7 @@
       }
     },
     {
-      "name": "@openclaw/tokenjuice",
+      "name": "@luckynemo/tokenjuice",
       "description": "OpenClaw tokenjuice exec output compaction plugin",
       "source": "official",
       "kind": "plugin",
@@ -623,15 +623,15 @@
           "order": 60
         },
         "install": {
-          "clawhubSpec": "clawhub:@openclaw/tokenjuice",
-          "npmSpec": "@openclaw/tokenjuice",
+          "clawhubSpec": "clawhub:@luckynemo/tokenjuice",
+          "npmSpec": "@luckynemo/tokenjuice",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.5.28"
         }
       }
     },
     {
-      "name": "@openclaw/voice-call",
+      "name": "@luckynemo/voice-call",
       "description": "OpenClaw voice-call plugin",
       "source": "official",
       "kind": "plugin",
@@ -641,7 +641,7 @@
           "label": "Voice Call"
         },
         "install": {
-          "npmSpec": "@openclaw/voice-call",
+          "npmSpec": "@luckynemo/voice-call",
           "defaultChoice": "npm",
           "minHostVersion": ">=2026.4.10"
         }

@@ -4,7 +4,7 @@ import path from "node:path";
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import type { PluginInstallRecord } from "../config/types.plugins.js";
 import { satisfiesPluginApiRange } from "../infra/clawhub.js";
 import { readRootJsonObjectSync } from "../infra/json-files.js";
@@ -648,7 +648,7 @@ function deriveIdHint(params: {
   }
 
   // Prefer the unscoped name so config keys stay stable even when the npm
-  // package is scoped (example: @openclaw/voice-call -> voice-call).
+  // package is scoped (example: @luckynemo/voice-call -> voice-call).
   const unscoped = rawPackageName.includes("/")
     ? (rawPackageName.split("/").pop() ?? rawPackageName)
     : rawPackageName;

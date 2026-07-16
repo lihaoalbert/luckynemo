@@ -41,7 +41,7 @@ function writePackageJson(dir: string) {
     path.join(dir, "package.json"),
     `${JSON.stringify(
       {
-        name: "@openclaw/test-plugin",
+        name: "@luckynemo/test-plugin",
         version: "1.0.0",
         openclaw: {
           extensions: ["./index.ts"],

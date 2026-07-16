@@ -17,7 +17,7 @@ import {
 import { tmpdir } from "node:os";
 import { basename, isAbsolute, join, resolve } from "node:path";
 import { createInterface } from "node:readline";
-import { toErrorObject } from "@openclaw/normalization-core/error-coercion";
+import { toErrorObject } from "@luckynemo/normalization-core/error-coercion";
 import {
   type ExecutionEnv,
   ExecutionError,

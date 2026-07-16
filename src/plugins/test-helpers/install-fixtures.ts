@@ -66,7 +66,7 @@ export function createDualFormatInstallFixtureFactory(makeTempDir: MakeTempDir) 
     fs.writeFileSync(
       path.join(pluginDir, "package.json"),
       JSON.stringify({
-        name: "@openclaw/native-dual",
+        name: "@luckynemo/native-dual",
         version: "0.0.1",
         openclaw: { extensions: ["./dist/index.js"] },
         dependencies: { "left-pad": "1.3.0" },

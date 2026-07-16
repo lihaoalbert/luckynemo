@@ -1,7 +1,7 @@
 // QA watchdog for shutting down orphaned gateway children and cleaning staged temp roots.
 import fs from "node:fs/promises";
 import path from "node:path";
-import { uniqueStrings } from "@openclaw/normalization-core/string-normalization";
+import { uniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import { createSubsystemLogger } from "../../logging/subsystem.js";
 
 const QA_PARENT_PID_ENV = "OPENCLAW_QA_PARENT_PID";

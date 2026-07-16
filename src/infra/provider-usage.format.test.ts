@@ -1,6 +1,6 @@
 // Covers provider usage report formatting.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it } from "vitest";
 import {
   formatUsageReportLines,

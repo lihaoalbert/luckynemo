@@ -3451,7 +3451,7 @@ describe("startGatewayConfigReloader", () => {
     const installRecords = {
       telegram: {
         source: "npm",
-        spec: "@openclaw/telegram",
+        spec: "@luckynemo/telegram",
         installPath: "/tmp/openclaw/plugins/telegram",
       },
     } satisfies Record<string, PluginInstallRecord>;

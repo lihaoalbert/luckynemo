@@ -1,7 +1,7 @@
 // Builds the data model for the standard `openclaw status` text report.
 // It converts scan/runtime state into table rows and section lines before rendering.
 
-import { timestampMsToIsoString } from "@openclaw/normalization-core/number-coercion";
+import { timestampMsToIsoString } from "@luckynemo/normalization-core/number-coercion";
 import type { ConnectPairingRequiredReason } from "../../packages/gateway-protocol/src/connect-error-details.js";
 import type { RenderTableOptions, TableColumn } from "../../packages/terminal-core/src/table.js";
 import type { HeartbeatEventPayload } from "../infra/heartbeat-events.js";

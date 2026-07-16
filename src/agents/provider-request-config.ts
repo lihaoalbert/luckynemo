@@ -3,7 +3,7 @@
  *
  * Normalizes operator request overrides into transport-ready auth, proxy, TLS, header, and SSRF policy state.
  */
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import type { ModelDefinitionConfig } from "../config/types.js";
 import type {
   ConfiguredModelProviderRequest,

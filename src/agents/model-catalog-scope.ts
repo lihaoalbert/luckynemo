@@ -4,8 +4,8 @@
 import {
   findNormalizedProviderValue,
   normalizeProviderId,
-} from "@openclaw/model-catalog-core/provider-id";
-import { normalizeUniqueSingleOrTrimmedStringList } from "@openclaw/normalization-core/string-normalization";
+} from "@luckynemo/model-catalog-core/provider-id";
+import { normalizeUniqueSingleOrTrimmedStringList } from "@luckynemo/normalization-core/string-normalization";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 
 // Accept provider/model refs in addition to separate provider fields so aliases

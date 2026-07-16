@@ -2,7 +2,7 @@
 
 import fs from "node:fs";
 import path from "node:path";
-import { sliceUtf16Safe, truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { sliceUtf16Safe, truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { extractSections } from "../../auto-reply/reply/post-compaction-context.js";
 import { isAbortError } from "../../infra/abort-signal.js";
 import { openRootFile } from "../../infra/boundary-file-read.js";

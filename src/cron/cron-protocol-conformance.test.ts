@@ -1,7 +1,7 @@
 // Cron protocol conformance tests cover schema compatibility for cron messages.
 import fs from "node:fs/promises";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it } from "vitest";
 import {
   CronDeliverySchema,

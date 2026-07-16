@@ -1,5 +1,5 @@
 // Snapshots script supports OpenClaw repository automation.
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { die, run } from "./host-command.ts";
 import type { Mode } from "./types.ts";
 import type { SnapshotInfo } from "./types.ts";

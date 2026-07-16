@@ -1,7 +1,7 @@
 // Tool subscription helper tests cover error extraction, sanitized tool results,
 // and safe lifecycle payloads for embedded tool events.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import * as loggingConfigModule from "../logging/config.js";
 import {

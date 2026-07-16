@@ -1,5 +1,5 @@
 // System-agent prompts drive the OpenClaw conversation with typed-command output.
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import type { SystemAgentOverview } from "./overview.js";
 
 /**

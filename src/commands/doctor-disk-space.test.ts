@@ -1,5 +1,5 @@
 // Doctor disk-space tests cover byte formatting, warning generation, and note rendering.
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it, vi } from "vitest";
 import { collectDiskSpaceHealthFindings, formatBytes, noteDiskSpace } from "./doctor-disk-space.js";
 

@@ -1,6 +1,6 @@
 // Coverage for deferred context-engine maintenance and transcript rewrite hooks.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { ContextEngineRuntimeContext } from "../../context-engine/types.js";
 import { peekSystemEvents, resetSystemEventsForTest } from "../../infra/system-events.js";

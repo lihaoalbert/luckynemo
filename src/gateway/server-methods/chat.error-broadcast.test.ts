@@ -1,7 +1,7 @@
 // Chat error broadcast tests ensure chat.send failures still respond and emit
 // error-state broadcasts for connected UI clients.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it, vi } from "vitest";
 import { chatHandlers } from "./chat.js";
 import type { GatewayRequestContext } from "./types.js";

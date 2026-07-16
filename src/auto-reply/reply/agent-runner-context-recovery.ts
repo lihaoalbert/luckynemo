@@ -1,7 +1,7 @@
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { resolveContextTokensForModel } from "../../agents/context.js";
 import { resolveModelRefFromString } from "../../agents/model-selection.js";
 import type { SessionEntry } from "../../config/sessions.js";

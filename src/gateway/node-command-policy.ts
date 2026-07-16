@@ -1,8 +1,8 @@
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 // Gateway node command policy.
 // Computes per-platform allowlists from built-in, plugin, runtime, and config inputs.
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
-import { normalizeUniqueStringEntries } from "@openclaw/normalization-core/string-normalization";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
+import { normalizeUniqueStringEntries } from "@luckynemo/normalization-core/string-normalization";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import {
   NODE_AGENT_CLI_CLAUDE_RUN_COMMAND,

@@ -1,5 +1,5 @@
 // Covers exec approval forwarding to channel plugins.
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import type { ReplyPayload } from "../auto-reply/types.js";
 import type { ChannelPlugin } from "../channels/plugins/types.public.js";

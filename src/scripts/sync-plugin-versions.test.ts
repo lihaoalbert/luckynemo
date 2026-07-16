@@ -25,16 +25,16 @@ describe("syncPluginVersions", () => {
       version: "2026.4.1",
     });
     writeJson(path.join(rootDir, "packages/ai/package.json"), {
-      name: "@openclaw/ai",
+      name: "@luckynemo/ai",
       version: "2026.3.30",
     });
     writeJson(path.join(rootDir, "packages/llm-core/package.json"), {
-      name: "@openclaw/llm-core",
+      name: "@luckynemo/llm-core",
       version: "0.0.0-private",
       private: true,
     });
     writeJson(path.join(rootDir, "extensions/imessage/package.json"), {
-      name: "@openclaw/imessage",
+      name: "@luckynemo/imessage",
       version: "2026.3.30",
       devDependencies: {
         openclaw: "workspace:*",
@@ -75,9 +75,9 @@ describe("syncPluginVersions", () => {
       };
     };
 
-    expect(summary.updated).toContain("@openclaw/imessage");
-    expect(summary.updated).toContain("@openclaw/ai");
-    expect(summary.updated).not.toContain("@openclaw/llm-core");
+    expect(summary.updated).toContain("@luckynemo/imessage");
+    expect(summary.updated).toContain("@luckynemo/ai");
+    expect(summary.updated).not.toContain("@luckynemo/llm-core");
     expect(
       JSON.parse(fs.readFileSync(path.join(rootDir, "packages/ai/package.json"), "utf8")),
     ).toMatchObject({ version: "2026.4.1" });
@@ -100,7 +100,7 @@ describe("syncPluginVersions", () => {
       version: "2026.4.2",
     });
     writeJson(path.join(rootDir, "extensions/discord/package.json"), {
-      name: "@openclaw/discord",
+      name: "@luckynemo/discord",
       version: "2026.4.1",
       peerDependencies: {
         openclaw: ">=2026.4.1",
@@ -125,7 +125,7 @@ describe("syncPluginVersions", () => {
       };
     };
 
-    expect(summary.updated).toEqual(["@openclaw/discord"]);
+    expect(summary.updated).toEqual(["@luckynemo/discord"]);
     expect(unchangedPackage.version).toBe("2026.4.1");
     expect(unchangedPackage.peerDependencies?.openclaw).toBe(">=2026.4.1");
     expect(unchangedPackage.openclaw?.compat?.pluginApi).toBe(">=2026.4.1");
@@ -139,7 +139,7 @@ describe("syncPluginVersions", () => {
       version: "2026.5.3-beta.1",
     });
     writeJson(path.join(rootDir, "extensions/matrix/package.json"), {
-      name: "@openclaw/matrix",
+      name: "@luckynemo/matrix",
       version: "2026.5.3-beta.1",
     });
     fs.mkdirSync(path.join(rootDir, "extensions/matrix"), { recursive: true });
@@ -152,7 +152,7 @@ describe("syncPluginVersions", () => {
     const summary = syncPluginVersions(rootDir);
     const changelog = fs.readFileSync(path.join(rootDir, "extensions/matrix/CHANGELOG.md"), "utf8");
 
-    expect(summary.changelogged).toEqual(["@openclaw/matrix"]);
+    expect(summary.changelogged).toEqual(["@luckynemo/matrix"]);
     expect(changelog).toContain("## 2026.5.3\n\n### Changes\n- Version alignment");
     expect(changelog).not.toContain("## 2026.5.3-beta.1");
 

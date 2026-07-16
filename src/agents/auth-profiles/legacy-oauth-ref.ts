@@ -3,7 +3,7 @@
  * Used by migration/health code to detect older Codex/OpenClaw credential
  * sidecar references without accepting arbitrary ref-like objects.
  */
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
 
 /** Legacy OAuth ref source persisted by older credential stores. */
 const LEGACY_OAUTH_REF_SOURCE = "openclaw-credentials";

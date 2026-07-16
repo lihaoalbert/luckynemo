@@ -1,7 +1,7 @@
 // Live-sweeps discovered model profiles with optional provider/model filters and probes.
 import { writeSync } from "node:fs";
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
-import { expectDefined } from "@openclaw/normalization-core";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { type Api, completeSimple, type Model } from "openclaw/plugin-sdk/llm";
 import { Type } from "typebox";
 import { describe, expect, it, vi } from "vitest";

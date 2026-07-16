@@ -1,4 +1,4 @@
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import type { SessionEntry } from "../config/sessions.js";
 import { loadExactSessionEntry } from "../config/sessions/session-accessor.js";
 

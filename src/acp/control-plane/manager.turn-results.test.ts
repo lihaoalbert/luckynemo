@@ -1,5 +1,5 @@
 /** Tests ACP turn terminal results and detached-task progress outcomes. */
-import type { AcpRuntimeEvent } from "@openclaw/acp-core/runtime/types";
+import type { AcpRuntimeEvent } from "@luckynemo/acp-core/runtime/types";
 import { describe, expect, it, vi } from "vitest";
 import {
   requireTaskByRunId,

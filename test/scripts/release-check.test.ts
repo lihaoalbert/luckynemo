@@ -55,7 +55,7 @@ describe("release-check", () => {
       };
       expect(manifest.private).toBe(true);
       expect(manifest.dependencies).toEqual({
-        "@openclaw/ai": "file:///tmp/openclaw-ai.tgz",
+        "@luckynemo/ai": "file:///tmp/openclaw-ai.tgz",
         openclaw: "file:///tmp/openclaw.tgz",
       });
     } finally {
@@ -104,14 +104,14 @@ describe("release-check", () => {
     const root = mkdtempSync(join(tmpdir(), "openclaw-release-check-install-test-"));
     try {
       expect(() => writePackedTarballInstallManifest(root, "/tmp/openclaw.tgz", [])).toThrow(
-        "requires exactly one @openclaw/ai tarball",
+        "requires exactly one @luckynemo/ai tarball",
       );
       expect(() =>
         writePackedTarballInstallManifest(root, "/tmp/openclaw.tgz", [
           "/tmp/openclaw-ai-one.tgz",
           "/tmp/openclaw-ai-two.tgz",
         ]),
-      ).toThrow("requires exactly one @openclaw/ai tarball");
+      ).toThrow("requires exactly one @luckynemo/ai tarball");
     } finally {
       rmSync(root, { recursive: true, force: true });
     }

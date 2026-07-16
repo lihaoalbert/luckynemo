@@ -1,5 +1,5 @@
 // Status command report data tests cover report data assembly from shared status fixtures.
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it } from "vitest";
 import { buildStatusCommandReportData } from "./status.command-report-data.ts";
 import { createStatusCommandReportDataParams } from "./status.test-support.ts";

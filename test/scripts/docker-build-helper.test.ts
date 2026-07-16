@@ -4504,7 +4504,7 @@ heartbeat_elapsed="\${BASH_REMATCH[1]}"
     expect(assertions).toContain('Skipping "demo-plugin-dir" (source: path).');
 
     expect(sweep).toContain("start_npm_fixture_registry");
-    expect(sweep).toContain('plugins install "npm:@openclaw/demo-plugin-npm@0.0.1" --force');
+    expect(sweep).toContain('plugins install "npm:@luckynemo/demo-plugin-npm@0.0.1" --force');
     expect(sweep).toContain("plugins update demo-plugin-npm");
     expect(assertions).toContain("demo-plugin-npm is up to date (0.0.1).");
     expect(npmRegistry).toContain('"dist-tags": { latest: entry.latestVersion }');
@@ -4519,7 +4519,7 @@ heartbeat_elapsed="\${BASH_REMATCH[1]}"
     expect(clawhub).toContain('plugins update "$CLAWHUB_PLUGIN_ID"');
     expect(clawhub).toContain("run_plugins_openclaw_logged install-clawhub");
     expect(clawhub).toContain('openclaw_e2e_maybe_timeout "$OPENCLAW_PLUGINS_CLI_TIMEOUT"');
-    expect(clawhub).toContain("clawhub:@openclaw/kitchen-sink");
+    expect(clawhub).toContain("clawhub:@luckynemo/kitchen-sink");
     expect(assertions).toContain("clawhub-updated");
     expect(assertions).toContain("record.clawpackSha256");
     expect(assertions).toContain("record.artifactKind");

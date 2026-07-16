@@ -2,7 +2,7 @@
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { isMessagingToolDuplicate } from "../../agents/embedded-agent-helpers.js";
 import type { MessagingToolSend } from "../../agents/embedded-agent-messaging.types.js";
 import { getChannelPlugin } from "../../channels/plugins/index.js";

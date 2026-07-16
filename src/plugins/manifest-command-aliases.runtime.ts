@@ -1,5 +1,5 @@
 /** Resolves manifest-declared command and tool ownership at runtime. */
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { resolveManifestActivationPluginIds } from "./activation-planner.js";
 import {

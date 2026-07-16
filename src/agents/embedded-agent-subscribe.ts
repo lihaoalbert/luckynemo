@@ -1,8 +1,8 @@
 /**
  * Subscribes to embedded-agent sessions and streams formatted replies/events.
  */
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import type { InlineCodeState } from "../../packages/markdown-core/src/code-spans.js";
 import {
   buildCodeSpanIndex,

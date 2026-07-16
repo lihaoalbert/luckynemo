@@ -1,11 +1,11 @@
 {
-  "name": "@openclaw/amazon-bedrock-mantle-provider",
+  "name": "@luckynemo/amazon-bedrock-mantle-provider",
   "version": "2026.7.2",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
-      "name": "@openclaw/amazon-bedrock-mantle-provider",
+      "name": "@luckynemo/amazon-bedrock-mantle-provider",
       "version": "2026.7.2",
       "dependencies": {
         "@anthropic-ai/sdk": "0.109.1",

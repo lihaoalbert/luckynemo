@@ -4,7 +4,7 @@
 import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, beforeEach, describe, expect, test, vi } from "vitest";
 import { saveSubagentRegistryToSqlite } from "../agents/subagent-registry.store.sqlite.js";
 import {

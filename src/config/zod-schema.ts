@@ -1,9 +1,9 @@
-import { isHttpsUrl, isHttpUrl } from "@openclaw/net-policy/url-protocol";
+import { isHttpsUrl, isHttpUrl } from "@luckynemo/net-policy/url-protocol";
 // Assembles the canonical Zod schema for OpenClaw config parsing.
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeStringifiedOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { z } from "zod";
 import { parseDurationMs } from "../cli/parse-duration.js";
 import { base64UrlDecode, normalizeEd25519PublicKeyBase64Url } from "../infra/ed25519-signature.js";

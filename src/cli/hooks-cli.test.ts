@@ -1,5 +1,5 @@
 // Hooks CLI tests cover hook command registration and output behavior.
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { Command } from "commander";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { HookStatusReport } from "../hooks/hooks-status.js";

@@ -1,4 +1,4 @@
-import type { Context, Model } from "@openclaw/ai";
+import type { Context, Model } from "@luckynemo/ai";
 // Anthropic Cloudflare AI Gateway constructor guard-specific proof: the SSRF
 // guard blocks a private-IP request before the SDK's default global fetch is
 // ever reached. This proves the stream facade installs OpenClaw's guarded
@@ -49,7 +49,7 @@ describe("Anthropic Cloudflare guard-specific SSRF blocking proof", () => {
       baseUrl: "http://169.254.169.254/v1",
     } satisfies Model<"anthropic-messages">;
 
-    const { streamAnthropic } = await import("@openclaw/ai/internal/anthropic");
+    const { streamAnthropic } = await import("@luckynemo/ai/internal/anthropic");
     const stream = streamAnthropic(blockedModel, context, {
       apiKey: "sk-ant-test",
       // Retries only repeat the same deterministic guard rejection.

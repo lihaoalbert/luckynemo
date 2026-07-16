@@ -1,7 +1,7 @@
 // Command list serialization gathers chat, skill, and plugin commands into the
 // gateway protocol result while clamping names, descriptions, aliases, and args.
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import type {
   CommandEntry,
   CommandsListResult,

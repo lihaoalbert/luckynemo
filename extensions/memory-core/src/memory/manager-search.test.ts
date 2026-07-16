@@ -1,6 +1,6 @@
 // Memory Core tests cover manager search plugin behavior.
 import type { DatabaseSync } from "node:sqlite";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import {
   ensureMemoryIndexSchema,
   loadSqliteVecExtension,

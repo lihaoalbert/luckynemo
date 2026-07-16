@@ -4,7 +4,7 @@
  */
 import fs from "node:fs/promises";
 import path from "node:path";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { parseSqliteSessionFileMarker } from "../config/sessions/sqlite-marker.js";
 import type { AgentContextInjection } from "../config/types.agent-defaults.js";
 import type { OpenClawConfig } from "../config/types.openclaw.js";

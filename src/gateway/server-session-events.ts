@@ -1,7 +1,7 @@
 // Gateway session event broadcaster.
 // Projects transcript and lifecycle updates to websocket subscribers.
-import { asPositiveSafeInteger } from "@openclaw/normalization-core/number-coercion";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { asPositiveSafeInteger } from "@luckynemo/normalization-core/number-coercion";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { resolveDefaultAgentId } from "../agents/agent-scope.js";
 import { getRuntimeConfig } from "../config/io.js";
 import {

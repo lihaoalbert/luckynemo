@@ -86,7 +86,7 @@ describe("buildPluginRegistrySnapshotReport", () => {
     };
     const whatsappDir = writeManagedNpmPlugin({
       stateDir,
-      packageName: "@openclaw/whatsapp",
+      packageName: "@luckynemo/whatsapp",
       pluginId: "whatsapp",
       version: "2026.5.2",
       name: "WhatsApp",

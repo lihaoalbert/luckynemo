@@ -1,4 +1,4 @@
-import { readStringValue } from "@openclaw/normalization-core/string-coerce";
+import { readStringValue } from "@luckynemo/normalization-core/string-coerce";
 import { isMessagingToolSendAction } from "../../agents/embedded-agent-messaging.js";
 import type { RunEmbeddedAgentParams } from "../../agents/embedded-agent-runner/run/params.js";
 import { logVerbose } from "../../globals.js";

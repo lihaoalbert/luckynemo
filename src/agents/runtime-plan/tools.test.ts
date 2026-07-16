@@ -1,7 +1,7 @@
 // Runtime plan tool tests cover schema normalization and diagnostics when the
 // runtime plan owns tool policy, with legacy provider fallback still available.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import type { AgentTool } from "openclaw/plugin-sdk/agent-core";
 import {
   createNativeOpenAIResponsesModel,

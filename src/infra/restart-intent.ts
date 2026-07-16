@@ -1,5 +1,5 @@
 // Persists short-lived gateway restart intent for supervisor SIGTERM handoff.
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { createSubsystemLogger } from "../logging/subsystem.js";
 import type { DB as OpenClawStateKyselyDatabase } from "../state/openclaw-state-db.generated.js";
 import {

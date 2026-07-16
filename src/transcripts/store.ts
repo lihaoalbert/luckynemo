@@ -4,7 +4,7 @@ import type { Dirent } from "node:fs";
 import fs from "node:fs/promises";
 import path from "node:path";
 import { createInterface } from "node:readline";
-import { resolveOptionalIntegerOption } from "@openclaw/normalization-core/number-coercion";
+import { resolveOptionalIntegerOption } from "@luckynemo/normalization-core/number-coercion";
 import type { TranscriptSessionDescriptor, TranscriptUtterance } from "./provider-types.js";
 import type { TranscriptsSummary } from "./summary.js";
 import { renderTranscriptsMarkdown } from "./summary.js";

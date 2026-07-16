@@ -4,7 +4,7 @@
  * Selects models, wires built-in/custom tools, loads resources, and creates AgentSession instances.
  */
 import { join } from "node:path";
-import { clampThinkingLevel } from "@openclaw/ai/internal/runtime";
+import { clampThinkingLevel } from "@luckynemo/ai/internal/runtime";
 import {
   resolveThinkingDefaultForModel,
   type ThinkingCatalogEntry,

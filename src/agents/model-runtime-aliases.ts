@@ -1,9 +1,9 @@
 /**
  * Resolves CLI runtime aliases to provider/model auth labels and execution ids.
  */
-import { parseModelCatalogRef } from "@openclaw/model-catalog-core/model-catalog-refs";
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
+import { parseModelCatalogRef } from "@luckynemo/model-catalog-core/model-catalog-refs";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import {
   isCliRuntimeModelBackendForProvider,

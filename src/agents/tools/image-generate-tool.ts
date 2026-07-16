@@ -3,7 +3,7 @@
  *
  * Loads references, resolves providers/options, saves generated images, and supports detached background runs.
  */
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
 import { Type } from "typebox";
 import { findCapabilityProviderById } from "../../../packages/media-generation-core/src/capability-model-ref.js";
 import { getRuntimeConfig } from "../../config/config.js";

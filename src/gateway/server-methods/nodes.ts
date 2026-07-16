@@ -1,12 +1,12 @@
 // Node gateway methods manage paired node discovery, pairing lifecycle, command
 // invocation, wake delivery, events, pending work, and node metadata updates.
 import { randomUUID } from "node:crypto";
-import { resolveTimerTimeoutMs } from "@openclaw/normalization-core/number-coercion";
+import { resolveTimerTimeoutMs } from "@luckynemo/normalization-core/number-coercion";
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
-import { normalizeUniqueTrimmedStringList } from "@openclaw/normalization-core/string-normalization";
+} from "@luckynemo/normalization-core/string-coerce";
+import { normalizeUniqueTrimmedStringList } from "@luckynemo/normalization-core/string-normalization";
 import {
   type ConnectParams,
   ErrorCodes,

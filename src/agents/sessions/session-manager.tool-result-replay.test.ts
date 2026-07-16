@@ -1,7 +1,7 @@
 import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
-import { streamAnthropic } from "@openclaw/ai/internal/anthropic";
+import { streamAnthropic } from "@luckynemo/ai/internal/anthropic";
 import { afterEach, describe, expect, it } from "vitest";
 import type { Context, Message, Model } from "../../llm/types.js";
 import type { AgentMessage } from "../runtime/index.js";

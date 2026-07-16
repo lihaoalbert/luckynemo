@@ -1,5 +1,5 @@
 export type UpdateAvailable = import("../../../src/infra/update-startup.js").UpdateAvailable;
-import type { FastMode } from "@openclaw/normalization-core/string-coerce";
+import type { FastMode } from "@luckynemo/normalization-core/string-coerce";
 import type { SessionGoal } from "../../../src/config/sessions/types.js";
 import type { CronJobBase } from "../../../src/cron/types-shared.js";
 import type { ConfigUiHints } from "../../../src/shared/config-ui-hints-types.js";
@@ -12,7 +12,7 @@ import type {
 } from "../../../src/shared/session-types.js";
 export type { ConfigUiHint, ConfigUiHints } from "../../../src/shared/config-ui-hints-types.js";
 export type { SessionGoal } from "../../../src/config/sessions/types.js";
-export type { FastMode } from "@openclaw/normalization-core/string-coerce";
+export type { FastMode } from "@luckynemo/normalization-core/string-coerce";
 export type ChannelsStatusSnapshot = {
   ts: number;
   channelOrder: string[];

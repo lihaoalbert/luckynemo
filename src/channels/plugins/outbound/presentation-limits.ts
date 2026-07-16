@@ -3,8 +3,8 @@
  *
  * Truncates and reshapes portable presentation blocks to match per-channel limits.
  */
-import { normalizeStringEntries } from "@openclaw/normalization-core/string-normalization";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { normalizeStringEntries } from "@luckynemo/normalization-core/string-normalization";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import {
   renderMessagePresentationChartFallbackText,
   renderMessagePresentationTableFallbackText,

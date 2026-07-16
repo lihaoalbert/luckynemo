@@ -1,7 +1,7 @@
 // Normalizes inbound message metadata before it is exposed to reply prompts.
 import path from "node:path";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import type { CurrentInboundPromptContext } from "../../agents/embedded-agent-runner/run/params.js";
 import { normalizeChatType } from "../../channels/chat-type.js";
 import { getLoadedChannelPluginById } from "../../channels/plugins/registry-loaded.js";

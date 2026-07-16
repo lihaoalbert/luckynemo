@@ -1,5 +1,5 @@
 // Model/auth provider selection step shared by the classic wizard and bootstrap onboarding.
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
 import type { AuthChoice, OnboardOptions } from "../commands/onboard-types.js";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { formatErrorMessage } from "../infra/errors.js";

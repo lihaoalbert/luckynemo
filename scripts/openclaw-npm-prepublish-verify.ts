@@ -120,7 +120,7 @@ function main(argv = process.argv.slice(2)): void {
           {
             private: true,
             dependencies: {
-              "@openclaw/ai": pathToFileURL(aiTarballPath).href,
+              "@luckynemo/ai": pathToFileURL(aiTarballPath).href,
               openclaw: pathToFileURL(realpathSync(args.tarballPath)).href,
             },
           },

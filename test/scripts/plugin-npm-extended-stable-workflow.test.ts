@@ -312,8 +312,8 @@ describe("plugin npm extended-stable workflow", () => {
       };
     };
     const pluginManifest = JSON.parse(readFileSync(metaManifestPath, "utf8")) as { id?: string };
-    expect(packageJson.name).toBe("@openclaw/meta-provider");
-    expect(packageJson.openclaw?.install?.npmSpec).toBe("@openclaw/meta-provider");
+    expect(packageJson.name).toBe("@luckynemo/meta-provider");
+    expect(packageJson.openclaw?.install?.npmSpec).toBe("@luckynemo/meta-provider");
     expect(packageJson.openclaw?.release).toEqual({
       publishToClawHub: true,
       publishToNpm: true,
@@ -333,7 +333,7 @@ describe("plugin npm extended-stable workflow", () => {
     expect(bootstrap.if).toContain("npm-token-bootstrap");
     expect(bootstrap.env?.NPM_TOKEN).toBe("${{ secrets.NPM_TOKEN }}");
     expect(bootstrap.env?.PACKAGE_NAME).toContain("publication_evidence.outputs.package_name");
-    expect(bootstrap.run).not.toContain("@openclaw/meta-provider");
+    expect(bootstrap.run).not.toContain("@luckynemo/meta-provider");
     expect(bootstrap.run).toContain("NPM_CONFIG_USERCONFIG");
     expect(bootstrap.run).toContain("unset NODE_AUTH_TOKEN NPM_TOKEN NODE_OPTIONS");
     expect(bootstrap.run).toContain('npm publish "$TARBALL_PATH"');

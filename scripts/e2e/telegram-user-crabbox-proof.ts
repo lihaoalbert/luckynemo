@@ -12,7 +12,7 @@ import fs from "node:fs";
 import os from "node:os";
 import path from "node:path";
 import { fileURLToPath } from "node:url";
-import { clampTimerTimeoutMs } from "@openclaw/normalization-core/number-coercion";
+import { clampTimerTimeoutMs } from "@luckynemo/normalization-core/number-coercion";
 import { sleep } from "../lib/sleep.mjs";
 import { resolveWindowsTaskkillPath } from "../lib/windows-taskkill.mjs";
 import { createPnpmRunnerSpawnSpec } from "../pnpm-runner.mjs";

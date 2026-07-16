@@ -1,5 +1,5 @@
 {
-  "name": "@openclaw/inworld-speech",
+  "name": "@luckynemo/inworld-speech",
   "version": "2026.7.2",
   "description": "OpenClaw Inworld speech plugin.",
   "repository": {
@@ -8,15 +8,15 @@
   },
   "type": "module",
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [
       "./index.ts"
     ],
     "install": {
-      "clawhubSpec": "clawhub:@openclaw/inworld-speech",
-      "npmSpec": "@openclaw/inworld-speech",
+      "clawhubSpec": "clawhub:@luckynemo/inworld-speech",
+      "npmSpec": "@luckynemo/inworld-speech",
       "defaultChoice": "npm",
       "minHostVersion": ">=2026.6.8"
     },

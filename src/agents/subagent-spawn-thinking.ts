@@ -2,7 +2,7 @@
  * Resolves subagent thinking-level inheritance and overrides. Spawning uses
  * this helper to patch the child session without leaking invalid caller input.
  */
-import { asOptionalObjectRecord } from "@openclaw/normalization-core/record-coerce";
+import { asOptionalObjectRecord } from "@luckynemo/normalization-core/record-coerce";
 import { normalizeThinkLevel } from "../auto-reply/thinking.shared.js";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 

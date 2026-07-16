@@ -64,7 +64,7 @@ function seedBundledPluginTree(rootDir: string, relativeDir: string, pluginId = 
   fs.mkdirSync(pluginDir, { recursive: true });
   fs.writeFileSync(
     path.join(pluginDir, "package.json"),
-    `${JSON.stringify({ name: `@openclaw/${pluginId}` }, null, 2)}\n`,
+    `${JSON.stringify({ name: `@luckynemo/${pluginId}` }, null, 2)}\n`,
     "utf8",
   );
   fs.writeFileSync(

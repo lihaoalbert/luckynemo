@@ -1,5 +1,5 @@
 /** Cron timer loop, execution, catch-up, and run-result state transitions. */
-import { resolveIntegerOption } from "@openclaw/normalization-core/number-coercion";
+import { resolveIntegerOption } from "@luckynemo/normalization-core/number-coercion";
 import pMap, { pMapSkip } from "p-map";
 import { resolveFailoverReasonFromError } from "../../agents/failover-error.js";
 import { resolveCronTriggerMinIntervalMs } from "../../config/cron-limits.js";

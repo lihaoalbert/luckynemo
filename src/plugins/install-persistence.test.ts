@@ -185,7 +185,7 @@ describe("persistPluginInstall", () => {
     setInstalledPluginIndexInstallRecords({
       codex: {
         source: "clawhub",
-        spec: "clawhub:@openclaw/codex",
+        spec: "clawhub:@luckynemo/codex",
         installPath: "/tmp/openclaw/extensions/codex",
       },
     });
@@ -222,8 +222,8 @@ describe("persistPluginInstall", () => {
       pluginId: "codex",
       install: {
         source: "npm",
-        spec: "@openclaw/codex",
-        installPath: "/tmp/openclaw/npm/node_modules/@openclaw/codex",
+        spec: "@luckynemo/codex",
+        installPath: "/tmp/openclaw/npm/node_modules/@luckynemo/codex",
       },
     });
 
@@ -233,7 +233,7 @@ describe("persistPluginInstall", () => {
           installs: {
             codex: {
               source: "clawhub",
-              spec: "clawhub:@openclaw/codex",
+              spec: "clawhub:@luckynemo/codex",
               installPath: "/tmp/openclaw/extensions/codex",
             },
           },
@@ -272,8 +272,8 @@ describe("persistPluginInstall", () => {
     setInstalledPluginIndexInstallRecords({
       codex: {
         source: "npm",
-        spec: "@openclaw/codex",
-        installPath: "/tmp/openclaw/npm/node_modules/@openclaw/codex",
+        spec: "@luckynemo/codex",
+        installPath: "/tmp/openclaw/npm/node_modules/@luckynemo/codex",
       },
     });
 
@@ -286,8 +286,8 @@ describe("persistPluginInstall", () => {
       pluginId: "codex",
       install: {
         source: "npm",
-        spec: "@openclaw/codex@latest",
-        installPath: "/tmp/openclaw/npm/node_modules/@openclaw/codex",
+        spec: "@luckynemo/codex@latest",
+        installPath: "/tmp/openclaw/npm/node_modules/@luckynemo/codex",
       },
     });
 
@@ -331,7 +331,7 @@ describe("persistPluginInstall", () => {
     setInstalledPluginIndexInstallRecords({
       codex: {
         source: "npm",
-        spec: "@openclaw/codex@1.0.0",
+        spec: "@luckynemo/codex@1.0.0",
         installPath: previousInstallPath,
       },
     });
@@ -355,7 +355,7 @@ describe("persistPluginInstall", () => {
         cleanup: {
           kind: "npm",
           npmRoot: previousProjectRoot,
-          packageName: "@openclaw/codex",
+          packageName: "@luckynemo/codex",
         },
       },
     });
@@ -370,7 +370,7 @@ describe("persistPluginInstall", () => {
         pluginId: "codex",
         install: {
           source: "npm",
-          spec: "@openclaw/codex@2.0.0",
+          spec: "@luckynemo/codex@2.0.0",
           installPath: nextInstallPath,
         },
       });
@@ -381,7 +381,7 @@ describe("persistPluginInstall", () => {
             installs: {
               codex: {
                 source: "npm",
-                spec: "@openclaw/codex@1.0.0",
+                spec: "@luckynemo/codex@1.0.0",
                 installPath: previousInstallPath,
               },
             },
@@ -433,8 +433,8 @@ describe("persistPluginInstall", () => {
       pluginId: "discord",
       install: {
         source: "npm",
-        spec: "@openclaw/discord",
-        installPath: "/tmp/openclaw/npm/node_modules/@openclaw/discord/index.ts",
+        spec: "@luckynemo/discord",
+        installPath: "/tmp/openclaw/npm/node_modules/@luckynemo/discord/index.ts",
       },
     });
 
@@ -451,7 +451,7 @@ describe("persistPluginInstall", () => {
       "active config source: /tmp/openclaw-upstream/extensions/discord/index.ts",
     );
     expect(runtimeLogs.join("\n")).toContain(
-      "installed npm source: /tmp/openclaw/npm/node_modules/@openclaw/discord/index.ts",
+      "installed npm source: /tmp/openclaw/npm/node_modules/@luckynemo/discord/index.ts",
     );
     expect(runtimeLogs.join("\n")).toContain("openclaw plugins doctor");
   });
@@ -476,7 +476,7 @@ describe("persistPluginInstall", () => {
         {
           id: "discord",
           origin: "config",
-          source: "/tmp/openclaw/npm/node_modules/@openclaw/discord/dist/index.js",
+          source: "/tmp/openclaw/npm/node_modules/@luckynemo/discord/dist/index.js",
           status: "loaded",
         },
       ],
@@ -492,8 +492,8 @@ describe("persistPluginInstall", () => {
       pluginId: "discord",
       install: {
         source: "npm",
-        spec: "@openclaw/discord",
-        installPath: "/tmp/openclaw/npm/node_modules/@openclaw/discord",
+        spec: "@luckynemo/discord",
+        installPath: "/tmp/openclaw/npm/node_modules/@luckynemo/discord",
       },
     });
 

@@ -1,7 +1,7 @@
 /**
  * Collects configured native harness runtime ids from model provider config.
  */
-import { parseModelCatalogRef } from "@openclaw/model-catalog-core/model-catalog-refs";
+import { parseModelCatalogRef } from "@luckynemo/model-catalog-core/model-catalog-refs";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { isRecord } from "../utils.js";
 import { OPENCLAW_AGENT_RUNTIME_ID, isDefaultAgentRuntimeId } from "./agent-runtime-id.js";

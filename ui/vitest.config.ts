@@ -15,7 +15,7 @@ const here = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(here, "..");
 const workspaceSourceAliases = [
   {
-    find: "@openclaw/gateway-client/browser",
+    find: "@luckynemo/gateway-client/browser",
     replacement: path.resolve(repoRoot, "packages/gateway-client/src/browser.ts"),
   },
   {
@@ -39,7 +39,7 @@ const workspaceSourceAliases = [
     replacement: path.resolve(repoRoot, "packages/model-catalog-core/src/$1.ts"),
   },
   {
-    find: "@openclaw/model-catalog-core",
+    find: "@luckynemo/model-catalog-core",
     replacement: path.resolve(repoRoot, "packages/model-catalog-core/src/index.ts"),
   },
   {
@@ -47,7 +47,7 @@ const workspaceSourceAliases = [
     replacement: path.resolve(repoRoot, "packages/normalization-core/src/$1"),
   },
   {
-    find: "@openclaw/normalization-core",
+    find: "@luckynemo/normalization-core",
     replacement: path.resolve(repoRoot, "packages/normalization-core/src/index.ts"),
   },
   {
@@ -55,11 +55,11 @@ const workspaceSourceAliases = [
     replacement: path.resolve(repoRoot, "packages/media-core/src/$1"),
   },
   {
-    find: "@openclaw/media-core",
+    find: "@luckynemo/media-core",
     replacement: path.resolve(repoRoot, "packages/media-core/src/index.ts"),
   },
   {
-    find: "@openclaw/workboard-contract",
+    find: "@luckynemo/workboard-contract",
     replacement: path.resolve(repoRoot, "packages/workboard-contract/src/index.ts"),
   },
   {
@@ -67,7 +67,7 @@ const workspaceSourceAliases = [
     replacement: path.resolve(repoRoot, "packages/net-policy/src/$1"),
   },
   {
-    find: "@openclaw/net-policy",
+    find: "@luckynemo/net-policy",
     replacement: path.resolve(repoRoot, "packages/net-policy/src/index.ts"),
   },
 ];

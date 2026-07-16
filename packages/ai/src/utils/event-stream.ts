@@ -1,2 +1,2 @@
 /** Assistant message event stream implementation. */
-export * from "@openclaw/llm-core/event-stream";
+export * from "@luckynemo/llm-core/event-stream";

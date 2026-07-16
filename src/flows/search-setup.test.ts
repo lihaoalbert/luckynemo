@@ -1,6 +1,6 @@
 // Search setup tests cover search provider setup and config changes.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { createWizardPrompter } from "../../test/helpers/wizard-prompter.js";
 import { createNonExitingRuntime } from "../runtime.js";
@@ -538,7 +538,7 @@ describe("runSearchSetupFlow", () => {
     expect(installRequest.entry?.pluginId).toBe("brave");
     expect(installRequest.entry?.label).toBe("Brave");
     expect(installRequest.entry?.trustedSourceLinkedOfficialInstall).toBe(true);
-    expect(installRequest.entry?.install?.npmSpec).toBe("@openclaw/brave-plugin");
+    expect(installRequest.entry?.install?.npmSpec).toBe("@luckynemo/brave-plugin");
     expect(installRequest.autoConfirmSingleSource).toBe(true);
     expect(next.tools?.web?.search?.provider).toBe("brave");
     expect(next.tools?.web?.search?.enabled).toBe(true);
@@ -547,7 +547,7 @@ describe("runSearchSetupFlow", () => {
       | undefined;
     expect(braveConfig?.webSearch?.apiKey).toBe("brave-test-key");
     expect(next.plugins?.installs?.brave?.source).toBe("npm");
-    expect(next.plugins?.installs?.brave?.spec).toBe("@openclaw/brave-plugin");
+    expect(next.plugins?.installs?.brave?.spec).toBe("@luckynemo/brave-plugin");
   });
 
   it("installs an external catalog search provider when web search stays disabled", async () => {
@@ -578,7 +578,7 @@ describe("runSearchSetupFlow", () => {
     expect(installRequest.entry?.pluginId).toBe("brave");
     expect(installRequest.entry?.label).toBe("Brave");
     expect(installRequest.entry?.trustedSourceLinkedOfficialInstall).toBe(true);
-    expect(installRequest.entry?.install?.npmSpec).toBe("@openclaw/brave-plugin");
+    expect(installRequest.entry?.install?.npmSpec).toBe("@luckynemo/brave-plugin");
     expect(installRequest.autoConfirmSingleSource).toBe(true);
     expect(next.tools?.web?.search?.provider).toBe("brave");
     expect(next.tools?.web?.search?.enabled).toBe(false);
@@ -588,6 +588,6 @@ describe("runSearchSetupFlow", () => {
     expect(braveConfig?.webSearch?.apiKey).toBe("brave-disabled-key");
     expect(next.plugins?.entries?.brave?.enabled).toBeUndefined();
     expect(next.plugins?.installs?.brave?.source).toBe("npm");
-    expect(next.plugins?.installs?.brave?.spec).toBe("@openclaw/brave-plugin");
+    expect(next.plugins?.installs?.brave?.spec).toBe("@luckynemo/brave-plugin");
   });
 });

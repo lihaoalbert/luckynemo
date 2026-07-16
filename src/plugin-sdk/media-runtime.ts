@@ -4,12 +4,12 @@
  */
 
 export * from "../media/audio.js";
-export * from "@openclaw/media-core/base64";
-export * from "@openclaw/media-core/content-length";
-export * from "@openclaw/media-core/constants";
+export * from "@luckynemo/media-core/base64";
+export * from "@luckynemo/media-core/content-length";
+export * from "@luckynemo/media-core/constants";
 export * from "../media/fetch.js";
 export * from "../media/ffmpeg-limits.js";
-export * from "@openclaw/media-core/inbound-path-policy";
+export * from "@luckynemo/media-core/inbound-path-policy";
 export * from "../media/load-options.js";
 export {
   assertLocalMediaAllowed,
@@ -45,12 +45,12 @@ export {
   type MediaExecOptions,
   type VideoDimensions,
 } from "../media/media-services.js";
-export * from "@openclaw/media-core/mime";
+export * from "@luckynemo/media-core/mime";
 export * from "../media/outbound-attachment.js";
 export * from "../media/png-encode.ts";
 export * from "../media/qr-image.ts";
 export * from "../media/qr-terminal.ts";
-export * from "@openclaw/media-core/read-byte-stream-with-limit";
+export * from "@luckynemo/media-core/read-byte-stream-with-limit";
 export {
   readChunkWithIdleTimeout,
   readResponseTextSnippet,

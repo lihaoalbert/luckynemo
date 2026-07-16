@@ -5,7 +5,7 @@ import { tmpdir } from "node:os";
 import { join } from "node:path";
 import { afterEach, describe, expect, it } from "vitest";
 
-const UNKNOWN_PACKAGE = "@openclaw/not-a-real-release-wrapper-test-package";
+const UNKNOWN_PACKAGE = "@luckynemo/not-a-real-release-wrapper-test-package";
 const tempDirs: string[] = [];
 const tsxImport = import.meta.resolve("tsx");
 
@@ -123,7 +123,7 @@ describe("release wrapper scripts", () => {
         "--release-sha",
         releaseSha,
         "--clawhub-bootstrap-plugins",
-        "@openclaw/meta",
+        "@luckynemo/meta",
         "--plugin-clawhub-bootstrap-run",
         "34",
       ],

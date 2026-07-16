@@ -63,8 +63,8 @@ function makeRegistry(pluginId: string): PluginManifestRegistry {
         activation: {},
         startup: {},
         packageInstall: {
-          clawhubSpec: `clawhub:@openclaw/${pluginId}`,
-          npmSpec: `@openclaw/${pluginId}`,
+          clawhubSpec: `clawhub:@luckynemo/${pluginId}`,
+          npmSpec: `@luckynemo/${pluginId}`,
           defaultChoice: "clawhub",
         },
       },
@@ -94,13 +94,13 @@ describe("listPersistedBundledPluginLocationBridges", () => {
         packageInstall: {
           defaultChoice: "clawhub",
           clawhub: {
-            spec: "clawhub:@openclaw/diagnostics-otel",
-            packageName: "@openclaw/diagnostics-otel",
+            spec: "clawhub:@luckynemo/diagnostics-otel",
+            packageName: "@luckynemo/diagnostics-otel",
             exactVersion: false,
           },
           npm: {
-            spec: "@openclaw/diagnostics-otel",
-            packageName: "@openclaw/diagnostics-otel",
+            spec: "@luckynemo/diagnostics-otel",
+            packageName: "@luckynemo/diagnostics-otel",
             selectorKind: "none",
             exactVersion: false,
             pinState: "floating-without-integrity",
@@ -118,8 +118,8 @@ describe("listPersistedBundledPluginLocationBridges", () => {
         bundledPluginId: "diagnostics-otel",
         pluginId: "diagnostics-otel",
         preferredSource: "npm",
-        npmSpec: "@openclaw/diagnostics-otel",
-        clawhubSpec: "clawhub:@openclaw/diagnostics-otel",
+        npmSpec: "@luckynemo/diagnostics-otel",
+        clawhubSpec: "clawhub:@luckynemo/diagnostics-otel",
         channelIds: ["diagnostics-otel"],
       },
     ]);
@@ -140,8 +140,8 @@ describe("listPersistedBundledPluginLocationBridges", () => {
         packageInstall: {
           defaultChoice: "clawhub",
           clawhub: {
-            spec: "clawhub:@openclaw/diagnostics-otel",
-            packageName: "@openclaw/diagnostics-otel",
+            spec: "clawhub:@luckynemo/diagnostics-otel",
+            packageName: "@luckynemo/diagnostics-otel",
             exactVersion: false,
           },
           warnings: [],
@@ -157,8 +157,8 @@ describe("listPersistedBundledPluginLocationBridges", () => {
         bundledPluginId: "diagnostics-otel",
         pluginId: "diagnostics-otel",
         preferredSource: "npm",
-        npmSpec: "@openclaw/diagnostics-otel",
-        clawhubSpec: "clawhub:@openclaw/diagnostics-otel",
+        npmSpec: "@luckynemo/diagnostics-otel",
+        clawhubSpec: "clawhub:@luckynemo/diagnostics-otel",
         channelIds: ["diagnostics-otel"],
       },
     ]);

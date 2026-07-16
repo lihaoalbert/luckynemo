@@ -1,11 +1,11 @@
 {
-  "name": "@openclaw/qwen-provider",
+  "name": "@luckynemo/qwen-provider",
   "version": "2026.7.2",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
-      "name": "@openclaw/qwen-provider",
+      "name": "@luckynemo/qwen-provider",
       "version": "2026.7.2"
     }
   }

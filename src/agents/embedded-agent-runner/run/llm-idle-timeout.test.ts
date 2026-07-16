@@ -1,8 +1,8 @@
-import { notifyLlmRequestActivity } from "@openclaw/ai/internal/runtime";
-import { expectDefined } from "@openclaw/normalization-core";
+import { notifyLlmRequestActivity } from "@luckynemo/ai/internal/runtime";
+import { expectDefined } from "@luckynemo/normalization-core";
 // LLM idle-timeout tests cover timeout selection and stream wrapping for
 // embedded provider calls, including local-provider and cron exceptions.
-import { MAX_TIMER_TIMEOUT_MS } from "@openclaw/normalization-core/number-coercion";
+import { MAX_TIMER_TIMEOUT_MS } from "@luckynemo/normalization-core/number-coercion";
 import {
   createAssistantMessageEventStream,
   type AssistantMessageEventStream,

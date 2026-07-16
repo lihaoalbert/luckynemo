@@ -1,6 +1,6 @@
 // Reads provider ids selected by auth, model, channel, and media configuration.
-import { collectConfiguredModelRefs } from "@openclaw/model-catalog-core/configured-model-refs";
-import { normalizeNullableString as normalizeId } from "@openclaw/normalization-core/string-coerce";
+import { collectConfiguredModelRefs } from "@luckynemo/model-catalog-core/configured-model-refs";
+import { normalizeNullableString as normalizeId } from "@luckynemo/normalization-core/string-coerce";
 import type { OpenClawConfig } from "../../../config/types.openclaw.js";
 import { asObjectRecord } from "./object.js";
 

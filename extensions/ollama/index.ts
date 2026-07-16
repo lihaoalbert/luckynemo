@@ -1,5 +1,5 @@
 // Ollama plugin entrypoint registers its OpenClaw integration.
-import { collectConfiguredModelRefValues } from "@openclaw/model-catalog-core/configured-model-refs";
+import { collectConfiguredModelRefValues } from "@luckynemo/model-catalog-core/configured-model-refs";
 import type { OpenClawConfig } from "openclaw/plugin-sdk/config-contracts";
 import { resolvePluginConfigObject } from "openclaw/plugin-sdk/plugin-config-runtime";
 import {

@@ -2,7 +2,7 @@ import { AsyncLocalStorage } from "node:async_hooks";
 import {
   normalizeOptionalLowercaseString,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { resolveProviderIdForAuth } from "../agents/provider-auth-aliases.js";
 import { resolveSessionModelRef } from "../agents/session-model-ref.js";
 import type { SessionEntry } from "../config/sessions.js";

@@ -4,7 +4,7 @@
  * transport against the configured provider.
  */
 import http from "node:http";
-import { streamAnthropic } from "@openclaw/ai/internal/anthropic";
+import { streamAnthropic } from "@luckynemo/ai/internal/anthropic";
 import type { Model } from "openclaw/plugin-sdk/llm";
 import { describe, expect, it } from "vitest";
 import { createAnthropicMessagesTransportStreamFn } from "./anthropic-transport-stream.js";

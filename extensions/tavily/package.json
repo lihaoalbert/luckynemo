@@ -1,5 +1,5 @@
 {
-  "name": "@openclaw/tavily-plugin",
+  "name": "@luckynemo/tavily-plugin",
   "version": "2026.7.2",
   "description": "OpenClaw Tavily plugin",
   "type": "module",
@@ -7,15 +7,15 @@
     "typebox": "1.3.3"
   },
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [
       "./index.ts"
     ],
     "install": {
-      "clawhubSpec": "clawhub:@openclaw/tavily-plugin",
-      "npmSpec": "@openclaw/tavily-plugin",
+      "clawhubSpec": "clawhub:@luckynemo/tavily-plugin",
+      "npmSpec": "@luckynemo/tavily-plugin",
       "defaultChoice": "npm",
       "minHostVersion": ">=2026.6.9",
       "allowInvalidConfigRecovery": true

@@ -1,6 +1,6 @@
 /** Doctor repair for stale plugin-owned routing state persisted in session entries. */
-import { normalizeOptionalString as normalizeString } from "@openclaw/normalization-core/string-coerce";
-import { normalizeStringEntriesLower } from "@openclaw/normalization-core/string-normalization";
+import { normalizeOptionalString as normalizeString } from "@luckynemo/normalization-core/string-coerce";
+import { normalizeStringEntriesLower } from "@luckynemo/normalization-core/string-normalization";
 import { note } from "../../packages/terminal-core/src/note.js";
 import {
   resolveAgentModelFallbacksOverride,

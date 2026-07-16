@@ -10,7 +10,7 @@ import {
   asDateTimestampMs,
   resolveExpiresAtMsFromDurationMs,
   timestampMsToIsoString,
-} from "@openclaw/normalization-core/number-coercion";
+} from "@luckynemo/normalization-core/number-coercion";
 import { resolveOsHomeRelativePath } from "../infra/home-dir.js";
 import { loadJsonFile } from "../infra/json-file.js";
 import { createSubsystemLogger } from "../logging/subsystem.js";

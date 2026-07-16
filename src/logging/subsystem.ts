@@ -1,6 +1,6 @@
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 // Subsystem logger helpers create scoped loggers with subsystem-specific filters.
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import { Chalk } from "chalk";
 import type { Logger as TsLogger } from "tslog";
 import { clearActiveProgressLine } from "../../packages/terminal-core/src/progress-line.js";

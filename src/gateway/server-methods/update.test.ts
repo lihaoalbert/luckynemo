@@ -1,7 +1,7 @@
 // Update method tests cover update.run/status, restart sentinel metadata,
 // managed-service handoff, restart scheduling, and delivery context preservation.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { ConfigFileSnapshot, OpenClawConfig } from "../../config/types.openclaw.js";
 import type { RestartSentinelPayload } from "../../infra/restart-sentinel.js";

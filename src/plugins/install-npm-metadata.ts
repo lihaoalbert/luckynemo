@@ -75,7 +75,7 @@ export async function resolveTrustedOfficialPrereleaseResolution(params: {
   timeoutMs: number;
   logger: PluginInstallLogger;
 }): Promise<TrustedOfficialPrereleaseResolution | null> {
-  if (!params.spec.name.startsWith("@openclaw/")) {
+  if (!params.spec.name.startsWith("@luckynemo/")) {
     return null;
   }
   const semverVersions = await loadNpmPackageVersions({

@@ -1,8 +1,8 @@
 /** Tests ACP session manager resolution, turn execution, state transitions, and cleanup. */
 import { setTimeout as scheduleNativeTimeout } from "node:timers";
 import { setTimeout as sleep } from "node:timers/promises";
-import { expectDefined } from "@openclaw/normalization-core";
-import { MAX_TIMER_TIMEOUT_MS } from "@openclaw/normalization-core/number-coercion";
+import { expectDefined } from "@luckynemo/normalization-core";
+import { MAX_TIMER_TIMEOUT_MS } from "@luckynemo/normalization-core/number-coercion";
 import { describe, expect, it, vi } from "vitest";
 import {
   requireTaskByRunId,

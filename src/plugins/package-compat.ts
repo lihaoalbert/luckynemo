@@ -1,5 +1,5 @@
 // Checks package compatibility metadata for plugin manifests.
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
 
 /** Result of reading package.json openclaw.compat.pluginApi metadata. */
 type PackagePluginApiRangeResult = { ok: true; range?: string } | { ok: false; error: string };

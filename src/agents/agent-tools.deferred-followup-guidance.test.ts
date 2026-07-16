@@ -2,7 +2,7 @@
  * Tests cron-aware deferred follow-up guidance in exec/process descriptions.
  * Protects the model-facing text selected after tool filtering.
  */
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it } from "vitest";
 import { getPluginToolMeta, setPluginToolMeta } from "../plugins/tools.js";
 import { applyDeferredFollowupToolDescriptions } from "./agent-tools.deferred-followup.js";

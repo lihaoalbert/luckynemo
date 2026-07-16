@@ -1,5 +1,5 @@
 {
-  "name": "@openclaw/amazon-bedrock-provider",
+  "name": "@luckynemo/amazon-bedrock-provider",
   "version": "2026.7.2",
   "description": "OpenClaw Amazon Bedrock provider plugin with model discovery, embeddings, and guardrail support.",
   "repository": {
@@ -16,14 +16,14 @@
     "@smithy/types": "4.15.1"
   },
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [
       "./index.ts"
     ],
     "install": {
-      "npmSpec": "@openclaw/amazon-bedrock-provider",
+      "npmSpec": "@luckynemo/amazon-bedrock-provider",
       "defaultChoice": "npm",
       "minHostVersion": ">=2026.5.12-beta.1"
     },

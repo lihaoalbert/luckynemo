@@ -6,7 +6,7 @@ import {
   isFutureDateTimestampMs,
   resolveExpiresAtMsFromDurationMs,
   resolveTimerTimeoutMs,
-} from "@openclaw/normalization-core/number-coercion";
+} from "@luckynemo/normalization-core/number-coercion";
 // NodeSession is plugin-SDK-reachable; importing these types from the
 // gateway-protocol index would retain the whole ProtocolSchemas registry in
 // the public plugin-sdk dts (check-plugin-sdk-exports guards this).

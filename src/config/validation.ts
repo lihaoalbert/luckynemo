@@ -1,8 +1,8 @@
 // Validates normalized OpenClaw config and reports user-facing errors.
 import path from "node:path";
-import { collectConfiguredModelRefs } from "@openclaw/model-catalog-core/configured-model-refs";
-import { isCanonicalDottedDecimalIPv4, isLoopbackIpAddress } from "@openclaw/net-policy/ip";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { collectConfiguredModelRefs } from "@luckynemo/model-catalog-core/configured-model-refs";
+import { isCanonicalDottedDecimalIPv4, isLoopbackIpAddress } from "@luckynemo/net-policy/ip";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import { sanitizeForLog } from "../../packages/terminal-core/src/ansi.js";
 import { resolveAgentWorkspaceDir, resolveDefaultAgentId } from "../agents/agent-scope.js";
 import {

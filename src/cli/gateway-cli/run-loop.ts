@@ -1,7 +1,7 @@
 // In-process gateway run loop, restart signaling, drain, and update respawn handling.
 import { randomUUID } from "node:crypto";
 import net from "node:net";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { clearRuntimeConfigSnapshot } from "../../config/runtime-snapshot.js";
 import {
   captureGatewayRestartTraceHandoff,

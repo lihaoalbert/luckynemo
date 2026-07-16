@@ -473,12 +473,12 @@ describe("discoverOpenClawPlugins", () => {
 
     createPackagePluginWithEntry({
       packageDir: path.join(stateDir, "extensions", "alpha"),
-      packageName: "@openclaw/alpha",
+      packageName: "@luckynemo/alpha",
       pluginId: "alpha",
     });
     createPackagePluginWithEntry({
       packageDir: path.join(workspaceDir, ".openclaw", "extensions", "beta"),
-      packageName: "@openclaw/beta",
+      packageName: "@luckynemo/beta",
       pluginId: "beta",
     });
 
@@ -507,7 +507,7 @@ describe("discoverOpenClawPlugins", () => {
     const pluginDir = path.join(stateDir, "extensions", "diffs-language-pack");
     createPackagePluginWithEntry({
       packageDir: pluginDir,
-      packageName: "@openclaw/diffs-language-pack",
+      packageName: "@luckynemo/diffs-language-pack",
       pluginId: "diffs-language-pack",
     });
     writePluginManifest({
@@ -533,7 +533,7 @@ describe("discoverOpenClawPlugins", () => {
     const languagePackDir = path.join(extensionsDir, "diffs-language-pack");
     createPackagePluginWithEntry({
       packageDir: languagePackDir,
-      packageName: "@openclaw/diffs-language-pack",
+      packageName: "@luckynemo/diffs-language-pack",
       pluginId: "diffs-language-pack",
     });
     writePluginManifest({
@@ -543,7 +543,7 @@ describe("discoverOpenClawPlugins", () => {
     });
     createPackagePluginWithEntry({
       packageDir: path.join(extensionsDir, "diffs"),
-      packageName: "@openclaw/diffs",
+      packageName: "@luckynemo/diffs",
       pluginId: "diffs",
     });
 
@@ -567,7 +567,7 @@ describe("discoverOpenClawPlugins", () => {
       const linkedPluginDir = path.join(stateDir, "linked-plugin-src");
       createPackagePluginWithEntry({
         packageDir: linkedPluginDir,
-        packageName: "@openclaw/linked-plugin",
+        packageName: "@luckynemo/linked-plugin",
         pluginId: "linked-plugin",
       });
 
@@ -593,7 +593,7 @@ describe("discoverOpenClawPlugins", () => {
       const linkedPluginDir = path.join(stateDir, "workspace-linked-plugin-src");
       createPackagePluginWithEntry({
         packageDir: linkedPluginDir,
-        packageName: "@openclaw/workspace-linked-plugin",
+        packageName: "@luckynemo/workspace-linked-plugin",
         pluginId: "workspace-linked-plugin",
       });
 
@@ -631,14 +631,14 @@ describe("discoverOpenClawPlugins", () => {
     const expectedWorkspacePluginDir = path.join(workspaceExt, "workspace-plugin");
     createPackagePluginWithEntry({
       packageDir: expectedWorkspacePluginDir,
-      packageName: "@openclaw/workspace-plugin",
+      packageName: "@luckynemo/workspace-plugin",
       pluginId: "workspace-plugin",
     });
 
     const unrelatedWorkspaceDir = path.join(workspaceDir, "lobster-integrations", "bin");
     createPackagePluginWithEntry({
       packageDir: unrelatedWorkspaceDir,
-      packageName: "@openclaw/stray-workspace-plugin",
+      packageName: "@luckynemo/stray-workspace-plugin",
     });
 
     const result = discoverOpenClawPlugins({
@@ -659,7 +659,7 @@ describe("discoverOpenClawPlugins", () => {
     const workspaceRoot = path.join(homeDir, "workspace");
     createPackagePluginWithEntry({
       packageDir: path.join(workspaceRoot, ".openclaw", "extensions", "tilde-workspace"),
-      packageName: "@openclaw/tilde-workspace",
+      packageName: "@luckynemo/tilde-workspace",
       pluginId: "tilde-workspace",
     });
 
@@ -716,7 +716,7 @@ describe("discoverOpenClawPlugins", () => {
     );
     fs.writeFileSync(
       path.join(extensionDir, "package.json"),
-      '{"name":"@openclaw/twitch"}\n',
+      '{"name":"@luckynemo/twitch"}\n',
       "utf-8",
     );
     fs.writeFileSync(path.join(extensionDir, "openclaw.plugin.json"), '{"id":"twitch"}\n', "utf-8");
@@ -746,7 +746,7 @@ describe("discoverOpenClawPlugins", () => {
     );
     createPackagePluginWithEntry({
       packageDir: path.join(bundledDir, "real-plugin"),
-      packageName: "@openclaw/real-plugin",
+      packageName: "@luckynemo/real-plugin",
       pluginId: "real-plugin",
     });
 
@@ -839,13 +839,13 @@ describe("discoverOpenClawPlugins", () => {
     const sourcePluginDir = path.join(packageRoot, "extensions", "synology-chat");
     createPackagePluginWithEntry({
       packageDir: bundledPluginDir,
-      packageName: "@openclaw/synology-chat",
+      packageName: "@luckynemo/synology-chat",
       pluginId: "synology-chat",
       entryPath: "index.js",
     });
     createPackagePluginWithEntry({
       packageDir: sourcePluginDir,
-      packageName: "@openclaw/synology-chat",
+      packageName: "@luckynemo/synology-chat",
       pluginId: "synology-chat",
     });
     mockLinuxMountInfo([sourcePluginDir]);
@@ -893,13 +893,13 @@ describe("discoverOpenClawPlugins", () => {
     const sourcePluginDir = path.join(packageRoot, "extensions", "synology-chat");
     createPackagePluginWithEntry({
       packageDir: bundledPluginDir,
-      packageName: "@openclaw/synology-chat",
+      packageName: "@luckynemo/synology-chat",
       pluginId: "synology-chat",
       entryPath: "index.js",
     });
     createPackagePluginWithEntry({
       packageDir: sourcePluginDir,
-      packageName: "@openclaw/synology-chat",
+      packageName: "@luckynemo/synology-chat",
       pluginId: "synology-chat",
     });
     mockLinuxMountInfo([]);
@@ -951,7 +951,7 @@ describe("discoverOpenClawPlugins", () => {
 
     writePluginPackageManifest({
       packageDir: pluginDir,
-      packageName: "@openclaw/local-source-pack",
+      packageName: "@luckynemo/local-source-pack",
       extensions: ["./index.ts"],
     });
     writePluginManifest({ pluginDir, id: "local-source-pack" });
@@ -978,7 +978,7 @@ describe("discoverOpenClawPlugins", () => {
 
     writePluginPackageManifest({
       packageDir: pluginDir,
-      packageName: "@openclaw/linked-source-pack",
+      packageName: "@luckynemo/linked-source-pack",
       extensions: ["./src/index.ts"],
       setupEntry: "./src/setup-entry.ts",
     });
@@ -1017,7 +1017,7 @@ describe("discoverOpenClawPlugins", () => {
 
     writePluginPackageManifest({
       packageDir: pluginDir,
-      packageName: "@openclaw/source-only-pack",
+      packageName: "@luckynemo/source-only-pack",
       extensions: ["./src/index.ts"],
     });
     writePluginEntry(path.join(pluginDir, "src", "index.ts"));
@@ -1060,7 +1060,7 @@ describe("discoverOpenClawPlugins", () => {
 
     writePluginPackageManifest({
       packageDir: sourceDir,
-      packageName: "@openclaw/source-path-pack",
+      packageName: "@luckynemo/source-path-pack",
       extensions: ["./src/index.ts"],
     });
     writePluginEntry(path.join(sourceDir, "src", "index.ts"));
@@ -1099,7 +1099,7 @@ describe("discoverOpenClawPlugins", () => {
 
       writePluginPackageManifest({
         packageDir: actualSourceDir,
-        packageName: "@openclaw/source-path-symlink-pack",
+        packageName: "@luckynemo/source-path-symlink-pack",
         extensions: ["./src/index.ts"],
       });
       writePluginEntry(path.join(actualSourceDir, "src", "index.ts"));
@@ -1132,7 +1132,7 @@ describe("discoverOpenClawPlugins", () => {
     mkdirSafe(pluginDir);
     fs.writeFileSync(
       path.join(pluginDir, "package.json"),
-      JSON.stringify({ name: "@openclaw/metadata-only-pack", version: "0.0.1" }),
+      JSON.stringify({ name: "@luckynemo/metadata-only-pack", version: "0.0.1" }),
       "utf-8",
     );
     writePluginManifest({ pluginDir, id: "metadata-only-pack" });
@@ -1180,7 +1180,7 @@ describe("discoverOpenClawPlugins", () => {
 
     writePluginPackageManifest({
       packageDir: pluginDir,
-      packageName: "@openclaw/missing-runtime-pack",
+      packageName: "@luckynemo/missing-runtime-pack",
       extensions: ["./index.ts"],
       runtimeExtensions: ["./dist/index.js"],
     });
@@ -1208,7 +1208,7 @@ describe("discoverOpenClawPlugins", () => {
 
     writePluginPackageManifest({
       packageDir: bundledPluginDir,
-      packageName: "@openclaw/discord",
+      packageName: "@luckynemo/discord",
       extensions: ["./index.js"],
     });
     writePluginManifest({ pluginDir: bundledPluginDir, id: "discord" });
@@ -1216,7 +1216,7 @@ describe("discoverOpenClawPlugins", () => {
 
     writePluginPackageManifest({
       packageDir: installedPluginDir,
-      packageName: "@openclaw/discord",
+      packageName: "@luckynemo/discord",
       extensions: ["./src/index.ts"],
     });
     writePluginManifest({ pluginDir: installedPluginDir, id: "discord" });
@@ -1325,7 +1325,7 @@ describe("discoverOpenClawPlugins", () => {
 
     writePluginPackageManifest({
       packageDir: pluginDir,
-      packageName: "@openclaw/runtime-pack",
+      packageName: "@luckynemo/runtime-pack",
       extensions: ["./src/index.ts"],
       runtimeExtensions: ["./dist/index.js"],
       setupEntry: "./src/setup-entry.ts",
@@ -1354,7 +1354,7 @@ describe("discoverOpenClawPlugins", () => {
 
     writePluginPackageManifest({
       packageDir: pluginDir,
-      packageName: "@openclaw/missing-runtime-setup-pack",
+      packageName: "@luckynemo/missing-runtime-setup-pack",
       extensions: ["./dist/index.js"],
       setupEntry: "./src/setup-entry.ts",
       runtimeSetupEntry: "./dist/setup-entry.js",
@@ -1383,7 +1383,7 @@ describe("discoverOpenClawPlugins", () => {
 
     writePluginPackageManifest({
       packageDir: pluginDir,
-      packageName: "@openclaw/missing-setup-pack",
+      packageName: "@luckynemo/missing-setup-pack",
       extensions: ["./dist/index.js"],
       setupEntry: "./src/setup-entry.ts",
     });
@@ -1409,7 +1409,7 @@ describe("discoverOpenClawPlugins", () => {
 
     writePluginPackageManifest({
       packageDir: pluginDir,
-      packageName: "@openclaw/runtime-mismatch-pack",
+      packageName: "@luckynemo/runtime-mismatch-pack",
       extensions: ["./src/one.ts", "./src/two.ts"],
       runtimeExtensions: ["./dist/one.js"],
     });
@@ -1438,7 +1438,7 @@ describe("discoverOpenClawPlugins", () => {
 
     writePluginPackageManifest({
       packageDir: pluginDir,
-      packageName: "@openclaw/runtime-blank-pack",
+      packageName: "@luckynemo/runtime-blank-pack",
       extensions: ["./src/index.ts"],
       runtimeExtensions: [" "],
     });
@@ -1465,7 +1465,7 @@ describe("discoverOpenClawPlugins", () => {
 
     writePluginPackageManifest({
       packageDir: pluginDir,
-      packageName: "@openclaw/extension-blank-pack",
+      packageName: "@luckynemo/extension-blank-pack",
       extensions: ["./dist/index.js", " "],
     });
     writePluginEntry(path.join(pluginDir, "dist", "index.js"));
@@ -1491,7 +1491,7 @@ describe("discoverOpenClawPlugins", () => {
 
     writePluginPackageManifest({
       packageDir: pluginDir,
-      packageName: "@openclaw/built-peer-pack",
+      packageName: "@luckynemo/built-peer-pack",
       extensions: ["src/index.ts"],
       setupEntry: "src/setup-entry.ts",
     });
@@ -1520,7 +1520,7 @@ describe("discoverOpenClawPlugins", () => {
 
     writePluginPackageManifest({
       packageDir: pluginDir,
-      packageName: "@openclaw/nested-pack",
+      packageName: "@luckynemo/nested-pack",
       extensions: ["./plugin/index.ts"],
     });
     writePluginEntry(path.join(pluginDir, "plugin", "index.ts"));
@@ -1542,7 +1542,7 @@ describe("discoverOpenClawPlugins", () => {
 
     writePluginPackageManifest({
       packageDir: pluginDir,
-      packageName: "@openclaw/workspace-pack",
+      packageName: "@luckynemo/workspace-pack",
       extensions: ["./src/index.ts"],
     });
     writePluginEntry(path.join(pluginDir, "src", "index.ts"));
@@ -1563,7 +1563,7 @@ describe("discoverOpenClawPlugins", () => {
     const pluginDir = path.join(globalExt, "future-channel");
     createPackagePluginWithEntry({
       packageDir: pluginDir,
-      packageName: "@openclaw/future-channel",
+      packageName: "@luckynemo/future-channel",
       pluginId: "future-channel",
       compatPluginApi: ">=2026.5.27-beta.2",
     });
@@ -1593,7 +1593,7 @@ describe("discoverOpenClawPlugins", () => {
     fs.writeFileSync(
       path.join(pluginDir, "package.json"),
       JSON.stringify({
-        name: "@openclaw/malformed-channel",
+        name: "@luckynemo/malformed-channel",
         openclaw: {
           extensions: ["./index.js"],
           plugin: { id: "malformed-channel" },
@@ -1629,7 +1629,7 @@ describe("discoverOpenClawPlugins", () => {
     fs.writeFileSync(
       path.join(pluginDir, "package.json"),
       JSON.stringify({
-        name: "@openclaw/future-shape",
+        name: "@luckynemo/future-shape",
         openclaw: {
           extensions: { runtime: "./src/index.ts" },
           compat: { pluginApi: ">=2026.5.27-beta.2" },
@@ -1661,7 +1661,7 @@ describe("discoverOpenClawPlugins", () => {
     const globalExt = path.join(stateDir, "extensions");
     createPackagePluginWithEntry({
       packageDir: path.join(globalExt, "current-channel"),
-      packageName: "@openclaw/current-channel",
+      packageName: "@luckynemo/current-channel",
       pluginId: "current-channel",
       compatPluginApi: ">=2026.5.27-beta.1",
     });
@@ -1684,7 +1684,7 @@ describe("discoverOpenClawPlugins", () => {
     fs.writeFileSync(
       path.join(pluginDir, "package.json"),
       JSON.stringify({
-        name: "@openclaw/downloadable",
+        name: "@luckynemo/downloadable",
         openclaw: {
           extensions: ["./index.ts"],
           compat: { pluginApi: ">=2099.1.1" },
@@ -1712,7 +1712,7 @@ describe("discoverOpenClawPlugins", () => {
     fs.writeFileSync(
       path.join(pluginDir, "package.json"),
       JSON.stringify({
-        name: "@openclaw/downloadable",
+        name: "@luckynemo/downloadable",
         openclaw: {
           extensions: ["./index.ts"],
         },
@@ -1753,14 +1753,14 @@ describe("discoverOpenClawPlugins", () => {
 
     writePluginPackageManifest({
       packageDir: builtPluginDir,
-      packageName: "@openclaw/shipped",
+      packageName: "@luckynemo/shipped",
       extensions: ["./index.js"],
     });
     writePluginManifest({ pluginDir: builtPluginDir, id: "shipped" });
     writePluginEntry(path.join(builtPluginDir, "index.js"));
     writePluginPackageManifest({
       packageDir: sourceBuiltPluginDir,
-      packageName: "@openclaw/shipped",
+      packageName: "@luckynemo/shipped",
       extensions: ["./index.ts"],
     });
     writePluginManifest({ pluginDir: sourceBuiltPluginDir, id: "shipped" });
@@ -1768,7 +1768,7 @@ describe("discoverOpenClawPlugins", () => {
     fs.writeFileSync(
       path.join(sourceOnlyPluginDir, "package.json"),
       JSON.stringify({
-        name: "@openclaw/downloadable",
+        name: "@luckynemo/downloadable",
         openclaw: {
           extensions: ["./index.ts"],
         },
@@ -1854,7 +1854,7 @@ describe("discoverOpenClawPlugins", () => {
 
     createPackagePluginWithEntry({
       packageDir: workspacePluginDir,
-      packageName: "@openclaw/workspace-plugin",
+      packageName: "@luckynemo/workspace-plugin",
       pluginId: "workspace-plugin",
     });
 
@@ -1886,7 +1886,7 @@ describe("discoverOpenClawPlugins", () => {
         const packageDir = path.join(stateDir, "extensions", "voice-call-pack");
         createPackagePluginWithEntry({
           packageDir,
-          packageName: "@openclaw/voice-call",
+          packageName: "@luckynemo/voice-call",
           entryPath: "src/index.ts",
         });
         return {};
@@ -1912,8 +1912,8 @@ describe("discoverOpenClawPlugins", () => {
       name: "normalizes bundled speech package ids to canonical plugin ids",
       setup: (stateDir: string) => {
         for (const [dirName, packageName, pluginId] of [
-          ["elevenlabs-speech-pack", "@openclaw/elevenlabs-speech", "elevenlabs"],
-          ["microsoft-speech-pack", "@openclaw/microsoft-speech", "microsoft"],
+          ["elevenlabs-speech-pack", "@luckynemo/elevenlabs-speech", "elevenlabs"],
+          ["microsoft-speech-pack", "@luckynemo/microsoft-speech", "microsoft"],
         ] as const) {
           const packageDir = path.join(stateDir, "extensions", dirName);
           createPackagePluginWithEntry({
@@ -1934,7 +1934,7 @@ describe("discoverOpenClawPlugins", () => {
         const packageDir = path.join(stateDir, "packs", "demo-plugin-dir");
         createPackagePluginWithEntry({
           packageDir,
-          packageName: "@openclaw/demo-plugin-dir",
+          packageName: "@luckynemo/demo-plugin-dir",
           entryPath: "index.js",
         });
         return { extraPaths: [packageDir] };
@@ -2048,7 +2048,7 @@ describe("discoverOpenClawPlugins", () => {
         mkdirSafe(globalExt);
         writePluginPackageManifest({
           packageDir: globalExt,
-          packageName: "@openclaw/escape-pack",
+          packageName: "@luckynemo/escape-pack",
           extensions: ["../../outside.js"],
         });
         fs.writeFileSync(outside, "export default function () {}", "utf-8");
@@ -2062,7 +2062,7 @@ describe("discoverOpenClawPlugins", () => {
         mkdirSafe(path.join(globalExt, "src"));
         writePluginPackageManifest({
           packageDir: globalExt,
-          packageName: "@openclaw/escape-pack",
+          packageName: "@luckynemo/escape-pack",
           extensions: ["../src/index.ts"],
         });
         fs.writeFileSync(path.join(globalExt, "src", "index.js"), "export default {}", "utf-8");
@@ -2076,7 +2076,7 @@ describe("discoverOpenClawPlugins", () => {
         mkdirSafe(path.join(globalExt, "dist"));
         writePluginPackageManifest({
           packageDir: globalExt,
-          packageName: "@openclaw/escape-pack",
+          packageName: "@luckynemo/escape-pack",
           extensions: ["../src/index.ts"],
           runtimeExtensions: ["./dist/index.js"],
         });
@@ -2091,7 +2091,7 @@ describe("discoverOpenClawPlugins", () => {
         mkdirSafe(globalExt);
         writePluginPackageManifest({
           packageDir: globalExt,
-          packageName: "@openclaw/missing-entry-pack",
+          packageName: "@luckynemo/missing-entry-pack",
           extensions: ["./missing.ts"],
         });
         return true;
@@ -2115,7 +2115,7 @@ describe("discoverOpenClawPlugins", () => {
         }
         writePluginPackageManifest({
           packageDir: globalExt,
-          packageName: "@openclaw/pack",
+          packageName: "@luckynemo/pack",
           extensions: ["./linked/escape.ts"],
         });
         return true;
@@ -2147,7 +2147,7 @@ describe("discoverOpenClawPlugins", () => {
         }
         writePluginPackageManifest({
           packageDir: globalExt,
-          packageName: "@openclaw/pack",
+          packageName: "@luckynemo/pack",
           extensions: ["./escape.ts"],
         });
         return true;
@@ -2179,7 +2179,7 @@ describe("discoverOpenClawPlugins", () => {
         }
         writePluginPackageManifest({
           packageDir: globalExt,
-          packageName: "@openclaw/pack",
+          packageName: "@luckynemo/pack",
           extensions: ["./escape.ts"],
         });
         return true;
@@ -2212,7 +2212,7 @@ describe("discoverOpenClawPlugins", () => {
         }
         writePluginPackageManifest({
           packageDir: globalExt,
-          packageName: "@openclaw/pack",
+          packageName: "@luckynemo/pack",
           extensions: ["./src/index.ts"],
         });
         return true;
@@ -2234,7 +2234,7 @@ describe("discoverOpenClawPlugins", () => {
     mkdirSafe(path.join(globalExt, "dist"));
     writePluginPackageManifest({
       packageDir: globalExt,
-      packageName: "@openclaw/escape-pack",
+      packageName: "@luckynemo/escape-pack",
       extensions: ["./dist/index.js"],
       setupEntry: "../src/setup-entry.ts",
       runtimeSetupEntry: "./dist/setup-entry.js",
@@ -2264,7 +2264,7 @@ describe("discoverOpenClawPlugins", () => {
     fs.writeFileSync(
       outsideManifest,
       JSON.stringify({
-        name: "@openclaw/pack",
+        name: "@luckynemo/pack",
         openclaw: { extensions: ["./entry.ts"] },
       }),
       "utf-8",
@@ -2288,7 +2288,7 @@ describe("discoverOpenClawPlugins", () => {
     const pluginDir = path.join(stateDir, "extensions", "world-open");
     createPackagePluginWithEntry({
       packageDir: pluginDir,
-      packageName: "@openclaw/world-open",
+      packageName: "@luckynemo/world-open",
       pluginId: "world-open",
     });
     fs.chmodSync(pluginDir, 0o777);
@@ -2335,7 +2335,7 @@ describe("discoverOpenClawPlugins", () => {
       const stateDir = makeTempDir();
       createPackagePluginWithEntry({
         packageDir: path.join(stateDir, "extensions", "owner-mismatch"),
-        packageName: "@openclaw/owner-mismatch",
+        packageName: "@luckynemo/owner-mismatch",
         pluginId: "owner-mismatch",
       });
 
@@ -2422,7 +2422,7 @@ describe("discoverOpenClawPlugins", () => {
     const pluginDir = path.join(stateDir, "extensions", "fresh");
     createPackagePluginWithEntry({
       packageDir: pluginDir,
-      packageName: "@openclaw/fresh",
+      packageName: "@luckynemo/fresh",
       pluginId: "fresh",
     });
 
@@ -2446,22 +2446,22 @@ describe("discoverOpenClawPlugins", () => {
 
     createPackagePluginWithEntry({
       packageDir: path.join(bundledDir, "bundled-plugin"),
-      packageName: "@openclaw/bundled-plugin",
+      packageName: "@luckynemo/bundled-plugin",
       pluginId: "bundled-plugin",
     });
     createPackagePluginWithEntry({
       packageDir: path.join(globalExt, "global-plugin"),
-      packageName: "@openclaw/global-plugin",
+      packageName: "@luckynemo/global-plugin",
       pluginId: "global-plugin",
     });
     createPackagePluginWithEntry({
       packageDir: path.join(workspaceA, ".openclaw", "extensions", "workspace-a-plugin"),
-      packageName: "@openclaw/workspace-a-plugin",
+      packageName: "@luckynemo/workspace-a-plugin",
       pluginId: "workspace-a-plugin",
     });
     createPackagePluginWithEntry({
       packageDir: path.join(workspaceB, ".openclaw", "extensions", "workspace-b-plugin"),
-      packageName: "@openclaw/workspace-b-plugin",
+      packageName: "@luckynemo/workspace-b-plugin",
       pluginId: "workspace-b-plugin",
     });
 
@@ -2495,12 +2495,12 @@ describe("discoverOpenClawPlugins", () => {
         const stateDirB = makeTempDir();
         createPackagePluginWithEntry({
           packageDir: path.join(stateDirA, "extensions", "alpha"),
-          packageName: "@openclaw/alpha",
+          packageName: "@luckynemo/alpha",
           pluginId: "alpha",
         });
         createPackagePluginWithEntry({
           packageDir: path.join(stateDirB, "extensions", "beta"),
-          packageName: "@openclaw/beta",
+          packageName: "@luckynemo/beta",
           pluginId: "beta",
         });
         return {

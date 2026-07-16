@@ -1,5 +1,5 @@
 // Verifies default config values and environment-sensitive overrides.
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import {
   DEFAULT_AGENT_MAX_CONCURRENT,

@@ -1,5 +1,5 @@
 /** Projects physical catalog rows for browse/presentation; never runtime execution. */
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
 import {
   resolveMergedModelProviderConfig,
   resolveMergedModelProviderModels,

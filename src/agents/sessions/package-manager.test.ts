@@ -239,7 +239,7 @@ describe("DefaultPackageManager", () => {
     const manager = new DefaultPackageManager({
       cwd: root,
       agentDir: join(root, "agent"),
-      settingsManager: SettingsManager.inMemory({ packages: ["npm:@openclaw/missing-test"] }),
+      settingsManager: SettingsManager.inMemory({ packages: ["npm:@luckynemo/missing-test"] }),
     });
 
     const resolved = await manager.resolve();

@@ -1,11 +1,11 @@
 {
-  "name": "@openclaw/sglang-provider",
+  "name": "@luckynemo/sglang-provider",
   "version": "2026.7.2",
   "private": true,
   "description": "OpenClaw SGLang provider plugin",
   "type": "module",
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [

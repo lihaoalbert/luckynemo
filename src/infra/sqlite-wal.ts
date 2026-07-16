@@ -3,7 +3,7 @@ import childProcess from "node:child_process";
 import fs from "node:fs";
 import path from "node:path";
 import type { DatabaseSync } from "node:sqlite";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { MAX_TIMER_TIMEOUT_MS } from "../shared/number-coercion.js";
 import { isSqliteLockError } from "./sqlite-transaction.js";
 

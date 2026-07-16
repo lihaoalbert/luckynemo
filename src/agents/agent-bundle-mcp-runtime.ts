@@ -1,3 +1,5 @@
+import { redactSensitiveUrlLikeString } from "@luckynemo/net-policy/redact-sensitive-url";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 /** Session-scoped MCP runtime catalog loader and transport lifecycle. */
 import { Client, type ClientOptions } from "@modelcontextprotocol/sdk/client/index.js";
 import { StreamableHTTPClientTransport } from "@modelcontextprotocol/sdk/client/streamableHttp.js";
@@ -8,8 +10,6 @@ import {
   type ClientCapabilities,
 } from "@modelcontextprotocol/sdk/types.js";
 import type { ServerCapabilities } from "@modelcontextprotocol/sdk/types.js";
-import { redactSensitiveUrlLikeString } from "@openclaw/net-policy/redact-sensitive-url";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { toErrorObject } from "../infra/errors.js";
 import { logWarn } from "../logger.js";

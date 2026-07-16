@@ -4,9 +4,9 @@
  * Sends messages to visible sessions, starts embedded runs, and optionally announces replies.
  */
 import crypto from "node:crypto";
-import { isRequesterParentOfBackgroundAcpSession } from "@openclaw/acp-core/session-interaction-mode";
-import { finiteSecondsToTimerSafeMilliseconds } from "@openclaw/normalization-core/number-coercion";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { isRequesterParentOfBackgroundAcpSession } from "@luckynemo/acp-core/session-interaction-mode";
+import { finiteSecondsToTimerSafeMilliseconds } from "@luckynemo/normalization-core/number-coercion";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { Type } from "typebox";
 import { readAcpSessionMeta } from "../../acp/runtime/session-meta.js";
 import { parseSessionThreadInfo } from "../../config/sessions/thread-info.js";

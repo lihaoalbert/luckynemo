@@ -1,5 +1,5 @@
 // ACP Core module implements meta behavior.
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 
 function readMetaValue<T>(
   meta: Record<string, unknown> | null | undefined,

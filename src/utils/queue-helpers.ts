@@ -1,11 +1,11 @@
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 /**
  * Shared queue overflow, debounce, and collection helpers.
  *
  * Queue owners use these helpers to cap pending work, summarize dropped items,
  * debounce drains, and force individual collection when cross-channel ordering matters.
  */
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 
 /** Mutable summary state for a capped queue. */
 type QueueSummaryState = {

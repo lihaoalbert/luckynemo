@@ -1,11 +1,11 @@
 {
-  "name": "@openclaw/xiaomi-provider",
+  "name": "@luckynemo/xiaomi-provider",
   "version": "2026.7.2",
   "private": true,
   "description": "OpenClaw Xiaomi provider plugin",
   "type": "module",
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [

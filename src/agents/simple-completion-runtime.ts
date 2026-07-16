@@ -1,5 +1,5 @@
-import { supportsOpenAIReasoningEffort } from "@openclaw/ai/internal/openai";
-import { resolveClaudeSonnet5ModelIdentity } from "@openclaw/llm-core";
+import { supportsOpenAIReasoningEffort } from "@luckynemo/ai/internal/openai";
+import { resolveClaudeSonnet5ModelIdentity } from "@luckynemo/llm-core";
 /**
  * Simple completion runtime preparation.
  *

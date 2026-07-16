@@ -1,7 +1,7 @@
 /** Read-only diagnostic readers used by the session SQLite doctor mode. */
 import fs from "node:fs";
 import { TextDecoder } from "node:util";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
 import { normalizeLoadedFileEntry, type FileEntry } from "../agents/sessions/session-manager.js";
 import type { TranscriptEvent } from "../config/sessions/session-accessor.js";
 import { resolveSqliteTargetFromSessionStorePath } from "../config/sessions/session-sqlite-target.js";

@@ -5,7 +5,7 @@ import path from "node:path";
 import {
   normalizeStringEntries,
   uniqueStrings,
-} from "@openclaw/normalization-core/string-normalization";
+} from "@luckynemo/normalization-core/string-normalization";
 import { DOCTOR_DISABLE_CROSS_STATE_DIR_IMPORTS_ENV } from "../commands/doctor-invocation.js";
 import { resolveGatewayInstallEntrypoint } from "../daemon/gateway-entrypoint.js";
 import { type CommandOptions, runCommandWithTimeout } from "../process/exec.js";

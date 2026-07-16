@@ -1,6 +1,6 @@
 // Audits installed plugins for trust, provenance, and filesystem risks.
 import path from "node:path";
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
 import { listReadOnlyChannelPluginsForConfig } from "../channels/plugins/read-only.js";
 import type { ChannelPlugin } from "../channels/plugins/types.plugin.js";
 import { inspectReadOnlyChannelAccount } from "../channels/read-only-account-inspect.js";

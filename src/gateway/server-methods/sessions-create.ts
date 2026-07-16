@@ -2,8 +2,8 @@
 import { randomUUID } from "node:crypto";
 import fs from "node:fs";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { expectDefined } from "@luckynemo/normalization-core";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import {
   ErrorCodes,
   errorShape,

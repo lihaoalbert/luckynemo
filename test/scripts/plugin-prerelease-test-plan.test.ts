@@ -127,15 +127,15 @@ describe("scripts/lib/plugin-prerelease-test-plan.mjs", () => {
       stateScenario: "empty",
       weight: 3,
     });
-    expect(script).toContain("npm:@openclaw/kitchen-sink@latest");
+    expect(script).toContain("npm:@luckynemo/kitchen-sink@latest");
     expect(script).toContain("npm-latest-conformance");
     expect(script).toContain("npm-latest-adversarial");
-    expect(script).toContain("npm:@openclaw/kitchen-sink@beta");
-    expect(script).toContain("clawhub:@openclaw/kitchen-sink@latest");
-    expect(script).toContain("clawhub:@openclaw/kitchen-sink@beta");
+    expect(script).toContain("npm:@luckynemo/kitchen-sink@beta");
+    expect(script).toContain("clawhub:@luckynemo/kitchen-sink@latest");
+    expect(script).toContain("clawhub:@luckynemo/kitchen-sink@beta");
     expect(script).toContain("OPENCLAW_KITCHEN_SINK_PLUGIN_MAX_MEMORY_MIB");
     expect(script).toContain(
-      "npm-to-clawhub|clawhub:@openclaw/kitchen-sink@latest|openclaw-kitchen-sink-fixture|clawhub|success|basic||${KITCHEN_SINK_NPM_SPEC}",
+      "npm-to-clawhub|clawhub:@luckynemo/kitchen-sink@latest|openclaw-kitchen-sink-fixture|clawhub|success|basic||${KITCHEN_SINK_NPM_SPEC}",
     );
     expect(script).toContain("scripts/e2e/lib/kitchen-sink-plugin/sweep.sh");
     expect(sweepScript).toContain('plugins install "$KITCHEN_SINK_SPEC" --force');
@@ -523,7 +523,7 @@ describe("scripts/lib/plugin-prerelease-test-plan.mjs", () => {
     });
     expect(inspectorRun.run).toContain("extensions/");
     expect(inspectorRun.run).toContain(
-      'npm exec --yes "@openclaw/plugin-inspector@${OPENCLAW_PLUGIN_INSPECTOR_VERSION}" -- ci',
+      'npm exec --yes "@luckynemo/plugin-inspector@${OPENCLAW_PLUGIN_INSPECTOR_VERSION}" -- ci',
     );
     expect(inspectorRun.run).toContain("This job is informational");
     expect(

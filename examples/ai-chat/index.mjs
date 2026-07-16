@@ -1,10 +1,10 @@
-// Minimal @openclaw/ai consumer: one isolated runtime, built-in providers,
+// Minimal @luckynemo/ai consumer: one isolated runtime, built-in providers,
 // one streamed completion. Uses only the public package surface — no OpenClaw
 // application code. Run with:
 //   ANTHROPIC_API_KEY=... node index.mjs "your prompt"
 //   OPENAI_API_KEY=... node index.mjs --provider openai "your prompt"
-import { createLlmRuntime } from "@openclaw/ai";
-import { registerBuiltInApiProviders } from "@openclaw/ai/providers";
+import { createLlmRuntime } from "@luckynemo/ai";
+import { registerBuiltInApiProviders } from "@luckynemo/ai/providers";
 
 const MODELS = {
   anthropic: {
@@ -51,7 +51,7 @@ const providerFlag = args.indexOf("--provider");
 const provider = providerFlag === -1 ? "anthropic" : args[providerFlag + 1];
 const prompt =
   args.filter((_, i) => i !== providerFlag && i !== providerFlag + 1).join(" ") ||
-  "Reply with one short sentence: what is @openclaw/ai?";
+  "Reply with one short sentence: what is @luckynemo/ai?";
 
 const model = MODELS[provider];
 if (!model) {

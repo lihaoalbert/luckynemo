@@ -1,5 +1,5 @@
 {
-  "name": "@openclaw/tokenjuice",
+  "name": "@luckynemo/tokenjuice",
   "version": "2026.7.2",
   "description": "OpenClaw tokenjuice exec output compaction plugin",
   "repository": {
@@ -19,7 +19,7 @@
     }
   },
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*",
+    "@luckynemo/plugin-sdk": "workspace:*",
     "openclaw": "workspace:*"
   },
   "openclaw": {
@@ -27,8 +27,8 @@
       "./index.ts"
     ],
     "install": {
-      "clawhubSpec": "clawhub:@openclaw/tokenjuice",
-      "npmSpec": "@openclaw/tokenjuice",
+      "clawhubSpec": "clawhub:@luckynemo/tokenjuice",
+      "npmSpec": "@luckynemo/tokenjuice",
       "defaultChoice": "npm",
       "minHostVersion": ">=2026.5.28"
     },

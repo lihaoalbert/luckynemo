@@ -1,3 +1,3 @@
 // Shared terminal string normalization helpers.
 
-export { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+export { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";

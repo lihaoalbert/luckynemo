@@ -4,7 +4,7 @@
 import {
   findNormalizedProviderKey,
   normalizeProviderId,
-} from "@openclaw/model-catalog-core/provider-id";
+} from "@luckynemo/model-catalog-core/provider-id";
 import { resolvePrimaryStringValue } from "../../packages/normalization-core/src/string-coerce.js";
 import { ensureStaticModelAllowlistEntry } from "../agents/model-allowlist-entry.js";
 import { normalizeConfiguredProviderCatalogModelId } from "../agents/model-ref-shared.js";

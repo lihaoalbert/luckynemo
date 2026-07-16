@@ -2,7 +2,7 @@
 // reads/writes, identity merging, and safe deletion for operator clients.
 import fs from "node:fs/promises";
 import path from "node:path";
-import { normalizeOptionalString as resolveOptionalStringParam } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString as resolveOptionalStringParam } from "@luckynemo/normalization-core/string-coerce";
 import {
   ErrorCodes,
   errorShape,

@@ -8,7 +8,7 @@ import {
   normalizeFastMode,
   normalizeOptionalLowercaseString,
   readStringValue,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import pMap from "p-map";
 import { Type } from "typebox";
 import { getRuntimeConfig } from "../../config/config.js";

@@ -4,7 +4,7 @@
  * session retention, and process cleanup for reconnect/poll flows.
  */
 import type { ChildProcessWithoutNullStreams } from "node:child_process";
-import { sliceUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { sliceUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import type { EventSessionRoutingPolicy } from "../infra/event-session-routing.js";
 import type { TerminationReason } from "../process/supervisor/types.js";
 import type { DeliveryContext } from "../utils/delivery-context.js";

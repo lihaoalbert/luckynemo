@@ -1,5 +1,5 @@
 // Shared directive parsing helpers used by model and auth directive handlers.
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { formatCliCommand } from "../../cli/command-format.js";
 import { SESSION_MODEL_OVERRIDE_TRANSACTION_FIELDS } from "../../config/sessions/session-snapshot-merge.js";
 import type { SessionEntry } from "../../config/sessions/types.js";

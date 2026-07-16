@@ -1,5 +1,5 @@
 // Control UI tests cover chat model select state behavior.
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it } from "vitest";
 import {
   createModelCatalog,

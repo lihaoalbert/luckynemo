@@ -1,5 +1,5 @@
 {
-  "name": "@openclaw/kilocode-provider",
+  "name": "@luckynemo/kilocode-provider",
   "version": "2026.7.2",
   "description": "OpenClaw Kilo Gateway provider plugin.",
   "repository": {
@@ -8,15 +8,15 @@
   },
   "type": "module",
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [
       "./index.ts"
     ],
     "install": {
-      "clawhubSpec": "clawhub:@openclaw/kilocode-provider",
-      "npmSpec": "@openclaw/kilocode-provider",
+      "clawhubSpec": "clawhub:@luckynemo/kilocode-provider",
+      "npmSpec": "@luckynemo/kilocode-provider",
       "defaultChoice": "npm",
       "minHostVersion": ">=2026.6.8"
     },

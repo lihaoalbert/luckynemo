@@ -3,7 +3,7 @@ import fs from "node:fs/promises";
 import path from "node:path";
 import { Readable } from "node:stream";
 import { pipeline } from "node:stream/promises";
-import { extensionForMime, normalizeMimeType } from "@openclaw/media-core/mime";
+import { extensionForMime, normalizeMimeType } from "@luckynemo/media-core/mime";
 import type { Command } from "commander";
 import { resolveAgentDir, resolveDefaultAgentId } from "../../agents/agent-scope.js";
 import { assertOkOrThrowHttpError } from "../../agents/provider-http-errors.js";

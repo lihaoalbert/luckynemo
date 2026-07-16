@@ -440,7 +440,7 @@ describe("trusted-catalog load-path discovery", () => {
         )
           ? {
               id: "telegram",
-              pluginId: "@openclaw/telegram",
+              pluginId: "@luckynemo/telegram",
               origin: "bundled",
               meta: {
                 id: "telegram",
@@ -484,7 +484,7 @@ describe("trusted-catalog load-path discovery", () => {
       }),
     ).toMatchObject({
       id: "telegram",
-      pluginId: "@openclaw/telegram",
+      pluginId: "@luckynemo/telegram",
       origin: "bundled",
     });
   });
@@ -503,7 +503,7 @@ describe("trusted-catalog load-path discovery", () => {
         )
           ? {
               id: "telegram",
-              pluginId: "@openclaw/telegram",
+              pluginId: "@luckynemo/telegram",
               origin: "bundled",
               meta: {
                 id: "telegram",
@@ -540,7 +540,7 @@ describe("trusted-catalog load-path discovery", () => {
       }),
     ).toMatchObject({
       id: "telegram",
-      pluginId: "@openclaw/telegram",
+      pluginId: "@luckynemo/telegram",
       origin: "bundled",
     });
   });
@@ -559,7 +559,7 @@ describe("trusted-catalog load-path discovery", () => {
         )
           ? {
               id: "telegram",
-              pluginId: "@openclaw/telegram",
+              pluginId: "@luckynemo/telegram",
               origin: "bundled",
               meta: {
                 id: "telegram",
@@ -599,7 +599,7 @@ describe("trusted-catalog load-path discovery", () => {
       }),
     ).toMatchObject({
       id: "telegram",
-      pluginId: "@openclaw/telegram",
+      pluginId: "@luckynemo/telegram",
       origin: "bundled",
     });
   });

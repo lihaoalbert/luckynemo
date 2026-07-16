@@ -1,11 +1,11 @@
 {
-  "name": "@openclaw/voyage-provider",
+  "name": "@luckynemo/voyage-provider",
   "version": "2026.7.2",
   "private": true,
   "description": "OpenClaw Voyage embedding provider plugin",
   "type": "module",
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [

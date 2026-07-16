@@ -1,5 +1,5 @@
 // Shared string normalization helpers for media-generation packages.
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 
 /** Return unique trimmed strings while preserving first-seen order. */
 export function uniqueTrimmedStrings(values: readonly unknown[]): string[] {

@@ -1,6 +1,6 @@
 // Tests reply plumbing helpers that connect payloads, routes, and delivery modes.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, describe, expect, it } from "vitest";
 import type { SubagentRunRecord } from "../../agents/subagent-registry.js";
 import type { ChannelPlugin } from "../../channels/plugins/types.public.js";

@@ -302,8 +302,8 @@ function createCodexInstallFixture(root: string) {
   const stateDir = path.join(root, "state");
   const npmRoot = path.join(stateDir, "npm");
   const installPath = path.join(npmRoot, "projects", "codex", "node_modules", "@openclaw", "codex");
-  const projectRoot = npmProjectRootForInstalledPackage(installPath, "@openclaw/codex");
-  writeJson(path.join(installPath, "package.json"), { name: "@openclaw/codex" });
+  const projectRoot = npmProjectRootForInstalledPackage(installPath, "@luckynemo/codex");
+  writeJson(path.join(installPath, "package.json"), { name: "@luckynemo/codex" });
   const openAiCodexRoot = path.join(projectRoot, "node_modules", "@openai", "codex");
   writeJson(path.join(openAiCodexRoot, "package.json"), {
     name: "@openai/codex",
@@ -321,7 +321,7 @@ function createCodexInstallFixture(root: string) {
         codex: {
           installPath,
           source: "npm",
-          spec: "npm:@openclaw/codex",
+          spec: "npm:@luckynemo/codex",
         },
       },
     },
@@ -374,7 +374,7 @@ describe("Codex install helpers", () => {
       "@openclaw",
       "codex",
     );
-    const projectRoot = npmProjectRootForInstalledPackage(packageRoot, "@openclaw/codex");
+    const projectRoot = npmProjectRootForInstalledPackage(packageRoot, "@luckynemo/codex");
     const dependencyPackage = path.join(
       projectRoot,
       "node_modules",

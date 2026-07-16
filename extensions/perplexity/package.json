@@ -1,5 +1,5 @@
 {
-  "name": "@openclaw/perplexity-plugin",
+  "name": "@luckynemo/perplexity-plugin",
   "version": "2026.7.2",
   "description": "OpenClaw Perplexity plugin.",
   "repository": {
@@ -8,15 +8,15 @@
   },
   "type": "module",
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [
       "./index.ts"
     ],
     "install": {
-      "clawhubSpec": "clawhub:@openclaw/perplexity-plugin",
-      "npmSpec": "@openclaw/perplexity-plugin",
+      "clawhubSpec": "clawhub:@luckynemo/perplexity-plugin",
+      "npmSpec": "@luckynemo/perplexity-plugin",
       "defaultChoice": "npm",
       "minHostVersion": ">=2026.6.8"
     },

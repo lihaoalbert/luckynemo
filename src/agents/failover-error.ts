@@ -3,7 +3,7 @@
  * Converts nested provider, transport, timeout, auth, and local coordination
  * failures into structured failover reasons and remediation metadata.
  */
-import { parseStrictNonNegativeInteger } from "@openclaw/normalization-core/number-coercion";
+import { parseStrictNonNegativeInteger } from "@luckynemo/normalization-core/number-coercion";
 import { formatCliCommand } from "../cli/command-format.js";
 import { readErrorName } from "../infra/errors.js";
 import {

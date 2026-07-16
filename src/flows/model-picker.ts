@@ -1,6 +1,6 @@
 // Model picker flow lets users select provider models for config defaults.
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
-import { sortUniqueStrings } from "@openclaw/normalization-core/string-normalization";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
+import { sortUniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import { resolveDefaultAgentDir } from "../agents/agent-scope.js";
 import { DEFAULT_MODEL, DEFAULT_PROVIDER } from "../agents/defaults.js";
 import { resolveAgentHarnessPolicy } from "../agents/harness/policy.js";

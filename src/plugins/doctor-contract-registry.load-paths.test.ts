@@ -117,7 +117,7 @@ function writeDistDoctorPlugin(pluginRoot: string, pluginId: string): void {
     path.join(pluginRoot, "package.json"),
     JSON.stringify(
       {
-        name: `@openclaw/${pluginId}`,
+        name: `@luckynemo/${pluginId}`,
         version: "0.0.0-test",
         type: "module",
         openclaw: {

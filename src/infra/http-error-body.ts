@@ -1,5 +1,5 @@
-import { decodeTextPrefix } from "@openclaw/normalization-core";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { decodeTextPrefix } from "@luckynemo/normalization-core";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { readResponseTextPrefix } from "./http-body.js";
 
 export async function readResponseBodySnippet(

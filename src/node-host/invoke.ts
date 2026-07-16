@@ -1,10 +1,10 @@
 /** Node-host command dispatcher for system commands, approvals, env policy, and plugin commands. */
 import fs from "node:fs";
 import path from "node:path";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
+import { normalizeStringEntries } from "@luckynemo/normalization-core/string-normalization";
+import { sliceUtf16Safe, truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import type { ContentBlock } from "@modelcontextprotocol/sdk/types.js";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
-import { normalizeStringEntries } from "@openclaw/normalization-core/string-normalization";
-import { sliceUtf16Safe, truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
 import { mcpContentBlockToAgentContent } from "../agents/mcp-content.js";
 import {
   analyzeArgvCommand,

@@ -50,7 +50,7 @@ function writePluginPackageJson(
   type: "commonjs" | "module" = "module",
 ): void {
   writeJsonFile(path.join(pluginDir, "package.json"), {
-    name: `@openclaw/plugin-${name}`,
+    name: `@luckynemo/plugin-${name}`,
     version: "0.0.0",
     type,
   });
@@ -409,7 +409,7 @@ describe("plugin-sdk facade runtime", () => {
     fs.writeFileSync(
       path.join(lineDir, "package.json"),
       JSON.stringify({
-        name: "@openclaw/line",
+        name: "@luckynemo/line",
         version: "0.0.0",
         openclaw: {
           extensions: ["./runtime-api.js"],
@@ -457,7 +457,7 @@ describe("plugin-sdk facade runtime", () => {
     fs.writeFileSync(
       path.join(lineDir, "package.json"),
       JSON.stringify({
-        name: "@openclaw/line",
+        name: "@luckynemo/line",
         version: "0.0.0",
         type: "module",
         openclaw: {
@@ -507,7 +507,7 @@ describe("plugin-sdk facade runtime", () => {
     fs.writeFileSync(
       path.join(encodedDir, "package.json"),
       JSON.stringify({
-        name: "@openclaw/line",
+        name: "@luckynemo/line",
         version: "0.0.0",
         openclaw: {
           extensions: ["./runtime-api.js"],

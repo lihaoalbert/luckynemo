@@ -1,12 +1,12 @@
 // Input file helpers normalize inline, fetched, and local media inputs.
-import { canonicalizeBase64, estimateBase64DecodedBytes } from "@openclaw/media-core/base64";
-import { parseMediaContentLength } from "@openclaw/media-core/content-length";
-import { detectMime } from "@openclaw/media-core/mime";
+import { canonicalizeBase64, estimateBase64DecodedBytes } from "@luckynemo/media-core/base64";
+import { parseMediaContentLength } from "@luckynemo/media-core/content-length";
+import { detectMime } from "@luckynemo/media-core/mime";
 import {
   normalizeOptionalLowercaseString,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+} from "@luckynemo/normalization-core/string-coerce";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { readResponseWithLimit } from "../infra/http-body.js";
 import { fetchWithSsrFGuard } from "../infra/net/fetch-guard.js";

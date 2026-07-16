@@ -10,7 +10,7 @@ import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalLowercaseString,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { normalizeChatChannelId } from "../channels/ids.js";
 import {
   type ExecAsk,

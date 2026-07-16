@@ -17,7 +17,7 @@
 // - Parent→child posts always use targetOrigin "*" (opaque origin), carrying only
 //   binding data / theme tokens the widget is entitled to — never secrets.
 
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
 import type { WidgetManifestView } from "./types.ts";
 
 const BRIDGE_ENVELOPE_VERSION = 1;

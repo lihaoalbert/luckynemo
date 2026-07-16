@@ -1,6 +1,6 @@
 // Resolves a human-readable machine name for gateway display.
 import os from "node:os";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { runExec } from "../process/exec.js";
 
 // Machine display names prefer macOS ComputerName when available and fall back

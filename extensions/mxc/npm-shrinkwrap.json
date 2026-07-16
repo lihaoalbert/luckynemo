@@ -1,11 +1,11 @@
 {
-  "name": "@openclaw/mxc-sandbox",
+  "name": "@luckynemo/mxc-sandbox",
   "version": "2026.6.11",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
-      "name": "@openclaw/mxc-sandbox",
+      "name": "@luckynemo/mxc-sandbox",
       "version": "2026.6.11",
       "dependencies": {
         "@microsoft/mxc-sdk": "0.7.0",

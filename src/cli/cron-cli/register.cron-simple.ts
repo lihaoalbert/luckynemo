@@ -2,8 +2,8 @@
 import {
   resolvePositiveTimerTimeoutMs,
   resolveTimerTimeoutMs,
-} from "@openclaw/normalization-core/number-coercion";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/number-coercion";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import type { Command } from "commander";
 import type { CronDeliveryPreview, CronJob } from "../../cron/types.js";
 import { parseStrictPositiveInteger } from "../../infra/parse-finite-number.js";

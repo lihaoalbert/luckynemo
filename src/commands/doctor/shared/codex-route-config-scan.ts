@@ -1,6 +1,6 @@
-import { AGENT_MODEL_CONFIG_KEYS } from "@openclaw/model-catalog-core/configured-model-refs";
-import { asOptionalRecord as asMutableRecord } from "@openclaw/normalization-core/record-coerce";
-import { normalizeOptionalLowercaseString as normalizeString } from "@openclaw/normalization-core/string-coerce";
+import { AGENT_MODEL_CONFIG_KEYS } from "@luckynemo/model-catalog-core/configured-model-refs";
+import { asOptionalRecord as asMutableRecord } from "@luckynemo/normalization-core/record-coerce";
+import { normalizeOptionalLowercaseString as normalizeString } from "@luckynemo/normalization-core/string-coerce";
 import type { OpenClawConfig } from "../../../config/types.openclaw.js";
 import { normalizeAgentId } from "../../../routing/session-key.js";
 import {

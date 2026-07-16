@@ -1,4 +1,4 @@
-import { asNullableRecord as asRecord } from "@openclaw/normalization-core/record-coerce";
+import { asNullableRecord as asRecord } from "@luckynemo/normalization-core/record-coerce";
 import type { GatewayBrowserClient, GatewayHelloOk } from "../../../api/gateway.ts";
 import type { ConfigSnapshot } from "../../../api/types.ts";
 import { copyToClipboard } from "../../../lib/clipboard.ts";

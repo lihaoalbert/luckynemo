@@ -1,5 +1,5 @@
 /** Shared ACP manager test harness, mocks, fixtures, and assertion helpers. */
-import type { AcpRuntime, AcpRuntimeCapabilities } from "@openclaw/acp-core/runtime/types";
+import type { AcpRuntime, AcpRuntimeCapabilities } from "@luckynemo/acp-core/runtime/types";
 import { afterEach, beforeEach, expect, vi } from "vitest";
 import { resetAcpManagerTaskStateForTests } from "../../../test/helpers/acp-manager-task-state.js";
 import type { OpenClawConfig } from "../../config/config.js";

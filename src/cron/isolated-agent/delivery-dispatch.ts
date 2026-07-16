@@ -1,6 +1,6 @@
 /** Dispatches isolated cron output to direct delivery, mirrors, and follow-up queues. */
-import { isAudioFileName } from "@openclaw/media-core/mime";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { isAudioFileName } from "@luckynemo/media-core/mime";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import type { ReplyPayload } from "../../auto-reply/reply-payload.js";
 import {
   isSilentReplyText,

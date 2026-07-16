@@ -1,6 +1,6 @@
 /** Resolves ACP request metadata into OpenClaw Gateway session keys and reset behavior. */
-import { readBool, readString } from "@openclaw/acp-core/meta";
-import type { AcpServerOptions } from "@openclaw/acp-core/types";
+import { readBool, readString } from "@luckynemo/acp-core/meta";
+import type { AcpServerOptions } from "@luckynemo/acp-core/types";
 import type { GatewayClient } from "../gateway/client.js";
 
 type AcpSessionMeta = {

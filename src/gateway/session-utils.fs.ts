@@ -2,12 +2,12 @@
 // Parses transcript JSONL files for messages, previews, counts, and usage metadata.
 import fs from "node:fs";
 import { StringDecoder } from "node:string_decoder";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import {
   resolveIntegerOption,
   resolveNonNegativeIntegerOption,
-} from "@openclaw/normalization-core/number-coercion";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/number-coercion";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import {
   deriveSessionTotalTokens,
   hasNonzeroUsage,

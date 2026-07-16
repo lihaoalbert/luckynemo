@@ -2,13 +2,13 @@
  * Prepares Google prompt-cache payloads for embedded-agent stream calls.
  */
 import crypto from "node:crypto";
-import { stripSystemPromptCacheBoundary } from "@openclaw/ai/internal/shared";
+import { stripSystemPromptCacheBoundary } from "@luckynemo/ai/internal/shared";
 import {
   asDateTimestampMs,
   isFutureDateTimestampMs,
   resolveExpiresAtMsFromDurationMs,
-} from "@openclaw/normalization-core/number-coercion";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/number-coercion";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { parseGeminiAuth } from "../../infra/gemini-auth.js";
 import { normalizeGoogleApiBaseUrl } from "../../infra/google-api-base-url.js";
 import { readResponseWithLimit } from "../../infra/http-body.js";

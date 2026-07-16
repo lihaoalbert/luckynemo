@@ -1,6 +1,6 @@
 // Dreaming payload migration tests cover cron doctor repair of old dreaming payloads.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it } from "vitest";
 import {
   countStaleDreamingJobs,

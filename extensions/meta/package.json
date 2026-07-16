@@ -1,5 +1,5 @@
 {
-  "name": "@openclaw/meta-provider",
+  "name": "@luckynemo/meta-provider",
   "version": "2026.7.2",
   "description": "OpenClaw Meta provider plugin.",
   "repository": {
@@ -8,15 +8,15 @@
   },
   "type": "module",
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [
       "./index.ts"
     ],
     "install": {
-      "clawhubSpec": "clawhub:@openclaw/meta-provider",
-      "npmSpec": "@openclaw/meta-provider",
+      "clawhubSpec": "clawhub:@luckynemo/meta-provider",
+      "npmSpec": "@luckynemo/meta-provider",
       "defaultChoice": "npm",
       "minHostVersion": ">=2026.6.11"
     },

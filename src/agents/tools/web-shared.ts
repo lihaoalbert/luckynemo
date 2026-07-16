@@ -3,14 +3,14 @@
  *
  * Keeps web_fetch and web_search providers aligned on bounded IO and cache semantics.
  */
-import { decodeTextPrefix } from "@openclaw/normalization-core";
+import { decodeTextPrefix } from "@luckynemo/normalization-core";
 import {
   asDateTimestampMs,
   MAX_TIMER_TIMEOUT_SECONDS,
   resolveExpiresAtMsFromDurationMs,
   resolveTimerTimeoutMs,
-} from "@openclaw/normalization-core/number-coercion";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/number-coercion";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 
 export type CacheEntry<T> = {
   value: T;

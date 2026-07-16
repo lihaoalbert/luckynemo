@@ -4,7 +4,7 @@
  * This registers a patched Google stream API that keeps the normal Google
  * backend but sanitizes unsupported thinking payload options for simple models.
  */
-import { clampThinkingLevel } from "@openclaw/ai/internal/runtime";
+import { clampThinkingLevel } from "@luckynemo/ai/internal/runtime";
 import { streamSimple } from "../llm/stream.js";
 import type { Api, Model, ModelThinkingLevel } from "../llm/types.js";
 import {

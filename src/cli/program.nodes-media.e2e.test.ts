@@ -1,6 +1,6 @@
 // Program nodes media e2e tests cover media-oriented node commands through the full CLI program.
 import * as fs from "node:fs/promises";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { Command } from "commander";
 import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 import { IOS_NODE, createIosNodeListResponse } from "./program.nodes-test-helpers.js";

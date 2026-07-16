@@ -1,5 +1,5 @@
 // Agent Core helper module supports utils behavior.
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import type { Message } from "../../../../llm-core/src/index.js";
 import type { AgentMessage } from "../../types.js";
 

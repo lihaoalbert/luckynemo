@@ -1,5 +1,5 @@
 // Resolves provider usage auth tokens from profiles, plugins, and env.
-import { normalizeUniqueStringEntries } from "@openclaw/normalization-core/string-normalization";
+import { normalizeUniqueStringEntries } from "@luckynemo/normalization-core/string-normalization";
 import {
   dedupeProfileIds,
   ensureAuthProfileStore,

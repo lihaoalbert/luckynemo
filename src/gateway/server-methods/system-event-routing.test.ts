@@ -1,6 +1,6 @@
 /** Targeted system-event routing and wake behavior. */
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { peekSystemEvents, resetSystemEventsForTest } from "../../infra/system-events.js";
 import type { GatewayRequestHandlerOptions } from "./types.js";

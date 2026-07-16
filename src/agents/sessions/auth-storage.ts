@@ -8,7 +8,7 @@
 
 import { chmodSync, existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from "node:fs";
 import { dirname, join } from "node:path";
-import { findEnvKeys, getEnvApiKey } from "@openclaw/ai/internal/runtime";
+import { findEnvKeys, getEnvApiKey } from "@luckynemo/ai/internal/runtime";
 import lockfile from "proper-lockfile";
 import { replaceFileAtomicSync } from "../../infra/replace-file.js";
 import {

@@ -1,7 +1,7 @@
 /**
  * Tests chat abort authorization checks for gateway clients and session owners.
  */
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it, vi } from "vitest";
 import {
   createActiveRun,

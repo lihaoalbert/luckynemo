@@ -1,5 +1,5 @@
 // Control UI chat module implements stream reconciliation behavior.
-import { asNullableRecord as asToolRecord } from "@openclaw/normalization-core/record-coerce";
+import { asNullableRecord as asToolRecord } from "@luckynemo/normalization-core/record-coerce";
 import {
   isToolCallContentType,
   isToolResultContentType,

@@ -1,7 +1,7 @@
 // Defines core Zod schema fragments for canonical config parsing.
 import path from "node:path";
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
-import { normalizeStringEntries } from "@openclaw/normalization-core/string-normalization";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
+import { normalizeStringEntries } from "@luckynemo/normalization-core/string-normalization";
 import { z } from "zod";
 import { isSafeExecutableValue } from "../infra/exec-safety.js";
 import {

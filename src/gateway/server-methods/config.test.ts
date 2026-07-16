@@ -2,7 +2,7 @@
  * Tests for config gateway methods, writes, validation, and auth transitions.
  */
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { withEnvAsync } from "../../test-utils/env.js";
 import {

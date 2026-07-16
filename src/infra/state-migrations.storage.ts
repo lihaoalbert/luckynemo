@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import path from "node:path";
 import type { DatabaseSync, SQLInputValue } from "node:sqlite";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import type { ChannelLegacyStateMigrationPlan } from "../channels/plugins/types.core.js";
 import { parseInstalledPluginIndex } from "../plugins/installed-plugin-index-store.js";
 import {

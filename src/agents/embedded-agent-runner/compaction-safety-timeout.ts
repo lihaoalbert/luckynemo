@@ -1,7 +1,7 @@
 /**
  * Wraps compaction calls with a safety timeout and abort cleanup.
  */
-import { finiteSecondsToTimerSafeMilliseconds } from "@openclaw/normalization-core/number-coercion";
+import { finiteSecondsToTimerSafeMilliseconds } from "@luckynemo/normalization-core/number-coercion";
 import type { OpenClawConfig } from "../../config/types.openclaw.js";
 import type { CompactResult, ContextEngine } from "../../context-engine/types.js";
 import { createAbortError } from "../../infra/abort-signal.js";

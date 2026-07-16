@@ -1,4 +1,4 @@
-import { normalizeStructuredPromptSection } from "@openclaw/ai/internal/shared";
+import { normalizeStructuredPromptSection } from "@luckynemo/ai/internal/shared";
 /**
  * Handles per-attempt thread prompt composition and cache TTL markers.
  */

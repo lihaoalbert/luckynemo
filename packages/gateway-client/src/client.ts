@@ -4,21 +4,21 @@ import {
   GATEWAY_CLIENT_NAMES,
   type GatewayClientMode,
   type GatewayClientName,
-} from "@openclaw/gateway-protocol/client-info";
+} from "@luckynemo/gateway-protocol/client-info";
 import {
   ConnectErrorDetailCodes,
   formatConnectErrorMessage,
   readConnectErrorDetailCode,
-} from "@openclaw/gateway-protocol/connect-error-details";
+} from "@luckynemo/gateway-protocol/connect-error-details";
 import type {
   ConnectParams,
   ErrorShape,
   EventFrame,
   HelloOk,
-} from "@openclaw/gateway-protocol/frame-guards";
-import { resolveGatewayStartupRetryAfterMs } from "@openclaw/gateway-protocol/startup-unavailable";
-import { MIN_CLIENT_PROTOCOL_VERSION, PROTOCOL_VERSION } from "@openclaw/gateway-protocol/version";
-import { isLoopbackIpAddress, type ParsedIpAddress } from "@openclaw/net-policy/ip";
+} from "@luckynemo/gateway-protocol/frame-guards";
+import { resolveGatewayStartupRetryAfterMs } from "@luckynemo/gateway-protocol/startup-unavailable";
+import { MIN_CLIENT_PROTOCOL_VERSION, PROTOCOL_VERSION } from "@luckynemo/gateway-protocol/version";
+import { isLoopbackIpAddress, type ParsedIpAddress } from "@luckynemo/net-policy/ip";
 import { WebSocket, type ClientOptions, type CertMeta } from "ws";
 import {
   isSensitiveUrlQueryParamName,

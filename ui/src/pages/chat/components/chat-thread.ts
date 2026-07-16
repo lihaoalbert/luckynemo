@@ -1,5 +1,5 @@
 // Chat-owned message thread presentation and thread-local interaction state.
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { VirtualizerController } from "@tanstack/lit-virtual";
 import { defaultRangeExtractor, observeElementRect } from "@tanstack/virtual-core";
 import {

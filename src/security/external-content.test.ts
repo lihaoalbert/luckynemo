@@ -1,6 +1,6 @@
 // Covers external content tokenization and source tagging.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it } from "vitest";
 import {
   buildSafeExternalPrompt,

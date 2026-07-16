@@ -1,7 +1,7 @@
 // Verifies session config cache invalidation and reload behavior.
 import fs from "node:fs";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 import * as jsonFiles from "../infra/json-files.js";
 import { createCanonicalFixtureSkill } from "../skills/test-support/test-helpers.js";

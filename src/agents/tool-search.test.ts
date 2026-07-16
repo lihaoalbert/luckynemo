@@ -1,7 +1,7 @@
 // Tool search tests cover catalog compaction, scoped tool lookup, raw fallback
 // tools, hooks, abort wrapping, and transcript projection.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterEach, describe, expect, it, vi } from "vitest";
 import { setPluginToolMeta } from "../plugins/tools.js";
 import { wrapToolWithAbortSignal } from "./agent-tools.abort.js";

@@ -8,8 +8,8 @@ import {
 import type { ProxyConfig } from "../../../config/zod-schema.proxy.js";
 
 type ProxyLoopbackMode = NonNullable<NonNullable<ProxyConfig>["loopbackMode"]>;
-import { isLoopbackIpAddress } from "@openclaw/net-policy/ip";
-import { isHttpUrl, isWebSocketUrl } from "@openclaw/net-policy/url-protocol";
+import { isLoopbackIpAddress } from "@luckynemo/net-policy/ip";
+import { isHttpUrl, isWebSocketUrl } from "@luckynemo/net-policy/url-protocol";
 import { logInfo, logWarn } from "../../../logger.js";
 import { forceResetGlobalDispatcher } from "../undici-global-dispatcher.js";
 import {

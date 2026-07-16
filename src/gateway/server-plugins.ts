@@ -2,8 +2,8 @@
 // Loads plugin registries and builds fallback request context for non-WS paths.
 import { randomUUID } from "node:crypto";
 import { performance } from "node:perf_hooks";
-import { parseModelCatalogRef } from "@openclaw/model-catalog-core/model-catalog-refs";
-import { uniqueStrings } from "@openclaw/normalization-core/string-normalization";
+import { parseModelCatalogRef } from "@luckynemo/model-catalog-core/model-catalog-refs";
+import { uniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import { GatewayClientRequestError } from "../../packages/gateway-client/src/index.js";
 import type { ErrorShape } from "../../packages/gateway-protocol/src/schema/frames.js";
 import { normalizeModelRef, parseModelRef } from "../agents/model-selection.js";

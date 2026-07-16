@@ -1,5 +1,5 @@
 import { spawn } from "node:child_process";
-import { sliceUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { sliceUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { redactSensitiveText } from "../../logging/redact.js";
 import {
   runCommandWithTimeout,

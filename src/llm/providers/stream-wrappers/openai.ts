@@ -1,14 +1,14 @@
 import {
   resolveOpenAIReasoningEffortForModel,
   supportsOpenAIReasoningEffort,
-} from "@openclaw/ai/internal/openai";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
+} from "@luckynemo/ai/internal/openai";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
 // OpenAI stream wrapper normalizes OpenAI-compatible streamed tool and text events.
 import {
   normalizeFastMode,
   normalizeOptionalLowercaseString,
   readStringValue,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import {
   patchCodexNativeWebSearchPayload,
   resolveCodexNativeSearchActivation,

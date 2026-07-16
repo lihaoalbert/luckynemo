@@ -8,7 +8,7 @@ import path from "node:path";
 import {
   clampPositiveTimerTimeoutMs,
   resolvePositiveTimerTimeoutMs,
-} from "@openclaw/normalization-core/number-coercion";
+} from "@luckynemo/normalization-core/number-coercion";
 import type { ModelProviderLocalServiceConfig } from "../config/types.models.js";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { toErrorObject } from "../infra/errors.js";

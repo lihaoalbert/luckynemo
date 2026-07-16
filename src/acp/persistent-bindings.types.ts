@@ -1,14 +1,14 @@
 /** Types and normalization helpers for configured channel-to-ACP persistent bindings. */
-import { normalizeText } from "@openclaw/acp-core/normalize-text";
-import type { AcpRuntimeSessionMode } from "@openclaw/acp-core/runtime/types";
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeText } from "@luckynemo/acp-core/normalize-text";
+import type { AcpRuntimeSessionMode } from "@luckynemo/acp-core/runtime/types";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
 import type { ChannelId } from "../channels/plugins/types.public.js";
 import { sha256HexPrefix } from "../infra/crypto-digest.js";
 import type { SessionBindingRecord } from "../infra/outbound/session-binding-service.js";
 import { normalizeAccountId, resolveAgentIdFromSessionKey } from "../routing/session-key.js";
 import { sanitizeAgentId } from "../routing/session-key.js";
 
-export { normalizeText } from "@openclaw/acp-core/normalize-text";
+export { normalizeText } from "@luckynemo/acp-core/normalize-text";
 
 export type ConfiguredAcpBindingChannel = ChannelId;
 

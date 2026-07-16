@@ -1,9 +1,9 @@
 /** Protects active auth profile metadata while doctor repairs broader config state. */
-import { collectConfiguredModelRefs } from "@openclaw/model-catalog-core/configured-model-refs";
+import { collectConfiguredModelRefs } from "@luckynemo/model-catalog-core/configured-model-refs";
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { splitTrailingAuthProfile } from "../agents/model-ref-profile.js";
 import type { AuthProfileConfig } from "../config/types.auth.js";
 import type { OpenClawConfig } from "../config/types.openclaw.js";

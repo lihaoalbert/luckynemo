@@ -1,5 +1,5 @@
 // Gateway RPC handlers for safe gateway restart requests and preflight state.
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { ErrorCodes, errorShape } from "../../../packages/gateway-protocol/src/index.js";
 import {
   createSafeGatewayRestartPreflight,

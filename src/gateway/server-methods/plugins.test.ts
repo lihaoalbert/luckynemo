@@ -1,6 +1,6 @@
 // Plugin management Gateway handler tests cover DTO mapping, trust errors, and reload planning.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 
 const managementMocks = vi.hoisted(() => {
@@ -118,7 +118,7 @@ describe("plugin management Gateway handlers", () => {
       {
         score: 0.91,
         package: {
-          name: "@openclaw/diffs",
+          name: "@luckynemo/diffs",
           displayName: "Diffs",
           family: "code-plugin",
           channel: "official",
@@ -141,7 +141,7 @@ describe("plugin management Gateway handlers", () => {
         {
           score: 0.91,
           package: {
-            name: "@openclaw/diffs",
+            name: "@luckynemo/diffs",
             displayName: "Diffs",
             family: "code-plugin",
             channel: "official",
@@ -272,7 +272,7 @@ describe("plugin management Gateway handlers", () => {
 
     await callHandler("plugins.install", {
       source: "clawhub",
-      packageName: "@openclaw/diffs",
+      packageName: "@luckynemo/diffs",
       version: "1.2.3",
       acknowledgeClawHubRisk: true,
     });
@@ -280,7 +280,7 @@ describe("plugin management Gateway handlers", () => {
     expect(managementMocks.install).toHaveBeenCalledWith({
       request: {
         source: "clawhub",
-        packageName: "@openclaw/diffs",
+        packageName: "@luckynemo/diffs",
         version: "1.2.3",
         acknowledgeClawHubRisk: true,
       },

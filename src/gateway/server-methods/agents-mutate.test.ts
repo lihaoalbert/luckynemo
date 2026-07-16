@@ -1,7 +1,7 @@
 // Agent mutation tests cover create/update/delete handlers, safe workspace file
 // access, config preconditions, trash cleanup, and attestation handling.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it, vi, beforeEach } from "vitest";
 import { FsSafeError } from "../../infra/fs-safe.js";
 /* ------------------------------------------------------------------ */

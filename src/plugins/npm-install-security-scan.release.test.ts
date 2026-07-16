@@ -24,28 +24,28 @@ type PublishablePluginPackage = {
 
 const execFileAsync = promisify(execFile);
 const REQUIRED_REVIEWED_PUBLISHABLE_CRITICAL_FINDINGS = new Set([
-  "@openclaw/acpx:dangerous-exec:src/codex-auth-bridge.ts",
-  "@openclaw/acpx:dangerous-exec:src/runtime-internals/mcp-proxy.mjs",
-  "@openclaw/codex:dangerous-exec:src/app-server/sandbox-exec-server/http.ts",
-  "@openclaw/codex:dangerous-exec:src/app-server/sandbox-exec-server/processes.ts",
-  "@openclaw/codex:dangerous-exec:src/app-server/transport-stdio.ts",
-  "@openclaw/codex:dangerous-exec:src/node-cli-sessions.ts",
-  "@openclaw/discord:dangerous-exec:src/voice/audio.ts",
-  "@openclaw/google-meet:dangerous-exec:src/node-host.ts",
-  "@openclaw/google-meet:dangerous-exec:src/realtime.ts",
-  "@openclaw/mxc-sandbox:dangerous-exec:src/readiness.ts",
-  "@openclaw/raft:dangerous-exec:src/gateway.ts",
-  "@openclaw/signal:dangerous-exec:src/daemon.ts",
-  "@openclaw/voice-call:dangerous-exec:src/tunnel.ts",
+  "@luckynemo/acpx:dangerous-exec:src/codex-auth-bridge.ts",
+  "@luckynemo/acpx:dangerous-exec:src/runtime-internals/mcp-proxy.mjs",
+  "@luckynemo/codex:dangerous-exec:src/app-server/sandbox-exec-server/http.ts",
+  "@luckynemo/codex:dangerous-exec:src/app-server/sandbox-exec-server/processes.ts",
+  "@luckynemo/codex:dangerous-exec:src/app-server/transport-stdio.ts",
+  "@luckynemo/codex:dangerous-exec:src/node-cli-sessions.ts",
+  "@luckynemo/discord:dangerous-exec:src/voice/audio.ts",
+  "@luckynemo/google-meet:dangerous-exec:src/node-host.ts",
+  "@luckynemo/google-meet:dangerous-exec:src/realtime.ts",
+  "@luckynemo/mxc-sandbox:dangerous-exec:src/readiness.ts",
+  "@luckynemo/raft:dangerous-exec:src/gateway.ts",
+  "@luckynemo/signal:dangerous-exec:src/daemon.ts",
+  "@luckynemo/voice-call:dangerous-exec:src/tunnel.ts",
 ]);
 
 const OPTIONAL_REVIEWED_PUBLISHABLE_DIST_CRITICAL_FINDINGS = new Set([
-  "@openclaw/acpx:dangerous-exec:dist/mcp-proxy.mjs",
-  "@openclaw/acpx:dangerous-exec:dist/service-<hash>.js",
-  "@openclaw/codex:dangerous-exec:dist/client-<hash>.js",
-  "@openclaw/google-meet:dangerous-exec:dist/index.js",
-  "@openclaw/slack:dynamic-code-execution:dist/outbound-payload.test-harness-<hash>.js",
-  "@openclaw/voice-call:dangerous-exec:dist/runtime-entry-<hash>.js",
+  "@luckynemo/acpx:dangerous-exec:dist/mcp-proxy.mjs",
+  "@luckynemo/acpx:dangerous-exec:dist/service-<hash>.js",
+  "@luckynemo/codex:dangerous-exec:dist/client-<hash>.js",
+  "@luckynemo/google-meet:dangerous-exec:dist/index.js",
+  "@luckynemo/slack:dynamic-code-execution:dist/outbound-payload.test-harness-<hash>.js",
+  "@luckynemo/voice-call:dangerous-exec:dist/runtime-entry-<hash>.js",
 ]);
 
 function parseNpmPackFiles(raw: string, packageName: string): string[] {

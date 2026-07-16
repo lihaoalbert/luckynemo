@@ -6,7 +6,7 @@
  * the OpenClaw session tools and foreign harnesses (Claude/Codex style).
  */
 
-import { asNullableRecord as asRecord } from "@openclaw/normalization-core/record-coerce";
+import { asNullableRecord as asRecord } from "@luckynemo/normalization-core/record-coerce";
 import {
   buildWriteDiffLines,
   computeLineDiff,

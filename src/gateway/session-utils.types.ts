@@ -1,6 +1,6 @@
 // Shared Gateway session projection types.
 // Keeps server methods and Control UI payloads aligned.
-import type { FastMode } from "@openclaw/normalization-core/string-coerce";
+import type { FastMode } from "@luckynemo/normalization-core/string-coerce";
 import type { SessionPlacement } from "../../packages/gateway-protocol/src/index.js";
 import type { ChatType } from "../channels/chat-type.js";
 import type {

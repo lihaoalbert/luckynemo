@@ -1,18 +1,18 @@
 {
-  "name": "@openclaw/venice-provider",
+  "name": "@luckynemo/venice-provider",
   "version": "2026.7.2",
   "description": "OpenClaw Venice provider plugin",
   "type": "module",
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [
       "./index.ts"
     ],
     "install": {
-      "clawhubSpec": "clawhub:@openclaw/venice-provider",
-      "npmSpec": "@openclaw/venice-provider",
+      "clawhubSpec": "clawhub:@luckynemo/venice-provider",
+      "npmSpec": "@luckynemo/venice-provider",
       "defaultChoice": "npm",
       "minHostVersion": ">=2026.6.9"
     },

@@ -5,7 +5,7 @@
 // Follows the workboard three-way split — this module owns all logic; the view is
 // pure render fns and the page/controller is thin lifecycle glue.
 
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
 import type { GatewayBrowserClient, GatewayEventFrame } from "../../api/gateway.ts";
 import { buildSessionUsageDateParams } from "../sessions/usage.ts";
 import {

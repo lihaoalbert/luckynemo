@@ -1,5 +1,5 @@
 /** Resolves synthetic and external auth provider refs from active runtime state or persisted manifests. */
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
 import { loadPluginManifestRegistryForInstalledIndex } from "./manifest-registry-installed.js";
 import { loadPluginRegistrySnapshotWithMetadata } from "./plugin-registry.js";
 import type { LoadPluginRegistryParams, PluginRegistrySnapshot } from "./plugin-registry.js";

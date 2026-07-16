@@ -5,8 +5,8 @@ import {
   detectMime,
   FILE_TYPE_SNIFF_MAX_BYTES,
   normalizeMimeType,
-} from "@openclaw/media-core/mime";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/media-core/mime";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { resolveAgentWorkspaceDir } from "../agents/agent-scope.js";
 import { resolvePathFromInput } from "../agents/path-policy.js";
 import { resolveWorkspaceRoot } from "../agents/workspace-dir.js";

@@ -5,14 +5,14 @@
  */
 import { spawn } from "node:child_process";
 import os from "node:os";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
-import type { Result } from "@openclaw/normalization-core/result";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
+import type { Result } from "@luckynemo/normalization-core/result";
 import {
   normalizeStringEntries,
   uniqueStrings,
   uniqueValues,
-} from "@openclaw/normalization-core/string-normalization";
-import { sliceUtf16Safe, truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+} from "@luckynemo/normalization-core/string-normalization";
+import { sliceUtf16Safe, truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { Type } from "typebox";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import { getPluginToolMeta, type PluginToolMcpMeta } from "../plugins/tools.js";

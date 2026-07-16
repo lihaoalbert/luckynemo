@@ -1,7 +1,7 @@
 // Manages device pairing requests, approvals, and token issuance.
 import { randomUUID } from "node:crypto";
-import { expectDefined } from "@openclaw/normalization-core";
-import { normalizeUniqueSingleOrTrimmedStringList } from "@openclaw/normalization-core/string-normalization";
+import { expectDefined } from "@luckynemo/normalization-core";
+import { normalizeUniqueSingleOrTrimmedStringList } from "@luckynemo/normalization-core/string-normalization";
 import { normalizeDeviceAuthScopes } from "../shared/device-auth.js";
 import {
   resolveDeviceProfileRoleScopes,

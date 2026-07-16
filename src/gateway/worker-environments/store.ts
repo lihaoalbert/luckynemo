@@ -1,5 +1,5 @@
 import type { DatabaseSync } from "node:sqlite";
-import { normalizeSortedUniqueTrimmedStringList } from "@openclaw/normalization-core/string-normalization";
+import { normalizeSortedUniqueTrimmedStringList } from "@luckynemo/normalization-core/string-normalization";
 import type { Insertable, Selectable, Updateable } from "kysely";
 import {
   type WorkerAdmissionHandshake,

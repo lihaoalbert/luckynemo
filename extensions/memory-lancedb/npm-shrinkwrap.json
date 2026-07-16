@@ -1,11 +1,11 @@
 {
-  "name": "@openclaw/memory-lancedb",
+  "name": "@luckynemo/memory-lancedb",
   "version": "2026.7.2",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
-      "name": "@openclaw/memory-lancedb",
+      "name": "@luckynemo/memory-lancedb",
       "version": "2026.7.2",
       "dependencies": {
         "@lancedb/lancedb": "0.30.0",

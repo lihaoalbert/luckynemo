@@ -1,5 +1,5 @@
 {
-  "name": "@openclaw/google-plugin",
+  "name": "@luckynemo/google-plugin",
   "version": "2026.7.2",
   "private": true,
   "description": "OpenClaw Google plugin",
@@ -9,7 +9,7 @@
     "google-auth-library": "10.9.0"
   },
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [

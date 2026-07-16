@@ -1,4 +1,4 @@
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it, vi } from "vitest";
 import { saveTaskRegistryStateToSqlite } from "../tasks/task-registry.store.sqlite.js";
 import type { TaskRecord } from "../tasks/task-registry.types.js";

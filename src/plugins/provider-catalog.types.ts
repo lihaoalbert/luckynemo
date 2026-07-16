@@ -1,7 +1,7 @@
 import type {
   UnifiedModelCatalogEntry,
   UnifiedModelCatalogKind,
-} from "@openclaw/model-catalog-core/model-catalog-types";
+} from "@luckynemo/model-catalog-core/model-catalog-types";
 import type { ModelCatalogEntry } from "../agents/model-catalog.types.js";
 import type { ModelProviderConfig } from "../config/types.js";
 import type { OpenClawConfig } from "../config/types.openclaw.js";

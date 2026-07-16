@@ -5,8 +5,8 @@ import {
   resolveClaudeFable5ModelIdentity,
   resolveClaudeMythos5ModelIdentity,
   resolveClaudeSonnet5ModelIdentity,
-} from "@openclaw/llm-core";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/llm-core";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import type { Context, Model } from "../types.js";
 export {
   requiresClaudeDefaultSampling,
@@ -19,7 +19,7 @@ export {
   supportsClaudeAdaptiveThinking,
   supportsClaudeNativeMaxEffort,
   supportsClaudeNativeXhighEffort,
-} from "@openclaw/llm-core";
+} from "@luckynemo/llm-core";
 
 type ReplayModelRef = {
   provider?: string;

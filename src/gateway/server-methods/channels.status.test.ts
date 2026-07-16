@@ -2,7 +2,7 @@
  * Gateway channels.status method tests.
  */
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import { requireRecord } from "../test-helpers.assertions.js";
 import type { GatewayRequestHandlerOptions } from "./types.js";

@@ -7,9 +7,9 @@
  * tell how a node fulfills computer.act; macOS nodes are the first fulfiller.
  */
 import crypto from "node:crypto";
-import { imageMimeFromFormat } from "@openclaw/media-core/mime";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
+import { imageMimeFromFormat } from "@luckynemo/media-core/mime";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
 import { Type } from "typebox";
 import { parseScreenSnapshotPayload } from "../../cli/nodes-screen.js";
 import type { OpenClawConfig } from "../../config/types.openclaw.js";

@@ -1,5 +1,5 @@
 // Post-selection model/auth sanity checks shown during onboarding and agent setup.
-import { normalizeProviderIdForAuth } from "@openclaw/model-catalog-core/provider-id";
+import { normalizeProviderIdForAuth } from "@luckynemo/model-catalog-core/provider-id";
 import { ensureAuthProfileStore } from "../agents/auth-profiles.js";
 import { createModelAuthAvailabilityResolver } from "../agents/model-auth-availability.js";
 import { loadModelCatalogSnapshot, type ModelCatalogEntry } from "../agents/model-catalog.js";

@@ -3,7 +3,7 @@
  */
 import fsSync from "node:fs";
 import fs from "node:fs/promises";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { OpenClawConfig } from "../../config/config.js";
 import { withTempDir } from "../../test-helpers/temp-dir.js";

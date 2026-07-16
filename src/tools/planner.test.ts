@@ -1,6 +1,6 @@
 // Verifies tool planner filtering, ordering, and unsupported-tool reporting.
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it } from "vitest";
 import { ToolPlanContractError } from "./diagnostics.js";
 import { formatToolExecutorRef } from "./execution.js";

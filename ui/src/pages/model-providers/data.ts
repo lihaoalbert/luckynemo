@@ -1,4 +1,4 @@
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
 import { resolveUsageProviderId } from "../../../../src/infra/provider-usage.shared.js";
 // Merges gateway provider signals (auth status, live usage/quota, local session
 // cost) into one card list for the Model Providers settings page.

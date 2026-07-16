@@ -1,5 +1,5 @@
 // Handles auth directives that choose provider auth profiles for a reply.
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import { formatRemainingShort } from "../../agents/auth-health.js";
 import {
   isConfiguredAwsSdkAuthProfileForProvider,

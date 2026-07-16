@@ -1,7 +1,7 @@
 // Parses execution allowlist patterns for approval policy checks.
 import fs from "node:fs";
 import path from "node:path";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import { expandHomePrefix } from "./home-dir.js";
 
 const GLOB_REGEX_CACHE_LIMIT = 512;

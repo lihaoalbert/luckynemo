@@ -1,4 +1,4 @@
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { buildContextEngineRuntimeSettings } from "../../../context-engine/runtime-settings.js";
 import type { ContextEngine, ContextEngineSessionTarget } from "../../../context-engine/types.js";
 import { formatErrorMessage } from "../../../infra/errors.js";

@@ -4,7 +4,7 @@
 // that is dispatched against the browser plugin's control routes, either
 // locally or via a browser-capable node. This module narrows the handful of
 // routes the browser panel needs and keeps route-path knowledge in one place.
-import { asNullableRecord as asRecord } from "@openclaw/normalization-core/record-coerce";
+import { asNullableRecord as asRecord } from "@luckynemo/normalization-core/record-coerce";
 import type { GatewayBrowserClient } from "../../api/gateway.ts";
 
 const BROWSER_REQUEST_METHOD = "browser.request";

@@ -106,7 +106,7 @@ import {
   loadChannelSetupPluginRegistrySnapshotForChannel,
 } from "./plugin-install.js";
 
-const bundledChatNpmSpec = "@openclaw/bundled-chat@1.2.3";
+const bundledChatNpmSpec = "@luckynemo/bundled-chat@1.2.3";
 const bundledChatIntegrity = "sha512-bundled-chat";
 const bundledChatForkNpmSpec = "@vendor/bundled-chat-fork@1.2.3";
 const bundledChatForkIntegrity = "sha512-vendor-bundled-chat-fork";
@@ -481,9 +481,9 @@ describe("ensureChannelSetupPluginInstalled", () => {
       targetDir: "/tmp/wecom-openclaw-plugin",
       version: "2026.5.4-beta.1",
       npmResolution: {
-        name: "@openclaw/wecom",
+        name: "@luckynemo/wecom",
         version: "2026.5.4-beta.1",
-        resolvedSpec: "@openclaw/wecom@2026.5.4-beta.1",
+        resolvedSpec: "@luckynemo/wecom@2026.5.4-beta.1",
       },
     });
 
@@ -500,7 +500,7 @@ describe("ensureChannelSetupPluginInstalled", () => {
           blurb: "WeCom channel",
         },
         install: {
-          npmSpec: "@openclaw/wecom",
+          npmSpec: "@luckynemo/wecom",
         },
       },
       prompter,
@@ -510,10 +510,10 @@ describe("ensureChannelSetupPluginInstalled", () => {
 
     expect(select).not.toHaveBeenCalled();
     expectRecordFields(requireMockCallArg(installPluginFromNpmSpec, 0), "npm install args", {
-      spec: "@openclaw/wecom@beta",
+      spec: "@luckynemo/wecom@beta",
       expectedPluginId: "wecom-openclaw-plugin",
     });
-    expect(result.cfg.plugins?.installs?.["wecom-openclaw-plugin"]?.spec).toBe("@openclaw/wecom");
+    expect(result.cfg.plugins?.installs?.["wecom-openclaw-plugin"]?.spec).toBe("@luckynemo/wecom");
   });
 
   it("defaults to bundled local path on beta channel when available", async () => {
@@ -688,7 +688,7 @@ describe("ensureChannelSetupPluginInstalled", () => {
         blurb: "WeCom channel",
       },
       install: {
-        npmSpec: "@openclaw/wecom@2026.4.23",
+        npmSpec: "@luckynemo/wecom@2026.4.23",
       },
     };
     installPluginFromNpmSpec.mockResolvedValue({

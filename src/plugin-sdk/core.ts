@@ -1,4 +1,4 @@
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { normalizeLowercaseStringOrEmpty } from "../../packages/normalization-core/src/string-coerce.js";
 import type { ResolvedConfiguredAcpBinding } from "../acp/persistent-bindings.types.js";
 import { buildChatChannelMetaById } from "../channels/chat-meta-shared.js";
@@ -133,7 +133,7 @@ export type {
   UnifiedModelCatalogEntry,
   UnifiedModelCatalogKind,
   UnifiedModelCatalogSource,
-} from "@openclaw/model-catalog-core/model-catalog-types";
+} from "@luckynemo/model-catalog-core/model-catalog-types";
 export type { ProviderRuntimeModel } from "../plugins/provider-runtime-model.types.js";
 export type {
   OpenClawPluginActiveModelContext,

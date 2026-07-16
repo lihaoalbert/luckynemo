@@ -578,7 +578,7 @@ describe("buildWorkspaceSkillStatus", () => {
             install: [
               {
                 kind: "node",
-                package: "@openclaw/missing-skill-bin",
+                package: "@luckynemo/missing-skill-bin",
                 bins: [missingBin],
               },
             ],
@@ -640,7 +640,7 @@ describe("buildWorkspaceSkillStatus", () => {
       {
         kind: "node",
         id: "node-0",
-        label: "Install @openclaw/missing-skill-bin (pnpm)",
+        label: "Install @luckynemo/missing-skill-bin (pnpm)",
         bins: [missingBin],
       },
     ]);

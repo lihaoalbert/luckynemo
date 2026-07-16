@@ -1,6 +1,6 @@
 // Restart request parsing keeps restart sentinel payloads limited to resumable
 // session, delivery, thread, and delay fields.
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import { stringifyRouteThreadId } from "../../plugin-sdk/channel-route.js";
 
 type RestartDeliveryContext = {

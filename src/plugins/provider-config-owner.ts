@@ -1,5 +1,5 @@
 // Resolves provider config ownership between core and plugins.
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 
 /** Core built-in model API ids that do not imply plugin ownership of a provider config. */

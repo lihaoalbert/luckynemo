@@ -1,12 +1,12 @@
 /** Normalizes cron create/patch payloads before validation and persistence. */
-import { parseBoolean } from "@openclaw/normalization-core/boolean-coercion";
-import { timestampMsToIsoString } from "@openclaw/normalization-core/number-coercion";
+import { parseBoolean } from "@luckynemo/normalization-core/boolean-coercion";
+import { timestampMsToIsoString } from "@luckynemo/normalization-core/number-coercion";
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalLowercaseString,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
-import { normalizeTrimmedStringList } from "@openclaw/normalization-core/string-normalization";
+} from "@luckynemo/normalization-core/string-coerce";
+import { normalizeTrimmedStringList } from "@luckynemo/normalization-core/string-normalization";
 import { sanitizeAgentId } from "../routing/session-key.js";
 import { isRecord } from "../utils.js";
 import {

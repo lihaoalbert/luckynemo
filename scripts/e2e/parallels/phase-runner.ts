@@ -2,7 +2,7 @@
 import { appendFileSync } from "node:fs";
 import { writeFile } from "node:fs/promises";
 import path from "node:path";
-import { clampTimerTimeoutMs } from "@openclaw/normalization-core/number-coercion";
+import { clampTimerTimeoutMs } from "@luckynemo/normalization-core/number-coercion";
 import { say, warn } from "./host-command.ts";
 
 const PHASE_LOG_TAIL_MAX_BYTES = 512 * 1024;

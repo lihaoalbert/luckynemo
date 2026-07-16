@@ -1,5 +1,5 @@
 // Normalizes abort command primitives before runtime cancellation.
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import { normalizeCommandBody } from "../commands-registry-normalize.js";
 import type { CommandNormalizeOptions } from "../commands-registry.types.js";
 

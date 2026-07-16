@@ -1,5 +1,5 @@
 // Agent Core tests cover agent loop behavior.
-import { EventStream } from "@openclaw/ai/event-stream";
+import { EventStream } from "@luckynemo/ai/event-stream";
 import { Type } from "typebox";
 import { describe, expect, it, vi } from "vitest";
 import { agentLoop, agentLoopContinue, runAgentLoop, runAgentLoopContinue } from "./agent-loop.js";

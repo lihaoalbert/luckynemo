@@ -1,7 +1,7 @@
 /**
  * Formats configured model aliases for prompt-visible model guidance.
  */
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 
 /** Builds deterministic prompt lines for configured model aliases. */

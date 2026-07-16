@@ -2,7 +2,7 @@
  * Converts user-facing sandbox tool policy config into the normalized runtime
  * allow/deny policy object used by tool filtering.
  */
-import { uniqueStrings } from "@openclaw/normalization-core/string-normalization";
+import { uniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import type { SandboxToolPolicy } from "./sandbox/types.js";
 
 /** Provenance marker for wildcard allowlists created from `alsoAllow`. */

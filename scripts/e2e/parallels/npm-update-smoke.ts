@@ -10,7 +10,7 @@ import {
   addTimerTimeoutGraceMs,
   clampTimerTimeoutMs,
   finiteSecondsToTimerSafeMilliseconds,
-} from "@openclaw/normalization-core/number-coercion";
+} from "@luckynemo/normalization-core/number-coercion";
 import { formatDurationCompact } from "../../../src/infra/format-time/format-duration.ts";
 import {
   die,

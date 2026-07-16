@@ -1,6 +1,6 @@
 /** Tests live model switching behavior in active agent command sessions. */
 
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { afterAll, afterEach, beforeAll, beforeEach, describe, expect, it, vi } from "vitest";
 import type { SessionEntry } from "../config/sessions.js";
 import {
@@ -221,7 +221,7 @@ vi.mock("../acp/runtime/errors.js", () => ({
     error instanceof Error ? error : new Error(String(error)),
 }));
 
-vi.mock("@openclaw/acp-core/runtime/session-identifiers", () => ({
+vi.mock("@luckynemo/acp-core/runtime/session-identifiers", () => ({
   resolveAcpSessionCwd: () => "/tmp",
 }));
 

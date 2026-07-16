@@ -1,5 +1,5 @@
 // Provider-neutral live inference ladder for delegated OpenClaw sessions.
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
 import { resolveDefaultAgentId } from "../agents/agent-scope.js";
 import { hasAvailableAuthForProvider } from "../agents/model-auth.js";
 import type { OpenClawConfig } from "../config/types.openclaw.js";

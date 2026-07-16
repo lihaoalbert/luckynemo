@@ -1,6 +1,6 @@
 import type { IncomingMessage, ServerResponse } from "node:http";
 import { monitorEventLoopDelay, performance } from "node:perf_hooks";
-import { uniqueStrings } from "@openclaw/normalization-core/string-normalization";
+import { uniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import { getActiveBackgroundExecSessionCount } from "../agents/bash-process-registry.js";
 import {
   getActiveEmbeddedRunCount,

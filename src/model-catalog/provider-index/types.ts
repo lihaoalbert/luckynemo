@@ -1,5 +1,5 @@
 // Provider-index types describe install hints, auth choices, and preview catalogs for discoverable providers.
-import type { ModelCatalogProvider } from "@openclaw/model-catalog-core/model-catalog-types";
+import type { ModelCatalogProvider } from "@luckynemo/model-catalog-core/model-catalog-types";
 
 // Normalized provider-index schema. It describes providers discoverable before
 // plugin install, including install hints, auth choices, and preview catalogs.

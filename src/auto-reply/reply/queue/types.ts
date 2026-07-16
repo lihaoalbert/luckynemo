@@ -1,4 +1,4 @@
-import type { FastMode } from "@openclaw/normalization-core/string-coerce";
+import type { FastMode } from "@luckynemo/normalization-core/string-coerce";
 // Shared queue type contracts for admission, drain, and fallback handling.
 import type { AutoFallbackPrimaryProbe } from "../../../agents/agent-scope.js";
 import type { ExecToolDefaults } from "../../../agents/bash-tools.js";

@@ -1,6 +1,6 @@
 import { basename, dirname } from "node:path";
-import { defaultApiRegistry } from "@openclaw/ai/internal/runtime";
-import { resetApiProviders } from "@openclaw/ai/providers";
+import { defaultApiRegistry } from "@luckynemo/ai/internal/runtime";
+import { resetApiProviders } from "@luckynemo/ai/providers";
 import { AgentSessionCompaction } from "./agent-session-compaction.js";
 import type { ExtensionBindings } from "./agent-session-types.js";
 import { ExtensionRunner, type ToolDefinition, wrapRegisteredTools } from "./extensions/index.js";

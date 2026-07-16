@@ -4,7 +4,7 @@
 import {
   clampTimerTimeoutMs,
   resolveTimerTimeoutMs,
-} from "@openclaw/normalization-core/number-coercion";
+} from "@luckynemo/normalization-core/number-coercion";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import type { ModelCatalogEntry, ModelCatalogSnapshot } from "./model-catalog.types.js";
 import {

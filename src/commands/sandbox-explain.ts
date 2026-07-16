@@ -8,7 +8,7 @@ import {
   normalizeOptionalString,
   normalizeOptionalLowercaseString,
   normalizeStringifiedEntries,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { formatDocsLink } from "../../packages/terminal-core/src/links.js";
 import { colorize, isRich, theme } from "../../packages/terminal-core/src/theme.js";
 import {

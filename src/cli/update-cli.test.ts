@@ -4,7 +4,7 @@ import fsSync from "node:fs";
 import fs from "node:fs/promises";
 import os from "node:os";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { Command } from "commander";
 import { afterAll, afterEach, beforeEach, describe, expect, it, vi } from "vitest";
 import { writePackageDistInventory } from "../../scripts/lib/package-dist-inventory.ts";
@@ -1288,7 +1288,7 @@ describe("update-cli", () => {
     const pluginInstallRecords = {
       demo: {
         source: "npm",
-        spec: "@openclaw/demo@1.0.0",
+        spec: "@luckynemo/demo@1.0.0",
         installPath: "/tmp/openclaw-demo-plugin",
       },
     } as const;
@@ -1350,12 +1350,12 @@ describe("update-cli", () => {
     const pluginInstallRecords = {
       msteams: {
         source: "npm",
-        spec: "@openclaw/msteams",
+        spec: "@luckynemo/msteams",
         installPath: "/tmp/openclaw-msteams-plugin",
         version: "1.0.0",
-        resolvedName: "@openclaw/msteams",
+        resolvedName: "@luckynemo/msteams",
         resolvedVersion: "1.0.0",
-        resolvedSpec: "@openclaw/msteams@1.0.0",
+        resolvedSpec: "@luckynemo/msteams@1.0.0",
         integrity: "sha512-newer",
       },
     } as const;
@@ -1382,10 +1382,10 @@ describe("update-cli", () => {
     expect(capturedRecords).toEqual({
       msteams: {
         source: "npm",
-        spec: "@openclaw/msteams",
+        spec: "@luckynemo/msteams",
         installPath: "/tmp/openclaw-msteams-plugin",
         version: "1.0.0",
-        resolvedName: "@openclaw/msteams",
+        resolvedName: "@luckynemo/msteams",
         integrity: "sha512-newer",
       },
     });
@@ -1612,7 +1612,7 @@ describe("update-cli", () => {
       `${JSON.stringify({
         demo: {
           source: "npm",
-          spec: "@openclaw/demo@1.0.0",
+          spec: "@luckynemo/demo@1.0.0",
           installPath,
         },
       })}\n`,
@@ -1649,7 +1649,7 @@ describe("update-cli", () => {
       `${JSON.stringify({
         stale: {
           source: "npm",
-          spec: "@openclaw/stale@1.0.0",
+          spec: "@luckynemo/stale@1.0.0",
           installPath: "/tmp/stale-plugin",
         },
       })}\n`,
@@ -1658,7 +1658,7 @@ describe("update-cli", () => {
     const postDoctorRecords = {
       codex: {
         source: "npm",
-        spec: "@openclaw/codex@2026.5.17",
+        spec: "@luckynemo/codex@2026.5.17",
         installPath: "/tmp/codex-plugin",
       },
     } satisfies Record<string, PluginInstallRecord>;
@@ -1877,8 +1877,8 @@ describe("update-cli", () => {
     await expect(
       onIntegrityDrift({
         pluginId: "demo",
-        spec: "@openclaw/demo@1.0.0",
-        resolvedSpec: "@openclaw/demo@1.0.0",
+        spec: "@luckynemo/demo@1.0.0",
+        resolvedSpec: "@luckynemo/demo@1.0.0",
         expectedIntegrity: "sha512-old",
         actualIntegrity: "sha512-new",
       }),
@@ -1903,8 +1903,8 @@ describe("update-cli", () => {
       }) => {
         const proceed = await params.onIntegrityDrift?.({
           pluginId: "demo",
-          spec: "@openclaw/demo@1.0.0",
-          resolvedSpec: "@openclaw/demo@1.0.0",
+          spec: "@luckynemo/demo@1.0.0",
+          resolvedSpec: "@luckynemo/demo@1.0.0",
           resolvedVersion: "1.0.0",
           expectedIntegrity: "sha512-old",
           actualIntegrity: "sha512-new",
@@ -1919,7 +1919,7 @@ describe("update-cli", () => {
               status: "error",
               message:
                 proceed === false
-                  ? "Failed to update demo: aborted: npm package integrity drift detected for @openclaw/demo@1.0.0"
+                  ? "Failed to update demo: aborted: npm package integrity drift detected for @luckynemo/demo@1.0.0"
                   : "unexpected drift continuation",
             },
           ],
@@ -1937,8 +1937,8 @@ describe("update-cli", () => {
     expect(jsonOutput?.postUpdate?.plugins?.integrityDrifts).toEqual([
       {
         pluginId: "demo",
-        spec: "@openclaw/demo@1.0.0",
-        resolvedSpec: "@openclaw/demo@1.0.0",
+        spec: "@luckynemo/demo@1.0.0",
+        resolvedSpec: "@luckynemo/demo@1.0.0",
         resolvedVersion: "1.0.0",
         expectedIntegrity: "sha512-old",
         actualIntegrity: "sha512-new",
@@ -2159,7 +2159,7 @@ describe("update-cli", () => {
     loadInstalledPluginIndexInstallRecords.mockResolvedValueOnce({
       demo: {
         source: "npm",
-        spec: "@openclaw/demo@1.0.0",
+        spec: "@luckynemo/demo@1.0.0",
         installPath,
       },
     });

@@ -56,7 +56,7 @@ describe("channel plugin catalog", () => {
         pluginId: "telegram",
         origin: "bundled",
         rootDir: "/tmp/bundled-telegram",
-        packageName: "@openclaw/telegram",
+        packageName: "@luckynemo/telegram",
         channel: {
           id: "telegram",
           label: "Telegram",
@@ -64,7 +64,7 @@ describe("channel plugin catalog", () => {
           docsPath: "/channels/telegram",
           blurb: "bundled",
         },
-        install: { npmSpec: "@openclaw/telegram@1.0.0" },
+        install: { npmSpec: "@luckynemo/telegram@1.0.0" },
       },
     ] satisfies PluginChannelCatalogEntry[]);
 

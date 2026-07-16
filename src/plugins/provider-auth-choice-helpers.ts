@@ -1,10 +1,10 @@
 // Normalizes provider auth choice metadata from plugin setup surfaces.
-import { isRecord as isPlainRecord } from "@openclaw/normalization-core/record-coerce";
+import { isRecord as isPlainRecord } from "@luckynemo/normalization-core/record-coerce";
 import {
   normalizeLowercaseStringOrEmpty,
   normalizeOptionalLowercaseString,
   normalizeOptionalString,
-} from "@openclaw/normalization-core/string-coerce";
+} from "@luckynemo/normalization-core/string-coerce";
 import { normalizeConfiguredProviderCatalogModelId } from "../agents/model-ref-shared.js";
 import { normalizeProviderId } from "../agents/model-selection.js";
 import {

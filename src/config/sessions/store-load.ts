@@ -1,6 +1,6 @@
 // Session store loading normalizes persisted records, migrations, maintenance, and caches.
 import fs from "node:fs";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
 import { createSubsystemLogger } from "../../logging/subsystem.js";
 import type { ChannelRouteRef } from "../../plugin-sdk/channel-route.js";
 import { isPluginJsonValue, type PluginJsonValue } from "../../plugins/host-hook-json.js";

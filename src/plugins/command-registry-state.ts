@@ -1,5 +1,5 @@
 // Stores plugin command registry state for the current process lifecycle.
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
 import { resolveGlobalSingleton } from "../shared/global-singleton.js";
 import { normalizeAgentPromptSurfaceKind } from "./agent-prompt-surface-kind.js";
 import type {

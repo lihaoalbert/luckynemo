@@ -1,8 +1,8 @@
 // Builds plugin metadata snapshots for gateway and diagnostics.
 import fs from "node:fs";
 import path from "node:path";
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
 import { resolveIsNixMode } from "../config/paths.js";
 import type { OpenClawConfig } from "../config/types.openclaw.js";
 import {

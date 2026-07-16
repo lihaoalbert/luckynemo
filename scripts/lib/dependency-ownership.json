@@ -67,7 +67,7 @@
       "class": "default-runtime-initially",
       "risk": ["provider-sdk", "network"]
     },
-    "@openclaw/fs-safe": {
+    "@luckynemo/fs-safe": {
       "owner": "core:filesystem-safety",
       "class": "core-runtime",
       "risk": ["filesystem", "path-safety"]
@@ -148,7 +148,7 @@
       "class": "core-runtime",
       "risk": ["pattern-matching"]
     },
-    "@openclaw/proxyline": {
+    "@luckynemo/proxyline": {
       "owner": "core:proxy",
       "class": "core-runtime",
       "risk": ["network", "proxy"]

@@ -7,8 +7,8 @@ import { basename, resolve } from "node:path";
 import { pathToFileURL } from "node:url";
 import { satisfies as satisfiesSemver, validRange } from "semver";
 
-const AI_PACKAGE_NAME = "@openclaw/ai";
-const AI_LOCK_PATH = "node_modules/@openclaw/ai";
+const AI_PACKAGE_NAME = "@luckynemo/ai";
+const AI_LOCK_PATH = "node_modules/@luckynemo/ai";
 
 type JsonObject = Record<string, unknown>;
 

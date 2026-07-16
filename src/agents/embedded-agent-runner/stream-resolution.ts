@@ -1,8 +1,8 @@
 /**
  * Resolves provider stream functions and API keys for embedded agents.
  */
-import { getApiProvider } from "@openclaw/ai/internal/runtime";
-import { stripSystemPromptCacheBoundary } from "@openclaw/ai/internal/shared";
+import { getApiProvider } from "@luckynemo/ai/internal/runtime";
+import { stripSystemPromptCacheBoundary } from "@luckynemo/ai/internal/shared";
 import { streamSimple } from "../../llm/stream.js";
 import { createAnthropicVertexStreamFnForModel } from "../anthropic-vertex-stream.js";
 import { createBoundaryAwareStreamFnForModel } from "../provider-transport-stream.js";

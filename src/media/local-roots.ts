@@ -1,7 +1,7 @@
 // Local media root helpers normalize and match allowed local media roots.
 import path from "node:path";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
-import { uniqueStrings } from "@openclaw/normalization-core/string-normalization";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
+import { uniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import { resolveAgentWorkspaceDir } from "../agents/agent-scope.js";
 import {
   resolveEffectiveToolFsRootExpansionAllowed,

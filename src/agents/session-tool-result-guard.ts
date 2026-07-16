@@ -3,9 +3,9 @@
  *
  * Caps large tool results, repairs missing results, applies redaction, and emits transcript update events.
  */
-import { resolveIntegerOption } from "@openclaw/normalization-core/number-coercion";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
-import { sliceUtf16Safe, truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { resolveIntegerOption } from "@luckynemo/normalization-core/number-coercion";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
+import { sliceUtf16Safe, truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import {
   boundedJsonUtf8Bytes,
   firstEnumerableOwnKeys,

@@ -1,5 +1,5 @@
 import { createHash } from "node:crypto";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import {
   type WorkerAdmissionHandshake,
   type WorkerConnectParams,

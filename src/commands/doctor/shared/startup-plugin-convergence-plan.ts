@@ -1,6 +1,6 @@
 // Plans first-start plugin convergence without loading the repair/catalog runtime.
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
 import type { OpenClawConfig } from "../../../config/types.openclaw.js";
 import type { PluginInstallRecord } from "../../../config/types.plugins.js";
 import { inspectBundledPluginStartupMetadata } from "../../../plugins/bundled-plugin-startup-metadata.js";

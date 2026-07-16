@@ -3,8 +3,8 @@
  *
  * Handles model config, data URL decoding, provider lookup, and reasoning-only response validation.
  */
-import { estimateBase64DecodedBytes } from "@openclaw/media-core/base64";
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { estimateBase64DecodedBytes } from "@luckynemo/media-core/base64";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import type { OpenClawConfig } from "../../config/types.openclaw.js";
 import type { AssistantMessage } from "../../llm/types.js";
 import { extractAssistantText } from "../embedded-agent-utils.js";

@@ -1,7 +1,7 @@
 import {
   addTimerTimeoutGraceMs,
   MAX_TIMER_TIMEOUT_MS,
-} from "@openclaw/normalization-core/number-coercion";
+} from "@luckynemo/normalization-core/number-coercion";
 import type { CommandQueueEnqueueOptions } from "../../../process/command-queue.types.js";
 import { DEFAULT_AGENT_TIMEOUT_MS } from "../../timeout.js";
 import type { RunEmbeddedAgentParams } from "./params.js";

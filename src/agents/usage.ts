@@ -3,7 +3,7 @@
  * Converts provider-specific usage shapes into OpenClaw's normalized input,
  * output, cache, reasoning, and total token accounting fields.
  */
-import { asFiniteNumber } from "@openclaw/normalization-core/number-coercion";
+import { asFiniteNumber } from "@luckynemo/normalization-core/number-coercion";
 import type { Usage } from "../llm/types.js";
 
 export type ContextUsage = NonNullable<Usage["contextUsage"]>;

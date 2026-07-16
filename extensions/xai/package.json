@@ -1,5 +1,5 @@
 {
-  "name": "@openclaw/xai-plugin",
+  "name": "@luckynemo/xai-plugin",
   "version": "2026.7.2",
   "private": true,
   "description": "OpenClaw xAI plugin",
@@ -9,7 +9,7 @@
     "ws": "8.21.0"
   },
   "devDependencies": {
-    "@openclaw/plugin-sdk": "workspace:*"
+    "@luckynemo/plugin-sdk": "workspace:*"
   },
   "openclaw": {
     "extensions": [

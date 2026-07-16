@@ -1,7 +1,7 @@
 // Guided channel-setup wizard flow shared by `openclaw channels add` (clack
 // prompter) and the gateway `wizard.start {flow:"channels"}` RPC (session
 // prompter driving the Control UI / native clients).
-import { normalizeOptionalLowercaseString } from "@openclaw/normalization-core/string-coerce";
+import { normalizeOptionalLowercaseString } from "@luckynemo/normalization-core/string-coerce";
 import { resolveAgentWorkspaceDir, resolveDefaultAgentId } from "../../agents/agent-scope.js";
 import { getLoadedChannelPlugin } from "../../channels/plugins/index.js";
 import type { ChannelSetupPlugin } from "../../channels/plugins/setup-wizard-types.js";

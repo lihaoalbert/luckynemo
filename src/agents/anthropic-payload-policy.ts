@@ -1,7 +1,7 @@
 import {
   splitSystemPromptCacheBoundary,
   stripSystemPromptCacheBoundary,
-} from "@openclaw/ai/internal/shared";
+} from "@luckynemo/ai/internal/shared";
 /**
  * Anthropic-family request payload policy helpers.
  * Applies service-tier and cache-control markers only when provider endpoint

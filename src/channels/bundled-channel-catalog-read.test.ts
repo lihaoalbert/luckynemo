@@ -78,7 +78,7 @@ function seedChannelPkg(
 ): void {
   const pluginDir = path.dirname(pkgJsonPath);
   writeJsonFile(pkgJsonPath, {
-    name: `@openclaw/${opts.id}`,
+    name: `@luckynemo/${opts.id}`,
     openclaw: {
       channel: {
         id: opts.id,
@@ -137,7 +137,7 @@ describe("listBundledChannelCatalogEntries", () => {
     writeJsonFile(path.join(root, "dist", "channel-catalog.json"), {
       entries: [
         {
-          name: "@openclaw/qqbot",
+          name: "@luckynemo/qqbot",
           openclaw: {
             channel: {
               id: "qqbot",
@@ -169,7 +169,7 @@ describe("listBundledChannelCatalogEntries", () => {
     writeJsonFile(path.join(root, "dist", "channel-catalog.json"), {
       entries: [
         {
-          name: "@openclaw/matrix",
+          name: "@luckynemo/matrix",
           openclaw: {
             channel: {
               id: "matrix",
@@ -196,7 +196,7 @@ describe("listBundledChannelCatalogEntries", () => {
     writeJsonFile(path.join(root, "dist", "channel-catalog.json"), {
       entries: [
         {
-          name: "@openclaw/fallback",
+          name: "@luckynemo/fallback",
           openclaw: {
             channel: {
               id: "fallback-channel",
@@ -225,7 +225,7 @@ describe("listBundledChannelCatalogEntries", () => {
     writeJsonFile(path.join(root, "dist", "channel-catalog.json"), {
       entries: [
         {
-          name: "@openclaw/fallback",
+          name: "@luckynemo/fallback",
           openclaw: {
             channel: {
               id: "fallback-channel",

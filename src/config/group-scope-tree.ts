@@ -1,5 +1,5 @@
 // Resolves canonical group policy scopes prepared by channel plugins.
-import { normalizeLowercaseStringOrEmpty } from "@openclaw/normalization-core/string-coerce";
+import { normalizeLowercaseStringOrEmpty } from "@luckynemo/normalization-core/string-coerce";
 import type { ChannelId } from "../channels/plugins/channel-id.types.js";
 import { resolveChannelGroups, resolveToolsBySender } from "./group-policy.js";
 import type { OpenClawConfig } from "./types.openclaw.js";

@@ -49,7 +49,7 @@ function createInstalledRuntimePluginDir(
   fs.writeFileSync(
     path.join(pluginRoot, "package.json"),
     JSON.stringify({
-      name: `@openclaw/${pluginId}`,
+      name: `@luckynemo/${pluginId}`,
       version: "0.0.0",
       openclaw: {
         extensions: ["./runtime-api.js"],

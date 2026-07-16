@@ -1,7 +1,7 @@
 // Config path docs tests validate documented config path references.
 import fs from "node:fs/promises";
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
+import { expectDefined } from "@luckynemo/normalization-core";
 import { describe, expect, it } from "vitest";
 
 const DOCS_WITH_CONFIG_PATH_EXAMPLES = [

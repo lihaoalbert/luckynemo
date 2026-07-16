@@ -413,7 +413,7 @@ describe("stageBundledPluginRuntime", () => {
     createDistPluginDir(repoRoot, "diffs");
     setupRepoFiles(repoRoot, {
       [bundledDistPluginFile("diffs", "package.json")]: JSON.stringify(
-        { name: "@openclaw/diffs", openclaw: { extensions: ["./index.js"] } },
+        { name: "@luckynemo/diffs", openclaw: { extensions: ["./index.js"] } },
         null,
         2,
       ),
@@ -513,7 +513,7 @@ describe("stageBundledPluginRuntime", () => {
     setupRepoFiles(repoRoot, {
       [bundledDistPluginFile("demo", "package.json")]: JSON.stringify(
         {
-          name: "@openclaw/demo",
+          name: "@luckynemo/demo",
           openclaw: {
             extensions: ["./main.js"],
             setupEntry: "./setup.js",

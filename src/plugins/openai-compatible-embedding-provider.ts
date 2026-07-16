@@ -1,6 +1,6 @@
 // Builds OpenAI-compatible embedding provider entries for plugins.
-import { normalizeProviderId } from "@openclaw/model-catalog-core/provider-id";
-import { truncateUtf16Safe } from "@openclaw/normalization-core/utf16-slice";
+import { normalizeProviderId } from "@luckynemo/model-catalog-core/provider-id";
+import { truncateUtf16Safe } from "@luckynemo/normalization-core/utf16-slice";
 import { readProviderJsonResponse } from "../agents/provider-http-errors.js";
 import type {
   AcquireConfiguredProviderLocalService,

@@ -2,7 +2,7 @@
 // config so plugin-owned doctor/recovery code can repair broken plugin state.
 import fs from "node:fs";
 import path from "node:path";
-import { normalizeStringEntries } from "@openclaw/normalization-core/string-normalization";
+import { normalizeStringEntries } from "@luckynemo/normalization-core/string-normalization";
 import type { Command } from "commander";
 import { tryReadJsonSync } from "../infra/json-files.js";
 import { parseRegistryNpmSpec } from "../infra/npm-registry-spec.js";

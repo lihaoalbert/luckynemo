@@ -1,9 +1,9 @@
 /** Selection helpers for filtering migration plan items before apply. */
 import path from "node:path";
-import { expectDefined } from "@openclaw/normalization-core";
-import { isRecord } from "@openclaw/normalization-core/record-coerce";
-import { normalizeOptionalString } from "@openclaw/normalization-core/string-coerce";
-import { uniqueStrings } from "@openclaw/normalization-core/string-normalization";
+import { expectDefined } from "@luckynemo/normalization-core";
+import { isRecord } from "@luckynemo/normalization-core/record-coerce";
+import { normalizeOptionalString } from "@luckynemo/normalization-core/string-coerce";
+import { uniqueStrings } from "@luckynemo/normalization-core/string-normalization";
 import { markMigrationItemSkipped, summarizeMigrationItems } from "../../plugin-sdk/migration.js";
 import type { MigrationItem, MigrationPlan } from "../../plugins/types.js";
 import { MIGRATION_CONFLICT_REASON_PHRASES } from "./output.js";

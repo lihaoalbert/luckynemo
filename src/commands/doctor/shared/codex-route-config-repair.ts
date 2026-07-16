@@ -1,5 +1,5 @@
-import { AGENT_MODEL_CONFIG_KEYS } from "@openclaw/model-catalog-core/configured-model-refs";
-import { asOptionalRecord as asMutableRecord } from "@openclaw/normalization-core/record-coerce";
+import { AGENT_MODEL_CONFIG_KEYS } from "@luckynemo/model-catalog-core/configured-model-refs";
+import { asOptionalRecord as asMutableRecord } from "@luckynemo/normalization-core/record-coerce";
 import type { OpenClawConfig } from "../../../config/types.openclaw.js";
 import {
   maybeMigrateLegacyLosslessCompactionConfig,
