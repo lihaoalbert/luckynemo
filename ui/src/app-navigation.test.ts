@@ -87,7 +87,7 @@ describe("navigationIconForRoute", () => {
       "skill-workshop": "wrench",
       nodes: "monitorSmartphone",
       config: "settings",
-      profile: "lobster",
+      profile: "mascot",
       communications: "send",
       appearance: "spark",
       automation: "terminal",

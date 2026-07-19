@@ -58,8 +58,8 @@ const workboardEnabled = {
   state: "enabled",
 } satisfies PluginCatalogItem;
 
-const lobsterPlugin = {
-  id: "lobster",
+const mascotPlugin = {
+  id: "mascot",
   name: "Lobster",
   description: "Run typed workflows with resumable approvals.",
   kind: ["plugin"],
@@ -69,7 +69,7 @@ const lobsterPlugin = {
   state: "not-installed",
   featured: true,
   order: 50,
-  install: { source: "clawhub", packageName: "@luckynemo/lobster" },
+  install: { source: "clawhub", packageName: "@luckynemo/mascot" },
 } satisfies PluginCatalogItem;
 
 const calendarPlugin = {
@@ -87,10 +87,10 @@ const calendarPlugin = {
   removable: true,
 } satisfies PluginCatalogItem;
 
-const initialInventory = inventory([workboardDisabled, lobsterPlugin]);
-const installedInventory = inventory([workboardDisabled, lobsterPlugin, calendarPlugin]);
-const finalInventory = inventory([workboardEnabled, lobsterPlugin, calendarPlugin]);
-const uninstalledInventory = inventory([workboardEnabled, lobsterPlugin]);
+const initialInventory = inventory([workboardDisabled, mascotPlugin]);
+const installedInventory = inventory([workboardDisabled, mascotPlugin, calendarPlugin]);
+const finalInventory = inventory([workboardEnabled, mascotPlugin, calendarPlugin]);
+const uninstalledInventory = inventory([workboardEnabled, mascotPlugin]);
 
 const calendarSearchResponse = {
   results: [
@@ -334,10 +334,10 @@ describeControlUiE2e("Control UI Plugins mocked Gateway E2E", () => {
       await page.getByRole("tab", { name: /^Discover/u }).click();
       await page.getByRole("heading", { name: /^Featured/u }).waitFor();
       await page.getByRole("heading", { name: /^Connect your world/u }).waitFor();
-      const lobsterCard = page.locator('[data-plugin-id="lobster"]');
-      await lobsterCard.getByRole("button", { name: "Install Lobster" }).waitFor();
+      const mascotCard = page.locator('[data-plugin-id="mascot"]');
+      await mascotCard.getByRole("button", { name: "Install Lobster" }).waitFor();
       // Bundled art renders instead of monogram fallbacks for curated plugins.
-      await lobsterCard.locator(".plugins-tile img").waitFor({ state: "attached" });
+      await mascotCard.locator(".plugins-tile img").waitFor({ state: "attached" });
       await page
         .locator('[data-connector-id="github"]')
         .getByRole("button", { name: "Add", exact: true })

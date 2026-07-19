@@ -210,7 +210,7 @@ function buildForcedConsultCheckingPrompt(): string {
 
 function buildForcedConsultSpeechPrompt(text: string): string {
   return [
-    "OpenClaw finished checking. Speak this result naturally and concisely.",
+    "LuckyNemo finished checking. Speak this result naturally and concisely.",
     "Do not mention tool calls, JSON, or internal routing.",
     "",
     text,
@@ -220,7 +220,7 @@ function buildForcedConsultSpeechPrompt(text: string): string {
 function buildAlreadyDeliveredToolResult(): Record<string, string> {
   return {
     status: "already_delivered",
-    message: "OpenClaw already delivered this consult result internally. Do not repeat it.",
+    message: "LuckyNemo already delivered this consult result internally. Do not repeat it.",
   };
 }
 

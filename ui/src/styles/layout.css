@@ -847,8 +847,8 @@ html.openclaw-native-web-chrome .sidebar-brand__collapse {
   box-shadow: var(--focus-ring);
 }
 
-/* Positioning box for the brand mark; the lobster pet's logo stand-in
-   (lobster-pet.css) overlays the img here during a logo visit. */
+/* Positioning box for the brand mark; the mascot pet's logo stand-in
+   (fish-pet.css) overlays the img here during a logo visit. */
 .sidebar-brand__logo-slot {
   position: relative;
   width: 24px;

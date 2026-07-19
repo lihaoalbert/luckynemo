@@ -3933,8 +3933,8 @@ openclaw-chat-pane:has(> .chat-pane__header) .chat-thread {
   object-fit: cover;
 }
 
-/* The hero Clawd: the lobster-pet sprite, big and borderless. Idle loop
-   (breathe/blink keyframes) lives in lobster-pet.css; only the periodic
+/* The hero Clawd: the fish-pet sprite, big and borderless. Idle loop
+   (breathe/blink keyframes) lives in fish-pet.css; only the periodic
    wave is welcome-specific. */
 .agent-chat__welcome-clawd {
   width: 128px;
@@ -3942,20 +3942,20 @@ openclaw-chat-pane:has(> .chat-pane__header) .chat-thread {
   margin-bottom: 2px;
 }
 
-.agent-chat__welcome-clawd .lobster-pet__svg {
-  animation: lobster-pet-breathe 3.4s ease-in-out infinite;
+.agent-chat__welcome-clawd .fish-pet__svg {
+  animation: fish-pet-breathe 3.4s ease-in-out infinite;
 }
 
-.agent-chat__welcome-clawd .lob-eye-open {
-  animation: lobster-pet-blink-open 5.2s linear infinite;
+.agent-chat__welcome-clawd .fish-eye-open {
+  animation: fish-pet-blink-open 5.2s linear infinite;
 }
 
-.agent-chat__welcome-clawd .lob-eye-closed {
+.agent-chat__welcome-clawd .fish-eye-closed {
   opacity: 0;
-  animation: lobster-pet-blink-closed 5.2s linear infinite;
+  animation: fish-pet-blink-closed 5.2s linear infinite;
 }
 
-.agent-chat__welcome-clawd .lob-claw--r {
+.agent-chat__welcome-clawd .fish-fin--r {
   animation: agent-chat-welcome-wave 9s ease-in-out infinite;
 }
 
@@ -3975,10 +3975,10 @@ openclaw-chat-pane:has(> .chat-pane__header) .chat-thread {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .agent-chat__welcome-clawd .lobster-pet__svg,
-  .agent-chat__welcome-clawd .lob-eye-open,
-  .agent-chat__welcome-clawd .lob-eye-closed,
-  .agent-chat__welcome-clawd .lob-claw--r {
+  .agent-chat__welcome-clawd .fish-pet__svg,
+  .agent-chat__welcome-clawd .fish-eye-open,
+  .agent-chat__welcome-clawd .fish-eye-closed,
+  .agent-chat__welcome-clawd .fish-fin--r {
     animation: none;
   }
 }

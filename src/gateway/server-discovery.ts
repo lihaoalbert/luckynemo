@@ -13,11 +13,11 @@ type ResolveBonjourCliPathOptions = {
   statSync?: (path: string) => fs.Stats;
 };
 
-/** Formats the Bonjour instance name while preserving user-provided OpenClaw names. */
+/** Formats the Bonjour instance name while preserving user-provided LuckyNemo names. */
 export function formatBonjourInstanceName(displayName: string) {
   const trimmed = displayName.trim();
   if (!trimmed) {
-    return "OpenClaw";
+    return "LuckyNemo";
   }
   if (/openclaw/i.test(trimmed)) {
     return trimmed;

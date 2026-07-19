@@ -3,10 +3,10 @@ import { expectDefined } from "@luckynemo/normalization-core";
 import { html, nothing } from "lit";
 import type { GatewaySessionRow, SessionsListResult } from "../../../api/types.ts";
 import {
-  canonicalLobsterLook,
-  LOBSTER_PET_PALETTES,
-  renderLobsterSvg,
-} from "../../../components/lobster-pet.ts";
+  canonicalFishLook,
+  FISH_PET_PALETTES,
+  renderFishSvg,
+} from "../../../components/fish-pet.ts";
 import { t } from "../../../i18n/index.ts";
 import { resolveAssistantTextAvatar, resolveChatAvatarRenderUrl } from "../../../lib/avatar.ts";
 import { formatRelativeTimestamp } from "../../../lib/format.ts";
@@ -96,20 +96,20 @@ function selectWelcomeRecentSessions(
   );
 }
 
-// The default Clawd mascot: same species as the sidebar lobster pet, rendered
+// The default Clawd mascot: same species as the sidebar mascot pet, rendered
 // big and borderless with its own gentle idle loop (see layout.css).
 function renderWelcomeClawd() {
   const palette =
-    LOBSTER_PET_PALETTES.find((entry) => entry.id === "crimson") ??
-    expectDefined(LOBSTER_PET_PALETTES[0], "welcome lobster palette");
-  const look = canonicalLobsterLook(palette);
+    FISH_PET_PALETTES.find((entry) => entry.id === "crimson") ??
+    expectDefined(FISH_PET_PALETTES[0], "welcome mascot palette");
+  const look = canonicalFishLook(palette);
   return html`
     <div
       class="agent-chat__welcome-clawd"
-      style=${`--lob-shell:${look.palette.shell};--lob-claw:${look.palette.claw}`}
+      style=${`--fish-body:${look.palette.shell};--fish-fin:${look.palette.claw}`}
       aria-hidden="true"
     >
-      ${renderLobsterSvg(look)}
+      ${renderFishSvg(look)}
     </div>
   `;
 }

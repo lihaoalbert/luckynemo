@@ -17,11 +17,7 @@ import { CATALOG_SESSION_CONTINUED_EVENT } from "../lib/sessions/catalog-key.ts"
 import type { SessionCapability } from "../lib/sessions/index.ts";
 import { createApplicationContextProvider } from "../test-helpers/application-context.ts";
 import { createStorageMock } from "../test-helpers/storage.ts";
-import {
-  LOBSTER_LOGO_VISIT_EVENT,
-  createLobsterPetLook,
-  type LobsterLogoVisitDetail,
-} from "./lobster-pet.ts";
+import { FISH_LOGO_VISIT_EVENT, createFishPetLook, type FishLogoVisitDetail } from "./fish-pet.ts";
 import "./app-sidebar.ts";
 import { TERMINAL_PANEL_TOGGLE_EVENT } from "./panel-toggle-contract.ts";
 
@@ -56,7 +52,7 @@ type SidebarLifecycleState = HTMLElement & {
   variant: "panel" | "drawer";
 };
 
-type LobsterPetElement = HTMLElement & {
+type FishPetElement = HTMLElement & {
   runOutcome: "ok" | "error" | "aborted";
 };
 
@@ -1850,7 +1846,7 @@ describe("AppSidebar session pagination", () => {
   });
 });
 
-describe("AppSidebar lobster outcome wiring", () => {
+describe("AppSidebar mascot outcome wiring", () => {
   it.each([
     ["panel", "failed", "error"],
     ["panel", "killed", "aborted"],
@@ -1888,7 +1884,7 @@ describe("AppSidebar lobster outcome wiring", () => {
       });
       await sidebar.updateComplete;
 
-      const pet = sidebar.querySelector<LobsterPetElement>("openclaw-lobster-pet");
+      const pet = sidebar.querySelector<FishPetElement>("openclaw-fish-pet");
       expect(pet?.runOutcome).toBe(expectedOutcome);
     },
   );
@@ -1898,13 +1894,13 @@ describe("AppSidebar logo stand-in wiring", () => {
   it("swaps the brand mark while the pet's logo visit is in, leaving, then out", async () => {
     const gateway = createGateway({} as GatewayBrowserClient);
     const { sidebar } = await mountSidebar(gateway, createSessions("main", ["agent:main:main"]));
-    const pet = sidebar.querySelector("openclaw-lobster-pet");
+    const pet = sidebar.querySelector("openclaw-fish-pet");
     if (!pet) {
-      throw new Error("Expected sidebar lobster pet");
+      throw new Error("Expected sidebar mascot pet");
     }
-    const dispatch = (detail: LobsterLogoVisitDetail) =>
+    const dispatch = (detail: FishLogoVisitDetail) =>
       pet.dispatchEvent(
-        new CustomEvent(LOBSTER_LOGO_VISIT_EVENT, { detail, bubbles: true, composed: true }),
+        new CustomEvent(FISH_LOGO_VISIT_EVENT, { detail, bubbles: true, composed: true }),
       );
     const logo = () => sidebar.querySelector(".sidebar-brand__logo");
     const standIn = () => sidebar.querySelector(".sidebar-brand__pet");
@@ -1912,15 +1908,15 @@ describe("AppSidebar logo stand-in wiring", () => {
     expect(logo()?.classList.contains("sidebar-brand__logo--vacated")).toBe(false);
     expect(standIn()).toBeNull();
 
-    const look = createLobsterPetLook(70);
+    const look = createFishPetLook(70);
     dispatch({ phase: "in", look, name: "Pinchy" });
     await sidebar.updateComplete;
     expect(logo()?.classList.contains("sidebar-brand__logo--vacated")).toBe(true);
     const sprite = standIn();
     expect(sprite).not.toBeNull();
-    expect(sprite?.classList.contains(`lobster-pet--palette-${look.palette.id}`)).toBe(true);
+    expect(sprite?.classList.contains(`fish-pet--palette-${look.palette.id}`)).toBe(true);
     expect(sprite?.getAttribute("title")).toContain("Pinchy");
-    expect(sprite?.querySelector(".lobster-pet__svg")).not.toBeNull();
+    expect(sprite?.querySelector(".fish-pet__svg")).not.toBeNull();
 
     dispatch({ phase: "leaving", look, name: "Pinchy" });
     await sidebar.updateComplete;

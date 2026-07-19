@@ -585,12 +585,12 @@ export class ConfigPage extends OpenClawLightDomElement {
       chatFollowUpMode: next.chatFollowUpMode,
       catalogOpenTarget: next.catalogOpenTarget,
       realtimeTalkInputDeviceId: next.realtimeTalkInputDeviceId,
-      lobsterPetVisits: next.lobsterPetVisits,
-      lobsterPetSounds: next.lobsterPetSounds,
+      mascotPetVisits: next.mascotPetVisits,
+      mascotPetSounds: next.mascotPetSounds,
     });
     applyTextScale(this.settings.textScale);
     // theme.refresh() also republishes non-theme appearance prefs (text
-    // scale, lobster pet visits/sounds) to app-host subscribers.
+    // scale, mascot pet visits/sounds) to app-host subscribers.
     this.context.theme.refresh();
   }
 
@@ -869,12 +869,12 @@ export class ConfigPage extends OpenClawLightDomElement {
         this.navigate("ai-agents");
       },
       setTextScale: (value) => this.setSetting("textScale", normalizeTextScale(value)),
-      lobsterPetVisits: this.settings.lobsterPetVisits !== false,
-      setLobsterPetVisits: (enabled) =>
-        this.applySettings({ ...this.settings, lobsterPetVisits: enabled }),
-      lobsterPetSounds: this.settings.lobsterPetSounds === true,
-      setLobsterPetSounds: (enabled) =>
-        this.applySettings({ ...this.settings, lobsterPetSounds: enabled }),
+      mascotPetVisits: this.settings.mascotPetVisits !== false,
+      setFishPetVisits: (enabled) =>
+        this.applySettings({ ...this.settings, mascotPetVisits: enabled }),
+      mascotPetSounds: this.settings.mascotPetSounds === true,
+      setFishPetSounds: (enabled) =>
+        this.applySettings({ ...this.settings, mascotPetSounds: enabled }),
       onOpenCustomThemeImport: () => {
         this.pageId = "appearance";
         this.setFormMode("form");

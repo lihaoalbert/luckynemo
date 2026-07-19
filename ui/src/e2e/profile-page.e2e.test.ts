@@ -155,7 +155,7 @@ describeControlUiE2e("Control UI profile page mocked Gateway E2E", () => {
         "OpenClaw",
       );
       await expect(page.locator(".profile-hero__handle").textContent()).resolves.toContain("@main");
-      // No avatar configured: the lobster mascot fills in.
+      // No avatar configured: the mascot mascot fills in.
       await page.locator(".profile-hero__avatar-mascot svg").waitFor({ timeout: 5_000 });
       const chips = await page.locator(".profile-hero__chip").allTextContents();
       expect(chips.some((chip) => chip.includes("In the reef since"))).toBe(true);

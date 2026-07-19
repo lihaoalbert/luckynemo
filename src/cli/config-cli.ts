@@ -951,7 +951,7 @@ async function loadValidConfig(runtime: RuntimeEnv = defaultRuntime) {
   if (snapshot.valid) {
     return snapshot;
   }
-  runtime.error(`OpenClaw config is invalid: ${shortenHomePath(snapshot.path)}`);
+  runtime.error(`LuckyNemo config is invalid: ${shortenHomePath(snapshot.path)}`);
   for (const line of formatConfigIssueLines(snapshot.issues, "-", { normalizeRoot: true })) {
     runtime.error(line);
   }
@@ -2626,7 +2626,7 @@ async function runConfigValidate(opts: { json?: boolean; runtime?: RuntimeEnv } 
       if (opts.json) {
         writeRuntimeJson(runtime, { valid: false, path: outputPath, issues });
       } else {
-        runtime.error(danger(`OpenClaw config is invalid: ${shortPath}`));
+        runtime.error(danger(`LuckyNemo config is invalid: ${shortPath}`));
         for (const line of formatConfigIssueLines(issues, danger("×"), { normalizeRoot: true })) {
           runtime.error(`  ${line}`);
         }

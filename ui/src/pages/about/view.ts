@@ -1,12 +1,8 @@
 import { expectDefined } from "@luckynemo/normalization-core";
 import { html, nothing, type TemplateResult } from "lit";
 import type { ControlUiBuildInfo } from "../../build-info.ts";
+import { canonicalFishLook, FISH_PET_PALETTES, renderFishSvg } from "../../components/fish-pet.ts";
 import { icons } from "../../components/icons.ts";
-import {
-  canonicalLobsterLook,
-  LOBSTER_PET_PALETTES,
-  renderLobsterSvg,
-} from "../../components/lobster-pet.ts";
 import {
   renderSettingsPage,
   renderSettingsRow,
@@ -128,19 +124,19 @@ function renderCommit(props: AboutProps) {
 // The poke button replays the claw wave; ambient motion lives in about.css.
 function renderHero(props: AboutProps) {
   const palette =
-    LOBSTER_PET_PALETTES.find((entry) => entry.id === "crimson") ??
-    expectDefined(LOBSTER_PET_PALETTES[0], "about lobster palette");
-  const look = canonicalLobsterLook(palette);
+    FISH_PET_PALETTES.find((entry) => entry.id === "crimson") ??
+    expectDefined(FISH_PET_PALETTES[0], "about mascot palette");
+  const look = canonicalFishLook(palette);
   return html`
     <section class="about-hero">
       <button
         type="button"
         class="about-hero__clawd ${props.clawdWaving ? "about-hero__clawd--wave" : ""}"
-        style=${`--lob-shell:${look.palette.shell};--lob-claw:${look.palette.claw}`}
+        style=${`--fish-body:${look.palette.shell};--fish-fin:${look.palette.claw}`}
         aria-label=${t("aboutPage.waveHello")}
         @click=${props.onPokeClawd}
       >
-        ${renderLobsterSvg(look)}
+        ${renderFishSvg(look)}
       </button>
       <h2 class="about-hero__name">${t("aboutPage.productName")}</h2>
       <p class="about-hero__tagline">${t("aboutPage.tagline")}</p>

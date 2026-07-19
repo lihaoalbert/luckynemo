@@ -23,7 +23,7 @@ const UNGUARDED_RUNTIME_API_PLUGIN_IDS = [
   "google",
   "line",
   "lmstudio",
-  "lobster",
+  "mascot",
   "mattermost",
   "memory-core",
   "ollama",

@@ -1027,12 +1027,16 @@ const getInterruptedSpawnExitCode = (res) => {
 const runOpenClaw = async (deps) => {
   const diagnosticArgs = resolveRunNodeDiagnosticArgs(deps);
   const useProcessGroup = shouldUseRunNodeChildProcessGroup(deps);
-  const nodeProcess = deps.spawn(deps.execPath, [...diagnosticArgs, "openclaw.mjs", ...deps.args], {
-    cwd: deps.cwd,
-    detached: useProcessGroup,
-    env: deps.env,
-    stdio: deps.outputTee ? ["inherit", "pipe", "pipe"] : "inherit",
-  });
+  const nodeProcess = deps.spawn(
+    deps.execPath,
+    [...diagnosticArgs, "luckynemo.mjs", ...deps.args],
+    {
+      cwd: deps.cwd,
+      detached: useProcessGroup,
+      env: deps.env,
+      stdio: deps.outputTee ? ["inherit", "pipe", "pipe"] : "inherit",
+    },
+  );
   pipeSpawnedOutput(nodeProcess, deps);
   const res = await waitForSpawnedProcess(nodeProcess, deps);
   const interruptedExitCode = getInterruptedSpawnExitCode(res);

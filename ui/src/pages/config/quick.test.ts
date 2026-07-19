@@ -63,10 +63,10 @@ function createProps(overrides: Partial<QuickSettingsProps> = {}): QuickSettings
   return {
     locale: "en",
     onLocaleChange: vi.fn(),
-    lobsterPetVisits: true,
-    setLobsterPetVisits: () => {},
-    lobsterPetSounds: false,
-    setLobsterPetSounds: () => {},
+    mascotPetVisits: true,
+    setFishPetVisits: () => {},
+    mascotPetSounds: false,
+    setFishPetSounds: () => {},
     currentModel: "gpt-5.5",
     thinkingLevel: "off",
     fastMode: false,
@@ -637,20 +637,20 @@ describe("renderQuickSettings", () => {
     expect(setThemeMode).toHaveBeenCalledWith("dark", { element: darkButton });
   });
 
-  it("renders lobster pet rows as label-wrapped toggle rows", () => {
-    const setLobsterPetVisits = vi.fn();
+  it("renders mascot pet rows as label-wrapped toggle rows", () => {
+    const setFishPetVisits = vi.fn();
     const container = document.createElement("div");
 
-    render(renderQuickSettings(createProps({ setLobsterPetVisits })), container);
+    render(renderQuickSettings(createProps({ setFishPetVisits })), container);
 
-    const visitsRow = expectRowByTitle(container, "Lobster visits");
+    const visitsRow = expectRowByTitle(container, "Mascot visits");
     const input = visitsRow.querySelector<HTMLElement & { checked: boolean }>("wa-switch");
     if (!(input instanceof HTMLElement)) {
-      throw new Error("Expected lobster visits switch");
+      throw new Error("Expected mascot visits switch");
     }
     input.checked = false;
     input.dispatchEvent(new Event("change"));
-    expect(setLobsterPetVisits).toHaveBeenCalledWith(false);
+    expect(setFishPetVisits).toHaveBeenCalledWith(false);
   });
 
   it("keeps the local user name fixed and shows the assistant identity", () => {

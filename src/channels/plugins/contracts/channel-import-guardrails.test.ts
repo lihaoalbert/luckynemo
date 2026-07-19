@@ -215,7 +215,7 @@ const LOCAL_EXTENSION_API_BARREL_GUARDS = [
   "irc",
   "llm-task",
   "line",
-  "lobster",
+  "mascot",
   "matrix",
   "mattermost",
   "memory-lancedb",

@@ -165,7 +165,7 @@ const NAVIGATION_ICONS: NavigationItem = {
   nodes: "monitorSmartphone",
   chat: "messageSquare",
   config: "settings",
-  profile: "lobster",
+  profile: "mascot",
   communications: "send",
   appearance: "spark",
   automation: "terminal",

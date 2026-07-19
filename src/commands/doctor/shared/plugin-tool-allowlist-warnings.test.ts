@@ -22,16 +22,16 @@ const manifestRegistry: PluginManifestRegistry = {
       },
     },
     {
-      id: "lobster",
+      id: "mascot",
       channels: [],
       cliBackends: [],
       hooks: [],
-      manifestPath: "/virtual/lobster/openclaw.plugin.json",
+      manifestPath: "/virtual/mascot/openclaw.plugin.json",
       origin: "bundled",
       providers: [],
-      rootDir: "/virtual/lobster",
+      rootDir: "/virtual/mascot",
       skills: [],
-      source: "/virtual/lobster/index.ts",
+      source: "/virtual/mascot/index.ts",
     },
   ],
 };
@@ -73,7 +73,7 @@ describe("collectPluginToolAllowlistWarnings", () => {
           list: [
             {
               id: "agent-a",
-              tools: { alsoAllow: ["lobster"] },
+              tools: { alsoAllow: ["mascot"] },
             },
           ],
         },
@@ -82,7 +82,7 @@ describe("collectPluginToolAllowlistWarnings", () => {
     });
 
     expect(warnings).toEqual([
-      '- agents.list[0].tools.alsoAllow references plugin "lobster", but plugins.allow does not include it. Add "lobster" to plugins.allow or remove plugins.allow.',
+      '- agents.list[0].tools.alsoAllow references plugin "mascot", but plugins.allow does not include it. Add "mascot" to plugins.allow or remove plugins.allow.',
     ]);
   });
 

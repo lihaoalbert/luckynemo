@@ -2,11 +2,7 @@
 import { expectDefined } from "@luckynemo/normalization-core";
 import { html, nothing } from "lit";
 import { unsafeHTML } from "lit/directives/unsafe-html.js";
-import {
-  createLobsterPetLook,
-  lobsterPetSeed,
-  renderLobsterSvg,
-} from "../../../components/lobster-pet.ts";
+import { createFishPetLook, fishPetSeed, renderFishSvg } from "../../../components/fish-pet.ts";
 import "../../../components/modal-dialog.ts";
 import { toSanitizedMarkdownHtml } from "../../../components/markdown.ts";
 import { t } from "../../../i18n/index.ts";
@@ -261,13 +257,13 @@ const STARS: {
   { top: 88, left: 18, size: 2, delay: 2.3, hue: "neutral" },
 ];
 
-// The dreams sleeper is the same seeded lobster that visits the sidebar for
+// The dreams sleeper is the same seeded mascot that visits the sidebar for
 // this agent (eyes closed), so the pet identity carries across surfaces.
 function renderDreamsCameo(agentId: string) {
-  const look = createLobsterPetLook(lobsterPetSeed(agentId));
-  const style = `--lob-shell:${look.palette.shell};--lob-claw:${look.palette.claw}`;
+  const look = createFishPetLook(fishPetSeed(agentId));
+  const style = `--fish-body:${look.palette.shell};--fish-fin:${look.palette.claw}`;
   return html`
-    <div class="dreams__lobster" style=${style}>${renderLobsterSvg(look, { sleeping: true })}</div>
+    <div class="dreams__mascot" style=${style}>${renderFishSvg(look, { sleeping: true })}</div>
   `;
 }
 

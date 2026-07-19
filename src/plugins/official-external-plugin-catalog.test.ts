@@ -183,7 +183,7 @@ describe("official external plugin catalog", () => {
   it("curates featured external plugins with ClawHub install alternatives", () => {
     const featured = [
       ["diffs", "@luckynemo/diffs", 40],
-      ["lobster", "@luckynemo/lobster", 50],
+      ["mascot", "@luckynemo/mascot", 50],
       ["tokenjuice", "@luckynemo/tokenjuice", 60],
       ["memory-lancedb", "@luckynemo/memory-lancedb", 70],
     ] as const;

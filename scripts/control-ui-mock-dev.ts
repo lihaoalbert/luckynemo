@@ -929,7 +929,7 @@ async function createChatPickerScenario(): Promise<ControlUiMockGatewayScenario>
       sessionKey: "agent:alpha",
     },
   }));
-  const lobsterSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
+  const mascotSvg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 360">
   <rect width="640" height="360" fill="#10151d"/>
   <circle cx="320" cy="185" r="76" fill="#e23f3f"/>
   <ellipse cx="250" cy="178" rx="54" ry="38" fill="#f05a52"/>
@@ -941,12 +941,12 @@ async function createChatPickerScenario(): Promise<ControlUiMockGatewayScenario>
   <path d="M232 246c-45 28-91 35-142 23M408 246c45 28 91 35 142 23" fill="none" stroke="#e14b47" stroke-width="16" stroke-linecap="round"/>
   <text x="320" y="326" text-anchor="middle" font-family="ui-sans-serif, system-ui" font-size="24" fill="#f6f7f9">openclaw session artifact</text>
 </svg>`;
-  const lobsterArtifact = {
-    id: "artifact-openclaw-lobster",
+  const mascotArtifact = {
+    id: "artifact-luckynemo-mascot",
     type: "image",
-    title: "openclaw-lobster-preview.svg",
+    title: "luckynemo-mascot-preview.svg",
     mimeType: "image/svg+xml",
-    sizeBytes: Buffer.byteLength(lobsterSvg, "utf8"),
+    sizeBytes: Buffer.byteLength(mascotSvg, "utf8"),
     source: "session-transcript",
     download: { mode: "bytes" },
   };
@@ -982,7 +982,7 @@ async function createChatPickerScenario(): Promise<ControlUiMockGatewayScenario>
   const configMocks = buildConfigMocks();
   return {
     assistantAgentId: "openclaw-mock",
-    assistantName: "OpenClaw mock",
+    assistantName: "LuckyNemo mock",
     defaultAgentId: "openclaw-mock",
     featureMethods: ["chat.metadata", "chat.startup", "sessions.diff", "sessions.files.set"],
     historyMessages: buildScrollableChatHistory(baseTime),
@@ -1268,17 +1268,17 @@ async function createChatPickerScenario(): Promise<ControlUiMockGatewayScenario>
         cases: [
           {
             match: { sessionKey: "agent:alpha" },
-            response: { artifacts: [lobsterArtifact] },
+            response: { artifacts: [mascotArtifact] },
           },
         ],
       },
       "artifacts.download": {
         cases: [
           {
-            match: { sessionKey: "agent:alpha", artifactId: lobsterArtifact.id },
+            match: { sessionKey: "agent:alpha", artifactId: mascotArtifact.id },
             response: {
-              artifact: lobsterArtifact,
-              data: Buffer.from(lobsterSvg, "utf8").toString("base64"),
+              artifact: mascotArtifact,
+              data: Buffer.from(mascotSvg, "utf8").toString("base64"),
               encoding: "base64",
             },
           },

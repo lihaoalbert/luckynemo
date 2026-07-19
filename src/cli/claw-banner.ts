@@ -1,5 +1,5 @@
-// Shared OpenClaw banner: the pixel lobster mascot beside the OPENCLAW
-// wordmark, with a short startup animation on rich interactive terminals.
+// Shared 徐大恩 banner: the pixel mascot above the 徐大恩 wordmark,
+// with a short startup animation on rich interactive terminals.
 // Used by the wizard flows (doctor/onboard/configure) and the foreground
 // gateway run; non-TTY and CI paths always get the plain static banner.
 import {
@@ -11,30 +11,26 @@ import { isRich, theme } from "../../packages/terminal-core/src/theme.js";
 import type { RuntimeEnv } from "../runtime.js";
 
 // Art is pregenerated from pixel bitmaps (two pixel rows per terminal row via
-// ▀▄█). Mascot and wordmark are separate so they can be tinted independently;
-// the wordmark starts on mascot row 2, keeping the claws above the text line.
+// ▀▄█). Mascot sits above the wordmark so each can be tinted independently.
+// Chibi-clownfish: eye + body + dorsal/pectoral stripe + tail.
 const MASCOT_ART = [
-  "▄███▄     ▄███▄",
-  "▀█▄█▀     ▀█▄█▀",
-  "     ▀▄ ▄▀",
-  "    ██ █ ██",
-  "    ▀█████▀",
-  "   ▄█▀ █ ▀█▄",
+  "    ▄██▄     ",
+  "   ██ ▐█▄    ",
+  "  ▄████████▄ ",
+  "  ██ ▌ ▐ ██  ",
+  "  ▀██▌▌██▀   ",
+  "    ▀▄▄▄▀    ",
 ] as const;
-// Claw tips with the pincer notch widened; swapping the top two rows in and
-// out produces the "snip".
-const MASCOT_OPEN_ROWS = ["▄█▀█▄     ▄█▀█▄", "▀█ █▀     ▀█ █▀"] as const;
+// Animation frames: eye blink swaps the top row for a closed-eye row, so the
+// mascot appears to blink during the entrance.
+const MASCOT_OPEN_ROWS = ["    ▄██▄     ", "   █▄▄▄█▄    "] as const;
 const MASCOT_WIDTH = 15;
-const WORDMARK_ROW_OFFSET = 2;
 
-const WORDMARK_ART = [
-  "█▀▀▀█ █▀▀▀█ █▀▀▀▀ █▄  █ █▀▀▀▀ █     █▀▀▀█ █   █",
-  "█   █ █▀▀▀▀ █▀▀▀  █ ▀▄█ █     █     █▀▀▀█ █▄▀▄█",
-  "▀▀▀▀▀ ▀     ▀▀▀▀▀ ▀   ▀ ▀▀▀▀▀ ▀▀▀▀▀ ▀   ▀ ▀   ▀",
-] as const;
+const WORDMARK = "徐大恩";
+const WORDMARK_VISIBLE_WIDTH = 6; // 3 CJK chars × 2 cells each
 const GAP = 3;
-const BANNER_WIDTH = MASCOT_WIDTH + GAP + 48;
-const ROWS = MASCOT_ART.length;
+const BANNER_WIDTH = MASCOT_WIDTH + GAP + WORDMARK_VISIBLE_WIDTH;
+const ROWS = MASCOT_ART.length + 1;
 
 type ClawBannerOptions = {
   columns?: number;
@@ -56,7 +52,9 @@ type CellTint = (col: number) => (text: string) => string;
 const identityTint: (text: string) => string = (text) => text;
 
 // Composes one banner frame. Tints run per glyph column so the wipe edge and
-// shimmer band can cut through individual letters.
+// shimmer band can cut through individual mascot cells. The wordmark sits on
+// its own row beneath the mascot so the animation only needs to drive the
+// mascot column tints.
 function composeFrame(params: {
   mascotRows?: readonly string[];
   mascotTint?: CellTint;
@@ -64,24 +62,17 @@ function composeFrame(params: {
 }): string[] {
   const mascotRows = params.mascotRows ?? MASCOT_ART;
   const lines: string[] = [];
-  for (let row = 0; row < ROWS; row++) {
+  for (let row = 0; row < mascotRows.length; row++) {
     const mascotRow = (mascotRows[row] ?? "").padEnd(MASCOT_WIDTH).slice(0, MASCOT_WIDTH);
     let out = "";
     for (let col = 0; col < mascotRow.length; col++) {
       const ch = mascotRow[col] ?? " ";
       out += ch === " " ? " " : (params.mascotTint?.(col) ?? theme.accent)(ch);
     }
-    const wordmarkRow = WORDMARK_ART[row - WORDMARK_ROW_OFFSET];
-    if (wordmarkRow) {
-      out += " ".repeat(GAP);
-      for (let col = 0; col < wordmarkRow.length; col++) {
-        const ch = wordmarkRow[col] ?? " ";
-        out +=
-          ch === " " ? " " : (params.wordmarkTint?.(MASCOT_WIDTH + GAP + col) ?? identityTint)(ch);
-      }
-    }
     lines.push(out.replace(/\s+$/, ""));
   }
+  const wordmarkIndent = " ".repeat(MASCOT_WIDTH + GAP);
+  lines.push((wordmarkIndent + theme.heading(WORDMARK)).replace(/\s+$/, ""));
   return lines;
 }
 
@@ -90,8 +81,8 @@ function staticBannerLines(): string[] {
 }
 
 function plainTitleLine(): string {
-  const icon = decorativeEmoji("🦞");
-  return supportsDecorativeEmoji() && icon ? `${icon} OPENCLAW ${icon}` : "OPENCLAW";
+  const icon = decorativeEmoji("🐠");
+  return supportsDecorativeEmoji() && icon ? `${icon} 徐大恩 ${icon}` : "徐大恩";
 }
 
 const defaultSleep = (ms: number) =>
@@ -100,9 +91,9 @@ const defaultSleep = (ms: number) =>
   });
 
 // One combined entrance: a left-to-right molt wipe reveals the color, a
-// shimmer band sweeps the wordmark, and the claws snip. The rng varies the
-// shimmer passes and snip count a little so back-to-back runs don't feel
-// canned; every sequence ends on the exact static banner.
+// shimmer band sweeps the mascot right edge, and the claws snip. The rng
+// varies the shimmer passes and snip count a little so back-to-back runs
+// don't feel canned; every sequence ends on the exact static banner.
 async function animateBanner(opts: {
   rng: () => number;
   settleWhen?: PromiseLike<unknown>;
@@ -209,7 +200,7 @@ async function animateBanner(opts: {
 }
 
 /**
- * Prints the OpenClaw banner: animated on rich interactive terminals, static
+ * Prints the 徐大恩 banner: animated on rich interactive terminals, static
  * otherwise, plain title on terminals too narrow for the art.
  */
 export async function printClawBanner(

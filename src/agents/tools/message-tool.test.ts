@@ -661,7 +661,7 @@ describe("poll vote echo guard", () => {
   it("suppresses an emoji-suffixed option echoed with a leading emoji", async () => {
     // Live regression: iMessage poll options carry a trailing emoji
     // ("Lobster 🦞 ") while the agent echoes a leading one ("🦞 Lobster.").
-    // A leading-only emoji strip left "lobster 🦞" != "lobster" and leaked.
+    // A leading-only emoji strip left "mascot 🦞" != "mascot" and leaked.
     const tool = createPollVoteTool("Lobster 🦞 ");
     await castBlueVote(tool);
 

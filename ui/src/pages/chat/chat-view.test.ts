@@ -3933,7 +3933,7 @@ describe("chat welcome", () => {
 
     const clawd = container.querySelector(".agent-chat__welcome-clawd");
     expect(clawd).not.toBeNull();
-    expect(clawd?.querySelector(".lobster-pet__svg")).not.toBeNull();
+    expect(clawd?.querySelector(".fish-pet__svg")).not.toBeNull();
     expect(container.querySelector(".agent-chat__badge")).toBeNull();
   });
 

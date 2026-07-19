@@ -963,12 +963,12 @@ describe("createOpenClawCodingTools", () => {
     createOpenClawToolsMock.mockClear();
 
     createOpenClawCodingTools({
-      config: { tools: { alsoAllow: ["lobster"] } },
+      config: { tools: { alsoAllow: ["mascot"] } },
     });
 
     expect(createOpenClawToolsMock).toHaveBeenCalledTimes(1);
     expect(latestCreateOpenClawToolsOptions().pluginToolAllowlist).toStrictEqual([
-      "lobster",
+      "mascot",
       DEFAULT_PLUGIN_TOOLS_ALLOWLIST_ENTRY,
     ]);
   });

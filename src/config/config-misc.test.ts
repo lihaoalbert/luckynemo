@@ -511,7 +511,7 @@ describe("ui.seamColor", () => {
   });
 
   it("rejects non-hex colors", () => {
-    const res = validateConfigObject({ ui: { seamColor: "lobster" } });
+    const res = validateConfigObject({ ui: { seamColor: "mascot" } });
     expect(res.ok).toBe(false);
   });
 
@@ -1038,7 +1038,7 @@ describe("config identity/materialization regressions", () => {
             id: "main",
             identity: {
               name: "Samantha Sloth",
-              theme: "space lobster",
+              theme: "space mascot",
               emoji: "🦞",
             },
             groupChat: { mentionPatterns: ["@openclaw"] },

@@ -18,33 +18,33 @@ import "./tooltip.ts";
 import { normalizeAgentId } from "../lib/sessions/session-key.ts";
 import { shouldHandleNavigationClick } from "./app-sidebar-nav-menus.ts";
 import { AppSidebarSessionListElement } from "./app-sidebar-session-list.ts";
-import { icons } from "./icons.ts";
 import {
-  LOBSTER_LOGO_VISIT_EVENT,
-  LOBSTER_PET_BUILD_MULS,
-  LOBSTER_PET_CLAW_MULS,
-  lobsterPetSeed,
-  renderLobsterSvg,
-  resolveLobsterPetMode,
-  resolveLobsterRunOutcome,
-  type LobsterLogoVisitDetail,
-} from "./lobster-pet.ts";
+  FISH_LOGO_VISIT_EVENT,
+  FISH_PET_BUILD_MULS,
+  FISH_PET_FIN_MULS,
+  fishPetSeed,
+  renderFishSvg,
+  resolveFishPetMode,
+  resolveFishRunOutcome,
+  type FishLogoVisitDetail,
+} from "./fish-pet.ts";
+import { icons } from "./icons.ts";
 
 const PALETTE_SHORTCUT = /Mac|iP(hone|ad|od)/i.test(globalThis.navigator?.platform ?? "")
   ? "⌘K"
   : "Ctrl K";
 
 class AppSidebar extends AppSidebarSessionListElement {
-  @state() private logoVisit: LobsterLogoVisitDetail | null = null;
+  @state() private logoVisit: FishLogoVisitDetail | null = null;
 
   constructor() {
     super();
     // The footer pet announces logo stand-in phases through this bubbling event.
-    this.addEventListener(LOBSTER_LOGO_VISIT_EVENT, this.handleLogoVisit as EventListener);
+    this.addEventListener(FISH_LOGO_VISIT_EVENT, this.handleLogoVisit as EventListener);
   }
 
   private readonly handleLogoVisit = (event: Event) => {
-    const detail = (event as CustomEvent<LobsterLogoVisitDetail>).detail;
+    const detail = (event as CustomEvent<FishLogoVisitDetail>).detail;
     this.logoVisit = detail.phase === "out" || !detail.look ? null : detail;
   };
 
@@ -56,22 +56,22 @@ class AppSidebar extends AppSidebarSessionListElement {
     const look = visit.look;
     const classes = [
       "sidebar-brand__pet",
-      `lobster-pet--palette-${look.palette.id}`,
+      `fish-pet--palette-${look.palette.id}`,
       visit.phase === "leaving" ? "sidebar-brand__pet--leaving" : "",
     ]
       .filter(Boolean)
       .join(" ");
     const style = [
-      `--lob-shell:${look.palette.shell}`,
-      `--lob-claw:${look.palette.claw}`,
-      `--lob-blink-delay:${look.blinkDelayS}s`,
-      `--lob-w:${LOBSTER_PET_BUILD_MULS[look.build].w}`,
-      `--lob-h:${LOBSTER_PET_BUILD_MULS[look.build].h}`,
-      `--lob-claw-scale:${LOBSTER_PET_CLAW_MULS[look.clawSize]}`,
+      `--fish-body:${look.palette.shell}`,
+      `--fish-fin:${look.palette.claw}`,
+      `--fish-blink-delay:${look.blinkDelayS}s`,
+      `--fish-w:${FISH_PET_BUILD_MULS[look.build].w}`,
+      `--fish-h:${FISH_PET_BUILD_MULS[look.build].h}`,
+      `--fish-fin-scale:${FISH_PET_FIN_MULS[look.clawSize]}`,
     ].join(";");
     return html`
       <span class=${classes} style=${style} title=${`${visit.name} · filling in for the logo`}
-        >${renderLobsterSvg(look)}</span
+        >${renderFishSvg(look)}</span
       >
     `;
   }
@@ -101,7 +101,7 @@ class AppSidebar extends AppSidebarSessionListElement {
             />
             ${this.renderLogoStandIn()}
           </span>
-          <span class="sidebar-brand__title">OpenClaw</span>
+          <span class="sidebar-brand__title">徐大恩</span>
         </a>
         <div class="sidebar-brand__actions">
           ${this.renderSearch()}
@@ -173,14 +173,14 @@ class AppSidebar extends AppSidebarSessionListElement {
               .updateRunning=${this.updateRunning}
               .onUpdate=${this.onUpdate}
             ></openclaw-sidebar-update-card>
-            <openclaw-lobster-pet
-              .seed=${lobsterPetSeed(this.sessionKey)}
-              .mode=${resolveLobsterPetMode(this.connected, this.sessionsResult?.sessions)}
-              .runOutcome=${resolveLobsterRunOutcome(this.sessionsResult?.sessions)}
-              .visitsEnabled=${this.lobsterPetVisits}
-              .soundsEnabled=${this.lobsterPetSounds}
+            <openclaw-fish-pet
+              .seed=${fishPetSeed(this.sessionKey)}
+              .mode=${resolveFishPetMode(this.connected, this.sessionsResult?.sessions)}
+              .runOutcome=${resolveFishRunOutcome(this.sessionsResult?.sessions)}
+              .visitsEnabled=${this.mascotPetVisits}
+              .soundsEnabled=${this.mascotPetSounds}
               .gatewayVersion=${this.gatewayVersion}
-            ></openclaw-lobster-pet>
+            ></openclaw-fish-pet>
             ${this.devGitBranch
               ? html`<div class="sidebar-footer-branch" title=${this.devGitBranch}>
                   <span class="sidebar-footer-branch__icon" aria-hidden="true"

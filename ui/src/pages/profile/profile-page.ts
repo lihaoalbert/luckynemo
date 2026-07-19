@@ -267,7 +267,7 @@ export class ProfilePage extends OpenClawLightDomElement {
       return html`<span class="profile-hero__avatar-text">${textAvatar}</span>`;
     }
     return html`<span class="profile-hero__avatar-mascot" aria-hidden="true"
-      >${icons.lobster}</span
+      >${icons.mascot}</span
     >`;
   }
 

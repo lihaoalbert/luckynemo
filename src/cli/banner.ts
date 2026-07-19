@@ -10,7 +10,7 @@ import { isRich, theme } from "../../packages/terminal-core/src/theme.js";
 import { resolveCommitHash } from "../infra/git-commit.js";
 import { hasRootVersionAlias } from "./argv.js";
 import { parseTaglineMode, readCliBannerTaglineMode } from "./banner-config-lite.js";
-import { pickCliLobsterArt } from "./lobster-art.js";
+import { pickCliMascotArt } from "./mascot-art.js";
 import { pickTagline, type TaglineMode, type TaglineOptions } from "./tagline.js";
 
 type BannerOptions = TaglineOptions & {
@@ -57,8 +57,8 @@ export function formatCliBannerLine(version: string, options: BannerOptions = {}
     emojiOptions,
   );
   const rich = options.richTty ?? isRich();
-  const title = decorativePrefix("🦞", "OpenClaw", emojiOptions);
-  const prefix = decorativeEmoji("🦞", emojiOptions);
+  const title = decorativePrefix("🐠", "徐大恩", emojiOptions);
+  const prefix = decorativeEmoji("🐠", emojiOptions);
   const indent = prefix ? `${prefix} ` : "";
   const columns = options.columns ?? process.stdout.columns ?? 120;
   const plainBaseLine = `${title} ${version} (${commitLabel})`;
@@ -93,9 +93,9 @@ export function formatCliBannerLine(version: string, options: BannerOptions = {}
   return `${line1}\n${line2}`;
 }
 
-// Rare day-seeded ASCII lobster above the banner: random-tagline mode only,
-// rich terminals only, never in CI (see lobster-art.ts for the odds).
-function resolveLobsterArt(options: BannerOptions): string | null {
+// Rare day-seeded ASCII chibi clownfish above the banner: random-tagline
+// mode only, rich terminals only, never in CI (see mascot-art.ts for odds).
+function resolveMascotArt(options: BannerOptions): string | null {
   const mode = resolveTaglineMode(options);
   if (mode === "off" || mode === "default") {
     return null;
@@ -104,7 +104,7 @@ function resolveLobsterArt(options: BannerOptions): string | null {
     return null;
   }
   const now = options.now ? options.now() : new Date();
-  const art = pickCliLobsterArt(now, options.env ?? process.env);
+  const art = pickCliMascotArt(now, options.env ?? process.env);
   return art ? theme.accentDim(art) : null;
 }
 
@@ -125,7 +125,7 @@ export function emitCliBanner(version: string, options: BannerOptions = {}) {
     return;
   }
   const line = formatCliBannerLine(version, options);
-  const art = resolveLobsterArt(options);
+  const art = resolveMascotArt(options);
   process.stdout.write(`\n${art ? `${art}\n` : ""}${line}\n\n`);
   bannerEmitted = true;
 }

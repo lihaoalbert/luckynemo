@@ -48,7 +48,7 @@ const EXPECTED_BUNDLED_STARTUP_PLUGIN_IDS = [
   "linux-canvas",
   "linux-node",
   "llm-task",
-  "lobster",
+  "mascot",
   "logbook",
   "memory-wiki",
   "ollama",

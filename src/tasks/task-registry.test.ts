@@ -2792,7 +2792,7 @@ describe("task-registry", () => {
         requesterSessionKey: "agent:main:discord:direct:123",
         childSessionKey: "agent:main:discord:direct:123",
         runId: "tool:video_generate:agent-index",
-        task: "Generate a lobster video",
+        task: "Generate a mascot video",
         status: "running",
         deliveryStatus: "not_applicable",
         notifyPolicy: "silent",

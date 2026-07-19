@@ -611,7 +611,7 @@ describe("runDoctorConfigPreflight state migration", () => {
         invalidConfigNote: false,
         requireStartupMigrationCheckpoint: true,
       }),
-    ).rejects.toThrow("OpenClaw config is invalid");
+    ).rejects.toThrow("LuckyNemo config is invalid");
 
     expect(recordSuccessfulStartupMigrations).not.toHaveBeenCalled();
     expect(startupMigrationLeaseRelease).toHaveBeenCalledOnce();

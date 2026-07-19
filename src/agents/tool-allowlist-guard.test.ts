@@ -38,7 +38,7 @@ describe("tool allowlist guard", () => {
     // config allowlists should not block a deliberately text-only run.
     expect(
       buildEmptyExplicitToolAllowlistError({
-        sources: [{ label: "tools.allow", entries: ["lobster", "llm-task"] }],
+        sources: [{ label: "tools.allow", entries: ["mascot", "llm-task"] }],
         callableToolNames: [],
         toolsEnabled: true,
         disableTools: true,

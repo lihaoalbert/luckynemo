@@ -51,13 +51,13 @@ describe("video generate background helpers", () => {
         channel: "discord",
         to: "channel:1",
       },
-      prompt: "friendly lobster surfing",
+      prompt: "friendly mascot surfing",
       providerId: "openai",
     });
 
     expect(handle?.taskId).toBe("task-123");
     expect(handle?.requesterSessionKey).toBe("agent:main:discord:direct:123");
-    expect(handle?.taskLabel).toBe("friendly lobster surfing");
+    expect(handle?.taskLabel).toBe("friendly mascot surfing");
     expectQueuedTaskRun({
       taskExecutorMocks,
       taskKind: VIDEO_GENERATION_TASK_KIND,
@@ -72,7 +72,7 @@ describe("video generate background helpers", () => {
         taskId: "task-123",
         runId: "tool:video_generate:abc",
         requesterSessionKey: "agent:main:discord:direct:123",
-        taskLabel: "friendly lobster surfing",
+        taskLabel: "friendly mascot surfing",
       },
       progressSummary: "Saving generated video",
     });
@@ -91,7 +91,7 @@ describe("video generate background helpers", () => {
 
     const handle = createVideoGenerationTaskRun({
       sessionKey: "agent:main:discord:channel:123",
-      prompt: "friendly lobster surfing",
+      prompt: "friendly mascot surfing",
       providerId: "fal",
     });
     if (!handle) {
@@ -126,9 +126,9 @@ describe("video generate background helpers", () => {
     await videoGenerationTaskLifecycle.wakeTaskCompletion({
       ...createMediaCompletionFixture({
         runId: "tool:video_generate:abc",
-        taskLabel: "friendly lobster surfing",
-        result: "Generated 1 video.\nMEDIA:/tmp/generated-lobster.mp4",
-        mediaUrls: ["/tmp/generated-lobster.mp4"],
+        taskLabel: "friendly mascot surfing",
+        result: "Generated 1 video.\nMEDIA:/tmp/generated-mascot.mp4",
+        mediaUrls: ["/tmp/generated-mascot.mp4"],
       }),
     });
 
@@ -146,9 +146,9 @@ describe("video generate background helpers", () => {
       ...createMediaCompletionFixture({
         directSend: true,
         runId: "tool:video_generate:abc",
-        taskLabel: "friendly lobster surfing",
-        result: "Generated 1 video.\nMEDIA:/tmp/generated-lobster.mp4",
-        mediaUrls: ["/tmp/generated-lobster.mp4"],
+        taskLabel: "friendly mascot surfing",
+        result: "Generated 1 video.\nMEDIA:/tmp/generated-mascot.mp4",
+        mediaUrls: ["/tmp/generated-mascot.mp4"],
       }),
     });
 
@@ -160,8 +160,8 @@ describe("video generate background helpers", () => {
       to: "channel:1",
       source: "video_generation",
       announceType: "video generation task",
-      resultMediaPath: "MEDIA:/tmp/generated-lobster.mp4",
-      mediaUrls: ["/tmp/generated-lobster.mp4"],
+      resultMediaPath: "MEDIA:/tmp/generated-mascot.mp4",
+      mediaUrls: ["/tmp/generated-mascot.mp4"],
     });
   });
 
@@ -177,7 +177,7 @@ describe("video generate background helpers", () => {
       videoGenerationTaskLifecycle.wakeTaskCompletion({
         ...createMediaCompletionFixture({
           runId: "tool:video_generate:abc",
-          taskLabel: "friendly lobster surfing",
+          taskLabel: "friendly mascot surfing",
           result: "All video generation models failed.",
         }),
         status: "error",
@@ -198,7 +198,7 @@ describe("video generate background helpers", () => {
     await videoGenerationTaskLifecycle.wakeTaskCompletion({
       ...createMediaCompletionFixture({
         runId: "tool:video_generate:abc",
-        taskLabel: "friendly lobster surfing",
+        taskLabel: "friendly mascot surfing",
         result: "All video generation models failed.",
       }),
       status: "error",

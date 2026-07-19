@@ -635,7 +635,7 @@ describe("discoverOpenClawPlugins", () => {
       pluginId: "workspace-plugin",
     });
 
-    const unrelatedWorkspaceDir = path.join(workspaceDir, "lobster-integrations", "bin");
+    const unrelatedWorkspaceDir = path.join(workspaceDir, "mascot-integrations", "bin");
     createPackagePluginWithEntry({
       packageDir: unrelatedWorkspaceDir,
       packageName: "@luckynemo/stray-workspace-plugin",

@@ -18,13 +18,9 @@ import {
   resolveLocalUserAvatarText,
   resolveLocalUserAvatarUrl,
 } from "../../app/user-identity.ts";
+import { FISH_PET_PALETTES, canonicalFishLook, renderFishSvg } from "../../components/fish-pet.ts";
 import { icons } from "../../components/icons.ts";
-import { getLobsterdex, getLobsterdexEntries } from "../../components/lobster-dex.ts";
-import {
-  LOBSTER_PET_PALETTES,
-  canonicalLobsterLook,
-  renderLobsterSvg,
-} from "../../components/lobster-pet.ts";
+import { getMascotdex, getMascotdexEntries } from "../../components/mascot-dex.ts";
 import {
   renderSettingsEmpty,
   renderSettingsGroup,
@@ -116,10 +112,10 @@ type QuickSettingsProps = {
   onOpenCustomThemeImport?: () => void;
   setThemeMode: (mode: ThemeMode, context?: ThemeTransitionContext) => void;
   setTextScale: (value: number) => void;
-  lobsterPetVisits: boolean;
-  setLobsterPetVisits: (enabled: boolean) => void;
-  lobsterPetSounds: boolean;
-  setLobsterPetSounds: (enabled: boolean) => void;
+  mascotPetVisits: boolean;
+  setFishPetVisits: (enabled: boolean) => void;
+  mascotPetSounds: boolean;
+  setFishPetSounds: (enabled: boolean) => void;
   userAvatar?: string | null;
   onUserAvatarChange?: (next: string | null) => void;
 
@@ -818,50 +814,50 @@ function renderAppearanceSection(props: QuickSettingsProps) {
         }),
       }),
       renderSettingsToggleRow({
-        title: t("quickSettings.appearance.lobsterVisits"),
-        description: props.lobsterPetVisits
-          ? t("quickSettings.appearance.lobsterVisitsOn")
-          : t("quickSettings.appearance.lobsterVisitsOff"),
-        checked: props.lobsterPetVisits,
-        onChange: (enabled) => props.setLobsterPetVisits(enabled),
+        title: t("quickSettings.appearance.mascotVisits"),
+        description: props.mascotPetVisits
+          ? t("quickSettings.appearance.mascotVisitsOn")
+          : t("quickSettings.appearance.mascotVisitsOff"),
+        checked: props.mascotPetVisits,
+        onChange: (enabled) => props.setFishPetVisits(enabled),
       }),
       renderSettingsToggleRow({
-        title: t("quickSettings.appearance.lobsterSounds"),
-        description: props.lobsterPetSounds
-          ? t("quickSettings.appearance.lobsterSoundsOn")
-          : t("quickSettings.appearance.lobsterSoundsOff"),
-        checked: props.lobsterPetSounds,
-        onChange: (enabled) => props.setLobsterPetSounds(enabled),
+        title: t("quickSettings.appearance.mascotSounds"),
+        description: props.mascotPetSounds
+          ? t("quickSettings.appearance.mascotSoundsOn")
+          : t("quickSettings.appearance.mascotSoundsOff"),
+        checked: props.mascotPetSounds,
+        onChange: (enabled) => props.setFishPetSounds(enabled),
       }),
       renderSettingsRow({
-        title: t("quickSettings.appearance.lobsterdex"),
-        description: t("quickSettings.appearance.lobsterdexSeen", {
-          seen: String(LOBSTER_PET_PALETTES.filter((p) => getLobsterdex().has(p.id)).length),
-          total: String(LOBSTER_PET_PALETTES.length),
+        title: t("quickSettings.appearance.mascotdex"),
+        description: t("quickSettings.appearance.mascotdexSeen", {
+          seen: String(FISH_PET_PALETTES.filter((p) => getMascotdex().has(p.id)).length),
+          total: String(FISH_PET_PALETTES.length),
         }),
         stacked: true,
         control: html`
-          <div class="lobsterdex">
-            ${LOBSTER_PET_PALETTES.map((palette) => {
-              const entry = getLobsterdexEntries().get(palette.id);
+          <div class="mascotdex">
+            ${FISH_PET_PALETTES.map((palette) => {
+              const entry = getMascotdexEntries().get(palette.id);
               const seen = entry !== undefined;
               const title = !seen
                 ? "?"
                 : entry.firstSeenAt !== null
-                  ? t("quickSettings.appearance.lobsterdexFirstVisited", {
+                  ? t("quickSettings.appearance.mascotdexFirstVisited", {
                       name: entry.name ?? palette.id,
                       date: new Date(entry.firstSeenAt).toLocaleDateString(),
                     })
                   : (entry.name ?? palette.id);
               return html`
                 <span
-                  class="lobsterdex__mini lobster-pet--palette-${palette.id} ${seen
+                  class="mascotdex__mini fish-pet--palette-${palette.id} ${seen
                     ? ""
-                    : "lobsterdex__mini--unseen"}"
-                  style="--lob-shell:${palette.shell};--lob-claw:${palette.claw}"
+                    : "mascotdex__mini--unseen"}"
+                  style="--fish-body:${palette.shell};--fish-fin:${palette.claw}"
                   title=${title}
                 >
-                  ${renderLobsterSvg(canonicalLobsterLook(palette), { standalone: true })}
+                  ${renderFishSvg(canonicalFishLook(palette), { standalone: true })}
                 </span>
               `;
             })}

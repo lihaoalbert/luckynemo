@@ -1,9 +1,9 @@
-# 🦞 OpenClaw — Personal AI Assistant
+# 🐠 LuckyNemo (徐大恩) — Personal AI Assistant
 
 <p align="center">
     <picture>
         <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-banner-light.png">
-        <img src="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-banner-dark.png" alt="OpenClaw — EXFOLIATE! EXFOLIATE! Your personal AI assistant, running on your own devices.">
+        <img src="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-banner-dark.png" alt="LuckyNemo — your personal AI assistant, running on your own devices.">
     </picture>
 </p>
 
@@ -14,7 +14,7 @@
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="MIT License"></a>
 </p>
 
-**OpenClaw** is a _personal AI assistant_ you run on your own devices.
+**LuckyNemo** is a _personal AI assistant_ you run on your own devices.
 It answers you on the channels you already use. It can speak and listen on macOS/iOS/Android, and can render a live Canvas you control. The Gateway is just the control plane — the product is the assistant.
 
 If you want a personal, single-user assistant that feels local, fast, and always-on, this is it.
@@ -26,7 +26,7 @@ Supported channels include: WhatsApp, Telegram, Slack, Discord, Google Chat, Sig
 New install? Start here: [Getting started](https://docs.openclaw.ai/start/getting-started)
 
 Preferred setup: run `openclaw onboard` in your terminal.
-OpenClaw Onboard guides you step by step through setting up the gateway, workspace, channels, and skills. It is the recommended CLI setup path and works on **macOS, Linux, and Windows**.
+LuckyNemo Onboard guides you step by step through setting up the gateway, workspace, channels, and skills. It is the recommended CLI setup path and works on **macOS, Linux, and Windows**.
 Windows desktop users can start with the native [Windows Hub](https://docs.openclaw.ai/platforms/windows) companion app for setup, tray status, chat, node mode, and local MCP mode.
 Works with npm, pnpm, or bun.
 

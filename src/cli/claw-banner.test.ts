@@ -37,8 +37,8 @@ describe("printClawBanner", () => {
     const { runtime, log } = runtimeStub();
     await printClawBanner(runtime, { columns: 120, isTty: false, env: {} });
     const output = stripAnsi(String(log.mock.calls[0]?.[0]));
-    expect(output.split("\n")[0]).toBe("▄███▄     ▄███▄");
-    expect(output).toContain("█▀▀▀█ █▀▀▀█ █▀▀▀▀ █▄  █");
+    expect(output.split("\n")[0]).toBe("    ▄██▄     ");
+    expect(output).toContain("徐大恩");
   });
 
   it("stays static under CI even on a rich TTY", async () => {
@@ -51,7 +51,7 @@ describe("printClawBanner", () => {
     const { runtime, log } = runtimeStub();
     await printClawBanner(runtime, { columns: 50, isTty: true, rich: true, env: {} });
     const output = String(log.mock.calls[0]?.[0]);
-    expect(output).toContain("OPENCLAW");
+    expect(output).toContain("徐大恩");
     expect(output).not.toContain("█");
   });
 

@@ -36,7 +36,7 @@ async function roundedWidth(locator: Locator): Promise<number> {
 
 async function expectLobsterOnFooterLedge(sidebar: Locator) {
   const footer = sidebar.locator(".sidebar-shell__footer");
-  const sprite = footer.locator(".lobster-pet:not(.lobster-pet--passer)").first();
+  const sprite = footer.locator(".fish-pet:not(.fish-pet--passer)").first();
   await sprite.waitFor();
 
   await expect
@@ -618,7 +618,7 @@ describeControlUiE2e("Control UI sidebar customization mocked Gateway E2E", () =
     try {
       await page.goto(`${server.baseUrl}chat`);
       const sidebar = page.locator("openclaw-app-sidebar");
-      const pet = sidebar.locator(".sidebar-shell openclaw-lobster-pet");
+      const pet = sidebar.locator(".sidebar-shell openclaw-fish-pet");
       await expect.poll(() => pet.count()).toBe(1);
       await expect.poll(() => outcome(pet)).toBe("error");
       await expect.poll(() => page.locator(".topbar").isVisible()).toBe(false);
@@ -635,33 +635,33 @@ describeControlUiE2e("Control UI sidebar customization mocked Gateway E2E", () =
     }
   });
 
-  it("keeps the lobster on the footer ledge across desktop and drawer layouts", async () => {
+  it("keeps the mascot on the footer ledge across desktop and drawer layouts", async () => {
     const { context, page } = await openSidebarTestPage();
 
     try {
       const sidebar = page.locator("openclaw-app-sidebar");
-      const pet = sidebar.locator("openclaw-lobster-pet");
+      const pet = sidebar.locator("openclaw-fish-pet");
       const movement = await pet.evaluate(async (element) => {
-        const lobster = element as HTMLElement & {
+        const mascot = element as HTMLElement & {
           anchor: "bar";
           mode: "offline";
           performAct(act: "scuttle"): void;
           requestUpdate(): void;
           updateComplete: Promise<unknown>;
         };
-        lobster.mode = "offline";
-        await lobster.updateComplete;
-        lobster.anchor = "bar";
-        lobster.setAttribute("data-spot", "bar");
-        lobster.requestUpdate();
-        await lobster.updateComplete;
+        mascot.mode = "offline";
+        await mascot.updateComplete;
+        mascot.anchor = "bar";
+        mascot.setAttribute("data-spot", "bar");
+        mascot.requestUpdate();
+        await mascot.updateComplete;
 
-        const sprite = lobster.querySelector<HTMLElement>(".lobster-pet:not(.lobster-pet--passer)");
-        const before = sprite?.style.getPropertyValue("--lob-x") ?? "";
-        lobster.performAct("scuttle");
-        await lobster.updateComplete;
-        const after = sprite?.style.getPropertyValue("--lob-x") ?? "";
-        return { after, before, spot: lobster.getAttribute("data-spot") };
+        const sprite = mascot.querySelector<HTMLElement>(".fish-pet:not(.fish-pet--passer)");
+        const before = sprite?.style.getPropertyValue("--fish-x") ?? "";
+        mascot.performAct("scuttle");
+        await mascot.updateComplete;
+        const after = sprite?.style.getPropertyValue("--fish-x") ?? "";
+        return { after, before, spot: mascot.getAttribute("data-spot") };
       });
 
       expect(movement.spot).toBe("bar");
@@ -669,17 +669,17 @@ describeControlUiE2e("Control UI sidebar customization mocked Gateway E2E", () =
       expect(Number.parseFloat(movement.after)).toBeGreaterThanOrEqual(18);
       expect(Number.parseFloat(movement.after)).toBeLessThanOrEqual(50);
       await expectLobsterOnFooterLedge(sidebar);
-      const sprite = pet.locator(".lobster-pet:not(.lobster-pet--passer)").first();
+      const sprite = pet.locator(".fish-pet:not(.fish-pet--passer)").first();
       await sprite.dispatchEvent("pointerdown");
       await sprite.dispatchEvent("pointerup");
-      await expect.poll(() => sprite.getAttribute("class")).toContain("lobster-pet--act-startle");
-      await captureUiProof(page, "08-lobster-footer-ledge-desktop.png");
+      await expect.poll(() => sprite.getAttribute("class")).toContain("fish-pet--act-startle");
+      await captureUiProof(page, "08-mascot-footer-ledge-desktop.png");
 
       await page.setViewportSize({ height: 900, width: 900 });
       await page.locator(".topbar-nav-toggle").click();
       await expect.poll(() => sidebar.isVisible()).toBe(true);
       await expectLobsterOnFooterLedge(sidebar);
-      await captureUiProof(page, "09-lobster-footer-ledge-drawer.png");
+      await captureUiProof(page, "09-mascot-footer-ledge-drawer.png");
     } finally {
       await context.close();
     }

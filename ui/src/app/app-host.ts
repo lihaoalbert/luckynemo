@@ -1259,8 +1259,8 @@ class OpenClawShell extends OpenClawLightDomElement {
                 .sidebarPinnedRoutes=${navigationSnapshot.sidebarPinnedRoutes}
                 .pinnedAgentIds=${navigationSnapshot.pinnedAgentIds}
                 .themeMode=${context.theme.mode}
-                .lobsterPetVisits=${uiSettings.lobsterPetVisits !== false}
-                .lobsterPetSounds=${uiSettings.lobsterPetSounds === true}
+                .mascotPetVisits=${uiSettings.mascotPetVisits !== false}
+                .mascotPetSounds=${uiSettings.mascotPetSounds === true}
                 .gatewayVersion=${context.config.current.serverVersion ??
                 gatewaySnapshot.hello?.server?.version ??
                 null}

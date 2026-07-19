@@ -421,12 +421,12 @@ describe("renderPlugins", () => {
     const onInstall = vi.fn();
     const onSetEnabled = vi.fn();
     const available = createPlugin({
-      id: "lobster",
+      id: "mascot",
       name: "Lobster",
       installed: false,
       enabled: false,
       state: "not-installed",
-      install: { source: "official", pluginId: "lobster" },
+      install: { source: "official", pluginId: "mascot" },
     });
     const container = mount(
       createProps({

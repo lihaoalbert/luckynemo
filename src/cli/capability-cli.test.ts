@@ -81,7 +81,7 @@ const mocks = vi.hoisted(() => ({
     return {};
   }),
   describeImageFile: vi.fn(async () => ({
-    text: "friendly lobster",
+    text: "friendly mascot",
     provider: "openai",
     model: "gpt-4.1-mini",
   })),
@@ -91,11 +91,11 @@ const mocks = vi.hoisted(() => ({
     mime: "image/jpeg",
   })),
   describePreparedImageWithModel: vi.fn(async () => ({
-    text: "friendly lobster",
+    text: "friendly mascot",
     model: "gpt-4.1-mini",
   })),
   describeImageFileWithModel: vi.fn(async () => ({
-    text: "friendly lobster",
+    text: "friendly mascot",
     model: "gpt-4.1-mini",
   })),
   generateImage: vi.fn(),
@@ -1637,7 +1637,7 @@ describe("capability cli", () => {
         "image",
         "generate",
         "--prompt",
-        "friendly lobster",
+        "friendly mascot",
         "--output",
         tempOutput,
         "--json",
@@ -1671,14 +1671,14 @@ describe("capability cli", () => {
         "image",
         "generate",
         "--prompt",
-        "friendly lobster",
+        "friendly mascot",
         "--timeout-ms",
         "180000",
         "--json",
       ],
     });
 
-    expect(firstImageGenerationCall()?.prompt).toBe("friendly lobster");
+    expect(firstImageGenerationCall()?.prompt).toBe("friendly mascot");
     expect(firstImageGenerationCall()?.timeoutMs).toBe(180000);
   });
 
@@ -2120,7 +2120,7 @@ describe("capability cli", () => {
         "video",
         "generate",
         "--prompt",
-        "friendly lobster",
+        "friendly mascot",
         "--output",
         outputBase,
         "--json",
@@ -2169,7 +2169,7 @@ describe("capability cli", () => {
     await expect(
       runRegisteredCli({
         register: registerCapabilityCli as (program: Command) => void,
-        argv: ["capability", "video", "generate", "--prompt", "friendly lobster", "--json"],
+        argv: ["capability", "video", "generate", "--prompt", "friendly mascot", "--json"],
       }),
     ).rejects.toThrow("exit 1");
 
@@ -2212,7 +2212,7 @@ describe("capability cli", () => {
 
     await runRegisteredCli({
       register: registerCapabilityCli as (program: Command) => void,
-      argv: ["capability", "video", "generate", "--prompt", "friendly lobster", "--json"],
+      argv: ["capability", "video", "generate", "--prompt", "friendly mascot", "--json"],
     });
 
     const fetchCalls = fetchMock.mock.calls as unknown as Array<[string]>;
@@ -2244,7 +2244,7 @@ describe("capability cli", () => {
         "video",
         "generate",
         "--prompt",
-        "friendly lobster",
+        "friendly mascot",
         "--model",
         "minimax/MiniMax-Hailuo-2.3",
         "--size",
@@ -2264,7 +2264,7 @@ describe("capability cli", () => {
     });
 
     const videoCall = firstVideoGenerationCall();
-    expect(videoCall?.prompt).toBe("friendly lobster");
+    expect(videoCall?.prompt).toBe("friendly mascot");
     expect(videoCall?.modelOverride).toBe("minimax/MiniMax-Hailuo-2.3");
     expect(videoCall?.size).toBe("1280x768");
     expect(videoCall?.aspectRatio).toBe("16:9");
@@ -2286,7 +2286,7 @@ describe("capability cli", () => {
     await expect(
       runRegisteredCli({
         register: registerCapabilityCli as (program: Command) => void,
-        argv: ["capability", "video", "generate", "--prompt", "friendly lobster", "--json"],
+        argv: ["capability", "video", "generate", "--prompt", "friendly mascot", "--json"],
       }),
     ).rejects.toThrow("exit 1");
     expectRuntimeErrorContains("Video asset at index 0 has neither buffer nor url");
@@ -2339,7 +2339,7 @@ describe("capability cli", () => {
       runRegisteredCli({
         register: registerCapabilityCli as (program: Command) => void,
         // No --output: forces the in-memory buffered fallback path.
-        argv: ["capability", "video", "generate", "--prompt", "friendly lobster", "--json"],
+        argv: ["capability", "video", "generate", "--prompt", "friendly mascot", "--json"],
       }),
     ).rejects.toThrow("exit 1");
 
@@ -2390,7 +2390,7 @@ describe("capability cli", () => {
     await expect(
       runRegisteredCli({
         register: registerCapabilityCli as (program: Command) => void,
-        argv: ["capability", "video", "generate", "--prompt", "friendly lobster", "--json"],
+        argv: ["capability", "video", "generate", "--prompt", "friendly mascot", "--json"],
       }),
     ).rejects.toThrow("exit 1");
 
@@ -2426,7 +2426,7 @@ describe("capability cli", () => {
     await runRegisteredCli({
       register: registerCapabilityCli as (program: Command) => void,
       // No --output: in-memory buffered fallback path, under cap.
-      argv: ["capability", "video", "generate", "--prompt", "friendly lobster", "--json"],
+      argv: ["capability", "video", "generate", "--prompt", "friendly mascot", "--json"],
     });
 
     const fetchCalls = fetchMock.mock.calls as unknown as Array<[string]>;
@@ -2476,7 +2476,7 @@ describe("capability cli", () => {
     await expect(
       runRegisteredCli({
         register: registerCapabilityCli as (program: Command) => void,
-        argv: ["capability", "video", "generate", "--prompt", "friendly lobster", "--json"],
+        argv: ["capability", "video", "generate", "--prompt", "friendly mascot", "--json"],
       }),
     ).rejects.toThrow("exit 1");
 
@@ -2512,7 +2512,7 @@ describe("capability cli", () => {
 
     await runRegisteredCli({
       register: registerCapabilityCli as (program: Command) => void,
-      argv: ["capability", "video", "generate", "--prompt", "friendly lobster", "--json"],
+      argv: ["capability", "video", "generate", "--prompt", "friendly mascot", "--json"],
     });
 
     const output = firstJsonOutput();
@@ -3280,7 +3280,7 @@ describe("capability cli", () => {
   it("rejects providerless video describe model overrides", async () => {
     const mediaRuntime = await import("../media-understanding/runtime.js");
     vi.mocked(mediaRuntime.describeVideoFile).mockResolvedValue({
-      text: "friendly lobster",
+      text: "friendly mascot",
       provider: "openai",
       model: "gpt-4.1-mini",
     } as never);
