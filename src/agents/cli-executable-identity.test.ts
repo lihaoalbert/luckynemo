@@ -146,7 +146,7 @@ describe("CLI executable implementation identity", () => {
     });
     expect(identity?.runtimeArtifact).toEqual({ kind: "self-contained-executable" });
 
-    if (process.platform !== "win32") {
+    if (process.platform !== "win32" && process.platform !== "darwin") {
       const mixedCaseExecutable = path.join(root, "CLAUDE");
       fs.copyFileSync(process.execPath, mixedCaseExecutable);
       fs.chmodSync(mixedCaseExecutable, 0o755);

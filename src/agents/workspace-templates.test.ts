@@ -32,7 +32,7 @@ describe("resolveWorkspaceTemplateDir", () => {
   it("resolves templates from package root when module url is dist-rooted", async () => {
     const { resolveWorkspaceTemplateDir } = await loadWorkspaceTemplateResolvers();
     const root = await makeTempRoot();
-    await fs.writeFile(path.join(root, "package.json"), JSON.stringify({ name: "openclaw" }));
+    await fs.writeFile(path.join(root, "package.json"), JSON.stringify({ name: "luckynemo" }));
 
     const templatesDir = path.join(root, "src", "agents", "templates");
     await fs.mkdir(templatesDir, { recursive: true });
@@ -49,7 +49,7 @@ describe("resolveWorkspaceTemplateDir", () => {
   it("falls back to package-root runtime path when templates directory is missing", async () => {
     const { resolveWorkspaceTemplateDir } = await loadWorkspaceTemplateResolvers();
     const root = await makeTempRoot();
-    await fs.writeFile(path.join(root, "package.json"), JSON.stringify({ name: "openclaw" }));
+    await fs.writeFile(path.join(root, "package.json"), JSON.stringify({ name: "luckynemo" }));
 
     const distDir = path.join(root, "dist");
     await fs.mkdir(distDir, { recursive: true });
@@ -62,7 +62,7 @@ describe("resolveWorkspaceTemplateDir", () => {
   it("includes docs templates as secondary search roots", async () => {
     const { resolveWorkspaceTemplateSearchDirs } = await loadWorkspaceTemplateResolvers();
     const root = await makeTempRoot();
-    await fs.writeFile(path.join(root, "package.json"), JSON.stringify({ name: "openclaw" }));
+    await fs.writeFile(path.join(root, "package.json"), JSON.stringify({ name: "luckynemo" }));
 
     const runtimeTemplatesDir = path.join(root, "src", "agents", "templates");
     const docsTemplatesDir = path.join(root, "docs", "reference", "templates");

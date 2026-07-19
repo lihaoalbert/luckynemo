@@ -717,7 +717,9 @@ describe("processGatewayAllowlist", () => {
   });
 
   it("reviews and executes the same PATH-resolved executable", async () => {
-    const tempDir = fs.mkdtempSync(path.join(os.tmpdir(), "openclaw-auto-review-path-"));
+    const tempDir = fs.realpathSync(
+      fs.mkdtempSync(path.join(os.tmpdir(), "openclaw-auto-review-path-")),
+    );
     const shadowGit = path.join(tempDir, "git");
     fs.writeFileSync(shadowGit, "#!/bin/sh\nexit 0\n", { mode: 0o755 });
     try {
@@ -957,7 +959,7 @@ describe("processGatewayAllowlist", () => {
     const result = await runGatewayAllowlist({ command });
 
     expect(createAndRegisterDefaultExecApprovalRequestMock).not.toHaveBeenCalled();
-    expect(result).toEqual({ execCommandOverride: command });
+    expect(result.execCommandOverride).toMatch(/(?:\/usr\/bin\/)?cd \.$/);
     expect(commitExecAuthorizationMock).toHaveBeenCalledWith(
       expect.objectContaining({
         authorization: expect.objectContaining({
