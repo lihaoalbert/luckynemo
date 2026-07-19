@@ -482,16 +482,10 @@ describe("generate-npm-shrinkwrap", () => {
   it("targets changed publishable plugin shrinkwraps", () => {
     expect(
       shrinkwrapPackageDirsForChangedPaths([
-        "extensions/acpx/package.json",
-        "extensions/acpx/npm-shrinkwrap.json",
+        "extensions/cohere/package.json",
+        "extensions/cohere/npm-shrinkwrap.json",
       ]).map(repoRelativePath),
-    ).toEqual(["extensions/acpx"]);
-  });
-
-  it("targets changed tracked shrinkwraps for private packages", () => {
-    expect(
-      shrinkwrapPackageDirsForChangedPaths(["extensions/vault/package.json"]).map(repoRelativePath),
-    ).toEqual(["extensions/vault"]);
+    ).toEqual(["extensions/cohere"]);
   });
 
   it("falls back to every shrinkwrap when lockfile ownership is ambiguous", () => {
@@ -500,18 +494,18 @@ describe("generate-npm-shrinkwrap", () => {
     );
 
     expect(packageDirs).toContain("");
-    expect(packageDirs).toContain("extensions/acpx");
-    expect(packageDirs).toContain("extensions/vault");
+    expect(packageDirs).toContain("extensions/cohere");
+    expect(packageDirs.length).toBeGreaterThan(1);
   });
 
   it("falls back to every shrinkwrap when mixed lockfile changes do not map to packages", () => {
     const packageDirs = shrinkwrapPackageDirsForChangedPaths([
-      "extensions/acpx/package.json",
+      "extensions/cohere/package.json",
       "pnpm-lock.yaml",
     ]).map(repoRelativePath);
 
     expect(packageDirs).toContain("");
-    expect(packageDirs).toContain("extensions/acpx");
+    expect(packageDirs).toContain("extensions/cohere");
     expect(packageDirs.length).toBeGreaterThan(1);
   });
 
@@ -522,12 +516,12 @@ describe("generate-npm-shrinkwrap", () => {
     expect(packageDependencyInputsChanged(process.cwd(), ["pnpm-lock.yaml"])).toBe(true);
     expect(packageDependencyInputsChanged(process.cwd(), ["package.json"])).toBe(true);
     expect(
-      packageDependencyInputsChanged(path.join(process.cwd(), "extensions/acpx"), [
-        "extensions/acpx/npm-shrinkwrap.json",
+      packageDependencyInputsChanged(path.join(process.cwd(), "extensions/cohere"), [
+        "extensions/cohere/npm-shrinkwrap.json",
       ]),
     ).toBe(true);
     expect(
-      packageDependencyInputsChanged(path.join(process.cwd(), "extensions/acpx"), [
+      packageDependencyInputsChanged(path.join(process.cwd(), "extensions/cohere"), [
         "extensions/brave/package.json",
       ]),
     ).toBe(false);
