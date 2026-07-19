@@ -23,9 +23,7 @@ describe("managed npm plugin install paths", () => {
     });
     const projectName = path.basename(projectDir);
 
-    expect(projectName).toMatch(
-      /^openclaw-codex-[a-f0-9]{10}__openclaw-generation__g-[a-f0-9]{16}$/u,
-    );
+    expect(projectName).toMatch(/^luckynemo-codex-[a-f0-9]{10}__generation__g-[a-f0-9]{16}$/u);
     expect(projectName.length).toBeLessThanOrEqual(66);
 
     const nestedCodexBinaryPath = path.win32.join(
