@@ -254,7 +254,7 @@ export const sharedVitestConfig = {
         replacement: path.join(repoRoot, "packages", "gateway-protocol", "src", "index.ts"),
       },
       {
-        find: /^@openclaw\/ai\/internal\/(.+)$/,
+        find: /^@luckynemo\/ai\/internal\/(.+)$/,
         replacement: path.join(repoRoot, "packages", "ai", "src", "internal", "$1.ts"),
       },
       {
@@ -278,7 +278,7 @@ export const sharedVitestConfig = {
         replacement: path.join(repoRoot, "packages", "ai", "src", "validation.ts"),
       },
       {
-        find: /^@openclaw\/ai\/(.+)$/,
+        find: /^@luckynemo\/ai\/(.+)$/,
         replacement: path.join(repoRoot, "packages", "ai", "src", "$1.ts"),
       },
       {
@@ -472,7 +472,7 @@ export const sharedVitestConfig = {
         replacement: path.join(repoRoot, "packages", "normalization-core", "src", "utf16-slice.ts"),
       },
       {
-        find: /^@openclaw\/normalization-core$/u,
+        find: /^@luckynemo\/normalization-core$/u,
         replacement: path.join(repoRoot, "packages", "normalization-core", "src", "index.ts"),
       },
       sourcePackageAlias("markdown-core", "code-spans"),

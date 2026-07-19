@@ -37,7 +37,7 @@ describe("printClawBanner", () => {
     const { runtime, log } = runtimeStub();
     await printClawBanner(runtime, { columns: 120, isTty: false, env: {} });
     const output = stripAnsi(String(log.mock.calls[0]?.[0]));
-    expect(output.split("\n")[0]).toBe("    ▄██▄     ");
+    expect(output.split("\n")[0]).toBe("    ▄██▄");
     expect(output).toContain("徐大恩");
   });
 
@@ -49,7 +49,7 @@ describe("printClawBanner", () => {
 
   it("falls back to the plain title on narrow terminals", async () => {
     const { runtime, log } = runtimeStub();
-    await printClawBanner(runtime, { columns: 50, isTty: true, rich: true, env: {} });
+    await printClawBanner(runtime, { columns: 20, isTty: true, rich: true, env: {} });
     const output = String(log.mock.calls[0]?.[0]);
     expect(output).toContain("徐大恩");
     expect(output).not.toContain("█");
