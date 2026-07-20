@@ -2,96 +2,39 @@
 
 <p align="center">
     <picture>
-        <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-banner-light.png">
-        <img src="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/openclaw-banner-dark.png" alt="LuckyNemo — your personal AI assistant, running on your own devices.">
+        <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/lihaoalbert/luckynemo/main/docs/assets/luckynemo-banner-light.png">
+        <img src="https://raw.githubusercontent.com/lihaoalbert/luckynemo/main/docs/assets/luckynemo-banner-dark.png" alt="LuckyNemo (徐大恩) — your personal AI assistant, running on your own devices.">
     </picture>
 </p>
 
 <p align="center">
-  <a href="https://github.com/openclaw/openclaw/actions/workflows/ci.yml?branch=main"><img src="https://img.shields.io/github/actions/workflow/status/openclaw/openclaw/ci.yml?branch=main&style=for-the-badge" alt="CI status"></a>
-  <a href="https://github.com/openclaw/openclaw/releases"><img src="https://img.shields.io/github/v/release/openclaw/openclaw?include_prereleases&style=for-the-badge" alt="GitHub release"></a>
-  <a href="https://discord.gg/clawd"><img src="https://img.shields.io/discord/1456350064065904867?label=Discord&logo=discord&logoColor=white&color=5865F2&style=for-the-badge" alt="Discord"></a>
+  <a href="https://github.com/lihaoalbert/luckynemo/actions/workflows/ci.yml?branch=main"><img src="https://img.shields.io/github/actions/workflow/status/lihaoalbert/luckynemo/ci.yml?branch=main&style=for-the-badge" alt="CI status"></a>
+  <a href="https://github.com/lihaoalbert/luckynemo/releases"><img src="https://img.shields.io/github/v/release/lihaoalbert/luckynemo?include_prereleases&style=for-the-badge" alt="GitHub release"></a>
   <a href="LICENSE"><img src="https://img.shields.io/badge/License-MIT-blue.svg?style=for-the-badge" alt="MIT License"></a>
 </p>
 
-**LuckyNemo** is a _personal AI assistant_ you run on your own devices.
+> **Fork notice.** LuckyNemo is a community fork of [OpenClaw](https://github.com/openclaw/openclaw). The runtime, Gateway, multi-channel model and most docs are upstream's; this fork re-skins and rebrands the surface (chibi-clownfish mascot "徐大恩"), ships renamed binaries / i18n / npm package names, and lives independently on `github.com/lihaoalbert/luckynemo`. Behavior, internals and CLI shape match upstream until a fork-specific change is committed.
+
+**LuckyNemo (徐大恩)** is a _personal AI assistant_ you run on your own devices.
 It answers you on the channels you already use. It can speak and listen on macOS/iOS/Android, and can render a live Canvas you control. The Gateway is just the control plane — the product is the assistant.
 
 If you want a personal, single-user assistant that feels local, fast, and always-on, this is it.
 
 Supported channels include: WhatsApp, Telegram, Slack, Discord, Google Chat, Signal, iMessage, IRC, Microsoft Teams, Matrix, Feishu, LINE, Mattermost, Nextcloud Talk, Nostr, Synology Chat, Tlon, Twitch, Zalo, Zalo Personal, WeChat, QQ, WebChat.
 
-[Website](https://openclaw.ai) · [Docs](https://docs.openclaw.ai) · [Vision](VISION.md) · [Third-party notices](THIRD_PARTY_NOTICES.md) · [DeepWiki](https://deepwiki.com/openclaw/openclaw) · [Getting Started](https://docs.openclaw.ai/start/getting-started) · [Updating](https://docs.openclaw.ai/install/updating) · [Showcase](https://docs.openclaw.ai/start/showcase) · [FAQ](https://docs.openclaw.ai/help/faq) · [Onboarding](https://docs.openclaw.ai/start/wizard) · [Nix](https://github.com/openclaw/nix-openclaw) · [Docker](https://docs.openclaw.ai/install/docker) · [Discord](https://discord.gg/clawd)
+[Docs](https://docs.openclaw.ai) · [Vision](VISION.md) · [Third-party notices](THIRD_PARTY_NOTICES.md) · [Getting Started](https://docs.openclaw.ai/start/getting-started) · [Updating](https://docs.openclaw.ai/install/updating) · [FAQ](https://docs.openclaw.ai/help/faq) · [Onboarding](https://docs.openclaw.ai/start/wizard) · [Docker](https://docs.openclaw.ai/install/docker)
 
 New install? Start here: [Getting started](https://docs.openclaw.ai/start/getting-started)
 
-Preferred setup: run `openclaw onboard` in your terminal.
-LuckyNemo Onboard guides you step by step through setting up the gateway, workspace, channels, and skills. It is the recommended CLI setup path and works on **macOS, Linux, and Windows**.
-Windows desktop users can start with the native [Windows Hub](https://docs.openclaw.ai/platforms/windows) companion app for setup, tray status, chat, node mode, and local MCP mode.
-Works with npm, pnpm, or bun.
+> **Fork install note.** The `luckynemo` binary / npm package is not yet published to npm. Run from a source checkout (see [From source](#from-source-development)) or build the bundled CLI / macOS app yourself. The User-facing product docs at `docs.openclaw.ai` still describe the upstream `openclaw` binary; treat those as upstream behavior reference, not as `luckynemo` install instructions.
 
-## Sponsors
+Preferred setup: `pnpm luckynemo setup` followed by `pnpm luckynemo onboard --install-daemon`.
+LuckyNemo Onboard guides you step by step through setting up the gateway, workspace, channels, and skills. Works on **macOS, Linux, and Windows** from a source checkout.
+Works with pnpm (recommended for source checkouts) or bun.
 
-<table>
-  <tr>
-    <td align="center" width="16.66%">
-      <a href="https://openai.com/">
-        <picture>
-          <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/sponsors/openai-light.svg">
-          <img src="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/sponsors/openai.svg" alt="OpenAI" height="28">
-        </picture>
-      </a>
-    </td>
-    <td align="center" width="16.66%">
-      <a href="https://github.com/">
-        <picture>
-          <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/sponsors/github-light.svg">
-          <img src="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/sponsors/github.svg" alt="GitHub" height="28">
-        </picture>
-      </a>
-    </td>
-    <td align="center" width="16.66%">
-      <a href="https://www.nvidia.com/">
-        <picture>
-          <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/sponsors/nvidia.svg">
-          <img src="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/sponsors/nvidia-dark.svg" alt="NVIDIA" height="28">
-        </picture>
-      </a>
-    </td>
-    <td align="center" width="16.66%">
-      <a href="https://vercel.com/">
-        <picture>
-          <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/sponsors/vercel-light.svg">
-          <img src="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/sponsors/vercel.svg" alt="Vercel" height="24">
-        </picture>
-      </a>
-    </td>
-    <td align="center" width="16.66%">
-      <a href="https://blacksmith.sh/">
-        <picture>
-          <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/sponsors/blacksmith-light.svg">
-          <img src="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/sponsors/blacksmith.svg" alt="Blacksmith" height="28">
-        </picture>
-      </a>
-    </td>
-    <td align="center" width="16.66%">
-      <a href="https://www.convex.dev/">
-        <picture>
-          <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/sponsors/convex-light.svg">
-          <img src="https://raw.githubusercontent.com/openclaw/openclaw/main/docs/assets/sponsors/convex.svg" alt="Convex" height="24">
-        </picture>
-      </a>
-    </td>
-  </tr>
-</table>
+## Install (recommended — upstream binary for now)
 
-**Subscriptions (OAuth):**
-
-- **[OpenAI](https://openai.com/)** (ChatGPT/Codex)
-
-Model note: while many providers and models are supported, prefer a current flagship model from the provider you trust and already use. See [Onboarding](https://docs.openclaw.ai/start/wizard).
-
-## Install (recommended)
+> The fork binary `luckynemo` is not on npm yet. Until then, point your install at the upstream `openclaw` package; command names there line up after the rebrand work lands in this fork. If you only need to run from this checkout, skip ahead to [From source](#from-source-development).
 
 Runtime: **Node 24.15+ (recommended), Node 22.22.3+, or Node 25.9+**.
 
@@ -102,7 +45,7 @@ npm install -g openclaw@latest
 openclaw onboard --install-daemon
 ```
 
-OpenClaw Onboard installs the Gateway daemon (launchd/systemd user service) so it stays running.
+The onboard command installs the Gateway daemon (launchd/systemd user service) so it stays running.
 
 ## Quick start (TL;DR)
 
@@ -113,34 +56,34 @@ Full beginner guide (auth, pairing, channels): [Getting started](https://docs.op
 Recommended daemon mode:
 
 ```bash
-openclaw onboard --install-daemon
-openclaw gateway status
+luckynemo onboard --install-daemon
+luckynemo gateway status
 ```
 
 Foreground/debug mode:
 
 ```bash
-openclaw gateway stop
-openclaw gateway --port 18789 --verbose
+luckynemo gateway stop
+luckynemo gateway --port 18789 --verbose
 ```
 
 Send a test message or ask the assistant after either startup mode is running:
 
 ```bash
 # Send a message
-openclaw message send --target +1234567890 --message "Hello from OpenClaw"
+luckynemo message send --target +1234567890 --message "Hello from LuckyNemo"
 
 # Talk to the assistant (optionally deliver back to any connected channel: WhatsApp/Telegram/Slack/Discord/Google Chat/Signal/iMessage/IRC/Microsoft Teams/Matrix/Feishu/LINE/Mattermost/Nextcloud Talk/Nostr/Synology Chat/Tlon/Twitch/Zalo/Zalo Personal/WeChat/QQ/WebChat)
-openclaw agent --message "Ship checklist" --thinking high
+luckynemo agent --message "Ship checklist" --thinking high
 ```
 
-Upgrading? [Updating guide](https://docs.openclaw.ai/install/updating) (and run `openclaw doctor`).
+Upgrading? Run `luckynemo update` (or `luckynemo doctor` for a check).
 
 Models config + CLI: [Models](https://docs.openclaw.ai/concepts/models). Auth profile rotation + fallbacks: [Model failover](https://docs.openclaw.ai/concepts/model-failover).
 
 ## Security defaults (DM access)
 
-OpenClaw connects to real messaging surfaces. Treat inbound DMs as **untrusted input**.
+LuckyNemo connects to real messaging surfaces. Treat inbound DMs as **untrusted input**.
 
 Full security guide: [Security](https://docs.openclaw.ai/gateway/security).
 Before remote exposure, use the [Gateway exposure runbook](https://docs.openclaw.ai/gateway/security/exposure-runbook).
@@ -148,10 +91,10 @@ Before remote exposure, use the [Gateway exposure runbook](https://docs.openclaw
 Default behavior on Telegram/WhatsApp/Signal/iMessage/Microsoft Teams/Discord/Google Chat/Slack:
 
 - **DM pairing** (`dmPolicy="pairing"` / `channels.discord.dmPolicy="pairing"` / `channels.slack.dmPolicy="pairing"`; legacy: `channels.discord.dm.policy`, `channels.slack.dm.policy`): unknown senders receive a short pairing code and the bot does not process their message.
-- Approve with: `openclaw pairing approve <channel> <code>` (then the sender is added to a local allowlist store).
+- Approve with: `luckynemo pairing approve <channel> <code>` (then the sender is added to a local allowlist store).
 - Public inbound DMs require an explicit opt-in: set `dmPolicy="open"` and include `"*"` in the channel allowlist (`allowFrom` / `channels.discord.allowFrom` / `channels.slack.allowFrom`; legacy: `channels.discord.dm.allowFrom`, `channels.slack.dm.allowFrom`).
 
-Run `openclaw doctor` to surface risky/misconfigured DM policies.
+Run `luckynemo doctor` to surface risky/misconfigured DM policies.
 
 ## Highlights
 
@@ -161,7 +104,7 @@ Run `openclaw doctor` to surface risky/misconfigured DM policies.
 - **[Voice Wake](https://docs.openclaw.ai/nodes/voicewake) + [Talk Mode](https://docs.openclaw.ai/nodes/talk)** — wake words on macOS/iOS and continuous voice on Android (ElevenLabs + system TTS fallback).
 - **[Live Canvas](https://docs.openclaw.ai/platforms/mac/canvas)** — agent-driven visual workspace with [A2UI](https://docs.openclaw.ai/platforms/mac/canvas#canvas-a2ui).
 - **[First-class tools](https://docs.openclaw.ai/tools)** — browser, canvas, nodes, cron, sessions, and Discord/Slack actions.
-- **[Companion apps](https://docs.openclaw.ai/platforms)** — Windows Hub, macOS menu bar app, and iOS/Android [nodes](https://docs.openclaw.ai/nodes).
+- **[Companion apps](https://docs.openclaw.ai/platforms)** — macOS menu bar app, and iOS/Android [nodes](https://docs.openclaw.ai/nodes). Windows Hub is an upstream-only companion for now.
 - **[Onboarding](https://docs.openclaw.ai/start/wizard) + [skills](https://docs.openclaw.ai/tools/skills)** — onboarding-driven setup with bundled/managed/workspace skills.
 
 ## Security model (important)
@@ -175,50 +118,56 @@ Run `openclaw doctor` to surface risky/misconfigured DM policies.
 
 - Chat commands: `/status`, `/new`, `/reset`, `/compact`, `/think <level>`, `/verbose on|off`, `/trace on|off`, `/usage off|tokens|full`, `/restart`, `/activation mention|always`
 - Session tools: `sessions_list`, `sessions_history`, `sessions_send`
-- Skills registry: [ClawHub](https://clawhub.ai)
+- Skills registry: [ClawHub](https://clawhub.ai) (upstream — original ClawHub)
 - Architecture overview: [Architecture](https://docs.openclaw.ai/concepts/architecture)
 
 ## Docs by goal
 
 - New here: [Getting started](https://docs.openclaw.ai/start/getting-started), [Onboarding](https://docs.openclaw.ai/start/wizard), [Updating](https://docs.openclaw.ai/install/updating)
 - Channel setup: [Channels index](https://docs.openclaw.ai/channels), [WhatsApp](https://docs.openclaw.ai/channels/whatsapp), [Telegram](https://docs.openclaw.ai/channels/telegram), [Discord](https://docs.openclaw.ai/channels/discord), [Slack](https://docs.openclaw.ai/channels/slack)
-- Apps + nodes: [Windows Hub](https://docs.openclaw.ai/platforms/windows), [macOS](https://docs.openclaw.ai/platforms/macos), [iOS](https://docs.openclaw.ai/platforms/ios), [Android](https://docs.openclaw.ai/platforms/android), [Nodes](https://docs.openclaw.ai/nodes)
+- Apps + nodes: [macOS](https://docs.openclaw.ai/platforms/macos), [iOS](https://docs.openclaw.ai/platforms/ios), [Android](https://docs.openclaw.ai/platforms/android), [Nodes](https://docs.openclaw.ai/nodes)
 - Config + security: [Configuration](https://docs.openclaw.ai/gateway/configuration), [Security](https://docs.openclaw.ai/gateway/security), [Exposure runbook](https://docs.openclaw.ai/gateway/security/exposure-runbook), [Sandboxing](https://docs.openclaw.ai/gateway/sandboxing)
 - Remote + web: [Gateway](https://docs.openclaw.ai/gateway), [Remote access](https://docs.openclaw.ai/gateway/remote), [Tailscale](https://docs.openclaw.ai/gateway/tailscale), [Web surfaces](https://docs.openclaw.ai/web)
 - Tools + automation: [Tools](https://docs.openclaw.ai/tools), [Skills](https://docs.openclaw.ai/tools/skills), [Cron jobs](https://docs.openclaw.ai/automation/cron-jobs), [Webhooks](https://docs.openclaw.ai/automation/webhook), [Gmail Pub/Sub](https://docs.openclaw.ai/automation/gmail-pubsub)
 - Internals: [Architecture](https://docs.openclaw.ai/concepts/architecture), [Agent](https://docs.openclaw.ai/concepts/agent), [Session model](https://docs.openclaw.ai/concepts/session), [Gateway protocol](https://docs.openclaw.ai/reference/rpc)
 - Troubleshooting: [Channel troubleshooting](https://docs.openclaw.ai/channels/troubleshooting), [Logging](https://docs.openclaw.ai/logging), [Docs home](https://docs.openclaw.ai)
 
+> **About docs.** All linked docs are on the upstream `docs.openclaw.ai` host. They still describe the upstream `openclaw` product verbatim; treat them as the runtime reference until this fork has its own docs site. The forked command names (`luckynemo ...`) match upstream (`openclaw ...`) one-for-one after the rebrand lands.
+
 ## Apps (optional)
 
 The Gateway alone delivers a great experience. All apps are optional and add extra features.
 
-If you plan to build/run companion apps, follow the platform runbooks below.
+> **Fork app status (2026-07-20).** This fork is `pnpm` + Node-first. The original Windows Hub companion is upstream-only and not shipped here. macOS / iOS / Android are tracked but **not in the public fork yet** — they live in a sibling private fork until the chibi-clownfish build is signed and notarized. See `luckynemo doctor` for platform readiness on this machine.
 
-### macOS (OpenClaw.app) (optional)
+If you plan to build/run companion apps later, follow the platform runbooks below.
+
+### macOS (LuckyNemo.app) — tracked, not in this fork yet
 
 - Menu bar control for the Gateway and health.
 - Voice Wake + push-to-talk overlay.
 - WebChat + debug tools.
 - Remote gateway control over SSH.
 
-Note: signed builds required for macOS permissions to stick across rebuilds (see [macOS Permissions](https://docs.openclaw.ai/platforms/mac/permissions)).
+Runbook: [macOS](https://docs.openclaw.ai/platforms/macos). Note: signed builds required for macOS permissions to stick across rebuilds (see [macOS Permissions](https://docs.openclaw.ai/platforms/mac/permissions)). Stable app path + real signing identity are mandatory — no `--no-sign` / `SIGN_IDENTITY=-` / raw debug builds.
 
-### iOS node (optional)
+### iOS node — tracked, not in this fork yet
 
 - Pairs as a node over the Gateway WebSocket (device pairing).
 - Voice trigger forwarding + Canvas surface.
-- Controlled via `openclaw nodes …`.
+- Controlled via `luckynemo nodes …`.
 
 Runbook: [iOS connect](https://docs.openclaw.ai/platforms/ios).
 
-### Android node (optional)
+### Android node — tracked, not in this fork yet
 
-- Pairs as a WS node via device pairing (`openclaw devices ...`).
+- Pairs as a WS node via device pairing (`luckynemo devices ...`).
 - Exposes Connect/Chat/Voice tabs plus Canvas, Camera, Screen capture, and Android device command families.
 - Runbook: [Android connect](https://docs.openclaw.ai/platforms/android).
 
 ## From source (development)
+
+This is the **primary install path for the fork** — `luckynemo` is not yet on npm.
 
 Use `pnpm` for source checkouts. The repository is a pnpm workspace, and bundled
 plugins load from `extensions/*` during development so their package-local
@@ -228,13 +177,13 @@ root is not a supported source setup.
 For the dev loop:
 
 ```bash
-git clone https://github.com/openclaw/openclaw.git
-cd openclaw
+git clone https://github.com/lihaoalbert/luckynemo.git
+cd luckynemo
 
 pnpm install
 
-# First run only (or after resetting local OpenClaw config/workspace)
-pnpm openclaw setup
+# First run only (or after resetting local LuckyNemo config/workspace)
+pnpm luckynemo setup
 
 # Optional: prebuild Control UI before first startup
 pnpm ui:build
@@ -250,22 +199,23 @@ pnpm build
 pnpm ui:build
 ```
 
-`pnpm openclaw setup` writes the local config/workspace needed for `pnpm gateway:watch`. It is safe to re-run, but you normally only need it on first setup or after resetting local state. `pnpm gateway:watch` hands the configured Gateway port from the installed service to a durable tmux pane; run `pnpm openclaw gateway start` when you want the installed service back. It does not rebuild `dist/control-ui`, so rerun `pnpm ui:build` after `ui/` changes or use `pnpm ui:dev` when iterating on the Control UI. If you want this checkout to run onboarding directly, use `pnpm openclaw onboard --install-daemon`.
+`pnpm luckynemo setup` writes the local config/workspace needed for `pnpm gateway:watch`. It is safe to re-run, but you normally only need it on first setup or after resetting local state. `pnpm gateway:watch` hands the configured Gateway port from the installed service to a durable tmux pane; run `pnpm luckynemo gateway start` when you want the installed service back. It does not rebuild `dist/control-ui`, so rerun `pnpm ui:build` after `ui/` changes or use `pnpm ui:dev` when iterating on the Control UI. If you want this checkout to run onboarding directly, use `pnpm luckynemo onboard --install-daemon`.
 
-Note: `pnpm openclaw ...` runs TypeScript directly (via `tsx`). `pnpm build` produces `dist/` for running via Node / the packaged `openclaw` binary, while `pnpm gateway:watch` rebuilds the runtime on demand during the dev loop.
+Note: `pnpm luckynemo ...` runs TypeScript directly (via `tsx`). `pnpm build` produces `dist/` for running via Node / the packaged `luckynemo` binary, while `pnpm gateway:watch` rebuilds the runtime on demand during the dev loop.
 
 ## Development channels
 
-- **stable**: tagged releases (`vYYYY.M.D` or `vYYYY.M.D-<patch>`), npm dist-tag `latest`.
-- **beta**: prerelease tags (`vYYYY.M.D-beta.N`), npm dist-tag `beta` (macOS app may be missing).
-- **dev**: moving head of `main`, npm dist-tag `dev` (when published).
+This fork currently only ships a `main` branch — channel switching is an upstream feature.
 
-Switch channels (git + npm): `openclaw update --channel stable|beta|dev`.
-Details: [Development channels](https://docs.openclaw.ai/install/development-channels).
+- **stable**: upstream-tagged releases (`vYYYY.M.D` or `vYYYY.M.D-<patch>`).
+- **beta**: upstream prerelease tags (`vYYYY.M.D-beta.N`), macOS app may be missing.
+- **dev**: moving head of upstream `main`.
+
+> Fork release flow is **not** wired up yet. Until the fork has its own `scripts/release` / CHANGELOG pipeline, run from a `git clone` of `main`.
 
 ## Agent workspace + skills
 
-- Workspace root: `~/.openclaw/workspace` (configurable via `agents.defaults.workspace`).
+- Workspace root: `~/.openclaw/workspace` (configurable via `agents.defaults.workspace`; the runtime state dir is still `~/.openclaw/` until the fork does its own state-dir rename).
 - Injected prompt files: `AGENTS.md`, `SOUL.md`, `TOOLS.md`.
 - Skills: `~/.openclaw/workspace/skills/<skill>/SKILL.md`.
 
@@ -285,31 +235,24 @@ Minimal `~/.openclaw/openclaw.json` (model + defaults):
 
 ## Star History
 
-[![Star History Chart](https://api.star-history.com/svg?repos=openclaw/openclaw&type=date&legend=top-left)](https://www.star-history.com/#openclaw/openclaw&type=date&legend=top-left)
+[![Star History Chart](https://api.star-history.com/svg?repos=lihaoalbert/luckynemo&type=date&legend=top-left)](https://www.star-history.com/#lihaoalbert/luckynemo&type=date&legend=top-left)
 
-## Molty
+## Mascot
 
-OpenClaw was built for **Molty**, a space lobster AI assistant. 🦞
-by Peter Steinberger and the community.
+LuckyNemo is shipped with a chibi-clownfish mascot called **徐大恩** ("Xú Dà'ēn"), modeled on the founder's pet clownfish. It appears on the launcher banner (`docs/assets/luckynemo-banner-*.png`), the Control UI hero (`docs/assets/luckynemo-hero-*.png`) and the small-motif icons across the product.
 
-- [openclaw.ai](https://openclaw.ai)
-- [soul.md](https://soul.md)
-- [steipete.me](https://steipete.me)
-- [@openclaw](https://x.com/openclaw)
+LuckyNemo is a community fork of [OpenClaw](https://github.com/openclaw/openclaw) by Peter Steinberger and the OpenClaw maintainers & contributors. Thanks to the upstream project for the runtime, Gateway, multi-channel harness and docs that this fork stands on.
 
-## Community
+## Community / Contributing
 
-See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines, maintainers, and how to submit PRs.
-Use the [issue chooser](https://github.com/openclaw/openclaw/issues/new/choose) for bugs, docs bugs, and feature requests;
-ask setup/support questions in [Discord](https://discord.gg/clawd); and report vulnerabilities through [SECURITY.md](SECURITY.md).
-PRs should link the relevant issue when possible and follow the [PR template](.github/pull_request_template.md) with problem, impact, and evidence.
-AI/vibe-coded PRs welcome! 🤖
+This is a personal fork — there is no Discord, issue tracker, or PR queue of its own.
 
-Special thanks to [Mario Zechner](https://mariozechner.at/) for his support and for
-[pi-mono](https://github.com/earendil-works/pi-mono).
-Special thanks to Adam Doppelt for the lobster.bot domain.
+- Upstream bug reports and feature requests: [openclaw/openclaw issues](https://github.com/openclaw/openclaw/issues/new/choose).
+- Upstream setup/support: see `https://docs.openclaw.ai/help`.
+- Security disclosures upstream: `https://github.com/openclaw/openclaw/blob/main/SECURITY.md`.
+- For this fork specifically, file issues against `github.com/lihaoalbert/luckynemo` (best-effort response).
 
-Thanks to all clawtributors:
+Upstream clawtributors (the people who actually built the runtime you are running):
 
 <!-- clawtributors:start -->
 
