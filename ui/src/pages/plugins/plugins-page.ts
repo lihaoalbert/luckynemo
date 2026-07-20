@@ -812,7 +812,7 @@ class PluginsPage extends OpenClawLightDomElement {
       mcp.followUp === "oauth"
         ? t("pluginsPage.connectorAddedOauth", {
             name: connector.name,
-            command: `openclaw mcp login ${mcp.serverName}`,
+            command: `luckynemo mcp login ${mcp.serverName}`,
           })
         : mcp.followUp === "endpoint"
           ? t("pluginsPage.connectorAddedEndpoint", { name: connector.name })

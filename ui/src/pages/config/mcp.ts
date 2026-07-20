@@ -63,8 +63,8 @@ function quoteShellArg(value: string): string {
 
 function renderServerRow(server: McpServerRow) {
   const quotedName = quoteShellArg(server.name);
-  const probeCommand = `openclaw mcp probe ${quotedName}`;
-  const loginCommand = `openclaw mcp login ${quotedName}`;
+  const probeCommand = `luckynemo mcp probe ${quotedName}`;
+  const loginCommand = `luckynemo mcp login ${quotedName}`;
   const meta = [
     server.transport,
     server.auth,
@@ -132,10 +132,10 @@ export function renderMcp(props: McpViewProps) {
           <div class="settings-group">
             <div class="settings-row settings-row--stacked">
               <div class="mcp-command-card__grid">
-                <code>openclaw mcp status --verbose</code>
-                <code>openclaw mcp doctor --probe</code>
-                <code>openclaw mcp login &lt;name&gt;</code>
-                <code>openclaw mcp reload</code>
+                <code>luckynemo mcp status --verbose</code>
+                <code>luckynemo mcp doctor --probe</code>
+                <code>luckynemo mcp login &lt;name&gt;</code>
+                <code>luckynemo mcp reload</code>
               </div>
             </div>
           </div>
