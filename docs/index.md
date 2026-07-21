@@ -9,13 +9,13 @@ title: "OpenClaw"
 
 <p align="center">
     <img
-        src="/assets/openclaw-hero-light.png"
+        src="/assets/luckynemo-hero-light.png"
         alt="OpenClaw"
         width="500"
         class="dark:hidden"
     />
     <img
-        src="/assets/openclaw-hero-dark.png"
+        src="/assets/luckynemo-hero-dark.png"
         alt="OpenClaw"
         width="500"
         class="hidden dark:block"
