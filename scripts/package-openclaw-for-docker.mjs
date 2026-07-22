@@ -116,7 +116,7 @@ function resolvePackedOpenClawFileName(value) {
   const filename = value.trim();
   if (
     !filename.endsWith(".tgz") ||
-    (!filename.startsWith("openclaw-") &&
+    (!filename.startsWith("luckynemo-") &&
       !filename.includes(":") &&
       !filename.includes("/") &&
       !filename.includes("\\"))
@@ -124,7 +124,7 @@ function resolvePackedOpenClawFileName(value) {
     return "";
   }
   if (
-    !/^openclaw-[A-Za-z0-9._-]+\.tgz$/u.test(filename) ||
+    !/^luckynemo-[A-Za-z0-9._-]+\.tgz$/u.test(filename) ||
     filename.includes("\0") ||
     filename !== path.basename(filename) ||
     filename !== path.win32.basename(filename)
@@ -493,7 +493,7 @@ async function cleanPackedOpenClawTarballs(outputDir) {
 }
 
 function isPackedAiRuntimeTarball(filename) {
-  return /^openclaw-ai-[A-Za-z0-9._-]+\.tgz$/u.test(filename);
+  return /^luckynemo-ai-[A-Za-z0-9._-]+\.tgz$/u.test(filename);
 }
 
 export async function prepareBundledAiRuntimePackage(

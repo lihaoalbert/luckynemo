@@ -273,6 +273,7 @@ function runPhase(label, action) {
 const list = runPhase("tar list", () =>
   spawnSync("tar", ["-tf", tarball], {
     encoding: "utf8",
+    maxBuffer: 64 * 1024 * 1024,
     stdio: ["ignore", "pipe", "pipe"],
   }),
 );
