@@ -909,7 +909,7 @@ export class NodeRegistry {
     const node = this.nodesById.get(params.nodeId);
     return (
       node?.connId === params.connId &&
-      node.clientId === "openclaw-macos" &&
+      node.clientId === "luckynemo-macos" &&
       node.platform === "darwin"
     );
   }

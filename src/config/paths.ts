@@ -21,8 +21,8 @@ export let isNixMode = resolveIsNixMode();
 
 // Support the remaining legacy pre-rebrand state dir.
 const LEGACY_STATE_DIRNAMES = [".clawdbot"] as const;
-const NEW_STATE_DIRNAME = ".openclaw";
-const CONFIG_FILENAME = "openclaw.json";
+const NEW_STATE_DIRNAME = ".luckynemo";
+const CONFIG_FILENAME = "luckynemo.json";
 const LEGACY_CONFIG_FILENAMES = ["clawdbot.json"] as const;
 
 /** True when the root CLI selected a non-default isolated profile. */
@@ -59,7 +59,7 @@ export function resolveNewStateDir(homedir: () => string = resolveDefaultHomeDir
 /**
  * State directory for mutable data (sessions, logs, caches).
  * Can be overridden via OPENCLAW_STATE_DIR.
- * Default: ~/.openclaw
+ * Default: ~/.luckynemo
  */
 export function resolveStateDir(
   env: NodeJS.ProcessEnv = process.env,
@@ -118,7 +118,7 @@ function resolveUserPath(
  *
  * Returns an empty array when the var is unset or contains no usable entries,
  * preserving the historical behavior where `$include` is confined to the
- * directory containing `openclaw.json`.
+ * directory containing `luckynemo.json`.
  */
 export function resolveIncludeRoots(
   env: NodeJS.ProcessEnv = process.env,
@@ -153,7 +153,7 @@ export let STATE_DIR = resolveStateDir();
 /**
  * Config file path (JSON or JSON5).
  * Can be overridden via OPENCLAW_CONFIG_PATH.
- * Default: ~/.openclaw/openclaw.json (or $OPENCLAW_STATE_DIR/openclaw.json)
+ * Default: ~/.luckynemo/luckynemo.json (or $OPENCLAW_STATE_DIR/luckynemo.json)
  */
 function resolveCanonicalConfigPath(
   env: NodeJS.ProcessEnv = process.env,

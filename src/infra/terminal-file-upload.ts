@@ -28,7 +28,7 @@ type TerminalUploadRootOptions = {
 /** Windows temp variables can point at a shared directory; inherit the user's profile ACL instead. */
 function resolveTerminalUploadRoot(options?: TerminalUploadRootOptions): string {
   return (options?.platform ?? process.platform) === "win32"
-    ? path.join(options?.homeDir ?? homedir(), ".openclaw", "tmp")
+    ? path.join(options?.homeDir ?? homedir(), ".luckynemo", "tmp")
     : (options?.tempDir ?? tmpdir());
 }
 
