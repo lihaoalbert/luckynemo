@@ -333,7 +333,7 @@ export function loadSettings(): UiSettings {
     token: loadSessionToken(defaultUrl),
     sessionKey: "main",
     lastActiveSessionKey: "main",
-    theme: "claw",
+    theme: "dash",
     themeMode: "system",
     chatShowThinking: true,
     chatShowToolCalls: true,

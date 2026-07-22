@@ -185,7 +185,8 @@ export function resolveNavigatorLocale(navLang: string): Locale {
   if (navLang.startsWith("ru")) {
     return "ru";
   }
-  return DEFAULT_LOCALE;
+  // Product default: Chinese UI for users who have not picked a locale.
+  return "zh-CN";
 }
 
 export async function loadLazyLocaleTranslation(locale: Locale): Promise<TranslationMap | null> {
