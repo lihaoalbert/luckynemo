@@ -874,6 +874,30 @@ struct DashboardWindowSmokeTests {
         #expect(!DashboardWindowController._testJavaScriptConfirmResult(for: .cancel))
     }
 
+    @Test func `javascript prompt alert carries message and text input`() throws {
+        let alert = DashboardWindowController._testJavaScriptPromptAlert(
+            message: "Rename session",
+            defaultText: "婚礼设计",
+            host: "127.0.0.1")
+
+        #expect(alert.messageText == "LuckyNemo Dashboard")
+        #expect(alert.informativeText.contains("127.0.0.1 is asking:"))
+        #expect(alert.informativeText.contains("Rename session"))
+        #expect(alert.buttons.map(\.title) == ["OK", "Cancel"])
+        let input = try #require(alert.accessoryView as? NSTextField)
+        #expect(input.stringValue == "婚礼设计")
+
+        #expect(DashboardWindowController._testJavaScriptPromptResult(
+            for: .alertFirstButtonReturn,
+            alert: alert) == "婚礼设计")
+        #expect(DashboardWindowController._testJavaScriptPromptResult(
+            for: .alertSecondButtonReturn,
+            alert: alert) == nil)
+        #expect(DashboardWindowController._testJavaScriptPromptResult(
+            for: .cancel,
+            alert: alert) == nil)
+    }
+
     @Test func `dashboard failure state opens in dashboard window`() throws {
         let url = try #require(URL(string: "http://127.0.0.1:18789/control/"))
         let controller = DashboardWindowController(

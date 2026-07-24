@@ -256,6 +256,33 @@ final class DashboardWindowController: NSWindowController, WKNavigationDelegate,
         completionHandler(Self.javaScriptConfirmResult(for: alert.runModal()))
     }
 
+    /// Bridges JavaScript `window.prompt` calls in the embedded Control UI to a
+    /// native text-input sheet; without this callback, WebKit silently returns
+    /// `null`, so rename/new-group dialogs look like they do nothing.
+    func webView(
+        _ webView: WKWebView,
+        runJavaScriptTextInputPanelWithPrompt prompt: String,
+        defaultText: String?,
+        initiatedByFrame frame: WKFrameInfo,
+        completionHandler: @escaping @MainActor @Sendable (String?) -> Void)
+    {
+        guard webView === self.webView || self.linkBrowser.owns(webView) else {
+            completionHandler(nil)
+            return
+        }
+        let alert = Self.makeJavaScriptPromptAlert(
+            message: prompt,
+            defaultText: defaultText,
+            host: frame.request.url?.host)
+        if let window {
+            alert.beginSheetModal(for: window) { response in
+                completionHandler(Self.javaScriptPromptResult(for: response, alert: alert))
+            }
+            return
+        }
+        completionHandler(Self.javaScriptPromptResult(for: alert.runModal(), alert: alert))
+    }
+
     /// Bridges `<input type="file">` clicks in the embedded Control UI to a native
     /// `NSOpenPanel`; without a `WKUIDelegate`, WebKit silently drops the request
     /// and "Choose image" / file-picker buttons do nothing.
@@ -332,6 +359,34 @@ final class DashboardWindowController: NSWindowController, WKNavigationDelegate,
         -> Bool
     {
         response == .alertFirstButtonReturn
+    }
+
+    private static func makeJavaScriptPromptAlert(
+        message: String,
+        defaultText: String?,
+        host: String?) -> NSAlert
+    {
+        let alert = NSAlert()
+        alert.messageText = "LuckyNemo Dashboard"
+        if let host, !host.isEmpty {
+            alert.informativeText = "\(host) is asking:\n\n\(message)"
+        } else {
+            alert.informativeText = message
+        }
+        alert.addButton(withTitle: "OK")
+        alert.addButton(withTitle: "Cancel")
+        let input = NSTextField(frame: NSRect(x: 0, y: 0, width: 260, height: 24))
+        input.stringValue = defaultText ?? ""
+        alert.accessoryView = input
+        return alert
+    }
+
+    private static func javaScriptPromptResult(
+        for response: NSApplication.ModalResponse,
+        alert: NSAlert) -> String?
+    {
+        guard response == .alertFirstButtonReturn else { return nil }
+        return (alert.accessoryView as? NSTextField)?.stringValue
     }
 
     @available(*, unavailable)
@@ -1379,6 +1434,14 @@ extension DashboardWindowController {
 
     static func _testJavaScriptConfirmResult(for response: NSApplication.ModalResponse) -> Bool {
         self.javaScriptConfirmResult(for: response)
+    }
+
+    static func _testJavaScriptPromptAlert(message: String, defaultText: String?, host: String?) -> NSAlert {
+        self.makeJavaScriptPromptAlert(message: message, defaultText: defaultText, host: host)
+    }
+
+    static func _testJavaScriptPromptResult(for response: NSApplication.ModalResponse, alert: NSAlert) -> String? {
+        self.javaScriptPromptResult(for: response, alert: alert)
     }
 }
 #endif
