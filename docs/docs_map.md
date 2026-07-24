@@ -6161,15 +6161,6 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
   - H2: Surface
   - H2: Related docs
 
-## plugins/reference/clawrouter.md
-
-- Route: /plugins/reference/clawrouter
-- Headings:
-  - H1: ClawRouter plugin
-  - H2: Distribution
-  - H2: Surface
-  - H2: Related docs
-
 ## plugins/reference/clickclack.md
 
 - Route: /plugins/reference/clickclack
@@ -6598,6 +6589,15 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
 - Route: /plugins/reference/longcat
 - Headings:
   - H1: LongCat plugin
+  - H2: Distribution
+  - H2: Surface
+  - H2: Related docs
+
+## plugins/reference/luckynemo-router.md
+
+- Route: /plugins/reference/luckynemo-router
+- Headings:
+  - H1: LuckyNemo Router plugin
   - H2: Distribution
   - H2: Surface
   - H2: Related docs
@@ -7715,20 +7715,6 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
   - H2: Notes
   - H2: Related
 
-## providers/clawrouter.md
-
-- Route: /providers/clawrouter
-- Headings:
-  - H2: Getting started
-  - H2: Managed non-interactive deployment
-  - H2: Readiness and live proof
-  - H2: Model discovery
-  - H2: Protocol and provider plugins
-  - H2: Quotas and usage
-  - H2: Troubleshooting
-  - H2: Security behavior
-  - H2: Related
-
 ## providers/cloudflare-ai-gateway.md
 
 - Route: /providers/cloudflare-ai-gateway
@@ -8001,6 +7987,20 @@ Do not edit it by hand; run `pnpm docs:map:gen`.
   - H2: Pricing
   - H2: Self-hosted LongCat-2.0
   - H2: Troubleshooting
+  - H2: Related
+
+## providers/luckynemo-router.md
+
+- Route: /providers/luckynemo-router
+- Headings:
+  - H2: Getting started
+  - H2: Managed non-interactive deployment
+  - H2: Readiness and live proof
+  - H2: Model discovery
+  - H2: Protocol and provider plugins
+  - H2: Quotas and usage
+  - H2: Troubleshooting
+  - H2: Security behavior
   - H2: Related
 
 ## providers/meta.md

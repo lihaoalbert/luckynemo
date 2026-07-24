@@ -1,0 +1,15 @@
+{
+  "name": "@luckynemo/luckynemo-router",
+  "version": "2026.7.2",
+  "private": true,
+  "description": "LuckyNemo Router plugin",
+  "type": "module",
+  "devDependencies": {
+    "@luckynemo/plugin-sdk": "workspace:*"
+  },
+  "openclaw": {
+    "extensions": [
+      "./index.ts"
+    ]
+  }
+}

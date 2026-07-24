@@ -29,6 +29,6 @@
     }
   },
   "dependencies": {
-    "openclaw": "workspace:*"
+    "luckynemo": "workspace:*"
   }
 }

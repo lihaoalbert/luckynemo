@@ -411,11 +411,6 @@
       - any-glob-to-any-file:
           - "extensions/cerebras/**"
           - "docs/providers/cerebras.md"
-"extensions: clawrouter":
-  - changed-files:
-      - any-glob-to-any-file:
-          - "extensions/clawrouter/**"
-          - "docs/providers/clawrouter.md"
 "extensions: crabbox":
   - changed-files:
       - any-glob-to-any-file:
@@ -510,6 +505,11 @@
       - any-glob-to-any-file:
           - "extensions/longcat/**"
           - "docs/providers/longcat.md"
+"extensions: luckynemo-router":
+  - changed-files:
+      - any-glob-to-any-file:
+          - "extensions/luckynemo-router/**"
+          - "docs/providers/luckynemo-router.md"
 "extensions: meta":
   - changed-files:
       - any-glob-to-any-file:

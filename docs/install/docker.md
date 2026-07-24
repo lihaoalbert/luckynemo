@@ -200,8 +200,9 @@ unified build entries must compile successfully; unselected external plugin
 source and runtime output are pruned.
 
 For example, these commands build separate, multi-architecture standalone
-FakeCo gateway images for ClickClack, Slack, and Microsoft Teams. ClawRouter is
-already part of the root OpenClaw runtime, so the ClickClack image selects only
+FakeCo gateway images for ClickClack, Slack, and Microsoft Teams. LuckyNemo
+Router is
+already part of the root LuckyNemo runtime, so the ClickClack image selects only
 `clickclack`. The explicit empty browser argument keeps the default image free
 of Chromium:
 

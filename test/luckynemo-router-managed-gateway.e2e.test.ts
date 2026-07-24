@@ -9,10 +9,10 @@ import {
   type OpenClawTestInstance,
 } from "./helpers/openclaw-test-instance.js";
 
-const API_KEY = "clawrouter-e2e-secret";
+const API_KEY = "luckynemo-router-e2e-secret";
 const MODEL_ID = "openai/gpt-5.5";
-const MODEL_REF = `clawrouter/${MODEL_ID}`;
-const SUCCESS_MARKER = "CLAWROUTER_E2E_OK";
+const MODEL_REF = `luckynemo/${MODEL_ID}`;
+const SUCCESS_MARKER = "LUCKYNEMO_E2E_OK";
 
 type CapturedRequest = {
   method: string;
@@ -22,49 +22,50 @@ type CapturedRequest = {
   body?: Record<string, unknown>;
 };
 
-type FakeClawRouter = {
+type FakeLuckyNemoRouter = {
   baseUrl: string;
   requests: CapturedRequest[];
   close: () => Promise<void>;
 };
 
 const instances: OpenClawTestInstance[] = [];
-const routers: FakeClawRouter[] = [];
+const routers: FakeLuckyNemoRouter[] = [];
 
 afterEach(async () => {
   await Promise.allSettled(instances.splice(0).map((instance) => instance.cleanup()));
   await Promise.allSettled(routers.splice(0).map((router) => router.close()));
 });
 
-describe("ClawRouter managed gateway contract", () => {
+describe("LuckyNemo Router managed gateway contract", () => {
   it("boots from a SecretRef, reports truthful readiness, and routes an attributed agent turn", async () => {
-    const router = await startFakeClawRouter();
+    const router = await startFakeLuckyNemoRouter();
     routers.push(router);
     const instance = await createOpenClawTestInstance({
-      name: "clawrouter-managed-gateway",
+      name: "luckynemo-router-managed-gateway",
       env: {
-        CLAWROUTER_API_KEY: API_KEY,
+        LUCKYNEMO_API_KEY: API_KEY,
         OPENCLAW_SKIP_PROVIDERS: undefined,
         OPENCLAW_TEST_FAST: "1",
         OPENCLAW_TEST_MINIMAL_GATEWAY: undefined,
       },
     });
     instances.push(instance);
-    const logFile = path.join(instance.stateDir, "clawrouter.log");
+    const logFile = path.join(instance.stateDir, "luckynemo-router.log");
 
     const patchPath = await instance.state.writeText(
-      "clawrouter.patch.json5",
+      "luckynemo-router.patch.json5",
       JSON.stringify(
         {
           plugins: {
-            allow: ["clawrouter"],
-            entries: { clawrouter: { enabled: true } },
+            allow: ["luckynemo-router"],
+            entries: { "luckynemo-router": { enabled: true } },
           },
           models: {
             providers: {
-              clawrouter: {
+              luckynemo: {
                 baseUrl: router.baseUrl,
-                apiKey: { source: "env", provider: "default", id: "CLAWROUTER_API_KEY" },
+                apiKey: { source: "env", provider: "default", id: "LUCKYNEMO_API_KEY" },
+                // The X-ClawRouter-* header names are the server protocol contract.
                 headers: { "X-ClawRouter-Project-Id": "fakeco-e2e" },
               },
             },
@@ -103,14 +104,14 @@ describe("ClawRouter managed gateway contract", () => {
       };
       plugins?: { allow?: string[]; entries?: Record<string, { enabled?: boolean }> };
     };
-    expect(config.models?.providers?.clawrouter).toMatchObject({
-      apiKey: { source: "env", provider: "default", id: "CLAWROUTER_API_KEY" },
+    expect(config.models?.providers?.luckynemo).toMatchObject({
+      apiKey: { source: "env", provider: "default", id: "LUCKYNEMO_API_KEY" },
       baseUrl: router.baseUrl,
       headers: { "X-ClawRouter-Project-Id": "fakeco-e2e" },
     });
     expect(config.agents?.defaults?.model?.primary).toBe(MODEL_REF);
-    expect(config.plugins?.allow).toContain("clawrouter");
-    expect(config.plugins?.entries?.clawrouter?.enabled).toBe(true);
+    expect(config.plugins?.allow).toContain("luckynemo-router");
+    expect(config.plugins?.entries?.["luckynemo-router"]?.enabled).toBe(true);
     expect(configText).not.toContain(API_KEY);
 
     const routerHealth = await fetch(`${router.baseUrl}/v1/health`);
@@ -133,7 +134,7 @@ describe("ClawRouter managed gateway contract", () => {
     expect(gatewayReadiness).toMatchObject({ ready: true, failing: [] });
 
     const catalog = await instance.cli(
-      ["models", "list", "--all", "--provider", "clawrouter", "--json"],
+      ["models", "list", "--all", "--provider", "luckynemo", "--json"],
       { timeoutMs: 120_000 },
     );
     expect(catalog.code, catalog.stderr).toBe(0);
@@ -145,7 +146,7 @@ describe("ClawRouter managed gateway contract", () => {
         "status",
         "--probe",
         "--probe-provider",
-        "clawrouter",
+        "luckynemo",
         "--probe-max-tokens",
         "8",
         "--json",
@@ -153,7 +154,7 @@ describe("ClawRouter managed gateway contract", () => {
       { timeoutMs: 120_000 },
     );
     expect(probe.code, probe.stderr).toBe(0);
-    expect(probe.stdout).toMatch(/"provider"\s*:\s*"clawrouter"/u);
+    expect(probe.stdout).toMatch(/"provider"\s*:\s*"luckynemo"/u);
     expect(probe.stdout).toMatch(/"status"\s*:\s*"ok"/u);
 
     const agent = await instance.cli(
@@ -181,7 +182,7 @@ describe("ClawRouter managed gateway contract", () => {
       body: { model: MODEL_ID, stream: true },
       headers: {
         "x-clawrouter-agent-id": "main",
-        "x-clawrouter-client": "openclaw",
+        "x-clawrouter-client": "luckynemo",
         "x-clawrouter-project-id": "fakeco-e2e",
       },
     });
@@ -199,10 +200,10 @@ describe("ClawRouter managed gateway contract", () => {
     // piped stdout can be delivered after the agent RPC has already completed.
     const fileLog = await fs.readFile(logFile, "utf8");
     expect(fileLog).toContain(
-      `[model-fetch] start provider=clawrouter api=openai-responses model=${MODEL_ID} method=POST url=${router.baseUrl}/v1/responses`,
+      `[model-fetch] start provider=luckynemo api=openai-responses model=${MODEL_ID} method=POST url=${router.baseUrl}/v1/responses`,
     );
     expect(fileLog).toContain(
-      `[model-fetch] response provider=clawrouter api=openai-responses model=${MODEL_ID} status=200`,
+      `[model-fetch] response provider=luckynemo api=openai-responses model=${MODEL_ID} status=200`,
     );
     expect(
       [
@@ -242,10 +243,10 @@ async function waitForGatewayReadiness(
   throw new Error(`gateway did not become ready: ${instance.logs()}`);
 }
 
-async function startFakeClawRouter(): Promise<FakeClawRouter> {
+async function startFakeLuckyNemoRouter(): Promise<FakeLuckyNemoRouter> {
   const requests: CapturedRequest[] = [];
   const server = createServer((req, res) => {
-    void handleClawRouterRequest(req, res, requests).catch((error) => {
+    void handleLuckyNemoRouterRequest(req, res, requests).catch((error) => {
       res.writeHead(500, { "content-type": "application/json" });
       res.end(JSON.stringify({ error: { message: String(error) } }));
     });
@@ -255,7 +256,7 @@ async function startFakeClawRouter(): Promise<FakeClawRouter> {
   if (!address || typeof address === "string") {
     server.closeAllConnections();
     await new Promise<void>((resolve) => server.close(() => resolve()));
-    throw new Error("fake ClawRouter did not bind a TCP port");
+    throw new Error("fake LuckyNemo Router did not bind a TCP port");
   }
   return {
     baseUrl: `http://127.0.0.1:${(address as AddressInfo).port}`,
@@ -267,7 +268,7 @@ async function startFakeClawRouter(): Promise<FakeClawRouter> {
   };
 }
 
-async function handleClawRouterRequest(
+async function handleLuckyNemoRouterRequest(
   req: IncomingMessage,
   res: ServerResponse,
   requests: CapturedRequest[],
@@ -335,8 +336,8 @@ async function handleClawRouterRequest(
 }
 
 function resolveResponseText(body: Record<string, unknown> | undefined): string {
-  const matches = JSON.stringify(body ?? {}).match(/CLAWROUTER_[A-Z0-9_]+/gu);
-  return matches?.at(-1) ?? "CLAWROUTER_PROBE_OK";
+  const matches = JSON.stringify(body ?? {}).match(/LUCKYNEMO_[A-Z0-9_]+/gu);
+  return matches?.at(-1) ?? "LUCKYNEMO_PROBE_OK";
 }
 
 async function readRequestBody(req: IncomingMessage): Promise<string> {
@@ -353,7 +354,7 @@ function writeJson(res: ServerResponse, status: number, body: unknown): void {
 }
 
 function writeResponsesStream(res: ServerResponse, text: string): void {
-  const itemId = "msg_clawrouter_e2e";
+  const itemId = "msg_luckynemo_router_e2e";
   const events = [
     {
       type: "response.output_item.added",
@@ -386,7 +387,7 @@ function writeResponsesStream(res: ServerResponse, text: string): void {
     {
       type: "response.completed",
       response: {
-        id: "resp_clawrouter_e2e",
+        id: "resp_luckynemo_router_e2e",
         status: "completed",
         output: [
           {
@@ -412,7 +413,7 @@ function writeResponsesStream(res: ServerResponse, text: string): void {
     "content-type": "text/event-stream",
     "x-clawrouter-content-retention": "off",
     "x-clawrouter-upstream-provider": "openai",
-    "x-request-id": "clawrouter-e2e-request",
+    "x-request-id": "luckynemo-router-e2e-request",
   });
   for (const event of events) {
     res.write(`data: ${JSON.stringify(event)}\n\n`);

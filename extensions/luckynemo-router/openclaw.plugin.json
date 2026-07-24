@@ -1,0 +1,40 @@
+{
+  "id": "luckynemo-router",
+  "activation": {
+    "onStartup": false
+  },
+  "enabledByDefault": true,
+  "providers": ["luckynemo"],
+  "contracts": {
+    "usageProviders": ["luckynemo"]
+  },
+  "setup": {
+    "providers": [
+      {
+        "id": "luckynemo",
+        "envVars": ["LUCKYNEMO_API_KEY"]
+      }
+    ]
+  },
+  "providerAuthChoices": [
+    {
+      "provider": "luckynemo",
+      "method": "api-key",
+      "choiceId": "luckynemo-api-key",
+      "choiceLabel": "LuckyNemo proxy key",
+      "choiceHint": "Approved models through one managed key",
+      "groupId": "luckynemo",
+      "groupLabel": "LuckyNemo",
+      "groupHint": "Managed model access and quotas",
+      "optionKey": "luckynemoApiKey",
+      "cliFlag": "--luckynemo-api-key",
+      "cliOption": "--luckynemo-api-key <key>",
+      "cliDescription": "LuckyNemo proxy key"
+    }
+  ],
+  "configSchema": {
+    "type": "object",
+    "additionalProperties": false,
+    "properties": {}
+  }
+}

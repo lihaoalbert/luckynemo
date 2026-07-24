@@ -13,10 +13,10 @@
   },
   "devDependencies": {
     "@luckynemo/plugin-sdk": "workspace:*",
-    "openclaw": "workspace:*"
+    "luckynemo": "workspace:*"
   },
   "peerDependencies": {
-    "openclaw": ">=2026.7.2"
+    "luckynemo": ">=2026.7.2"
   },
   "peerDependenciesMeta": {
     "openclaw": {

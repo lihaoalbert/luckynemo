@@ -44,20 +44,20 @@
     "target": "ClawHub"
   },
   {
-    "source": "ClawRouter (managed multi-provider routing)",
-    "target": "ClawRouter（托管式多提供商路由）"
+    "source": "LuckyNemo Router (managed multi-provider routing)",
+    "target": "LuckyNemo Router（托管式多提供商路由）"
   },
   {
-    "source": "ClawRouter",
-    "target": "ClawRouter"
+    "source": "LuckyNemo Router",
+    "target": "LuckyNemo Router"
   },
   {
-    "source": "ClawRouter plugin",
-    "target": "ClawRouter 插件"
+    "source": "LuckyNemo Router plugin",
+    "target": "LuckyNemo Router 插件"
   },
   {
-    "source": "clawrouter",
-    "target": "clawrouter"
+    "source": "luckynemo-router",
+    "target": "luckynemo-router"
   },
   {
     "source": "OpenAI",

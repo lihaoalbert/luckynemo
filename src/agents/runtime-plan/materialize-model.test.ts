@@ -67,7 +67,7 @@ describe("materializePreparedRuntimeModel", () => {
 
   it("re-resolves route-less profile-scoped model metadata", async () => {
     const model = {
-      provider: "clawrouter",
+      provider: "luckynemo",
       id: "private-model",
       api: "anthropic-messages",
       baseUrl: "https://router.example.test",
@@ -78,13 +78,13 @@ describe("materializePreparedRuntimeModel", () => {
     await expect(
       materializePreparedRuntimeModel({
         plan: {
-          providerForAuth: "clawrouter",
-          authProfileProviderForAuth: "clawrouter",
+          providerForAuth: "luckynemo",
+          authProfileProviderForAuth: "luckynemo",
           modelId: "private-model",
-          forwardedAuthProfileId: "clawrouter:backup",
+          forwardedAuthProfileId: "luckynemo:backup",
           selectedAuthMode: "api-key",
         },
-        provider: "clawrouter",
+        provider: "luckynemo",
         modelId: "private-model",
         config: {} as OpenClawConfig,
         model,
@@ -94,7 +94,7 @@ describe("materializePreparedRuntimeModel", () => {
     ).resolves.toBe(rematerialized);
     expect(resolveModel).toHaveBeenCalledWith({
       config: {},
-      authProfileId: "clawrouter:backup",
+      authProfileId: "luckynemo:backup",
       authProfileMode: "api_key",
     });
   });
