@@ -12,8 +12,14 @@ APP="$DIST/LuckyNemo.app"
 IDENTITY="${1:-LuckyNemo Local Dev}"
 TOOLCHAIN="${TOOLCHAIN:-org.swift.624202602241a}"
 
-echo "==> swift build -c release (toolchain $TOOLCHAIN)"
-(cd "$ROOT" && xcrun --toolchain "$TOOLCHAIN" swift build -c release --product LuckyNemo)
+# Prefer the toolchain's swift directly: xcrun refuses to run when the Xcode
+# license has not been accepted, while the standalone toolchain works fine.
+SWIFT_BIN="${SWIFT_BIN:-$HOME/Library/Developer/Toolchains/$TOOLCHAIN.xctoolchain/usr/bin/swift}"
+# swift build shells out to `xcrun --show-sdk-path`, which is also gated by the
+# Xcode license check; point SDKROOT at the SDK directly to bypass it.
+export SDKROOT="${SDKROOT:-$(xcode-select -p)/Platforms/MacOSX.platform/Developer/SDKs/MacOSX.sdk}"
+echo "==> swift build -c release ($SWIFT_BIN)"
+(cd "$ROOT" && "$SWIFT_BIN" build -c release --product LuckyNemo)
 
 echo "==> assemble $APP"
 rm -rf "$APP"
