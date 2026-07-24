@@ -240,6 +240,15 @@ describe("method scope resolution", () => {
         cwd: "/other/repo",
       }),
     ).toEqual({ allowed: false, missingScope: "operator.admin" });
+    // A plain cwd (no worktree/execNode) is the same arbitrary host path target.
+    expect(
+      resolveLeastPrivilegeOperatorScopesForMethod("sessions.create", { cwd: "/other/repo" }),
+    ).toEqual(["operator.admin"]);
+    expect(
+      authorizeOperatorScopesForMethod("sessions.create", ["operator.write"], {
+        cwd: "/other/repo",
+      }),
+    ).toEqual({ allowed: false, missingScope: "operator.admin" });
   });
 
   it("keeps worktree target params at write scope but execNode at admin", () => {

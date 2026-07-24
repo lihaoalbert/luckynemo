@@ -229,10 +229,7 @@ export function renderWhereSelect(params: {
                 value: "worktree",
                 label: t("newSession.worktree"),
                 checked: params.worktree,
-                disabled:
-                  Boolean(params.cloudProfileId) ||
-                  !params.worktreeAvailable ||
-                  params.customFolder,
+                disabled: Boolean(params.cloudProfileId) || !params.worktreeAvailable,
                 title: params.cloudProfileId
                   ? t("newSession.cloudRequiresWorktree")
                   : params.worktreeAvailable

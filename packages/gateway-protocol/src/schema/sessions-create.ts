@@ -42,7 +42,7 @@ export const SessionsCreateParamsSchema = closedObject({
     Type.String({
       minLength: 1,
       description:
-        "Absolute source directory for a managed worktree, or the working directory on execNode. Requires operator.admin.",
+        "Absolute working directory persisted as the session's spawnedCwd. Also the source directory for a managed worktree, or the working directory on execNode. Requires operator.admin.",
     }),
   ),
 });

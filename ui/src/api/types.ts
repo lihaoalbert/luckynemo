@@ -475,6 +475,8 @@ type SessionCompactionCheckpointPreview = Pick<
 export type GatewaySessionRow = {
   key: string;
   spawnedBy?: string;
+  /** Session working directory (managed worktree path, node cwd, or a plain Gateway-local folder). */
+  spawnedCwd?: string | null;
   /** Managed worktree bound to this session (repo checkout + branch). */
   worktree?: { id: string; branch: string; repoRoot: string };
   /** Session-scoped exec node binding (exec host=node routing). */

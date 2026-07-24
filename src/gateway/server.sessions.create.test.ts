@@ -394,13 +394,50 @@ test("sessions.create provisions a worktree from an admin-selected cwd", async (
   }
 });
 
-test("sessions.create rejects cwd without a managed worktree", async () => {
-  const created = await directSessionReq("sessions.create", { cwd: "/tmp/repo" });
+test("sessions.create persists a plain Gateway-local cwd as spawnedCwd", async () => {
+  const folder = await fs.mkdtemp(
+    path.join(await fs.realpath(os.tmpdir()), "openclaw-session-plain-cwd-"),
+  );
+  await createSessionStoreDir();
+  try {
+    const created = await directSessionReq<{
+      key: string;
+      entry: { spawnedCwd?: string; worktree?: unknown; execNode?: string; execCwd?: string };
+    }>(
+      "sessions.create",
+      { agentId: "main", cwd: folder },
+      { client: { connect: { scopes: ["operator.admin"] } } as never },
+    );
+
+    expect(created.ok).toBe(true);
+    expect(created.payload?.entry.spawnedCwd).toBe(folder);
+    expect(created.payload?.entry.worktree).toBeUndefined();
+    expect(created.payload?.entry.execNode).toBeUndefined();
+    expect(created.payload?.entry.execCwd).toBeUndefined();
+
+    const listed = await directSessionReq<{
+      sessions?: Array<{ key: string; spawnedCwd?: string }>;
+    }>("sessions.list", {});
+    expect(listed.ok).toBe(true);
+    const row = listed.payload?.sessions?.find((session) => session.key === created.payload?.key);
+    expect(row?.spawnedCwd).toBe(folder);
+  } finally {
+    await fs.rm(folder, { recursive: true, force: true });
+  }
+});
+
+test("sessions.create rejects a relative plain cwd", async () => {
+  await createSessionStoreDir();
+  const created = await directSessionReq(
+    "sessions.create",
+    { agentId: "main", cwd: "relative/path" },
+    { client: { connect: { scopes: ["operator.admin"] } } as never },
+  );
 
   expect(created.ok).toBe(false);
   expect(created.error).toMatchObject({
     code: "INVALID_REQUEST",
-    message: "sessions.create cwd requires worktree=true or execNode",
+    message: "sessions.create cwd must be absolute",
   });
 });
 

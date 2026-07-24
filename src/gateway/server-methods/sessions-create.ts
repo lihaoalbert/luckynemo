@@ -108,17 +108,8 @@ export const sessionCreateHandlers: GatewayRequestHandlers = {
     } = initialTurn;
     const requestedCwd = normalizeOptionalString(p.cwd);
     const requestedExecNode = normalizeOptionalString(p.execNode);
-    if (requestedCwd && p.worktree !== true && !requestedExecNode) {
-      respond(
-        false,
-        undefined,
-        errorShape(
-          ErrorCodes.INVALID_REQUEST,
-          "sessions.create cwd requires worktree=true or execNode",
-        ),
-      );
-      return;
-    }
+    // Windows-absolute cwd is only meaningful on a node host; a Gateway-local
+    // cwd (plain or worktree source) must be absolute for this host.
     const cwdIsAbsolute =
       !requestedCwd ||
       path.isAbsolute(requestedCwd) ||
@@ -290,6 +281,10 @@ export const sessionCreateHandlers: GatewayRequestHandlers = {
       } catch {
         sessionCwd = sessionWorktree.path;
       }
+    } else if (requestedCwd && !requestedExecNode) {
+      // A plain Gateway-local folder persists as the session's spawnedCwd: no
+      // worktree checkout, no node exec routing. method-scopes keeps this admin-only.
+      sessionCwd = requestedCwd;
     }
     let runPayload: Record<string, unknown> | undefined;
     let runError: unknown;

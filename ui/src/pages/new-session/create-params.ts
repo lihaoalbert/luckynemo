@@ -50,5 +50,7 @@ export function buildDraftSessionCreateParams(draft: {
         }
       : {}),
     ...(execNode ? { execNode, ...(cwd ? { cwd } : {}) } : {}),
+    // A Gateway-local custom folder without a worktree persists as the session's plain cwd.
+    ...(customFolder && !draft.worktree && !execNode ? { cwd: customFolder } : {}),
   };
 }

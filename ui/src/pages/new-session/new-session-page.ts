@@ -643,7 +643,8 @@ class NewSessionPage extends OpenClawLightDomElement {
     ) {
       return false;
     }
-    if (this.usesCustomFolder() && (!this.isAdmin() || (!this.execNode && !this.worktree))) {
+    // A custom folder targets an arbitrary host path; scope rules keep it admin-only.
+    if (this.usesCustomFolder() && !this.isAdmin()) {
       return false;
     }
     if (this.execNode && this.worktree) {
@@ -923,9 +924,13 @@ class NewSessionPage extends OpenClawLightDomElement {
     this.folderSelectedByUser = true;
     if (this.execNode) {
       this.worktree = false;
-    } else if (this.usesCustomFolder() || this.cloudProfileId) {
-      // Explicit host paths and cloud dispatch only materialize through a managed worktree.
+    } else if (this.cloudProfileId) {
+      // Cloud dispatch only materializes through a managed worktree.
       this.worktree = true;
+    } else if (this.usesCustomFolder()) {
+      // A custom host path now works directly as the session workspace; opting
+      // into a managed worktree (git checkouts only) is a manual choice.
+      this.worktree = false;
     }
     this.maybeLoadBranches();
   }
@@ -947,7 +952,9 @@ class NewSessionPage extends OpenClawLightDomElement {
       this.folder = execNode ? "" : this.workspacePath();
       this.folderSelectedByUser = false;
     }
-    this.worktree = keepGatewayFolder && this.usesCustomFolder();
+    // A kept custom folder works directly as the session workspace; managed
+    // worktrees stay an explicit opt-in (see applyFolder).
+    this.worktree = false;
     this.closeBrowser();
     if (!this.branchesMatchCurrentRepo()) {
       this.maybeLoadBranches();

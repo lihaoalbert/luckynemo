@@ -96,6 +96,22 @@ describe("buildDraftSessionCreateParams", () => {
     });
   });
 
+  it("sends a Gateway-local custom folder as plain cwd without a worktree", () => {
+    expect(
+      buildDraftSessionCreateParams({
+        agentId: "main",
+        message: "local work",
+        worktree: false,
+        cwd: "/other/repo",
+        workspace: "/workspace",
+      }),
+    ).toEqual({
+      agentId: "main",
+      message: "local work",
+      cwd: "/other/repo",
+    });
+  });
+
   it("sends cwd only for non-workspace folders and execNode when picked", () => {
     expect(
       buildDraftSessionCreateParams({
