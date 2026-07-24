@@ -98,7 +98,7 @@ function runStopPackagedAppHarness(killZeroStatus: 0 | 1) {
   tempDirs.push(root, toolsDir);
 
   const appRoot = path.join(root, "dist", "OpenClaw.app");
-  const appBinary = path.join(appRoot, "Contents", "MacOS", "OpenClaw");
+  const appBinary = path.join(appRoot, "Contents", "MacOS", "LuckyNemo");
   const lsofPath = path.join(toolsDir, "lsof");
   const pgrepPath = path.join(toolsDir, "pgrep");
   const sleepPath = path.join(toolsDir, "sleep");
@@ -508,7 +508,7 @@ describe("package-mac-app plist stamping", () => {
     `);
 
     expect(result.status).toBe(1);
-    expect(result.stderr).toContain("OpenClaw macOS app packaging requires Swift tools 6.2+");
+    expect(result.stderr).toContain("LuckyNemo macOS app packaging requires Swift tools 6.2+");
     expect(result.stderr).toContain("Current Swift is 6.0");
   });
 
@@ -587,7 +587,7 @@ describe("package-mac-app plist stamping", () => {
     );
 
     expect(script).not.toContain("killall -q OpenClaw");
-    expect(stopBlock).toContain('local app_binary="$APP_ROOT/Contents/MacOS/OpenClaw"');
+    expect(stopBlock).toContain('local app_binary="$APP_ROOT/Contents/MacOS/LuckyNemo"');
     expect(stopBlock).toContain('pgrep -x "$PRODUCT"');
     expect(stopBlock).toContain('grep -Fx "$app_binary"');
     expect(stopBlock).toContain(
@@ -599,7 +599,7 @@ describe("package-mac-app plist stamping", () => {
     const result = runStopPackagedAppHarness(0);
 
     expect(result.status).toBe(1);
-    expect(result.stderr).toContain("ERROR: Packaged OpenClaw bundle did not exit: 123");
+    expect(result.stderr).toContain("ERROR: Packaged LuckyNemo bundle did not exit: 123");
   });
 
   it("fails release packaging when the Swift compatibility library is missing", () => {
@@ -675,18 +675,18 @@ describe("package-mac-app plist stamping", () => {
     expect(packageManifest).toContain('.copy("Resources/ProviderIcons")');
     expect(
       readFileSync(
-        "apps/macos/Sources/OpenClaw/Resources/ProviderIcons/ProviderIcon-claude.svg",
+        "apps/macos/Sources/LuckyNemo/Resources/ProviderIcons/ProviderIcon-claude.svg",
         "utf8",
       ),
     ).toContain("<svg");
     expect(
       readFileSync(
-        "apps/macos/Sources/OpenClaw/Resources/ProviderIcons/ProviderIcon-codex.svg",
+        "apps/macos/Sources/LuckyNemo/Resources/ProviderIcons/ProviderIcon-codex.svg",
         "utf8",
       ),
     ).toContain("<svg");
     expect(script).toContain(
-      'PROVIDER_ICONS_SRC="$ROOT_DIR/apps/macos/Sources/OpenClaw/Resources/ProviderIcons"',
+      'PROVIDER_ICONS_SRC="$ROOT_DIR/apps/macos/Sources/LuckyNemo/Resources/ProviderIcons"',
     );
     expect(script).toContain(
       'echo "ERROR: Provider icon resources missing at $PROVIDER_ICONS_SRC"',

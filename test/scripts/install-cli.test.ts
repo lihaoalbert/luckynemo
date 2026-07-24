@@ -169,10 +169,10 @@ describe("install-cli.sh", () => {
     const prefix = join(tmp, "prefix");
     const bin = join(prefix, "bin");
     const commandLog = join(tmp, "commands.log");
-    const openclaw = join(bin, "openclaw");
+    const luckynemoCli = join(bin, "luckynemo");
     mkdirSync(bin, { recursive: true });
-    writeFileSync(openclaw, '#!/bin/bash\nprintf "%s\\n" "$*" >> "$COMMAND_LOG"\n');
-    chmodSync(openclaw, 0o755);
+    writeFileSync(luckynemoCli, '#!/bin/bash\nprintf "%s\\n" "$*" >> "$COMMAND_LOG"\n');
+    chmodSync(luckynemoCli, 0o755);
 
     try {
       const result = runInstallCliShell(
@@ -225,8 +225,8 @@ describe("install-cli.sh", () => {
 
     expect(result?.status).toBe(0);
     const output = result?.stdout ?? "";
-    expect(output).toContain(`prefix=${join(osHome, ".openclaw")}`);
-    expect(output).toContain(`git=${join(openclawHome, "openclaw")}`);
+    expect(output).toContain(`prefix=${join(osHome, ".luckynemo")}`);
+    expect(output).toContain(`git=${join(openclawHome, "luckynemo")}`);
   });
 
   it("resolves requested git install versions to checkout refs", () => {
@@ -235,7 +235,7 @@ describe("install-cli.sh", () => {
       source "${SCRIPT_PATH}"
       npm_bin() { echo npm; }
       npm() {
-        if [[ "$1" == "view" && "$2" == "openclaw" && "$3" == "dist-tags.beta" ]]; then
+        if [[ "$1" == "view" && "$2" == "luckynemo" && "$3" == "dist-tags.beta" ]]; then
           printf '2026.5.12-beta.3\\n'
           return 0
         fi
@@ -1139,7 +1139,7 @@ describe("install-cli.sh", () => {
     }
   });
 
-  it("rejects OpenClaw GitHub source targets for npm installs", () => {
+  it("rejects LuckyNemo GitHub source targets for npm installs", () => {
     const result = runInstallCliShell(`
       set -euo pipefail
       source "${SCRIPT_PATH}"
@@ -1148,7 +1148,7 @@ describe("install-cli.sh", () => {
     `);
 
     expect(result.status).toBe(1);
-    expect(result.stdout).toContain("npm installs do not support OpenClaw GitHub source targets");
+    expect(result.stdout).toContain("npm installs do not support LuckyNemo GitHub source targets");
     expect(result.stdout).toContain("--install-method git --version main");
   });
 

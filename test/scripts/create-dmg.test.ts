@@ -419,7 +419,7 @@ describe.runIf(process.platform === "darwin")("create-dmg ownership boundaries",
     expect(applescript).toContain('set dmgRoot to POSIX file "');
     expect(applescript).toContain('/mount" as alias');
     expect(applescript).toContain("set dmgDisk to disk of dmgRoot");
-    expect(applescript).not.toContain('tell disk "OpenClaw"');
+    expect(applescript).not.toContain('tell disk "LuckyNemo"');
     expect(applescript).not.toContain("close every window");
   });
 });

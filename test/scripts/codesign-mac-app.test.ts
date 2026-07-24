@@ -25,7 +25,7 @@ function makeTempDir(prefix: string): string {
 }
 
 function entitlementTemps(dir: string): string[] {
-  return readdirSync(dir).filter((name) => name.startsWith("openclaw-entitlements"));
+  return readdirSync(dir).filter((name) => name.startsWith("luckynemo-entitlements"));
 }
 
 function runCodesign(args: string[], tempRoot: string) {
@@ -167,8 +167,8 @@ describe("codesign-mac-app temp file hygiene", () => {
     mkdirSync(path.join(app, "Contents", "MacOS"), { recursive: true });
     mkdirSync(binDir);
     mkdirSync(captureDir);
-    writeFileSync(path.join(app, "Contents", "MacOS", "openclaw-mlx-tts"), "#!/bin/sh\n");
-    writeFileSync(path.join(app, "Contents", "MacOS", "OpenClaw"), "#!/bin/sh\n");
+    writeFileSync(path.join(app, "Contents", "MacOS", "luckynemo-mlx-tts"), "#!/bin/sh\n");
+    writeFileSync(path.join(app, "Contents", "MacOS", "LuckyNemo"), "#!/bin/sh\n");
     installFakeCodesign(binDir);
 
     const result = spawnSync("bash", [scriptPath, app], {
@@ -190,8 +190,8 @@ describe("codesign-mac-app temp file hygiene", () => {
 
     const signLines = readFileSync(logPath, "utf8").trim().split("\n");
     expect(signLines).toHaveLength(3);
-    expect(signLines[0]).toContain(`${path.join(app, "Contents", "MacOS", "openclaw-mlx-tts")}\t`);
-    expect(signLines[1]).toContain(`${path.join(app, "Contents", "MacOS", "OpenClaw")}\t`);
+    expect(signLines[0]).toContain(`${path.join(app, "Contents", "MacOS", "luckynemo-mlx-tts")}\t`);
+    expect(signLines[1]).toContain(`${path.join(app, "Contents", "MacOS", "LuckyNemo")}\t`);
     expect(signLines[2]).toContain(`${app}\t`);
     for (const line of signLines) {
       const [, , entitlementPath, copiedEntitlementsPath] = line.split("\t");
@@ -201,7 +201,7 @@ describe("codesign-mac-app temp file hygiene", () => {
         "copied codesign entitlement path",
       );
       const copiedEntitlements = readFileSync(copiedEntitlementSource, "utf8");
-      expect(entitlementSource).toContain("openclaw-entitlements");
+      expect(entitlementSource).toContain("luckynemo-entitlements");
       expect(existsSync(entitlementSource)).toBe(false);
       expect(copiedEntitlements).toContain("com.apple.security.automation.apple-events");
       expect(copiedEntitlements).toContain("com.apple.security.device.camera");
