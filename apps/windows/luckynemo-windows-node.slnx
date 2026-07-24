@@ -1,0 +1,45 @@
+<Solution>
+  <Configurations>
+    <Platform Name="Any CPU" />
+    <Platform Name="x64" />
+    <Platform Name="ARM64" />
+  </Configurations>
+  <Folder Name="/src/">
+    <Project Path="src/LuckyNemo.Cli/LuckyNemo.Cli.csproj" />
+    <Project Path="src/LuckyNemo.WinNode.Cli/LuckyNemo.WinNode.Cli.csproj" />
+    <Project Path="src/LuckyNemo.Shared/LuckyNemo.Shared.csproj" />
+    <Project Path="src/LuckyNemo.Connection/LuckyNemo.Connection.csproj" />
+    <Project Path="src/LuckyNemo.Chat/LuckyNemo.Chat.csproj">
+      <Platform Solution="*|Any CPU" Project="x64" />
+      <Platform Solution="*|x64" Project="x64" />
+      <Platform Solution="*|ARM64" Project="ARM64" />
+    </Project>
+    <Project Path="src/LuckyNemoTray.FunctionalUI/LuckyNemoTray.FunctionalUI.csproj" />
+    <Project Path="src/LuckyNemo.SetupEngine/LuckyNemo.SetupEngine.csproj" />
+    <Project Path="src/LuckyNemo.SetupEngine.UI/LuckyNemo.SetupEngine.UI.csproj">
+      <Platform Solution="*|Any CPU" Project="x64" />
+      <Platform Solution="*|x64" Project="x64" />
+      <Platform Solution="*|ARM64" Project="ARM64" />
+    </Project>
+    <Project Path="src/LuckyNemo.Tray.WinUI/LuckyNemo.Tray.WinUI.csproj">
+      <!-- WindowsAppSDK.SelfContained requires a concrete Platform (x64/ARM64); AnyCPU would need a RID. -->
+      <Platform Solution="*|Any CPU" Project="x64" />
+      <Platform Solution="*|x64" Project="x64" />
+      <Platform Solution="*|ARM64" Project="ARM64" />
+    </Project>
+  </Folder>
+  <Folder Name="/tests/">
+    <Project Path="tests/LuckyNemo.TestSupport/LuckyNemo.TestSupport.csproj" />
+    <Project Path="tests/LuckyNemo.Shared.Tests/LuckyNemo.Shared.Tests.csproj" />
+    <Project Path="tests/LuckyNemo.Connection.Tests/LuckyNemo.Connection.Tests.csproj" />
+    <Project Path="tests/LuckyNemo.WinNode.Cli.Tests/LuckyNemo.WinNode.Cli.Tests.csproj" />
+    <Project Path="tests/LuckyNemo.Tray.Tests/LuckyNemo.Tray.Tests.csproj" />
+    <Project Path="tests/LuckyNemoTray.FunctionalUI.Tests/LuckyNemoTray.FunctionalUI.Tests.csproj" />
+    <Project Path="tests/LuckyNemo.Tray.IntegrationTests/LuckyNemo.Tray.IntegrationTests.csproj" />
+    <Project Path="tests/LuckyNemo.Tray.UITests/LuckyNemo.Tray.UITests.csproj">
+      <Platform Solution="*|Any CPU" Project="x64" />
+      <Platform Solution="*|x64" Project="x64" />
+      <Platform Solution="*|ARM64" Project="ARM64" />
+    </Project>
+  </Folder>
+</Solution>

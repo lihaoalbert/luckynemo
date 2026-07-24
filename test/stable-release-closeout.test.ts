@@ -216,7 +216,7 @@ describe("stable release closeout", () => {
       "GitHub release v2026.6.8 Android asset names do not match the recovery contract: expected OpenClaw-Android-SHA256SUMS.txt, OpenClaw-Android.apk; got <none>.",
     );
     expect(missing.errors).toContain(
-      "GitHub release v2026.6.8 Windows asset names do not match the recovery contract: expected OpenClawCompanion-SHA256SUMS.txt, OpenClawCompanion-Setup-arm64.exe, OpenClawCompanion-Setup-x64.exe; got <none>.",
+      "GitHub release v2026.6.8 Windows asset names do not match the recovery contract: expected LuckyNemoCompanion-SHA256SUMS.txt, LuckyNemoCompanion-Setup-arm64.exe, LuckyNemoCompanion-Setup-x64.exe; got <none>.",
     );
     expect(missing.errors).toContain(
       "GitHub release v2026.6.8 Android recovery asset(s) lack GitHub SHA-256 digests: OpenClaw-Android-SHA256SUMS.txt, OpenClaw-Android.apk.",
@@ -233,8 +233,8 @@ describe("stable release closeout", () => {
       requireCompletePlatformAssets: true,
       windowsNodeReleaseRunId: "42",
       windowsNodeInstallerDigests: {
-        "OpenClawCompanion-Setup-arm64.exe": `sha256:${"1".repeat(64)}`,
-        "OpenClawCompanion-Setup-x64.exe": `sha256:${"2".repeat(64)}`,
+        "LuckyNemoCompanion-Setup-arm64.exe": `sha256:${"1".repeat(64)}`,
+        "LuckyNemoCompanion-Setup-x64.exe": `sha256:${"2".repeat(64)}`,
       },
       release: {
         ...release,
@@ -243,15 +243,15 @@ describe("stable release closeout", () => {
           { name: "OpenClaw-Android-SHA256SUMS.txt", digest: `sha256:${"d".repeat(64)}` },
           { name: "OpenClaw-Android.apk", digest: `sha256:${"e".repeat(64)}` },
           {
-            name: "OpenClawCompanion-SHA256SUMS.txt",
+            name: "LuckyNemoCompanion-SHA256SUMS.txt",
             digest: `sha256:${"f".repeat(64)}`,
           },
           {
-            name: "OpenClawCompanion-Setup-arm64.exe",
+            name: "LuckyNemoCompanion-Setup-arm64.exe",
             digest: `sha256:${"1".repeat(64)}`,
           },
           {
-            name: "OpenClawCompanion-Setup-x64.exe",
+            name: "LuckyNemoCompanion-Setup-x64.exe",
             digest: `sha256:${"2".repeat(64)}`,
           },
         ],
@@ -265,8 +265,8 @@ describe("stable release closeout", () => {
         completePlatformAssetsRequired: true,
         windowsNodeReleaseRunId: "42",
         windowsNodeInstallerDigests: {
-          "OpenClawCompanion-Setup-arm64.exe": `sha256:${"1".repeat(64)}`,
-          "OpenClawCompanion-Setup-x64.exe": `sha256:${"2".repeat(64)}`,
+          "LuckyNemoCompanion-Setup-arm64.exe": `sha256:${"1".repeat(64)}`,
+          "LuckyNemoCompanion-Setup-x64.exe": `sha256:${"2".repeat(64)}`,
         },
       },
     });

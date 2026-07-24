@@ -1,0 +1,151 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <DefineConstants>$(DefineConstants);LUCKYNEMO_TRAY_TESTS</DefineConstants>
+    <!--
+      CI builds the tests with `-r win-x64` plus `no-restore` so the same
+      restore output drives Tray.Tests, IntegrationTests, and UITests.
+      Without a declared RID here, the top-level dotnet restore produces
+      only default-RID assets and the no-restore build then fails with
+      NETSDK1047 ("Assets file doesn't have a target for net10.0/win-x64").
+      Declaring win-x64 + win-arm64 makes restore generate the matching
+      assets for both architectures used by the build/release matrix.
+    -->
+    <RuntimeIdentifiers>win-x64;win-arm64</RuntimeIdentifiers>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="OpenTelemetry" Version="1.16.0" />
+    <PackageReference Include="OpenTelemetry.Exporter.OpenTelemetryProtocol" Version="1.16.0" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="10.0.0" />
+    <ProjectReference Include="..\..\src\LuckyNemo.Shared\LuckyNemo.Shared.csproj" />
+    <ProjectReference Include="..\..\src\LuckyNemo.Connection\LuckyNemo.Connection.csproj" />
+    <!-- Compile only the model-layer files directly so the tests can remain
+         pure net10.0 while the tray app owns the native WinUI surface. -->
+    <Compile Include="..\..\src\LuckyNemo.Chat\ChatModels.cs" Link="Chat\ChatModels.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Chat\ChatModelChoice.cs" Link="Chat\ChatModelChoice.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Chat\ChatTimelineReducer.cs" Link="Chat\ChatTimelineReducer.cs" />
+    <Using Include="System.Text.Json.Nodes" />
+    <PackageReference Include="System.Security.Cryptography.ProtectedData" Version="10.0.0" />
+    <PackageReference Include="System.Drawing.Common" Version="10.0.7" />
+    <PackageReference Include="Microsoft.Toolkit.Uwp.Notifications" Version="7.1.3" />
+    <PackageReference Include="Zeroconf" Version="3.6.11" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Chat\IChatGatewayBridge.cs" Link="Chat\IChatGatewayBridge.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Chat\ChatSurfaceResolver.cs" Link="Chat\ChatSurfaceResolver.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Chat\DebugChatSurfaceOverrides.cs" Link="Chat\DebugChatSurfaceOverrides.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Chat\ChatEntryMetadata.cs" Link="Chat\ChatEntryMetadata.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Chat\ChatUsageFormatter.cs" Link="Chat\ChatUsageFormatter.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Chat\ChannelGroup.cs" Link="Chat\ChannelGroup.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Chat\ChatMarkdownSanitizer.cs" Link="Chat\ChatMarkdownSanitizer.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Chat\ChatTelemetryTracker.cs" Link="Chat\ChatTelemetryTracker.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Chat\ChatLifecycleCommandDispatcher.cs" Link="Chat\ChatLifecycleCommandDispatcher.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Chat\ChatComposerSubmissionPolicy.cs" Link="Chat\ChatComposerSubmissionPolicy.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Chat\ChatCompactionPresentation.cs" Link="Chat\ChatCompactionPresentation.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Chat\LuckyNemoChatDataProvider.cs" Link="Chat\LuckyNemoChatDataProvider.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\DeepLinkHandler.cs" Link="Services\DeepLinkHandler.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\DeepLinkSecurityPolicy.cs" Link="Services\DeepLinkSecurityPolicy.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\ConfigEditorModel.cs" Link="Services\ConfigEditorModel.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\JsonDiffFormatter.cs" Link="Services\JsonDiffFormatter.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\AppState.cs" Link="Services\AppState.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\AssistantBridgeService.cs" Link="Services\AssistantBridgeService.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\Logger.cs" Link="Services\Logger.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\DiagnosticsJsonlService.cs" Link="Services\DiagnosticsJsonlService.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\DiagnosticsExportSanitizer.cs" Link="Services\DiagnosticsExportSanitizer.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\DiagnosticsLogTailReader.cs" Link="Services\DiagnosticsLogTailReader.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\DiagnosticsBundleBuilder.cs" Link="Services\DiagnosticsBundleBuilder.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\SettingsManager.cs" Link="Services\SettingsManager.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\OpenTelemetryEndpointProtocol.cs" Link="Services\OpenTelemetryEndpointProtocol.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\OpenTelemetryEndpointOptions.cs" Link="Services\OpenTelemetryEndpointOptions.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\OpenTelemetryLogPolicy.cs" Link="Services\OpenTelemetryLogPolicy.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\OpenTelemetryEndpointConnection.cs" Link="Services\OpenTelemetryEndpointConnection.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\SessionVisibilityFilter.cs" Link="Services\SessionVisibilityFilter.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\SessionTitleFormatter.cs" Link="Services\SessionTitleFormatter.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\OnboardingChatBootstrapper.cs" Link="Services\OnboardingChatBootstrapper.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\StartupSetupState.cs" Link="Services\StartupSetupState.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\SetupExistingGatewayClassifier.cs" Link="Services\SetupExistingGatewayClassifier.cs" />
+    <!-- GatewayHostAccess, GatewayTerminalLauncher, WslGatewayController and WslCommandRunner
+         now live in LuckyNemo.Connection (referenced above), so they no longer need linking. -->
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\WslKeepAlivePolicy.cs" Link="Services\WslKeepAlivePolicy.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\GatewayConnectorInterfaces.cs" Link="Services\GatewayConnectorInterfaces.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\ActivityStreamService.cs" Link="Services\ActivityStreamService.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\AsyncListLoadingState.cs" Link="Services\AsyncListLoadingState.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\CronRunHistoryDisplay.cs" Link="Services\CronRunHistoryDisplay.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\GatewayNavVisibilityDebouncePolicy.cs" Link="Services\GatewayNavVisibilityDebouncePolicy.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\NodeInvokeActivityFormatter.cs" Link="Services\NodeInvokeActivityFormatter.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\NodeCapabilityGating.cs" Link="Services\NodeCapabilityGating.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\CaptureOperationGate.cs" Link="Services\CaptureOperationGate.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\CaptureCancellationPolicy.cs" Link="Services\CaptureCancellationPolicy.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\BrowserProxyTunnelState.cs" Link="Services\BrowserProxyTunnelState.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\CommandCenterTopologyTunnelResolver.cs" Link="Services\CommandCenterTopologyTunnelResolver.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\CommandCenterTunnelInfoBuilder.cs" Link="Services\CommandCenterTunnelInfoBuilder.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\PortDiagnosticsService.cs" Link="Services\PortDiagnosticsService.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\CommandCenterBrowserProxyAuthWarningPolicy.cs" Link="Services\CommandCenterBrowserProxyAuthWarningPolicy.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\PairingApprovalCoordinator.cs" Link="Services\PairingApprovalCoordinator.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\ToastActivationRouter.cs" Link="Services\ToastActivationRouter.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\AppNotificationService.cs" Link="Services\AppNotificationService.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\AppNotificationMapper.cs" Link="Services\AppNotificationMapper.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\ChatNotificationSpeechText.cs" Link="Services\ChatNotificationSpeechText.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\AppNotificationPublisher.cs" Link="Services\AppNotificationPublisher.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\ConnectionStatusPresenter.cs" Link="Services\ConnectionStatusPresenter.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\ConnectionDiagnosticsProjection.cs" Link="Services\ConnectionDiagnosticsProjection.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\McpRuntimeStatePolicy.cs" Link="Services\McpRuntimeStatePolicy.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\UsageCostApplicationPolicy.cs" Link="Services\UsageCostApplicationPolicy.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Helpers\CanvasGatewayUrlRewriter.cs" Link="Helpers\CanvasGatewayUrlRewriter.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Helpers\DiagnosticsGate.cs" Link="Helpers\DiagnosticsGate.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Helpers\TrayTooltipFormatter.cs" Link="Helpers\TrayTooltipFormatter.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Helpers\GatewayDashboardUrlBuilder.cs" Link="Helpers\GatewayDashboardUrlBuilder.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Helpers\CommandCenterTextHelper.cs" Link="Helpers\CommandCenterTextHelper.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Helpers\StatusBadgeIconFactory.cs" Link="Helpers\StatusBadgeIconFactory.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Helpers\Win32FilePickerHelper.cs" Link="Helpers\Win32FilePickerHelper.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\AppIdentity.cs" Link="AppIdentity.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\TrayStateSnapshot.cs" Link="Services\TrayStateSnapshot.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\TrayTooltipBuilder.cs" Link="Services\TrayTooltipBuilder.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\TrayMenuSnapshot.cs" Link="Services\TrayMenuSnapshot.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\TrayDashboardSummary.cs" Link="Services\TrayDashboardSummary.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\NodeSummaryText.cs" Link="Services\NodeSummaryText.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\TextToSpeech\ElevenLabsTextToSpeechClient.cs" Link="Services\TextToSpeech\ElevenLabsTextToSpeechClient.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\GatewayDiscoveryService.cs" Link="Services\GatewayDiscoveryService.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\A2UI\Actions\AgentMessageFormatter.cs" Link="A2UI\Actions\AgentMessageFormatter.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\A2UI\Actions\GatewayActionTransport.cs" Link="A2UI\Actions\GatewayActionTransport.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\A2UI\Actions\IActionSink.cs" Link="A2UI\Actions\IActionSink.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\A2UI\Protocol\A2UIProtocol.cs" Link="A2UI\Protocol\A2UIProtocol.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\A2UI\Rendering\SecretRedactor.cs" Link="A2UI\Rendering\SecretRedactor.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Helpers\GatewayChatUrlBuilder.cs" Link="Imported\GatewayChatUrlBuilder.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Pages\ConnectionPageChannelMetrics.cs" Link="Imported\ConnectionPageChannelMetrics.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Pages\ConnectionPagePlan.cs" Link="Imported\ConnectionPagePlan.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Pages\ConnectionPageRowState.cs" Link="Imported\ConnectionPageRowState.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Pages\ChatPagePanelStates.cs" Link="Imported\ChatPagePanelStates.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Pages\ExecPolicyRuleList.cs" Link="Pages\ExecPolicyRuleList.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Pages\WorkspaceFilesModel.cs" Link="Imported\WorkspaceFilesModel.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\ConnectionManagerWindowsNodeConnector.cs" Link="Services\ConnectionManagerWindowsNodeConnector.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\SetupWindowArgumentProjection.cs" Link="Services\SetupWindowArgumentProjection.cs" />
+    <!-- Pulled in for console-log tail tests. Pure logic, no WinUI deps. -->
+    <Compile Include="..\..\src\LuckyNemo.SetupEngine.UI\WizardConsoleTail.cs" Link="WizardConsoleTail.cs" />
+    <Compile Include="..\..\src\LuckyNemo.SetupEngine.UI\WizardPayloadHelpers.cs" Link="WizardPayloadHelpers.cs" />
+  </ItemGroup>
+
+  <!-- Phase 2 presentation seam: WinUI-free DI + navigation core, hand-linked so it
+       is unit-tested in this pure net10 project. WinUI-bound adapters
+       (Presentation/Adapters/*) are intentionally NOT linked; they are covered by
+       source-contract tests instead. -->
+  <ItemGroup>
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Services\IAppCommands.cs" Link="Services\IAppCommands.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Presentation\IUiDispatcher.cs" Link="Presentation\IUiDispatcher.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Presentation\INavigationAware.cs" Link="Presentation\INavigationAware.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Presentation\INavigationService.cs" Link="Presentation\INavigationService.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Presentation\IPageActivator.cs" Link="Presentation\IPageActivator.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Presentation\NavigationScopeManager.cs" Link="Presentation\NavigationScopeManager.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Presentation\AppNavigationService.cs" Link="Presentation\AppNavigationService.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Presentation\SettingsPageViewModel.cs" Link="Presentation\SettingsPageViewModel.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Presentation\PermissionsPageViewModel.cs" Link="Presentation\PermissionsPageViewModel.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Presentation\AppServiceContext.cs" Link="Presentation\AppServiceContext.cs" />
+    <Compile Include="..\..\src\LuckyNemo.Tray.WinUI\Presentation\AppServiceRegistration.cs" Link="Presentation\AppServiceRegistration.cs" />
+  </ItemGroup>
+
+</Project>

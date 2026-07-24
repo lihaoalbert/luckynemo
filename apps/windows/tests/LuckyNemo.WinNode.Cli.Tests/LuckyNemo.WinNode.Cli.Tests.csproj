@@ -1,0 +1,8 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\LuckyNemo.WinNode.Cli\LuckyNemo.WinNode.Cli.csproj" />
+    <ProjectReference Include="..\LuckyNemo.TestSupport\LuckyNemo.TestSupport.csproj" />
+  </ItemGroup>
+
+</Project>

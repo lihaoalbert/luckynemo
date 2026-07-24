@@ -17,22 +17,18 @@ Linux-compatible Gateway runtime.
 
 Windows Hub is the native WinUI companion app for Windows 10 20H2+ and
 Windows 11. It installs without administrator privileges and ships signed x64
-and ARM64 installers from its own release page.
+and ARM64 installers. The app sources live in this monorepo under
+`apps/windows/` and publish as `windows-v*` releases from the same GitHub
+repository, independently from the OpenClaw CLI and Gateway releases.
 
-Windows Hub publishes independently from the OpenClaw CLI and Gateway. Download
-the latest stable Hub installer from the
-[Windows Hub releases page](https://github.com/openclaw/openclaw-windows-node/releases/latest)
-or directly via `releases/latest/download`:
+Download the latest stable Hub installer from the
+[releases page](https://github.com/openclaw/openclaw/releases): open the newest
+`windows-v*` release and grab `LuckyNemoCompanion-Setup-x64.exe` (Intel/AMD) or
+`LuckyNemoCompanion-Setup-arm64.exe` (Windows on ARM). Regular OpenClaw stable
+releases also mirror a pinned, release-validated Windows Hub build; that mirror
+can lag a newer standalone Hub release.
 
-- [OpenClawCompanion-Setup-x64.exe](https://github.com/openclaw/openclaw-windows-node/releases/latest/download/OpenClawCompanion-Setup-x64.exe)
-- [OpenClawCompanion-Setup-arm64.exe](https://github.com/openclaw/openclaw-windows-node/releases/latest/download/OpenClawCompanion-Setup-arm64.exe)
-
-If a link above 404s, visit the [Windows Hub releases page](https://github.com/openclaw/openclaw-windows-node/releases)
-and open the newest stable Windows Hub release. Regular OpenClaw stable releases
-also mirror a pinned, release-validated Windows Hub build; that mirror can lag a
-newer standalone Hub release.
-
-After install, launch **OpenClaw Companion** from the Start menu or system
+After install, launch **LuckyNemo Companion** from the Start menu or system
 tray. The installer also adds shortcuts for Gateway Setup, Chat, Settings,
 Check for Updates, and uninstall.
 
@@ -53,7 +49,7 @@ Check for Updates, and uninstall.
 
 On first launch, Windows Hub opens setup when there is no usable saved
 Gateway. The fastest path is **Set up locally**, which provisions an
-app-owned `OpenClawGateway` WSL distro, installs the Gateway inside it, and
+app-owned `LuckyNemoGateway` WSL distro, installs the Gateway inside it, and
 pairs the app. This does not export or mutate your existing Ubuntu distro.
 
 Choose **Advanced setup** or open the Connections tab when you already have a
@@ -270,7 +266,7 @@ Notes:
 ### The tray icon does not appear
 
 Check Task Manager for `OpenClaw.Tray.WinUI.exe`. If it is running, open the
-hidden tray-icons area and pin it. If not, launch **OpenClaw Companion** from
+hidden tray-icons area and pin it. If not, launch **LuckyNemo Companion** from
 the Start menu.
 
 ### Local setup fails
@@ -278,7 +274,7 @@ the Start menu.
 Open the setup log from Windows Hub or inspect:
 
 ```powershell
-notepad "$env:LOCALAPPDATA\OpenClawTray\Logs\Setup\easy-setup-latest.txt"
+notepad "$env:LOCALAPPDATA\LuckyNemoTray\Logs\Setup\easy-setup-latest.txt"
 ```
 
 Common causes: disabled WSL, blocked virtualization, stale app-owned WSL

@@ -45,11 +45,13 @@ const COMMAND_CAPTURE_MAX_BUFFER_BYTES = 16 * 1024 * 1024;
 const TOOLING_ROOT = fileURLToPath(new URL("../", import.meta.url));
 const TIDECLAW_ALPHA_WORKFLOW_REF_PATTERN =
   /^tideclaw\/alpha\/[0-9]{4}-[0-9]{2}-[0-9]{2}-[0-9]{4}Z$/u;
-const WINDOWS_NODE_TAG_PATTERN = /^v[0-9]+\.[0-9]+\.[0-9]+([-.][0-9A-Za-z]+([.-][0-9A-Za-z]+)*)?$/u;
-const WINDOWS_NODE_REPO = "openclaw/openclaw-windows-node";
+// Monorepo: the Windows App release lives in this repository under windows-v* tags
+// (built by .github/workflows/windows-app-ci.yml from apps/windows).
+const WINDOWS_NODE_TAG_PATTERN =
+  /^windows-v[0-9]+\.[0-9]+\.[0-9]+([-.][0-9A-Za-z]+([.-][0-9A-Za-z]+)*)?$/u;
 const WINDOWS_NODE_REQUIRED_ASSETS = [
-  "OpenClawCompanion-Setup-x64.exe",
-  "OpenClawCompanion-Setup-arm64.exe",
+  "LuckyNemoCompanion-Setup-x64.exe",
+  "LuckyNemoCompanion-Setup-arm64.exe",
 ];
 const SHA256_DIGEST_PATTERN = /^sha256:[a-f0-9]{64}$/u;
 const RELEASE_CANDIDATE_STATE_VERSION = 1;
@@ -85,7 +87,7 @@ Options:
   --repo <owner/repo>                 GitHub repo. Default: ${DEFAULT_REPO}
   --full-release-run <id>             Reuse successful Full Release Validation run.
   --npm-preflight-run <id>            Reuse successful OpenClaw NPM Release preflight run.
-  --windows-node-tag <tag>            Exact Windows Node release tag. Required for stable.
+  --windows-node-tag <tag>            Exact Windows App release tag (windows-v*) in this repo. Required for stable.
   --skip-dispatch                     Require both run ids; do not dispatch workflows.
   --skip-local-generated-check        Do not run local generated release baseline checks before dispatch.
   --skip-parallels                   Do not run local Parallels fresh/update candidate smoke.
@@ -253,7 +255,7 @@ export function parseArgs(argv) {
     throw new Error("--plugins is only valid with --plugin-publish-scope selected");
   }
   if (options.windowsNodeTag && !WINDOWS_NODE_TAG_PATTERN.test(options.windowsNodeTag)) {
-    throw new Error("--windows-node-tag must be an explicit version tag, not latest");
+    throw new Error("--windows-node-tag must be an explicit windows-v* version tag, not latest");
   }
   if (
     !options.tag.includes("-alpha.") &&
@@ -448,7 +450,7 @@ export async function githubApi(path, options = {}) {
  */
 export async function validateWindowsSourceRelease(tag, options = {}) {
   const release = await githubApi(
-    `repos/${WINDOWS_NODE_REPO}/releases/tags/${encodeURIComponent(tag)}`,
+    `repos/${options.repo ?? DEFAULT_REPO}/releases/tags/${encodeURIComponent(tag)}`,
     options,
   );
   if (release.tag_name !== tag) {

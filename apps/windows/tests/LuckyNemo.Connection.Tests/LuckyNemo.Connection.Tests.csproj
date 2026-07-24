@@ -1,0 +1,9 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\LuckyNemo.Connection\LuckyNemo.Connection.csproj" />
+    <ProjectReference Include="..\..\src\LuckyNemo.Shared\LuckyNemo.Shared.csproj" />
+    <ProjectReference Include="..\LuckyNemo.TestSupport\LuckyNemo.TestSupport.csproj" />
+  </ItemGroup>
+
+</Project>

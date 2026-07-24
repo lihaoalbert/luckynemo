@@ -202,11 +202,11 @@ export function verifyStableMainCloseout(params) {
       },
       {
         label: "Windows",
-        prefix: "OpenClawCompanion-",
+        prefix: "LuckyNemoCompanion-",
         expected: [
-          "OpenClawCompanion-SHA256SUMS.txt",
-          "OpenClawCompanion-Setup-arm64.exe",
-          "OpenClawCompanion-Setup-x64.exe",
+          "LuckyNemoCompanion-SHA256SUMS.txt",
+          "LuckyNemoCompanion-Setup-arm64.exe",
+          "LuckyNemoCompanion-Setup-x64.exe",
         ],
       },
     ];
@@ -233,8 +233,8 @@ export function verifyStableMainCloseout(params) {
     }
 
     const windowsInstallerNames = [
-      "OpenClawCompanion-Setup-arm64.exe",
-      "OpenClawCompanion-Setup-x64.exe",
+      "LuckyNemoCompanion-Setup-arm64.exe",
+      "LuckyNemoCompanion-Setup-x64.exe",
     ];
     let trustedWindowsDigests = params.windowsNodeInstallerDigests;
     if (typeof trustedWindowsDigests === "string") {

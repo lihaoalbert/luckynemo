@@ -1,0 +1,95 @@
+name: Windows App CodeQL
+
+# Migrated from the standalone luckynemo-windows repo (was .github/workflows/codeql.yml),
+# trimmed to the C# analysis scoped at apps/windows. The GitHub Actions ("actions")
+# language analysis from upstream was dropped: this monorepo already audits workflows
+# via its own CodeQL/zizmor lanes.
+#
+# Still gated behind advanced setup: GitHub CodeQL *default* setup and advanced setup
+# cannot upload SARIF for the same repository/language at the same time. Enable by
+# setting the LUCKYNEMO_CODEQL_ADVANCED_SETUP repo variable to "true" (after making
+# sure default setup does not cover csharp), or dispatch manually.
+on:
+  workflow_dispatch:
+  push:
+    branches: [ main ]
+    paths:
+      - "apps/windows/**"
+      - ".github/workflows/windows-app-codeql.yml"
+  pull_request:
+    branches: [ main ]
+    types: [opened, synchronize, reopened, ready_for_review]
+    paths:
+      - "apps/windows/**"
+      - ".github/workflows/windows-app-codeql.yml"
+  schedule:
+    - cron: "29 6 * * 1"
+
+permissions:
+  actions: read
+  contents: read
+  security-events: write
+
+concurrency:
+  group: windows-app-codeql-${{ github.event_name == 'pull_request' && github.event.pull_request.number || github.sha }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
+
+defaults:
+  run:
+    working-directory: apps/windows
+
+jobs:
+  advanced-setup:
+    name: Advanced setup gate
+    runs-on: ubuntu-latest
+    outputs:
+      enabled: ${{ steps.advanced-setup.outputs.enabled }}
+    steps:
+      - name: Decide whether to run advanced CodeQL
+        id: advanced-setup
+        run: |
+          if [ "${{ vars.LUCKYNEMO_CODEQL_ADVANCED_SETUP }}" = "true" ] || [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+            echo "Advanced CodeQL enabled for this run." >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "enabled=false" >> "$GITHUB_OUTPUT"
+            {
+              echo "Advanced CodeQL is disabled for this workflow."
+              echo "Set LUCKYNEMO_CODEQL_ADVANCED_SETUP=true (with default setup not covering csharp) or dispatch manually."
+            } >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+  csharp:
+    name: C# security
+    needs: advanced-setup
+    if: ${{ needs.advanced-setup.outputs.enabled == 'true' && (github.event_name != 'pull_request' || !github.event.pull_request.draft) }}
+    runs-on: windows-latest
+    timeout-minutes: 45
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v7
+        with:
+          fetch-depth: 0
+
+      - name: Setup .NET 10
+        uses: actions/setup-dotnet@v6
+        with:
+          dotnet-version: 10.0.x
+
+      - name: Restore dependencies
+        run: dotnet restore
+
+      - name: Initialize CodeQL
+        uses: github/codeql-action/init@v4
+        with:
+          languages: csharp
+          build-mode: manual
+          config-file: ./apps/windows/.github/codeql/codeql-csharp-security.yml
+
+      - name: Build for CodeQL
+        run: dotnet build luckynemo-windows-node.slnx -c Debug --no-restore
+
+      - name: Analyze
+        uses: github/codeql-action/analyze@v4
+        with:
+          category: "/codeql/csharp/windows-app"

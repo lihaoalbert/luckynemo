@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\LuckyNemo.Shared\LuckyNemo.Shared.csproj" />
+    <ProjectReference Include="..\LuckyNemo.TestSupport\LuckyNemo.TestSupport.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Mxc\Golden\*.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

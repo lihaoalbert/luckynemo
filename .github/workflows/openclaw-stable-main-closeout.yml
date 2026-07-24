@@ -518,8 +518,8 @@ jobs:
               const log = readFileSync(process.argv[1], "utf8");
               const marker = "EXPECTED_INSTALLER_DIGESTS:";
               const names = [
-                "OpenClawCompanion-Setup-arm64.exe",
-                "OpenClawCompanion-Setup-x64.exe",
+                "LuckyNemoCompanion-Setup-arm64.exe",
+                "LuckyNemoCompanion-Setup-x64.exe",
               ];
               const contracts = new Set();
               for (const line of log.split(/\r?\n/u)) {
@@ -613,9 +613,9 @@ jobs:
             gh_with_retry release download "$RELEASE_TAG" --repo "$GITHUB_REPOSITORY" \
               --pattern OpenClaw-Android.apk \
               --pattern OpenClaw-Android-SHA256SUMS.txt \
-              --pattern OpenClawCompanion-Setup-arm64.exe \
-              --pattern OpenClawCompanion-Setup-x64.exe \
-              --pattern OpenClawCompanion-SHA256SUMS.txt \
+              --pattern LuckyNemoCompanion-Setup-arm64.exe \
+              --pattern LuckyNemoCompanion-Setup-x64.exe \
+              --pattern LuckyNemoCompanion-SHA256SUMS.txt \
               --dir "$recovery_dir"
             (
               cd "$recovery_dir"
@@ -635,9 +635,9 @@ jobs:
               }
               verify_checksum_manifest OpenClaw-Android-SHA256SUMS.txt \
                 OpenClaw-Android.apk
-              verify_checksum_manifest OpenClawCompanion-SHA256SUMS.txt \
-                OpenClawCompanion-Setup-arm64.exe \
-                OpenClawCompanion-Setup-x64.exe
+              verify_checksum_manifest LuckyNemoCompanion-SHA256SUMS.txt \
+                LuckyNemoCompanion-Setup-arm64.exe \
+                LuckyNemoCompanion-Setup-x64.exe
             )
             gh_with_retry attestation verify "$recovery_dir/OpenClaw-Android.apk" \
               --repo "$GITHUB_REPOSITORY" \

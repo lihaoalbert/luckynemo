@@ -20,7 +20,7 @@ on:
         required: false
         type: string
       windows_node_tag:
-        description: Exact openclaw-windows-node release tag, required for stable OpenClaw publish
+        description: Exact Windows App release tag (windows-v*) in this repository, required for stable OpenClaw publish
         required: false
         type: string
       windows_node_installer_digests:
@@ -170,8 +170,8 @@ jobs:
           if [[ "${RELEASE_TAG}" == *"-alpha."* || "${RELEASE_TAG}" == *"-beta."* ]]; then
             stable_release=false
           fi
-          if [[ -n "${WINDOWS_NODE_TAG}" && ! "${WINDOWS_NODE_TAG}" =~ ^v[0-9]+\.[0-9]+\.[0-9]+([-.][0-9A-Za-z]+([.-][0-9A-Za-z]+)*)?$ ]]; then
-            echo "windows_node_tag must be an explicit openclaw-windows-node release tag, not latest: ${WINDOWS_NODE_TAG}" >&2
+          if [[ -n "${WINDOWS_NODE_TAG}" && ! "${WINDOWS_NODE_TAG}" =~ ^windows-v[0-9]+\.[0-9]+\.[0-9]+([-.][0-9A-Za-z]+([.-][0-9A-Za-z]+)*)?$ ]]; then
+            echo "windows_node_tag must be an explicit Windows App release tag (windows-v*) in this repository, not latest: ${WINDOWS_NODE_TAG}" >&2
             exit 1
           fi
           if [[ "${PUBLISH_OPENCLAW_NPM}" == "true" && "${stable_release}" == "true" && -z "${WINDOWS_NODE_TAG}" ]]; then
@@ -241,7 +241,7 @@ jobs:
           fi
 
           source_json="$(gh release view "${WINDOWS_NODE_TAG}" \
-            --repo openclaw/openclaw-windows-node \
+            --repo "${GITHUB_REPOSITORY}" \
             --json tagName,isDraft,isPrerelease,assets,url)"
           if [[ "$(printf '%s' "${source_json}" | jq -r '.tagName')" != "${WINDOWS_NODE_TAG}" ]]; then
             echo "Windows source release tag does not match ${WINDOWS_NODE_TAG}." >&2
@@ -257,8 +257,8 @@ jobs:
           fi
 
           required_assets=(
-            "OpenClawCompanion-Setup-x64.exe"
-            "OpenClawCompanion-Setup-arm64.exe"
+            "LuckyNemoCompanion-Setup-x64.exe"
+            "LuckyNemoCompanion-Setup-arm64.exe"
           )
           required_assets_json="$(printf '%s\n' "${required_assets[@]}" | jq -R . | jq -sc .)"
           if ! approved_installer_digests="$(printf '%s' "${APPROVED_INSTALLER_DIGESTS}" | jq -ce --argjson names "${required_assets_json}" '
@@ -1598,21 +1598,21 @@ jobs:
             local actual_companion_assets actual_digest asset_name expected_companion_assets expected_digest expected_hash expected_installer_names manifest_dir manifest_json manifest_path release_json
             # Add future promoted installer names, such as MSIX x64/ARM64, here.
             local -a installer_assets=(
-              "OpenClawCompanion-Setup-x64.exe"
-              "OpenClawCompanion-Setup-arm64.exe"
+              "LuckyNemoCompanion-Setup-x64.exe"
+              "LuckyNemoCompanion-Setup-arm64.exe"
             )
             local -a required_assets=(
               "${installer_assets[@]}"
-              "OpenClawCompanion-SHA256SUMS.txt"
+              "LuckyNemoCompanion-SHA256SUMS.txt"
             )
 
             release_json="$(gh release view "${RELEASE_TAG}" --repo "$GITHUB_REPOSITORY" --json assets,url)" || return 1
             expected_companion_assets="$(printf '%s\n' "${required_assets[@]}" | jq -R . | jq -sc 'sort')"
             actual_companion_assets="$(printf '%s' "${release_json}" | jq -c '
-              [.assets[]? | select(.name | startswith("OpenClawCompanion-")) | .name] | sort
+              [.assets[]? | select(.name | startswith("LuckyNemoCompanion-")) | .name] | sort
             ')"
             if [[ "${actual_companion_assets}" != "${expected_companion_assets}" ]]; then
-              echo "Stable release OpenClawCompanion asset names do not exactly match the current contract." >&2
+              echo "Stable release LuckyNemoCompanion asset names do not exactly match the current contract." >&2
               return 1
             fi
             for asset_name in "${required_assets[@]}"; do
@@ -1623,12 +1623,12 @@ jobs:
             done
 
             manifest_dir="${RUNNER_TEMP}/openclaw-windows-release-contract"
-            manifest_path="${manifest_dir}/OpenClawCompanion-SHA256SUMS.txt"
+            manifest_path="${manifest_dir}/LuckyNemoCompanion-SHA256SUMS.txt"
             rm -rf "${manifest_dir}"
             mkdir -p "${manifest_dir}"
             gh release download "${RELEASE_TAG}" \
               --repo "$GITHUB_REPOSITORY" \
-              --pattern "OpenClawCompanion-SHA256SUMS.txt" \
+              --pattern "LuckyNemoCompanion-SHA256SUMS.txt" \
               --dir "${manifest_dir}" || return 1
             if ! manifest_json="$(jq -Rsc '
               split("\n") as $lines |
@@ -1966,7 +1966,7 @@ jobs:
             clawhub_bootstrap_line="$(jq -r '.proofLines.bootstrap' "${clawhub_runtime_state_path}")"
             windows_line=""
             if [[ -n "${windows_node_run_id// }" ]]; then
-              windows_line="- Windows Hub promotion: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${windows_node_run_id} from openclaw/openclaw-windows-node@${WINDOWS_NODE_TAG}"
+              windows_line="- Windows Hub promotion: https://github.com/${GITHUB_REPOSITORY}/actions/runs/${windows_node_run_id} from ${GITHUB_REPOSITORY}@${WINDOWS_NODE_TAG}"
             fi
             android_line=""
             if [[ -n "${android_release_run_id// }" ]]; then

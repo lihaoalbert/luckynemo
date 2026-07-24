@@ -443,15 +443,15 @@ describe("release candidate checklist", () => {
 
   it("infers validation profiles from candidate tags", () => {
     expect(parseArgs(["--tag", "v2026.5.14-beta.3"]).releaseProfile).toBe("beta");
-    expect(parseArgs(["--tag", "v2026.5.14", "--windows-node-tag", "v0.6.3"]).releaseProfile).toBe(
-      "stable",
-    );
+    expect(
+      parseArgs(["--tag", "v2026.5.14", "--windows-node-tag", "windows-v0.6.3"]).releaseProfile,
+    ).toBe("stable");
     expect(
       parseArgs([
         "--tag",
         "v2026.5.14",
         "--windows-node-tag",
-        "v0.6.3",
+        "windows-v0.6.3",
         "--release-profile",
         "full",
       ]).releaseProfile,
@@ -628,7 +628,7 @@ describe("release candidate checklist", () => {
       duplicateOption("--repo", "openclaw/openclaw", "fork/openclaw"),
       duplicateOption("--full-release-run", "111", "222"),
       duplicateOption("--npm-preflight-run", "111", "222"),
-      duplicateOption("--windows-node-tag", "v0.6.3", "v0.6.4"),
+      duplicateOption("--windows-node-tag", "windows-v0.6.3", "v0.6.4"),
       duplicateFlag("--skip-dispatch"),
       duplicateFlag("--skip-local-generated-check"),
       duplicateFlag("--skip-parallels"),
@@ -783,7 +783,7 @@ describe("release candidate checklist", () => {
       "stable release candidates require --windows-node-tag",
     );
     expect(() => parseArgs(["--tag", "v2026.5.14", "--windows-node-tag", "latest"])).toThrow(
-      "--windows-node-tag must be an explicit version tag, not latest",
+      "--windows-node-tag must be an explicit windows-v* version tag, not latest",
     );
 
     const options = {
@@ -791,53 +791,53 @@ describe("release candidate checklist", () => {
         "--tag",
         "v2026.5.14",
         "--windows-node-tag",
-        "v0.6.3",
+        "windows-v0.6.3",
         "--workflow-ref",
         "main",
       ]),
       workflowRef: "main",
       windowsNodeInstallerDigests: JSON.stringify({
-        "OpenClawCompanion-Setup-x64.exe": `sha256:${"a".repeat(64)}`,
-        "OpenClawCompanion-Setup-arm64.exe": `sha256:${"b".repeat(64)}`,
+        "LuckyNemoCompanion-Setup-x64.exe": `sha256:${"a".repeat(64)}`,
+        "LuckyNemoCompanion-Setup-arm64.exe": `sha256:${"b".repeat(64)}`,
       }),
     };
 
-    expect(buildPublishCommand(options)).toContain("'windows_node_tag=v0.6.3'");
+    expect(buildPublishCommand(options)).toContain("'windows_node_tag=windows-v0.6.3'");
     expect(buildPublishCommand(options)).toContain(
-      `'windows_node_installer_digests={"OpenClawCompanion-Setup-x64.exe":"sha256:${"a".repeat(64)}","OpenClawCompanion-Setup-arm64.exe":"sha256:${"b".repeat(64)}"}'`,
+      `'windows_node_installer_digests={"LuckyNemoCompanion-Setup-x64.exe":"sha256:${"a".repeat(64)}","LuckyNemoCompanion-Setup-arm64.exe":"sha256:${"b".repeat(64)}"}'`,
     );
   });
 
   it("validates the stable Windows source release and immutable installer digests", async () => {
     const assets = [
       {
-        name: "OpenClawCompanion-Setup-x64.exe",
+        name: "LuckyNemoCompanion-Setup-x64.exe",
         digest: `sha256:${"a".repeat(64)}`,
       },
       {
-        name: "OpenClawCompanion-Setup-arm64.exe",
+        name: "LuckyNemoCompanion-Setup-arm64.exe",
         digest: `sha256:${"b".repeat(64)}`,
       },
     ];
     const fetchImpl = vi.fn(async () => {
       return jsonResponse({
-        tag_name: "v0.6.3",
+        tag_name: "windows-v0.6.3",
         draft: false,
         prerelease: false,
-        html_url: "https://github.com/openclaw/openclaw-windows-node/releases/tag/v0.6.3",
+        html_url: "https://github.com/openclaw/openclaw/releases/tag/windows-v0.6.3",
         assets,
       });
     });
 
     await expect(
-      validateWindowsSourceRelease("v0.6.3", {
+      validateWindowsSourceRelease("windows-v0.6.3", {
         fetchImpl,
         timeoutMs: 1234,
         token: "test-token",
       }),
     ).resolves.toEqual({
-      tag: "v0.6.3",
-      url: "https://github.com/openclaw/openclaw-windows-node/releases/tag/v0.6.3",
+      tag: "windows-v0.6.3",
+      url: "https://github.com/openclaw/openclaw/releases/tag/windows-v0.6.3",
       assets,
     });
   });
@@ -845,53 +845,56 @@ describe("release candidate checklist", () => {
   it.each([
     [{ draft: true }, "must be published"],
     [{ prerelease: true }, "must not be a prerelease"],
-    [{ tag_name: "v0.6.4" }, "Windows source release tag mismatch: expected v0.6.3, got v0.6.4"],
+    [
+      { tag_name: "windows-v0.6.4" },
+      "Windows source release tag mismatch: expected windows-v0.6.3, got windows-v0.6.4",
+    ],
     [
       { assets: [] },
-      "must contain exactly one required asset OpenClawCompanion-Setup-x64.exe; found 0",
+      "must contain exactly one required asset LuckyNemoCompanion-Setup-x64.exe; found 0",
     ],
     [
       {
         assets: [
           {
-            name: "OpenClawCompanion-Setup-x64.exe",
+            name: "LuckyNemoCompanion-Setup-x64.exe",
             digest: `sha256:${"a".repeat(64)}`,
           },
           {
-            name: "OpenClawCompanion-Setup-x64.exe",
+            name: "LuckyNemoCompanion-Setup-x64.exe",
             digest: `sha256:${"c".repeat(64)}`,
           },
           {
-            name: "OpenClawCompanion-Setup-arm64.exe",
+            name: "LuckyNemoCompanion-Setup-arm64.exe",
             digest: `sha256:${"b".repeat(64)}`,
           },
         ],
       },
-      "must contain exactly one required asset OpenClawCompanion-Setup-x64.exe; found 2",
+      "must contain exactly one required asset LuckyNemoCompanion-Setup-x64.exe; found 2",
     ],
     [
       {
         assets: [
-          { name: "OpenClawCompanion-Setup-x64.exe", digest: "" },
-          { name: "OpenClawCompanion-Setup-arm64.exe", digest: `sha256:${"b".repeat(64)}` },
+          { name: "LuckyNemoCompanion-Setup-x64.exe", digest: "" },
+          { name: "LuckyNemoCompanion-Setup-arm64.exe", digest: `sha256:${"b".repeat(64)}` },
         ],
       },
-      "asset OpenClawCompanion-Setup-x64.exe is missing its SHA-256 digest",
+      "asset LuckyNemoCompanion-Setup-x64.exe is missing its SHA-256 digest",
     ],
   ])("rejects an invalid stable Windows source release", async (override, message) => {
     const fetchImpl = vi.fn(async () => {
       return jsonResponse({
-        tag_name: "v0.6.3",
+        tag_name: "windows-v0.6.3",
         draft: false,
         prerelease: false,
-        html_url: "https://github.com/openclaw/openclaw-windows-node/releases/tag/v0.6.3",
+        html_url: "https://github.com/openclaw/openclaw/releases/tag/windows-v0.6.3",
         assets: [
           {
-            name: "OpenClawCompanion-Setup-x64.exe",
+            name: "LuckyNemoCompanion-Setup-x64.exe",
             digest: `sha256:${"a".repeat(64)}`,
           },
           {
-            name: "OpenClawCompanion-Setup-arm64.exe",
+            name: "LuckyNemoCompanion-Setup-arm64.exe",
             digest: `sha256:${"b".repeat(64)}`,
           },
         ],
@@ -900,7 +903,7 @@ describe("release candidate checklist", () => {
     });
 
     await expect(
-      validateWindowsSourceRelease("v0.6.3", {
+      validateWindowsSourceRelease("windows-v0.6.3", {
         fetchImpl,
         timeoutMs: 1234,
         token: "test-token",

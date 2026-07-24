@@ -309,3 +309,22 @@ extensions/discord/assets/embedded-app-sdk.mjs
 /.crabbox-artifacts
 .comux*
 .build/
+
+# apps/windows (C#/WinUI build artifacts, scoped from the VisualStudio.gitignore set)
+apps/windows/**/bin/
+apps/windows/**/obj/
+apps/windows/**/.vs/
+apps/windows/**/*.user
+apps/windows/**/*.rsuser
+apps/windows/**/*.suo
+apps/windows/**/AppPackages/
+apps/windows/**/BundleArtifacts/
+apps/windows/**/TestResults/
+apps/windows/**/publish/
+apps/windows/publish-*/
+apps/windows/**/Output/
+apps/windows/**/visual-test-output/
+apps/windows/**/msix-validation-evidence/
+apps/windows/**/packaging-test-output/
+apps/windows/**/uninstall-validation-output/
+apps/windows/**/*.binlog

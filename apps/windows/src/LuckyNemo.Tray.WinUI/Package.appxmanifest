@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<Package
+  xmlns="http://schemas.microsoft.com/appx/manifest/foundation/windows10"
+  xmlns:uap="http://schemas.microsoft.com/appx/manifest/uap/windows10"
+  xmlns:rescap="http://schemas.microsoft.com/appx/manifest/foundation/windows10/restrictedcapabilities"
+  IgnorableNamespaces="uap rescap">
+
+  <!-- IMPORTANT: Publisher must exactly match YOUR code-signing certificate subject.
+       TODO(rebrand): replace the placeholder Publisher below with the subject of your own
+       code-signing certificate (e.g. Azure Artifact Signing / Trusted Signing profile),
+       and update PublisherDisplayName to your publisher name. -->
+  <!-- Version is patched at build time by the SyncAppxManifestVersionTarget in
+       LuckyNemo.Tray.WinUI.csproj from $(Version) (see docs/VERSIONING.md).
+       The 0.0.0.0 below is a sentinel and is never shipped. -->
+  <Identity
+    Name="LuckyNemo.Companion"
+    Publisher="CN=LuckyNemo"
+    Version="0.0.0.0" />
+
+  <Properties>
+    <DisplayName>LuckyNemo Companion</DisplayName>
+    <PublisherDisplayName>LuckyNemo</PublisherDisplayName>
+    <Logo>Assets\StoreLogo.png</Logo>
+  </Properties>
+
+  <Dependencies>
+    <TargetDeviceFamily Name="Windows.Desktop" MinVersion="10.0.19041.0" MaxVersionTested="10.0.26100.0" />
+  </Dependencies>
+
+  <Resources>
+    <Resource Language="x-generate"/>
+  </Resources>
+
+  <Applications>
+    <Application Id="App"
+      Executable="$targetnametoken$.exe"
+      EntryPoint="$targetentrypoint$">
+      <uap:VisualElements
+        DisplayName="LuckyNemo Companion"
+        Description="LuckyNemo Windows system tray for gateway management, node capabilities, and agent interaction"
+        BackgroundColor="transparent"
+        Square150x150Logo="Assets\Square150x150Logo.png"
+        Square44x44Logo="Assets\Square44x44Logo.png">
+        <uap:DefaultTile Wide310x150Logo="Assets\Wide310x150Logo.png" />
+        <uap:SplashScreen Image="Assets\SplashScreen.png" />
+      </uap:VisualElements>
+
+      <Extensions>
+        <!-- Protocol activation for luckynemo:// deep links -->
+        <uap:Extension Category="windows.protocol">
+          <uap:Protocol Name="luckynemo">
+            <uap:DisplayName>LuckyNemo Protocol</uap:DisplayName>
+          </uap:Protocol>
+        </uap:Extension>
+      </Extensions>
+    </Application>
+  </Applications>
+
+  <Capabilities>
+    <Capability Name="internetClient" />
+    <rescap:Capability Name="runFullTrust" />
+    <DeviceCapability Name="webcam" />
+    <DeviceCapability Name="microphone" />
+    <DeviceCapability Name="location" />
+  </Capabilities>
+</Package>

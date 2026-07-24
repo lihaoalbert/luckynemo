@@ -1,0 +1,1211 @@
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Text.Json;
+using System.Threading;
+using System.Threading.Tasks;
+using Xunit;
+using Xunit.Abstractions;
+using LuckyNemo.Shared;
+using LuckyNemo.Shared.ExecApprovals;
+
+namespace LuckyNemo.Shared.Tests;
+
+/// <summary>
+/// Tests for ExecApprovalsCoordinator: full pipeline, observability, UI-free guarantee,
+/// concurrency, production wiring inert by default, env injection guard, and log injection prevention.
+/// </summary>
+public class ExecApprovalsCoordinatorTests : IDisposable
+{
+    private readonly string _dir;
+    private readonly ITestOutputHelper _output;
+
+    public ExecApprovalsCoordinatorTests(ITestOutputHelper output)
+    {
+        _dir = Path.Combine(Path.GetTempPath(), $"oca-coord-test-{Guid.NewGuid():N}");
+        Directory.CreateDirectory(_dir);
+        _output = output;
+    }
+
+    public void Dispose() => Directory.Delete(_dir, recursive: true);
+
+    // ── Helpers ───────────────────────────────────────────────────────────────
+
+    private static JsonElement Parse(string json)
+    {
+        using var doc = JsonDocument.Parse(json);
+        return doc.RootElement.Clone();
+    }
+
+    // ["where","hello"] reliably resolves where.exe from System32 on Windows and is a
+    // plain (non-shell) executable, so it is an approvable command whose argv reaches
+    // the process verbatim. Shell interpreters (cmd, powershell, …) are intentionally
+    // not approvable — they would re-parse their argument tail — so they are unsuitable
+    // as a stand-in for a generic allowable command here.
+    private static NodeInvokeRequest Req(string argsJson)
+        => new() { Id = "r1", Command = "system.run", Args = Parse(argsJson) };
+
+    private static NodeInvokeRequest DefaultReq()
+        => Req("""{"command":["where","hello"]}""");
+
+    private void WriteStoreFile(string json)
+        => File.WriteAllText(Path.Combine(_dir, "exec-approvals.json"), json);
+
+    private ExecApprovalsCoordinator MakeCoordinator(
+        ICanPresentEvaluator? canPresent = null,
+        IExecApprovalV2PromptHandler? prompt = null,
+        ILuckyNemoLogger? logger = null)
+    {
+        var log = logger ?? NullLogger.Instance;
+        return new(
+            new ExecApprovalsStore(_dir, log),
+            canPresent ?? AlwaysCannotPresentEvaluator.Instance,
+            prompt ?? ExecApprovalV2NullPromptHandler.Instance,
+            log);
+    }
+
+    // ── 1. No file → SecurityDeny (default-deny on first activation) ──────────
+
+    [Fact]
+    public async Task NoFile_ReturnsSecurityDeny()
+    {
+        var result = await MakeCoordinator().HandleAsync(DefaultReq(), "c1");
+        Assert.Equal(ExecApprovalV2Code.SecurityDeny, result.Code);
+    }
+
+    // ── 2. security=full → Allow ──────────────────────────────────────────────
+
+    [Fact]
+    public async Task SecurityFull_AskOff_ReturnsAllow()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"off"}}""");
+        var result = await MakeCoordinator().HandleAsync(DefaultReq(), "c2");
+        Assert.True(result.IsAllow);
+    }
+
+    // ── 3. security=deny → SecurityDeny ──────────────────────────────────────
+
+    [Fact]
+    public async Task SecurityDeny_ReturnsSecurityDeny()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"deny"}}""");
+        var result = await MakeCoordinator().HandleAsync(DefaultReq(), "c3");
+        Assert.Equal(ExecApprovalV2Code.SecurityDeny, result.Code);
+    }
+
+    // ── 4. ask=always, canPresent=false, askFallback=deny → UserDenied ────────
+
+    [Fact]
+    public async Task AskAlways_CannotPresent_FallbackDeny_ReturnsUserDenied()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"always","askFallback":"deny"}}""");
+        var result = await MakeCoordinator().HandleAsync(DefaultReq(), "c4");
+        // FallbackDecision(ExecSecurity.Deny) → ExecApprovalDecision.Deny → pass2 step2 → UserDenied
+        Assert.Equal(ExecApprovalV2Code.UserDenied, result.Code);
+        Assert.Equal("user-denied", result.Reason);
+    }
+
+    // ── 5. ask=always, canPresent=false, askFallback=full → Allow ────────────
+
+    [Fact]
+    public async Task AskAlways_CannotPresent_FallbackFull_ReturnsAllow()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"always","askFallback":"full"}}""");
+        var log = new CapturingLogger();
+        var result = await MakeCoordinator(logger: log).HandleAsync(DefaultReq(), "c5");
+        Assert.True(result.IsAllow);
+        Assert.NotNull(log.LastInfo);
+        Assert.Contains("fallbackUsed=True", log.LastInfo, StringComparison.Ordinal);
+    }
+
+    // ── 6. canPresent=true, NullPromptHandler → UserDenied ───────────────────
+
+    [Fact]
+    public async Task CanPresent_NullPrompt_ReturnsUserDenied()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"always"}}""");
+        var result = await MakeCoordinator(
+            canPresent: AlwaysCanPresentEvaluator.Instance,
+            prompt: ExecApprovalV2NullPromptHandler.Instance).HandleAsync(DefaultReq(), "c6");
+        Assert.Equal(ExecApprovalV2Code.UserDenied, result.Code);
+    }
+
+    // ── 7. canPresent=true, AllowOnce → Allow ────────────────────────────────
+
+    [Fact]
+    public async Task CanPresent_AllowOnce_ReturnsAllow()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"always"}}""");
+        var log = new CapturingLogger();
+        var result = await MakeCoordinator(
+            canPresent: AlwaysCanPresentEvaluator.Instance,
+            prompt: new FixedDecisionPromptHandler(ExecApprovalPromptOutcome.AllowOnce),
+            logger: log).HandleAsync(DefaultReq(), "c7");
+        Assert.True(result.IsAllow);
+        Assert.Contains("promptAttempted=True", log.LastInfo!, StringComparison.Ordinal);
+        Assert.DoesNotContain("fallbackUsed=True", log.LastInfo!, StringComparison.Ordinal);
+    }
+
+    // ── 8. canPresent=true, AllowAlways → Allow ───────────────────────────────
+
+    [Fact]
+    public async Task CanPresent_AllowAlways_ReturnsAllow()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"always"}}""");
+        var result = await MakeCoordinator(
+            canPresent: AlwaysCanPresentEvaluator.Instance,
+            prompt: new FixedDecisionPromptHandler(ExecApprovalPromptOutcome.AllowAlways))
+            .HandleAsync(DefaultReq(), "c8");
+        Assert.True(result.IsAllow);
+    }
+
+    // ── 9. Invariant: prompt returns Allow → InternalError ────────────────────
+
+    [Fact]
+    public async Task PromptReturnsAllowPlain_ReturnsInternalError()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"always"}}""");
+        var result = await MakeCoordinator(
+            canPresent: AlwaysCanPresentEvaluator.Instance,
+            prompt: new FixedDecisionPromptHandler(ExecApprovalPromptOutcome.Allow))
+            .HandleAsync(DefaultReq(), "c9");
+        Assert.Equal(ExecApprovalV2Code.InternalError, result.Code);
+        Assert.Equal("prompt-returned-allow", result.Reason);
+    }
+
+    // ── 10. Prompt throws → UserDenied, no fallback ───────────────────────────
+
+    [Fact]
+    public async Task PromptThrows_ReturnsUserDenied_FallbackNotUsed()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"always"}}""");
+        var log = new CapturingLogger();
+        var result = await MakeCoordinator(
+            canPresent: AlwaysCanPresentEvaluator.Instance,
+            prompt: new ThrowingPromptHandler(),
+            logger: log).HandleAsync(DefaultReq(), "c10");
+        Assert.Equal(ExecApprovalV2Code.UserDenied, result.Code);
+        Assert.Equal("prompt-failed", result.Reason);
+        // Must not delegate to fallback after presenter failure
+        Assert.Contains("fallbackUsed=False", log.LastWarn!, StringComparison.Ordinal);
+    }
+
+    // ── 11. Input invalid → ValidationFailed ─────────────────────────────────
+
+    [Fact]
+    public async Task InvalidInput_ReturnsValidationFailed()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full"}}""");
+        var result = await MakeCoordinator().HandleAsync(
+            Req("""{}"""), "c11");
+        Assert.Equal(ExecApprovalV2Code.ValidationFailed, result.Code);
+    }
+
+    // ── 12. security=allowlist, allowlist empty, ask=off → AllowlistMiss ──────
+
+    [Fact]
+    public async Task SecurityAllowlist_EmptyList_ReturnsAllowlistMiss()
+    {
+        // Empty allowlist → no entry can match → AllowlistSatisfied=false → miss.
+        WriteStoreFile("""{"version":1,"defaults":{"security":"allowlist","ask":"off"}}""");
+        var result = await MakeCoordinator().HandleAsync(DefaultReq(), "c12");
+        Assert.Equal(ExecApprovalV2Code.AllowlistMiss, result.Code);
+    }
+
+    // ── 13. FallbackDecision(deny) → Deny, not AllowOnce ────────────────────
+
+    [Fact]
+    public async Task FallbackDecision_AskFallbackDeny_ReturnsDeny()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"always","askFallback":"deny"}}""");
+        var result = await MakeCoordinator().HandleAsync(DefaultReq(), "c13");
+        // ExecSecurity.Deny → ExecApprovalDecision.Deny → pass2 → UserDenied (fail-safe)
+        Assert.False(result.IsAllow);
+        Assert.NotEqual(ExecApprovalV2Code.Allow, result.Code);
+    }
+
+    // ── 14. Rail 8 — 7 log fields present ────────────────────────────────────
+
+    [Fact]
+    public async Task Rail8_AllSevenLogFieldsPresent()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"deny"}}""");
+        var log = new CapturingLogger();
+        await MakeCoordinator(logger: log).HandleAsync(DefaultReq(), "corr-14");
+
+        // security=deny → LogAndReturn → Warn; check all 7 rail-8 fields
+        Assert.NotNull(log.LastWarn);
+        var msg = log.LastWarn!;
+        Assert.Contains("corr-14", msg, StringComparison.Ordinal);
+        Assert.Contains("path=new", msg, StringComparison.Ordinal);
+        Assert.Contains("canonical=", msg, StringComparison.Ordinal);
+        Assert.Contains("decision=deny", msg, StringComparison.Ordinal);
+        Assert.Contains("reason=", msg, StringComparison.Ordinal);
+        Assert.Contains("fallbackUsed=", msg, StringComparison.Ordinal);
+        Assert.Contains("promptAttempted=", msg, StringComparison.Ordinal);
+    }
+
+    // ── 16. Rail 10 — coordinator in LuckyNemo.Shared, not Tray ───────────────
+
+    [Fact]
+    public void Rail10_CoordinatorAssemblyIsLuckyNemoShared()
+    {
+        var asm = typeof(ExecApprovalsCoordinator).Assembly.GetName().Name;
+        Assert.Equal("LuckyNemo.Shared", asm);
+    }
+
+    // ── 17. Concurrency — 5 simultaneous requests don't corrupt state ─────────
+
+    [Fact]
+    public async Task Concurrency_FiveConcurrentRequests_AllReturnValidResults()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"off"}}""");
+        var coordinator = MakeCoordinator();
+        var tasks = Enumerable.Range(0, 5)
+            .Select(i => coordinator.HandleAsync(DefaultReq(), $"conc-{i}"))
+            .ToList();
+        var results = await Task.WhenAll(tasks);
+        Assert.All(results, r => Assert.NotNull(r));
+        Assert.All(results, r => Assert.True(r.IsAllow));
+    }
+
+    // ── 18. Env injection → ValidationFailed("env-blocked") ──────────────────
+
+    [Fact]
+    public async Task EnvInjection_BlockedEnvVar_ReturnsValidationFailed()
+    {
+        // security=full,ask=off rules out other denies; env PATH is always blocked
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"off"}}""");
+        var log = new CapturingLogger();
+        var result = await MakeCoordinator(logger: log)
+            .HandleAsync(Req("""{"command":["cmd","/c","echo","hello"],"env":{"PATH":"C:\\evil"}}"""), "c18");
+
+        Assert.Equal(ExecApprovalV2Code.ValidationFailed, result.Code);
+        Assert.Equal("env-blocked", result.Reason);
+        // Separate Warn with blocked names (emitted before LogAndReturn)
+        Assert.Contains(log.Warns, w =>
+            w.Contains("env-blocked", StringComparison.Ordinal) &&
+            w.Contains("PATH", StringComparison.Ordinal));
+    }
+
+    // ── 19. Log injection — DisplayCommand control chars replaced in log ───────
+
+    [Fact]
+    public async Task LogInjection_ControlCharsInCommand_SanitizedInLog()
+    {
+        // \r\n in JSON string → actual CR+LF in the parsed command argument
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"off"}}""");
+        var log = new CapturingLogger();
+        await MakeCoordinator(logger: log)
+            .HandleAsync(Req("""{"command":["where","x\r\n[EXEC-APPROVALS] [fake] FAKE"]}"""), "c19");
+
+        // Should allow (security=full, ask=off)
+        Assert.NotNull(log.LastInfo);
+        // CR+LF must not appear literally in the log line
+        Assert.DoesNotContain("\r\n", log.LastInfo!, StringComparison.Ordinal);
+    }
+
+    // ── 20. Lock released after prompt throws — second call must not deadlock ────
+
+    [Fact]
+    public async Task PromptThrows_LockReleasedForSubsequentCall()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"always"}}""");
+        var coordinator = MakeCoordinator(
+            canPresent: AlwaysCanPresentEvaluator.Instance,
+            prompt: new ThrowingPromptHandler());
+
+        var first = await coordinator.HandleAsync(DefaultReq(), "lock-1");
+        Assert.Equal(ExecApprovalV2Code.UserDenied, first.Code);
+
+        // Second call must complete — if lock was not released this would deadlock
+        var second = await coordinator.HandleAsync(DefaultReq(), "lock-2");
+        Assert.Equal(ExecApprovalV2Code.UserDenied, second.Code);
+    }
+
+    // ── 21a. Concurrency with actual lock contention ───────────────────────────
+
+    [Fact]
+    public async Task Concurrency_PromptPathWithLockContention_AllReturnValidResults()
+    {
+        // ask=always + canPresent=true → all requests enter the locked block
+        // NullPromptHandler returns Deny → all should be UserDenied (no deadlock, no corruption)
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"always"}}""");
+        var coordinator = MakeCoordinator(canPresent: AlwaysCanPresentEvaluator.Instance);
+        var tasks = Enumerable.Range(0, 5)
+            .Select(i => coordinator.HandleAsync(DefaultReq(), $"cont-{i}"))
+            .ToList();
+        var results = await Task.WhenAll(tasks);
+        Assert.All(results, r => Assert.NotNull(r));
+        // NullPromptHandler returns Deny → UserDenied for all
+        Assert.All(results, r => Assert.Equal(ExecApprovalV2Code.UserDenied, r.Code));
+    }
+
+    // ExecApprovalV2Result — new codes constructible (InternalError, Allow)
+
+    [Fact]
+    public void V2Result_InternalError_CodeAndReason()
+    {
+        var r = ExecApprovalV2Result.InternalError("invariant-violation");
+        Assert.Equal(ExecApprovalV2Code.InternalError, r.Code);
+        Assert.Equal("invariant-violation", r.Reason);
+        Assert.False(r.IsAllow);
+    }
+
+    [Fact]
+    public void V2Result_Allow_IsAllowTrueAndReasonApproved()
+    {
+        var exec = new ExecApprovedExecution(new[] { "git", "status" }, cwd: null, timeoutMs: 1000, env: null);
+        var r = ExecApprovalV2Result.Allow(exec);
+        Assert.Equal(ExecApprovalV2Code.Allow, r.Code);
+        Assert.Equal("approved", r.Reason);
+        Assert.True(r.IsAllow);
+        Assert.Same(exec, r.Execution);
+    }
+
+    [Fact]
+    public void V2Result_Allow_NullPayload_Throws()
+        => Assert.Throws<ArgumentNullException>(() => ExecApprovalV2Result.Allow(null!));
+
+    [Fact]
+    public void ExecApprovedExecution_NullArgv_Throws()
+        => Assert.Throws<ArgumentNullException>(() => new ExecApprovedExecution(null!, cwd: null, timeoutMs: 1000, env: null));
+
+    [Fact]
+    public void ExecApprovedExecution_EmptyArgv_Throws()
+        => Assert.Throws<ArgumentException>(() => new ExecApprovedExecution(Array.Empty<string>(), cwd: null, timeoutMs: 1000, env: null));
+
+    [Theory]
+    [InlineData(0)]
+    [InlineData(-1)]
+    public void ExecApprovedExecution_NonPositiveTimeout_Throws(int timeoutMs)
+        => Assert.Throws<ArgumentOutOfRangeException>(() =>
+            new ExecApprovedExecution(new[] { "cmd" }, cwd: null, timeoutMs, env: null));
+
+    [Fact]
+    public void ExecApprovedExecution_ClampsTimeoutToSystemRunMaximum()
+    {
+        var exec = new ExecApprovedExecution(
+            new[] { "cmd" },
+            cwd: null,
+            timeoutMs: int.MaxValue,
+            env: null);
+
+        Assert.Equal(ExecApprovedExecution.MaxTimeoutMs, exec.TimeoutMs);
+    }
+
+    [Fact]
+    public void ExecApprovedExecution_CopiesArgvDefensively()
+    {
+        var argv = new[] { "cmd", "/c", "echo" };
+        var exec = new ExecApprovedExecution(argv, cwd: null, timeoutMs: 1000, env: null);
+        argv[0] = "TAMPERED"; // mutate the source after construction
+        Assert.Equal("cmd", exec.Argv[0]);
+    }
+
+    [Fact]
+    public void ExecApprovedExecution_ArgvCannotBeMutatedThroughReturnedCollection()
+    {
+        var exec = new ExecApprovedExecution(new[] { "cmd", "/c" }, cwd: null, timeoutMs: 1000, env: null);
+        var list = Assert.IsAssignableFrom<IList<string>>(exec.Argv);
+
+        Assert.True(list.IsReadOnly);
+        Assert.Throws<NotSupportedException>(() => list[0] = "TAMPERED");
+        Assert.Equal("cmd", exec.Argv[0]);
+    }
+
+    [Fact]
+    public void ExecApprovedExecution_CopiesEnvDefensively()
+    {
+        var env = new Dictionary<string, string> { ["FOO"] = "bar" };
+        var exec = new ExecApprovedExecution(new[] { "x" }, cwd: null, timeoutMs: 1000, env: env);
+        env["FOO"] = "TAMPERED"; // mutate the source after construction
+        Assert.Equal("bar", exec.Env!["FOO"]);
+    }
+
+    [Fact]
+    public void ExecApprovedExecution_EnvCannotBeMutatedThroughReturnedDictionary()
+    {
+        var exec = new ExecApprovedExecution(
+            new[] { "cmd" },
+            cwd: null,
+            timeoutMs: 1000,
+            env: new Dictionary<string, string> { ["FOO"] = "bar" });
+
+        var dict = Assert.IsAssignableFrom<IDictionary<string, string>>(exec.Env);
+        Assert.True(dict.IsReadOnly);
+        Assert.Throws<NotSupportedException>(() => dict["FOO"] = "TAMPERED");
+        Assert.Equal("bar", exec.Env!["FOO"]);
+    }
+
+    [Fact]
+    public void ExecApprovedExecution_ToCommandRequest_CarriesAllApprovedExecutionFields()
+    {
+        var exec = new ExecApprovedExecution(
+            new[] { @"C:\Windows\System32\cmd.exe", "/c", "echo", "hello" },
+            cwd: @"C:\work",
+            timeoutMs: 1234,
+            env: new Dictionary<string, string> { ["FOO"] = "bar" });
+
+        var request = exec.ToCommandRequest();
+
+        Assert.Same(exec.Argv, request.Argv);
+        Assert.Equal(exec.Cwd, request.Cwd);
+        Assert.Equal(exec.TimeoutMs, request.TimeoutMs);
+        Assert.Equal("bar", request.Env!["FOO"]);
+        request.Env["FOO"] = "caller-mutation";
+        Assert.Equal("bar", exec.Env!["FOO"]);
+    }
+
+    // Allow payload carries the canonical argv on both allow exits
+
+    [Fact]
+    public async Task Allow_PreApproved_CarriesCanonicalArgvPayload()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"off"}}""");
+        var result = await MakeCoordinator().HandleAsync(DefaultReq(), "payload-pre");
+        Assert.True(result.IsAllow);
+        Assert.NotNull(result.Execution);
+        // argv[0] is the RESOLVED absolute path, not the raw "where".
+        Assert.True(Path.IsPathFullyQualified(result.Execution!.Argv[0]));
+        Assert.EndsWith("where.exe", result.Execution.Argv[0], StringComparison.OrdinalIgnoreCase);
+        Assert.Equal(new[] { "hello" }, result.Execution.Argv.Skip(1).ToArray());
+        Assert.Null(result.Execution.Env); // DefaultReq carries no env
+    }
+
+    [Fact]
+    public async Task Allow_CarriesSanitizedEnvInPayload()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"off"}}""");
+        // A non-blocked env variable must survive sanitization and reach the payload.
+        var req = Req("""{"command":["where","hello"],"env":{"FOO":"bar"}}""");
+        var result = await MakeCoordinator().HandleAsync(req, "payload-env");
+        Assert.True(result.IsAllow);
+        Assert.NotNull(result.Execution!.Env);
+        Assert.Equal("bar", result.Execution.Env!["FOO"]);
+    }
+
+    [Fact]
+    public async Task Allow_PostPrompt_CarriesCanonicalArgvPayload()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"always"}}""");
+        var result = await MakeCoordinator(
+            canPresent: AlwaysCanPresentEvaluator.Instance,
+            prompt: new FixedDecisionPromptHandler(ExecApprovalPromptOutcome.AllowOnce))
+            .HandleAsync(DefaultReq(), "payload-post");
+        Assert.True(result.IsAllow);
+        Assert.NotNull(result.Execution);
+        Assert.True(Path.IsPathFullyQualified(result.Execution!.Argv[0]));
+        Assert.EndsWith("where.exe", result.Execution.Argv[0], StringComparison.OrdinalIgnoreCase);
+        Assert.Equal(new[] { "hello" }, result.Execution.Argv.Skip(1).ToArray());
+    }
+
+    // End-to-end handoff: coordinator payload → runner plan (no shell)
+    // Guards against coordinator and runner drifting apart: the payload the
+    // coordinator emits must be directly executable by LocalCommandRunner without
+    // any shell. Previously the coordinator emitted the raw argv ("cmd") which the
+    // direct-argv runner rejects.
+    [Fact]
+    public async Task Allow_Payload_IsAcceptedByDirectArgvRunner()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"off"}}""");
+        var result = await MakeCoordinator().HandleAsync(DefaultReq(), "handoff");
+        Assert.True(result.IsAllow);
+
+        // Map the approved payload to a CommandRequest exactly as the production
+        // caller will, then verify the resulting plan is non-shell.
+        var plan = LocalCommandRunner.PlanExecution(new CommandRequest
+        {
+            Argv = result.Execution!.Argv,
+            Cwd = result.Execution.Cwd,
+            TimeoutMs = result.Execution.TimeoutMs,
+            Env = result.Execution.Env is null ? null : new Dictionary<string, string>(result.Execution.Env),
+        });
+
+        Assert.True(plan.IsDirectArgv);
+        Assert.Null(plan.Arguments); // no shell-wrapped command line
+        Assert.EndsWith("where.exe", plan.FileName, StringComparison.OrdinalIgnoreCase);
+    }
+
+    // Allow payload is built from the RESOLVED path, fail-closed if unresolved
+    // The PATH cannot be injected through the request (the env sanitizer blocks it —
+    // the anti-hijack guard itself), so the unresolved-executable branch is covered by
+    // testing BuildApprovedExecution directly rather than via a filesystem-dependent
+    // end-to-end path.
+
+    private static CanonicalCommandIdentity MakeIdentity(
+        string[] command, ExecCommandResolution? resolution, int timeoutMs = 1000)
+        => new(
+            command,
+            displayCommand: string.Join(' ', command),
+            evaluationRawCommand: null,
+            resolution: resolution,
+            allowlistResolutions: Array.Empty<ExecCommandResolution>(),
+            allowAlwaysPatterns: Array.Empty<string>(),
+            cwd: null, timeoutMs, env: null, agentId: null, sessionKey: null);
+
+    [Fact]
+    public void BuildApprovedExecution_UsesResolvedPathAsArgv0()
+    {
+        var resolution = new ExecCommandResolution(
+            RawExecutable: "git",
+            ResolvedPath: @"C:\Program Files\Git\bin\git.exe",
+            ExecutableName: "git.exe",
+            Cwd: null);
+        var identity = MakeIdentity(new[] { "git", "status" }, resolution);
+
+        var exec = ExecApprovalsCoordinator.BuildApprovedExecution(identity, sanitizedEnv: null);
+
+        Assert.NotNull(exec);
+        Assert.Equal(new[] { @"C:\Program Files\Git\bin\git.exe", "status" }, exec!.Argv);
+    }
+
+    [Fact]
+    public void BuildApprovedExecution_ClampsPayloadTimeout()
+    {
+        var resolution = new ExecCommandResolution(
+            RawExecutable: "git",
+            ResolvedPath: @"C:\Program Files\Git\bin\git.exe",
+            ExecutableName: "git.exe",
+            Cwd: null);
+        var identity = MakeIdentity(
+            new[] { "git", "status" },
+            resolution,
+            timeoutMs: int.MaxValue);
+
+        var exec = ExecApprovalsCoordinator.BuildApprovedExecution(identity, sanitizedEnv: null);
+
+        Assert.NotNull(exec);
+        Assert.Equal(ExecApprovedExecution.MaxTimeoutMs, exec!.TimeoutMs);
+    }
+
+    [Fact]
+    public void BuildApprovedExecution_UsesEffectiveCommandWhenEnvWrapperWasUnwrapped()
+    {
+        var resolution = new ExecCommandResolution(
+            RawExecutable: "git",
+            ResolvedPath: @"C:\Program Files\Git\bin\git.exe",
+            ExecutableName: "git.exe",
+            Cwd: null);
+        var identity = MakeIdentity(new[] { "env", "git", "status" }, resolution);
+
+        var exec = ExecApprovalsCoordinator.BuildApprovedExecution(identity, sanitizedEnv: null);
+
+        Assert.NotNull(exec);
+        Assert.Equal(2, exec!.Argv.Count);
+        Assert.Equal(new[] { @"C:\Program Files\Git\bin\git.exe", "status" }, exec.Argv);
+        Assert.NotEqual(new[] { @"C:\Program Files\Git\bin\git.exe", "git", "status" }, exec.Argv);
+    }
+
+    [Fact]
+    public void BuildApprovedExecution_NestedTransparentEnvWrapper_EmitsUnwrappedPayload()
+    {
+        // A nested env wrapper with no modifiers (`env env git status`) is transparent:
+        // the inner command is the real executable and the args are preserved verbatim.
+        var resolution = new ExecCommandResolution(
+            RawExecutable: "git",
+            ResolvedPath: @"C:\Program Files\Git\bin\git.exe",
+            ExecutableName: "git.exe",
+            Cwd: null);
+        var identity = MakeIdentity(new[] { "env", "env", "git", "status" }, resolution);
+
+        var exec = ExecApprovalsCoordinator.BuildApprovedExecution(identity, sanitizedEnv: null);
+
+        Assert.NotNull(exec);
+        Assert.Equal(new[] { @"C:\Program Files\Git\bin\git.exe", "status" }, exec!.Argv);
+    }
+
+    [Theory]
+    [InlineData("env", "FOO=bar", "node", "script.js")]
+    [InlineData("env", "-i", "node", "script.js")]
+    [InlineData("env", "--unset=FOO", "node", "script.js")]
+    [InlineData("env", "env", "FOO=bar", "node", "script.js")] // nested modifier on the inner wrapper
+    [InlineData("env", "env", "-i", "node", "script.js")]
+    public void BuildApprovedExecution_ReturnsNull_WhenEnvHasModifiers(params string[] command)
+    {
+        // A modified env wrapper (assignments or flags) cannot be faithfully represented
+        // in a direct-argv payload without the wrapper, so the payload must fail closed
+        // rather than silently drop the modifier and run in a different environment.
+        var resolution = new ExecCommandResolution(
+            RawExecutable: "node",
+            ResolvedPath: @"C:\Program Files\nodejs\node.exe",
+            ExecutableName: "node.exe",
+            Cwd: null);
+        var identity = MakeIdentity(command, resolution);
+
+        Assert.Null(ExecApprovalsCoordinator.BuildApprovedExecution(identity, sanitizedEnv: null));
+    }
+
+    [Fact]
+    public async Task Allow_UnresolvedExecutable_FailsClosedViaHandleAsync()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"off"}}""");
+        // A bare name on no PATH resolves to a null path but is still a valid command,
+        // so security=full approves it. The payload cannot pin an absolute executable,
+        // so the allow must fail closed rather than execute an unpinnable command.
+        var req = Req("""{"command":["zzz-nonexistent-tool-9c3f1a7b"]}""");
+        var result = await MakeCoordinator().HandleAsync(req, "unresolved");
+        Assert.Equal(ExecApprovalV2Code.InternalError, result.Code);
+        Assert.Equal("unresolved-executable-on-allow", result.Reason);
+    }
+
+    [Fact]
+    public async Task Allow_ModifiedEnvWrapper_FailsClosedWithNoStoreWrite()
+    {
+        // A modified env wrapper is approved (security=allowlist, ask=always, AllowAlways) but
+        // the payload cannot carry the modifier semantics faithfully. The result must be
+        // InternalError and the store must not be modified — no new allowlist entry persisted.
+        const string initialStore = """{"version":1,"defaults":{"security":"allowlist","ask":"always"}}""";
+        WriteStoreFile(initialStore);
+        var req = Req("""{"command":["env","FOO=bar","cmd","/c","echo","hello"]}""");
+        var result = await MakeCoordinator(
+            canPresent: AlwaysCanPresentEvaluator.Instance,
+            prompt: new FixedDecisionPromptHandler(ExecApprovalPromptOutcome.AllowAlways))
+            .HandleAsync(req, "env-modifier-no-persist");
+        Assert.Equal(ExecApprovalV2Code.InternalError, result.Code);
+        var storeText = File.ReadAllText(Path.Combine(_dir, "exec-approvals.json"));
+        Assert.Equal(initialStore, storeText);
+    }
+
+    [Fact]
+    public void BuildApprovedExecution_ReturnsNull_WhenExecutableUnresolved()
+    {
+        // No resolved path → caller must fail closed rather than execute a command
+        // whose identity cannot be pinned.
+        var identity = MakeIdentity(new[] { "ghost", "arg" }, resolution: null);
+        Assert.Null(ExecApprovalsCoordinator.BuildApprovedExecution(identity, sanitizedEnv: null));
+    }
+
+    [Theory]
+    [InlineData(@"C:\scripts\deploy.bat")]
+    [InlineData(@"C:\scripts\deploy.cmd")]
+    [InlineData(@"C:\scripts\DEPLOY.BAT")]
+    public void BuildApprovedExecution_ReturnsNull_WhenResolvedToBatchScript(string resolvedPath)
+    {
+        // A batch script needs cmd.exe, which re-parses arguments and breaks the
+        // verbatim-argv guarantee, so the payload must fail closed before any approval
+        // state is written rather than emit a payload the runner will later reject.
+        var resolution = new ExecCommandResolution(
+            RawExecutable: "deploy",
+            ResolvedPath: resolvedPath,
+            ExecutableName: System.IO.Path.GetFileName(resolvedPath),
+            Cwd: null);
+        var identity = MakeIdentity(new[] { "deploy", "arg" }, resolution);
+        Assert.Null(ExecApprovalsCoordinator.BuildApprovedExecution(identity, sanitizedEnv: null));
+    }
+
+    [Theory]
+    [InlineData("cmd")]
+    [InlineData("CMD.EXE")]
+    [InlineData(@"""C:\Windows\System32\cmd.exe""")]
+    [InlineData(@".\pwsh.exe")]
+    [InlineData(@"C:\Program Files\Git\usr\bin\bash.exe")]
+    [InlineData("/usr/bin/sh")]
+    [InlineData("wsl.exe")]
+    [InlineData("cscript.exe")]
+    [InlineData("wscript")]
+    public void IndirectCommandHost_RecognizesAliasesPathsQuotesAndCasing(string token)
+        => Assert.True(ExecCommandToken.IsIndirectCommandHost(token));
+
+    [Theory]
+    [InlineData("mycmd.exe")]
+    [InlineData("pwsh-helper.exe")]
+    [InlineData("bashful.exe")]
+    [InlineData("wsl-helper.exe")]
+    [InlineData("cscript-runner.exe")]
+    [InlineData("wscript-helper.exe")]
+    [InlineData("node.exe")]
+    [InlineData("python.exe")]
+    public void IndirectCommandHost_DoesNotMatchExecutableNameSubstrings(string token)
+        => Assert.False(ExecCommandToken.IsIndirectCommandHost(token));
+
+    [Theory]
+    [InlineData(@"C:\Windows\System32\cmd.exe")]
+    [InlineData(@"C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe")]
+    [InlineData(@"C:\Program Files\PowerShell\7\pwsh.exe")]
+    [InlineData(@"C:\Program Files\Git\usr\bin\bash.exe")]
+    [InlineData(@"C:\Windows\System32\wsl.exe")]
+    [InlineData(@"C:\Windows\System32\cscript.exe")]
+    [InlineData(@"C:\Windows\System32\wscript.exe")]
+    public void BuildApprovedExecution_AllowsCommandHostAfterExplicitOneTimeApproval(string resolvedPath)
+    {
+        var resolution = new ExecCommandResolution(
+            RawExecutable: System.IO.Path.GetFileNameWithoutExtension(resolvedPath),
+            ResolvedPath: resolvedPath,
+            ExecutableName: System.IO.Path.GetFileName(resolvedPath),
+            Cwd: null);
+        var identity = MakeIdentity(new[] { resolvedPath, "-c", "echo hi" }, resolution);
+        var execution = ExecApprovalsCoordinator.BuildApprovedExecution(identity, sanitizedEnv: null);
+        Assert.NotNull(execution);
+        Assert.Equal(resolvedPath, execution!.Argv[0]);
+    }
+
+    [Fact]
+    public async Task AllowOnce_CommandHost_RemainsAllowedWithoutPersistence()
+    {
+        const string initialStore =
+            """{"version":1,"defaults":{"security":"allowlist","ask":"always"}}""";
+        WriteStoreFile(initialStore);
+        var result = await MakeCoordinator(
+            canPresent: AlwaysCanPresentEvaluator.Instance,
+            prompt: new FixedDecisionPromptHandler(ExecApprovalPromptOutcome.AllowOnce))
+            .HandleAsync(
+                Req("""{"command":["C:\\Windows\\System32\\wsl.exe","--exec","echo","ok"]}"""),
+                "command-host-once");
+
+        Assert.True(result.IsAllow);
+        Assert.Equal(initialStore, File.ReadAllText(Path.Combine(_dir, "exec-approvals.json")));
+    }
+
+    [Fact]
+    public async Task AllowAlways_CommandHost_IsDeniedWithoutPersistence()
+    {
+        const string initialStore =
+            """{"version":1,"defaults":{"security":"allowlist","ask":"always"}}""";
+        WriteStoreFile(initialStore);
+        var result = await MakeCoordinator(
+            canPresent: AlwaysCanPresentEvaluator.Instance,
+            prompt: new FixedDecisionPromptHandler(ExecApprovalPromptOutcome.AllowAlways))
+            .HandleAsync(
+                Req("""{"command":["C:\\Windows\\System32\\wsl.exe","--exec","echo","ok"]}"""),
+                "command-host-always");
+
+        Assert.Equal(ExecApprovalV2Code.ValidationFailed, result.Code);
+        Assert.Equal("persistent-approval-not-permitted-for-command-host", result.Reason);
+        Assert.Equal(initialStore, File.ReadAllText(Path.Combine(_dir, "exec-approvals.json")));
+    }
+
+    [Fact]
+    public async Task StoredAllowlist_CommandHost_IsDeniedWithoutMutatingPolicy()
+    {
+        const string initialStore =
+            """{"version":1,"defaults":{"security":"allowlist","ask":"off"},"agents":{"main":{"allowlist":[{"pattern":"**/wsl.exe"}]}}}""";
+        WriteStoreFile(initialStore);
+        var result = await MakeCoordinator().HandleAsync(
+            Req("""{"command":["C:\\Windows\\System32\\wsl.exe","--exec","echo","ok"]}"""),
+            "command-host-stored");
+
+        Assert.Equal(ExecApprovalV2Code.ValidationFailed, result.Code);
+        Assert.Equal("persistent-approval-not-permitted-for-command-host", result.Reason);
+        Assert.Equal(initialStore, File.ReadAllText(Path.Combine(_dir, "exec-approvals.json")));
+    }
+
+    [Fact]
+    public async Task HeadlessAllowlistFallback_CommandHost_IsDeniedWithoutMutatingPolicy()
+    {
+        const string initialStore =
+            """{"version":1,"defaults":{"security":"allowlist","ask":"always","askFallback":"allowlist"},"agents":{"main":{"allowlist":[{"pattern":"**/wsl.exe"}]}}}""";
+        WriteStoreFile(initialStore);
+        var result = await MakeCoordinator().HandleAsync(
+            Req("""{"command":["C:\\Windows\\System32\\wsl.exe","--exec","echo","ok"]}"""),
+            "command-host-fallback");
+
+        Assert.Equal(ExecApprovalV2Code.ValidationFailed, result.Code);
+        Assert.Equal("persistent-approval-not-permitted-for-command-host", result.Reason);
+        Assert.Equal(initialStore, File.ReadAllText(Path.Combine(_dir, "exec-approvals.json")));
+    }
+
+    [Fact]
+    public async Task HeadlessFullWithAllowlistFallback_CommandHost_IsDeniedWhenMatchDependent()
+    {
+        const string initialStore =
+            """{"version":1,"defaults":{"security":"full","ask":"always","askFallback":"allowlist"},"agents":{"main":{"allowlist":[{"pattern":"**/wsl.exe"}]}}}""";
+        WriteStoreFile(initialStore);
+        var result = await MakeCoordinator().HandleAsync(
+            Req("""{"command":["C:\\Windows\\System32\\wsl.exe","--exec","echo","ok"]}"""),
+            "command-host-full-allowlist-fallback");
+
+        Assert.Equal(ExecApprovalV2Code.ValidationFailed, result.Code);
+        Assert.Equal("persistent-approval-not-permitted-for-command-host", result.Reason);
+        Assert.Equal(initialStore, File.ReadAllText(Path.Combine(_dir, "exec-approvals.json")));
+    }
+
+    [Fact]
+    public async Task HeadlessFullFallback_CommandHost_RemainsAllowedWhenNotMatchDependent()
+    {
+        WriteStoreFile(
+            """{"version":1,"defaults":{"security":"full","ask":"always","askFallback":"full"}}""");
+        var result = await MakeCoordinator().HandleAsync(
+            Req("""{"command":["C:\\Windows\\System32\\wsl.exe","--exec","echo","ok"]}"""),
+            "command-host-full-fallback");
+
+        Assert.True(result.IsAllow);
+    }
+
+    [Fact]
+    public async Task SecurityFull_CommandHost_RemainsAllowed()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"off"}}""");
+        var result = await MakeCoordinator().HandleAsync(
+            Req("""{"command":["C:\\Windows\\System32\\wsl.exe","--exec","echo","ok"]}"""),
+            "command-host-full");
+
+        Assert.True(result.IsAllow);
+    }
+
+    [Fact]
+    public void V2Result_IsAllow_FalseForAllDenyCodes()
+    {
+        Assert.False(ExecApprovalV2Result.SecurityDeny("x").IsAllow);
+        Assert.False(ExecApprovalV2Result.UserDenied("x").IsAllow);
+        Assert.False(ExecApprovalV2Result.ValidationFailed("x").IsAllow);
+        Assert.False(ExecApprovalV2Result.InternalError("x").IsAllow);
+    }
+
+    // ── 21. ICanPresentEvaluator stubs ────────────────────────────────────────
+
+    [Fact]
+    public void AlwaysCannotPresent_AlwaysReturnsFalse()
+    {
+        Assert.False(AlwaysCannotPresentEvaluator.Instance.CanPresent(null));
+        Assert.False(AlwaysCannotPresentEvaluator.Instance.CanPresent("session-key"));
+    }
+
+    [Fact]
+    public void AlwaysCanPresent_AlwaysReturnsTrue()
+    {
+        Assert.True(AlwaysCanPresentEvaluator.Instance.CanPresent(null));
+        Assert.True(AlwaysCanPresentEvaluator.Instance.CanPresent("session-key"));
+    }
+
+    // ── 22. Empty correlationId → auto-generated 32-char hex ─────────────────
+
+    [Fact]
+    public async Task EmptyCorrelationId_AutoGeneratedInLog()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"deny"}}""");
+        var log = new CapturingLogger();
+        await MakeCoordinator(logger: log).HandleAsync(DefaultReq(), "");
+
+        Assert.NotNull(log.LastWarn);
+        // log format: "[EXEC-APPROVALS] [<correlationId>] path=new ..."
+        // auto-generated correlationId: Guid.NewGuid().ToString("N") → 32 hex chars
+        var msg = log.LastWarn!;
+        var second = msg.IndexOf('[', msg.IndexOf(']') + 1) + 1;
+        var end = msg.IndexOf(']', second);
+        Assert.True(end > second);
+        var id = msg[second..end];
+        Assert.Equal(32, id.Length);
+        Assert.True(id.All(c => char.IsAsciiHexDigit(c)), $"Expected 32 hex chars, got: {id}");
+    }
+
+    // ── 23. FallbackDecision(Allowlist, unsatisfied) → Deny ──────────────────
+
+    [Fact]
+    public async Task FallbackDecision_AskFallbackAllowlist_NotSatisfied_ReturnsDeny()
+    {
+        // security=full, ask=always → RequiresPrompt in pass1
+        // canPresent=false → FallbackDecision(context, ExecSecurity.Allowlist)
+        // AllowlistSatisfied=false (security=Full, not Allowlist) → Deny
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"always","askFallback":"allowlist"}}""");
+        var result = await MakeCoordinator().HandleAsync(DefaultReq(), "c23");
+        Assert.False(result.IsAllow);
+    }
+
+    [Fact]
+    public async Task FallbackDecision_AskFallbackAllowlist_Matched_ReturnsAllow()
+    {
+        WriteStoreFile("""
+        {
+          "version": 1,
+          "defaults": { "security": "full", "ask": "always", "askFallback": "allowlist" },
+          "agents": { "main": { "allowlist": [{ "pattern": "**/where.exe" }] } }
+        }
+        """);
+
+        var result = await MakeCoordinator().HandleAsync(
+            Req("""{"command":["where.exe","cmd.exe"]}"""),
+            "c23-match");
+
+        Assert.True(result.IsAllow);
+    }
+
+    [Fact]
+    public async Task FallbackDecision_FullFallback_DoesNotBypassAllowlistSecurity()
+    {
+        WriteStoreFile("""
+        {
+          "version": 1,
+          "defaults": { "security": "allowlist", "ask": "always", "askFallback": "full" }
+        }
+        """);
+
+        var result = await MakeCoordinator().HandleAsync(DefaultReq(), "c23-clamp");
+
+        Assert.False(result.IsAllow);
+        Assert.Equal(ExecApprovalV2Code.UserDenied, result.Code);
+    }
+
+    // ── 24. Outer safety net — CanPresent throws → InternalError, not exception ───
+
+    [Fact]
+    public async Task CanPresent_Throws_ReturnsInternalError_NotException()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"always"}}""");
+        var log = new CapturingLogger();
+        var result = await MakeCoordinator(
+            canPresent: new ThrowingCanPresentEvaluator(),
+            logger: log).HandleAsync(DefaultReq(), "outer-1");
+
+        Assert.Equal(ExecApprovalV2Code.InternalError, result.Code);
+        Assert.Equal("unexpected-exception", result.Reason);
+        Assert.Contains(log.Errors, e => e.Contains("unexpected-exception"));
+    }
+
+    // ── PR8: allowlist persistence and use recording ──────────────────────────
+
+    // A. AllowAlways + security=allowlist → entry persisted in store.
+    [Fact]
+    public async Task AllowAlways_Allowlist_PersistsEntry()
+    {
+        WriteStoreFile("""{"version":1,"agents":{"main":{"security":"allowlist","ask":"always"}}}""");
+        var result = await MakeCoordinator(
+            canPresent: AlwaysCanPresentEvaluator.Instance,
+            prompt: new FixedDecisionPromptHandler(ExecApprovalPromptOutcome.AllowAlways))
+            .HandleAsync(Req("""{"command":["where"]}"""), "pr8-A");
+
+        Assert.True(result.IsAllow);
+        var resolved = new ExecApprovalsStore(_dir, NullLogger.Instance).ResolveReadOnly("main");
+        Assert.Single(resolved.Allowlist);
+        Assert.NotNull(resolved.Allowlist[0].Pattern);
+        Assert.Contains("where", resolved.Allowlist[0].Pattern, StringComparison.OrdinalIgnoreCase);
+    }
+
+    // B. AllowAlways + security=full → guard fails, no allowlist entry written.
+    [Fact]
+    public async Task AllowAlways_SecurityFull_DoesNotPersist()
+    {
+        WriteStoreFile("""{"version":1,"defaults":{"security":"full","ask":"always"}}""");
+        var result = await MakeCoordinator(
+            canPresent: AlwaysCanPresentEvaluator.Instance,
+            prompt: new FixedDecisionPromptHandler(ExecApprovalPromptOutcome.AllowAlways))
+            .HandleAsync(Req("""{"command":["where"]}"""), "pr8-B");
+
+        Assert.True(result.IsAllow);
+        var json = File.ReadAllText(Path.Combine(_dir, "exec-approvals.json"));
+        Assert.DoesNotContain("allowlist", json, StringComparison.OrdinalIgnoreCase);
+    }
+
+    // C. Pre-approved path (pass1 = Allow) → RecordAllowlistUse fires and updates LastUsedAt.
+    [Fact]
+    public async Task AllowPreapproved_RecordsAllowlistUse()
+    {
+        WriteStoreFile("""
+        {
+          "version": 1,
+          "agents": {
+            "main": {
+              "security": "allowlist",
+              "ask": "off",
+              "allowlist": [{ "pattern": "**/where.exe" }]
+            }
+          }
+        }
+        """);
+        var result = await MakeCoordinator().HandleAsync(Req("""{"command":["where"]}"""), "pr8-C");
+
+        Assert.True(result.IsAllow);
+        var resolved = new ExecApprovalsStore(_dir, NullLogger.Instance).ResolveReadOnly("main");
+        Assert.Single(resolved.Allowlist);
+        Assert.NotNull(resolved.Allowlist[0].LastUsedAt);
+    }
+
+    // D. AllowOnce → persistAllowlistEntry=false, no entry written.
+    [Fact]
+    public async Task AllowOnce_DoesNotPersistEntry()
+    {
+        WriteStoreFile("""{"version":1,"agents":{"main":{"security":"allowlist","ask":"always"}}}""");
+        var result = await MakeCoordinator(
+            canPresent: AlwaysCanPresentEvaluator.Instance,
+            prompt: new FixedDecisionPromptHandler(ExecApprovalPromptOutcome.AllowOnce))
+            .HandleAsync(Req("""{"command":["where"]}"""), "pr8-D");
+
+        Assert.True(result.IsAllow);
+        var resolved = new ExecApprovalsStore(_dir, NullLogger.Instance).ResolveReadOnly("main");
+        Assert.Empty(resolved.Allowlist);
+    }
+
+    // E. AllowAlways called twice for the same command → exactly one entry (dedup in store).
+    [Fact]
+    public async Task AllowAlways_Idempotent_SingleEntry()
+    {
+        WriteStoreFile("""{"version":1,"agents":{"main":{"security":"allowlist","ask":"always"}}}""");
+        var coordinator = MakeCoordinator(
+            canPresent: AlwaysCanPresentEvaluator.Instance,
+            prompt: new FixedDecisionPromptHandler(ExecApprovalPromptOutcome.AllowAlways));
+
+        await coordinator.HandleAsync(Req("""{"command":["where"]}"""), "pr8-E1");
+        await coordinator.HandleAsync(Req("""{"command":["where"]}"""), "pr8-E2");
+
+        var resolved = new ExecApprovalsStore(_dir, NullLogger.Instance).ResolveReadOnly("main");
+        Assert.Single(resolved.Allowlist);
+    }
+
+    // F. Prompt path (ask=always + AllowlistSatisfied=true + AllowOnce) →
+    //    RecordAllowlistUse fires in the post-pass2 branch (not just the pass1 branch).
+    [Fact]
+    public async Task AllowOnce_AllowlistSatisfied_RecordsUseInPostPass2Branch()
+    {
+        WriteStoreFile("""
+        {
+          "version": 1,
+          "agents": {
+            "main": {
+              "security": "allowlist",
+              "ask": "always",
+              "allowlist": [{ "pattern": "**/where.exe" }]
+            }
+          }
+        }
+        """);
+        var result = await MakeCoordinator(
+            canPresent: AlwaysCanPresentEvaluator.Instance,
+            prompt: new FixedDecisionPromptHandler(ExecApprovalPromptOutcome.AllowOnce))
+            .HandleAsync(Req("""{"command":["where"]}"""), "pr8-F");
+
+        Assert.True(result.IsAllow);
+        var resolved = new ExecApprovalsStore(_dir, NullLogger.Instance).ResolveReadOnly("main");
+        Assert.Single(resolved.Allowlist);
+        Assert.NotNull(resolved.Allowlist[0].LastUsedAt);
+    }
+
+    // G. Fallback path (canPresent=false) + AllowlistSatisfied=true → RecordAllowlistUse fires.
+    [Fact]
+    public async Task Fallback_AllowlistSatisfied_RecordsUse()
+    {
+        // askFallback=off → FallbackDecision=AllowOnce → pass2=Allow. AllowlistSatisfied=true
+        // because where.exe resolves and **/where.exe matches. RecordAllowlistUsageAsync must fire.
+        WriteStoreFile("""
+        {
+          "version": 1,
+          "agents": {
+            "main": {
+              "security": "allowlist",
+              "ask": "always",
+              "askFallback": "off",
+              "allowlist": [{ "pattern": "**/where.exe" }]
+            }
+          }
+        }
+        """);
+        // canPresent=false (default) → fallback path; askFallback=off → AllowOnce → Allow
+        var result = await MakeCoordinator().HandleAsync(Req("""{"command":["where"]}"""), "pr8-G");
+
+        Assert.True(result.IsAllow);
+        var resolved = new ExecApprovalsStore(_dir, NullLogger.Instance).ResolveReadOnly("main");
+        Assert.Single(resolved.Allowlist);
+        Assert.NotNull(resolved.Allowlist[0].LastUsedAt);
+    }
+
+    // End-to-end coordinator/store runtime proof using real filesystem I/O.
+    // Demonstrates the two side-effect paths via ITestOutputHelper, so the
+    // resulting JSON appears in `dotnet test ... --logger "console;verbosity=detailed"`:
+    //   - AllowAlways persists a new allowlist entry into exec-approvals.json
+    //   - A later allowlist hit records lastUsed* metadata
+    [Fact]
+    public async Task RuntimeProof_AllowAlways_PersistsAndRecordsLastUsed()
+    {
+        var filePath = Path.Combine(_dir, "exec-approvals.json");
+
+        WriteStoreFile("""{"version":1,"agents":{"main":{"security":"allowlist","ask":"always"}}}""");
+        _output.WriteLine("=== Initial exec-approvals.json ===");
+        _output.WriteLine(File.ReadAllText(filePath));
+
+        var coordinator = MakeCoordinator(
+            canPresent: AlwaysCanPresentEvaluator.Instance,
+            prompt: new FixedDecisionPromptHandler(ExecApprovalPromptOutcome.AllowAlways));
+
+        // Step 1: AllowAlways → entry persisted (no lastUsed* yet).
+        var first = await coordinator.HandleAsync(Req("""{"command":["where"]}"""), "proof-1");
+        Assert.True(first.IsAllow);
+
+        _output.WriteLine("");
+        _output.WriteLine("=== After AllowAlways (correlationId=proof-1) ===");
+        _output.WriteLine(File.ReadAllText(filePath));
+
+        // Step 2: Same command again → allowlist hit, lastUsed* recorded.
+        var second = await coordinator.HandleAsync(Req("""{"command":["where"]}"""), "proof-2");
+        Assert.True(second.IsAllow);
+
+        _output.WriteLine("");
+        _output.WriteLine("=== After allowlist hit (correlationId=proof-2) ===");
+        _output.WriteLine(File.ReadAllText(filePath));
+
+        var resolvedAfter = new ExecApprovalsStore(_dir, NullLogger.Instance).ResolveReadOnly("main");
+        Assert.Single(resolvedAfter.Allowlist);
+        Assert.NotNull(resolvedAfter.Allowlist[0].Pattern);
+        Assert.NotNull(resolvedAfter.Allowlist[0].LastUsedAt);
+        Assert.NotNull(resolvedAfter.Allowlist[0].LastResolvedPath);
+    }
+
+    // Regression: wildcard-authorized hit must record lastUsed* on the wildcard bucket entry.
+    // ResolveReadOnly merges agents["*"] into the resolved allowlist for any concrete agent,
+    // so a request from "main" can be allow-matched by an entry living under "*". The store's
+    // record path must follow the same source — otherwise wildcard-authorized executions never
+    // accumulate usage metadata.
+    [Fact]
+    public async Task WildcardAllowlistHit_RecordsUseOnWildcardBucketEntry()
+    {
+        WriteStoreFile("""
+        {
+          "version": 1,
+          "agents": {
+            "*": {
+              "security": "allowlist",
+              "ask": "off",
+              "allowlist": [{ "pattern": "**/where.exe" }]
+            }
+          }
+        }
+        """);
+
+        var result = await MakeCoordinator().HandleAsync(Req("""{"command":["where"]}"""), "wildcard-1");
+
+        Assert.True(result.IsAllow);
+        var json = File.ReadAllText(Path.Combine(_dir, "exec-approvals.json"));
+        Assert.Contains("\"lastUsedAt\"", json);
+        Assert.Contains("\"lastResolvedPath\"", json);
+    }
+
+    // ── Test doubles ──────────────────────────────────────────────────────────
+
+    private sealed class FixedDecisionPromptHandler : IExecApprovalV2PromptHandler
+    {
+        private readonly ExecApprovalPromptOutcome _outcome;
+        public FixedDecisionPromptHandler(ExecApprovalPromptOutcome o) => _outcome = o;
+        public Task<ExecApprovalPromptOutcome> PromptAsync(
+            ExecApprovalV2PromptRequest _,
+            CancellationToken cancellationToken = default)
+            => Task.FromResult(_outcome);
+    }
+
+    private sealed class ThrowingCanPresentEvaluator : ICanPresentEvaluator
+    {
+        public bool CanPresent(string? requestSessionKey)
+            => throw new InvalidOperationException("simulated canPresent crash");
+    }
+
+    private sealed class ThrowingPromptHandler : IExecApprovalV2PromptHandler
+    {
+        public Task<ExecApprovalPromptOutcome> PromptAsync(
+            ExecApprovalV2PromptRequest _,
+            CancellationToken cancellationToken = default)
+            => throw new InvalidOperationException("simulated presenter crash");
+    }
+
+    private sealed class CapturingLogger : ILuckyNemoLogger
+    {
+        public List<string> Infos { get; } = [];
+        public List<string> Warns { get; } = [];
+        public List<string> Errors { get; } = [];
+        public string? LastInfo => Infos.Count > 0 ? Infos[^1] : null;
+        public string? LastWarn => Warns.Count > 0 ? Warns[^1] : null;
+        public string? LastError => Errors.Count > 0 ? Errors[^1] : null;
+        public void Info(string m) => Infos.Add(m);
+        public void Debug(string m) { }
+        public void Warn(string m) => Warns.Add(m);
+        public void Error(string m, Exception? _ = null) => Errors.Add(m);
+    }
+
+}

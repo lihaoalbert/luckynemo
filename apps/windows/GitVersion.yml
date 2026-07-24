@@ -1,0 +1,13 @@
+mode: ContinuousDelivery
+# Monorepo: gateway releases own vYYYY.M.PATCH tags; the Windows app uses windows-v*.
+tag-prefix: 'windows-v'
+assembly-versioning-scheme: MajorMinorPatch
+
+branches:
+  main:
+    regex: ^(master|main)$
+    label: alpha
+    increment: Patch
+
+ignore:
+  sha: []
