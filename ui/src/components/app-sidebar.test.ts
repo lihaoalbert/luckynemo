@@ -13,6 +13,7 @@ import type {
   ApplicationGateway,
   ApplicationGatewaySnapshot,
 } from "../app/context.ts";
+import { i18n } from "../i18n/index.ts";
 import { CATALOG_SESSION_CONTINUED_EVENT } from "../lib/sessions/catalog-key.ts";
 import type { SessionCapability } from "../lib/sessions/index.ts";
 import { createApplicationContextProvider } from "../test-helpers/application-context.ts";
@@ -29,6 +30,16 @@ type SessionState = SessionCapability["state"];
 // models.authStatus) on connect, which would interleave with the nth-call
 // assertions on the shared mocked client below. It has its own test file.
 vi.mock("./sidebar-attention.ts", () => ({}));
+
+// These tests assert English labels, but the forked registry defaults the UI to
+// zh-CN. Pin "en" before each test; setLocale("en") applies synchronously (the
+// en bundle is built in), so renders in the same tick always see English. Do
+// not restore the startup locale in afterAll: with isolate:false the i18n
+// singleton is shared across concurrent test files, and restoring zh-CN here
+// flips the labels mid-render in a sibling file.
+beforeEach(() => {
+  void i18n.setLocale("en");
+});
 
 type SidebarLifecycleState = HTMLElement & {
   connected: boolean;
@@ -2144,6 +2155,40 @@ describe("AppSidebar session mutation feedback", () => {
     await vi.waitFor(() =>
       expect(harness.refresh).toHaveBeenCalledWith({ agentId: "main", force: true }),
     );
+  });
+
+  it("renames a session from the menu through sessions.patch", async () => {
+    const { harness, sidebar } = await mountMutationHarness();
+    const promptSpy = vi.spyOn(window, "prompt").mockReturnValue("Renamed session");
+    try {
+      const menu = await openSessionMenu(sidebar, "agent:main:a");
+      menu.querySelector<HTMLButtonElement>('[data-shortcut="r"]')?.click();
+
+      await vi.waitFor(() => expect(harness.patch).toHaveBeenCalledOnce());
+      expect(harness.patch).toHaveBeenCalledWith(
+        "agent:main:a",
+        { label: "Renamed session" },
+        { agentId: "main" },
+      );
+    } finally {
+      promptSpy.mockRestore();
+    }
+  });
+
+  it("does not patch a session when rename is cancelled", async () => {
+    const { harness, sidebar } = await mountMutationHarness();
+    // Embedded webviews without a prompt bridge resolve window.prompt to null;
+    // the menu action must stay a no-op instead of clearing the label.
+    const promptSpy = vi.spyOn(window, "prompt").mockReturnValue(null);
+    try {
+      const menu = await openSessionMenu(sidebar, "agent:main:a");
+      menu.querySelector<HTMLButtonElement>('[data-shortcut="r"]')?.click();
+      await sidebar.updateComplete;
+
+      expect(harness.patch).not.toHaveBeenCalled();
+    } finally {
+      promptSpy.mockRestore();
+    }
   });
 
   it("shows and dismisses a fixed sidebar error when a session patch is rejected", async () => {

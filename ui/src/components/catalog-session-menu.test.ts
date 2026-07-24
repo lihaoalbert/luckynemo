@@ -1,9 +1,16 @@
 /* @vitest-environment jsdom */
 
 import { html, render } from "lit";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { i18n } from "../i18n/index.ts";
 import "./catalog-session-menu.ts";
 import type { CatalogSessionMenuAction } from "./catalog-session-menu.ts";
+
+// Same locale pin as session-menu.test.ts: the forked registry defaults the UI
+// to zh-CN, and these assertions expect English labels.
+beforeEach(() => {
+  void i18n.setLocale("en");
+});
 
 type CatalogMenuElement = HTMLElement & { updateComplete: Promise<boolean> };
 type CatalogMenuItem = HTMLElement & { disabled: boolean; updateComplete: Promise<unknown> };

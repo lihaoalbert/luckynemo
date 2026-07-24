@@ -1,9 +1,19 @@
-import { describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { GatewayBrowserClient, GatewayHelloOk } from "../../api/gateway.ts";
 import type { RouteId } from "../../app-route-paths.ts";
 import type { ApplicationContext, ApplicationGatewaySnapshot } from "../../app/context.ts";
+import { i18n } from "../../i18n/index.ts";
 import { getLogbookState, stopLogbookPolling } from "./logbook-controller.ts";
 import { renderLogbook } from "./logbook-view.ts";
+
+// These tests assert English labels, but the forked registry defaults the UI to
+// zh-CN. Pin "en" before each test; setLocale("en") applies synchronously (the
+// en bundle is built in). No afterAll restore: with isolate:false the i18n
+// singleton is shared across concurrent test files.
+beforeEach(() => {
+  void i18n.setLocale("en");
+});
+
 import { PluginPage } from "./plugin-page.ts";
 
 type TestBundledView = {

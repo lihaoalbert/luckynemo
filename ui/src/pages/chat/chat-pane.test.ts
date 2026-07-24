@@ -1,7 +1,17 @@
 /* @vitest-environment jsdom */
 
 import { render, type TemplateResult } from "lit";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { i18n } from "../../i18n/index.ts";
+
+// These tests assert English labels, but the forked registry defaults the UI to
+// zh-CN. Pin "en" before each test; setLocale("en") applies synchronously (the
+// en bundle is built in). No afterAll restore: with isolate:false the i18n
+// singleton is shared across concurrent test files.
+beforeEach(() => {
+  void i18n.setLocale("en");
+});
+
 import type {
   SessionCatalogSession,
   SessionCatalogTranscriptItem,

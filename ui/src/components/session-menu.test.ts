@@ -1,9 +1,20 @@
 /* @vitest-environment jsdom */
 
 import { html, render } from "lit";
-import { afterEach, describe, expect, it, vi } from "vitest";
+import { afterEach, beforeEach, describe, expect, it, vi } from "vitest";
+import { i18n } from "../i18n/index.ts";
 import "./session-menu.ts";
 import type { SessionMenuAction, SessionMenuWork } from "./session-menu.ts";
+
+// These tests assert English labels, but the forked registry defaults the UI to
+// zh-CN. Pin "en" before each test; setLocale("en") applies synchronously (the
+// en bundle is built in), so renders in the same tick always see English. Do
+// not restore the startup locale in afterAll: with isolate:false the i18n
+// singleton is shared across concurrent test files, and restoring zh-CN here
+// flips the labels mid-render in a sibling file.
+beforeEach(() => {
+  void i18n.setLocale("en");
+});
 
 type SessionMenuData = {
   label: string;

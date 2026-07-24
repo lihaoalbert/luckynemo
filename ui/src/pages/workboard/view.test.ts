@@ -1,10 +1,19 @@
 // Control UI tests cover workboard behavior.
 import { nothing, render } from "lit";
-import { describe, expect, it, vi } from "vitest";
+import { beforeEach, describe, expect, it, vi } from "vitest";
 import type { GatewayBrowserClient } from "../../api/gateway.ts";
+import { i18n } from "../../i18n/index.ts";
 import { getWorkboardState, stopWorkboardLifecycleRefresh } from "../../lib/workboard/index.ts";
 import { getRenderedModalDialog } from "../../test-helpers/modal-dialog.ts";
 import { renderWorkboard } from "./view.ts";
+
+// These tests assert English labels, but the forked registry defaults the UI to
+// zh-CN. Pin "en" before each test; setLocale("en") applies synchronously (the
+// en bundle is built in). No afterAll restore: with isolate:false the i18n
+// singleton is shared across concurrent test files.
+beforeEach(() => {
+  void i18n.setLocale("en");
+});
 
 type WorkboardRenderProps = Parameters<typeof renderWorkboard>[0];
 

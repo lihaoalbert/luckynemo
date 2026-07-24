@@ -1,5 +1,5 @@
 // Control UI tests cover navigation behavior.
-import { describe, expect, it } from "vitest";
+import { beforeEach, describe, expect, it } from "vitest";
 import {
   SETTINGS_NAVIGATION_GROUPS,
   SIDEBAR_NAV_ROUTES,
@@ -10,6 +10,16 @@ import {
   titleForRoute,
 } from "./app-navigation.ts";
 import { inferBasePathFromPathname, normalizeBasePath } from "./app-route-paths.ts";
+import { i18n } from "./i18n/index.ts";
+
+// These tests assert English labels, but the forked registry defaults the UI to
+// zh-CN. Pin "en" before each test; setLocale("en") applies synchronously (the
+// en bundle is built in). No afterAll restore: with isolate:false the i18n
+// singleton is shared across concurrent test files.
+beforeEach(() => {
+  void i18n.setLocale("en");
+});
+
 import {
   createApplicationRouter,
   pathForRoute,
