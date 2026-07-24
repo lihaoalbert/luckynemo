@@ -17,7 +17,7 @@ run_step() {
 run_protocol_ci_mirror() {
   local targets=(
     "dist/protocol.schema.json"
-    "apps/shared/OpenClawKit/Sources/OpenClawProtocol/GatewayModels.swift"
+    "apps/shared/LuckyNemoKit/Sources/LuckyNemoProtocol/GatewayModels.swift"
   )
   local before after
   before="$(git diff --no-ext-diff -- "${targets[@]}" || true)"
@@ -39,7 +39,7 @@ has_native_swift_changes() {
     apps/macos
     apps/macos-mlx-tts
     apps/ios
-    apps/shared/OpenClawKit
+    apps/shared/LuckyNemoKit
     apps/swabble
     config/swiftformat
     config/swiftlint.yml

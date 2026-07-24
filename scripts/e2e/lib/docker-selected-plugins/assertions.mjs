@@ -32,7 +32,7 @@ const selected = {
     entries: ["index.js", "setup-entry.js"],
     capability: "channel",
   },
-  clawrouter: {
+  "luckynemo-router": {
     entries: ["index.js"],
     capability: "text-inference",
   },

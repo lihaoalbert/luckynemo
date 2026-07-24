@@ -27,10 +27,10 @@ const ALLOWLIST_FILE = "scripts/protocol-event-coverage.allowlist.json";
 // Scan roots per client. The sentinel files are the primary event dispatch
 // surfaces; if one moves, the check must fail loudly instead of silently
 // passing with an empty handled set. Apple event mapping is shared by iOS and
-// macOS, so the iOS coverage owner lives in OpenClawChatUI.
-const IOS_SCAN_ROOTS = ["apps/ios/Sources", "apps/shared/OpenClawKit/Sources"];
+// macOS, so the iOS coverage owner lives in LuckyNemoChatUI.
+const IOS_SCAN_ROOTS = ["apps/ios/Sources", "apps/shared/LuckyNemoKit/Sources"];
 const IOS_SENTINEL_FILE =
-  "apps/shared/OpenClawKit/Sources/OpenClawChatUI/ChatGatewayPayloadCodec.swift";
+  "apps/shared/LuckyNemoKit/Sources/LuckyNemoChatUI/ChatGatewayPayloadCodec.swift";
 const ANDROID_SCAN_ROOT = "apps/android/app/src/main/java/ai/openclaw/app";
 const ANDROID_SENTINEL_FILES = [
   "apps/android/app/src/main/java/ai/openclaw/app/gateway/GatewaySession.kt",

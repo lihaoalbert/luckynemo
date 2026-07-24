@@ -43,7 +43,7 @@ const CORE_PROD_REQUIRED_PATHS = [
 
 const UI_PROD_REQUIRED_PATHS = [
   {
-    path: "apps/shared/OpenClawKit/Sources/OpenClawKit/Resources/tool-display.json",
+    path: "apps/shared/LuckyNemoKit/Sources/LuckyNemoKit/Resources/tool-display.json",
     whenPresent: "ui/src/lib/chat/tool-display.ts",
   },
 ];

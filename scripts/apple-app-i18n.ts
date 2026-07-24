@@ -1,3 +1,4 @@
+import { existsSync } from "node:fs";
 import { mkdir, readdir, readFile, writeFile } from "node:fs/promises";
 import path from "node:path";
 import { fileURLToPath, pathToFileURL } from "node:url";
@@ -42,8 +43,8 @@ const NATIVE_SOURCE_PATH = "apps/.i18n/native-source.json";
 const NATIVE_TRANSLATIONS_DIR = "apps/.i18n/native";
 const IOS_SOURCE_PREFIXES = [
   "apps/ios/",
-  "apps/shared/OpenClawKit/Sources/OpenClawChatUI/",
-  "apps/shared/OpenClawKit/Sources/OpenClawKit/",
+  "apps/shared/LuckyNemoKit/Sources/LuckyNemoChatUI/",
+  "apps/shared/LuckyNemoKit/Sources/LuckyNemoKit/",
 ] as const;
 const IOS_CATALOG_KINDS = new Set([
   "conditional-branch",
@@ -373,14 +374,14 @@ const RAW_LOCALIZATION_BYPASSES: Record<string, readonly string[]> = {
 };
 
 const MACOS_CATALOG = {
-  path: "apps/macos/Sources/OpenClaw/Resources/Localizable.xcstrings",
+  path: "apps/macos/Sources/LuckyNemo/Resources/Localizable.xcstrings",
   coverage: {
-    "apps/macos/Sources/OpenClaw/ChannelsSettings+ChannelSections.swift": [
+    "apps/macos/Sources/LuckyNemo/ChannelsSettings+ChannelSections.swift": [
       "Logout",
       "Refresh",
       "Save",
     ],
-    "apps/macos/Sources/OpenClaw/CronSettings+Rows.swift": ["Run now"],
+    "apps/macos/Sources/LuckyNemo/CronSettings+Rows.swift": ["Run now"],
   },
 } as const;
 
@@ -686,7 +687,10 @@ async function listSwiftFiles(directory: string): Promise<string[]> {
 }
 
 async function validateRuntimeInterpolationPaths(): Promise<void> {
-  const roots = IOS_SOURCE_PREFIXES.map((prefix) => path.join(ROOT, prefix));
+  // The LuckyNemo fork ships only the macOS app; skip iOS source roots that are absent.
+  const roots = IOS_SOURCE_PREFIXES.map((prefix) => path.join(ROOT, prefix)).filter((root) =>
+    existsSync(root),
+  );
   const files = (await Promise.all(roots.map(listSwiftFiles))).flat();
   const violations: string[] = [];
   for (const file of files) {
@@ -861,6 +865,10 @@ export async function syncIosCatalog(write: boolean): Promise<AppleCatalogBuild>
 export async function checkAppleAppI18n() {
   await validateRuntimeInterpolationPaths();
   for (const [sourcePath, contracts] of Object.entries(LOCALIZED_WRAPPER_CONTRACTS)) {
+    // The LuckyNemo fork ships only the macOS app; skip contracts for absent iOS sources.
+    if (!existsSync(path.join(ROOT, sourcePath))) {
+      continue;
+    }
     const source = await readFile(path.join(ROOT, sourcePath), "utf8");
     const missing = contracts.filter((contract) => !source.includes(contract));
     if (missing.length) {
@@ -870,6 +878,9 @@ export async function checkAppleAppI18n() {
     }
   }
   for (const [sourcePath, bypasses] of Object.entries(RAW_LOCALIZATION_BYPASSES)) {
+    if (!existsSync(path.join(ROOT, sourcePath))) {
+      continue;
+    }
     const source = await readFile(path.join(ROOT, sourcePath), "utf8");
     const present = bypasses.filter((bypass) => source.includes(bypass));
     if (present.length) {
@@ -879,9 +890,11 @@ export async function checkAppleAppI18n() {
     }
   }
 
-  const iosBuild = await syncIosCatalog(false);
-  const iosKeys = validateCatalog(IOS_CATALOG_PATH, iosBuild.catalog);
-  const infoPlistFiles = await syncIosInfoPlist(false);
+  // The LuckyNemo fork ships only the macOS app; iOS catalog checks apply only when apps/ios exists.
+  const iosPresent = existsSync(path.join(ROOT, "apps/ios"));
+  const iosBuild = iosPresent ? await syncIosCatalog(false) : { catalog: {}, contradictions: [] };
+  const iosKeys = iosPresent ? validateCatalog(IOS_CATALOG_PATH, iosBuild.catalog) : 0;
+  const infoPlistFiles = iosPresent ? await syncIosInfoPlist(false) : 0;
 
   const macosCatalog = JSON.parse(
     await readFile(path.join(ROOT, MACOS_CATALOG.path), "utf8"),

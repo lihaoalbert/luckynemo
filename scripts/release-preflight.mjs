@@ -7,7 +7,7 @@ import { parseReleaseVersion } from "./lib/npm-publish-plan.mjs";
 
 const parsedArgs = parseArgs(process.argv.slice(2));
 const fix = parsedArgs.fix;
-const macosInfoPlistPath = "apps/macos/Sources/OpenClaw/Resources/Info.plist";
+const macosInfoPlistPath = "apps/macos/Sources/LuckyNemo/Resources/Info.plist";
 const nodeCommand = (...args) => ({ args, bin: "node" });
 const pnpmCommand = (...args) => ({ args, bin: "pnpm" });
 const releaseTasks = [

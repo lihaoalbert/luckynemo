@@ -1,4 +1,4 @@
-name: Shared OpenClawKit Periphery
+name: Shared LuckyNemoKit Periphery
 
 on:
   pull_request:
@@ -17,7 +17,7 @@ permissions:
 
 jobs:
   scope:
-    name: Detect shared OpenClawKit scan scope
+    name: Detect shared LuckyNemoKit scan scope
     runs-on: ubuntu-24.04
     outputs:
       should-scan: ${{ steps.scope.outputs.should-scan }}
@@ -64,7 +64,7 @@ jobs:
               "--",
               "apps/ios/",
               "apps/macos/",
-              "apps/shared/OpenClawKit/",
+              "apps/shared/LuckyNemoKit/",
               ".github/workflows/shared-openclawkit-periphery.yml",
               "scripts/periphery-intersection.mjs",
               "scripts/ios-configure-signing.sh",
@@ -144,8 +144,8 @@ jobs:
             --config .periphery.yml \
             --clean-build \
             --format json \
-            --report-include '../shared/OpenClawKit/Sources/**' \
-            --retain-files '../shared/OpenClawKit/Sources/OpenClawProtocol/GatewayModels.swift' \
+            --report-include '../shared/LuckyNemoKit/Sources/**' \
+            --retain-files '../shared/LuckyNemoKit/Sources/LuckyNemoProtocol/GatewayModels.swift' \
             --write-results "$output_dir/periphery.json" \
             >"$output_dir/periphery.stdout.json" \
             2>"$output_dir/periphery.stderr.log"
@@ -213,8 +213,8 @@ jobs:
             --config .periphery.yml \
             --clean-build \
             --format json \
-            --report-include '../shared/OpenClawKit/Sources/**' \
-            --retain-files '../shared/OpenClawKit/Sources/OpenClawProtocol/GatewayModels.swift' \
+            --report-include '../shared/LuckyNemoKit/Sources/**' \
+            --retain-files '../shared/LuckyNemoKit/Sources/LuckyNemoProtocol/GatewayModels.swift' \
             --write-results "$output_dir/periphery.json" \
             >"$output_dir/periphery.stdout.json" \
             2>"$output_dir/periphery.stderr.log"
@@ -235,7 +235,7 @@ jobs:
           retention-days: 14
 
   intersect:
-    name: Intersect shared OpenClawKit dead code
+    name: Intersect shared LuckyNemoKit dead code
     needs: [scope, scan-ios, scan-macos]
     if: ${{ always() && needs.scope.outputs.should-scan == 'true' && needs.scan-ios.result != 'cancelled' && needs.scan-macos.result != 'cancelled' }}
     runs-on: ubuntu-24.04

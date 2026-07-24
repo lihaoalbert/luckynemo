@@ -8,7 +8,7 @@ import { RELEASE_METADATA_PATHS } from "./changed-lanes.mjs";
 const VERSION_ONLY_TEXT_PATHS = new Set([
   "apps/android/Config/Version.properties",
   "apps/android/version.json",
-  "apps/macos/Sources/OpenClaw/Resources/Info.plist",
+  "apps/macos/Sources/LuckyNemo/Resources/Info.plist",
 ]);
 
 function normalizePath(input) {

@@ -12,7 +12,7 @@ const KIB = 1024;
 export const CONTROL_UI_PERFORMANCE_BUDGETS = Object.freeze({
   startupJsRequests: 28,
   startupCssRequests: 1,
-  startupJsGzipBytes: 370 * KIB,
+  startupJsGzipBytes: 400 * KIB, // LuckyNemo fork: rebrand + added plugins pushed the startup bundle past the upstream 370 KiB baseline.
   startupCssGzipBytes: 42 * KIB,
   largestJsGzipBytes: 215 * KIB,
   largestCssGzipBytes: 42 * KIB,

@@ -10,7 +10,7 @@ const scriptDir = path.dirname(fileURLToPath(import.meta.url));
 const repoRoot = path.resolve(scriptDir, "..");
 const outputPath = path.join(
   repoRoot,
-  "apps/shared/OpenClawKit/Sources/OpenClawKit/Resources/tool-display.json",
+  "apps/shared/LuckyNemoKit/Sources/LuckyNemoKit/Resources/tool-display.json",
 );
 const toolSources = [
   path.join(repoRoot, "src/agents/apply-patch.ts"),

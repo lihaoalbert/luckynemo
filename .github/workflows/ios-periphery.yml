@@ -63,7 +63,7 @@ jobs:
               "HEAD",
               "--",
               "apps/ios/",
-              "apps/shared/OpenClawKit/Sources/",
+              "apps/shared/LuckyNemoKit/Sources/",
               "apps/swabble/Sources/SwabbleKit/",
               ".github/workflows/ios-periphery.yml",
               ".github/workflows/ios-periphery-comment.yml",

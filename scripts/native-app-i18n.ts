@@ -82,7 +82,7 @@ const SOURCE_ROOTS: Record<NativeI18nSurface, string[]> = {
   apple: [
     path.join(ROOT, "apps", "ios"),
     path.join(ROOT, "apps", "macos", "Sources"),
-    path.join(ROOT, "apps", "shared", "OpenClawKit", "Sources"),
+    path.join(ROOT, "apps", "shared", "LuckyNemoKit", "Sources"),
   ],
 };
 

@@ -30,9 +30,9 @@ const outPaths = [
     repoRoot,
     "apps",
     "shared",
-    "OpenClawKit",
+    "LuckyNemoKit",
     "Sources",
-    "OpenClawProtocol",
+    "LuckyNemoProtocol",
     "GatewayModels.swift",
   ),
 ];

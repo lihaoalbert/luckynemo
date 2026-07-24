@@ -16,9 +16,9 @@ const TOOL_DISPLAY_PATH = path.join(
   ROOT,
   "apps",
   "shared",
-  "OpenClawKit",
+  "LuckyNemoKit",
   "Sources",
-  "OpenClawKit",
+  "LuckyNemoKit",
   "Resources",
   "tool-display.json",
 );

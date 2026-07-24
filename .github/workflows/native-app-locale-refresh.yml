@@ -9,7 +9,7 @@ on:
       - apps/ios/**
       - apps/macos/Sources/**
       - apps/macos/Package.swift
-      - apps/shared/OpenClawKit/Sources/**
+      - apps/shared/LuckyNemoKit/Sources/**
       - apps/.i18n/native/**
       - apps/.i18n/native-source.json
       - scripts/control-ui-i18n.ts
@@ -306,7 +306,7 @@ jobs:
             apps/ios
             apps/macos/Sources
             apps/macos/Package.swift
-            apps/shared/OpenClawKit/Sources
+            apps/shared/LuckyNemoKit/Sources
             scripts/control-ui-i18n.ts
             scripts/android-app-i18n.ts
             scripts/apple-app-i18n.ts
