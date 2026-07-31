@@ -80,7 +80,7 @@ jobs:
         run: dotnet restore
 
       - name: Initialize CodeQL
-        uses: github/codeql-action/init@v4
+        uses: github/codeql-action/init@v4.37.3
         with:
           languages: csharp
           build-mode: manual
@@ -90,6 +90,6 @@ jobs:
         run: dotnet build luckynemo-windows-node.slnx -c Debug --no-restore
 
       - name: Analyze
-        uses: github/codeql-action/analyze@v4
+        uses: github/codeql-action/analyze@v4.37.3
         with:
           category: "/codeql/csharp/windows-app"
