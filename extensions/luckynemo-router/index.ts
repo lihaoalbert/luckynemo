@@ -8,6 +8,7 @@ import {
 import { createProviderApiKeyAuthMethod } from "openclaw/plugin-sdk/provider-auth-api-key";
 import { buildProviderReplayFamilyHooks } from "openclaw/plugin-sdk/provider-model-shared";
 import { buildProviderToolCompatFamilyHooks } from "openclaw/plugin-sdk/provider-tools";
+import { buildLuckyNemoImageGenerationProvider } from "./image-generation-provider.js";
 import {
   buildLuckyNemoRouterProviderConfig,
   normalizeLuckyNemoRouterApiBaseUrl,
@@ -16,6 +17,7 @@ import {
 } from "./provider-catalog.js";
 import { wrapLuckyNemoRouterProviderStream } from "./stream.js";
 import { fetchLuckyNemoRouterUsage } from "./usage.js";
+import { buildLuckyNemoVideoGenerationProvider } from "./video-generation-provider.js";
 
 const PLUGIN_ID = "luckynemo-router";
 const PROVIDER_ID = "luckynemo";
@@ -223,5 +225,7 @@ export default definePluginEntry({
           timeoutMs: ctx.timeoutMs,
         }),
     });
+    api.registerImageGenerationProvider(buildLuckyNemoImageGenerationProvider());
+    api.registerVideoGenerationProvider(buildLuckyNemoVideoGenerationProvider());
   },
 });

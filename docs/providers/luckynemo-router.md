@@ -227,6 +227,41 @@ unsupported request format is intentionally not advertised as a LuckyNemo text
 model. Normalize those providers to one of the supported contracts in the
 router rather than sending an incompatible payload.
 
+## Image and video generation
+
+The same scoped key also unlocks the proxy's media endpoints, so agents get
+the `image_generate` and `video_generate` tools without any upstream provider
+plugin:
+
+- `POST /v1/images/generations` is OpenAI-images compatible
+  (`{model, prompt, size?, n?, image_url?}`). The default model is
+  `doubao-seedream-5-0-260128`. An optional reference image is sent as
+  `image_url` (data URL) for image-to-image requests.
+- `POST /v1/video/tasks` plus `GET /v1/video/tasks/{id}` submit and poll
+  video tasks (`{model, prompt, ratio, duration, resolution, image_url?}`).
+  Models: `doubao-seedance-2-0-fast-260128` (default),
+  `doubao-seedance-2-0-260128`, and `doubao-seedance-2-0-mini-260615`.
+  Generation takes minutes, so the provider's default timeout is 600 seconds;
+  the returned signed `videoUrl` expires after about an hour and is downloaded
+  immediately.
+
+Point the tools at the LuckyNemo models in `luckynemo.json`:
+
+```json5
+{
+  agents: {
+    defaults: {
+      imageGenerationModel: { primary: "luckynemo/doubao-seedream-5-0-260128" },
+      videoGenerationModel: { primary: "luckynemo/doubao-seedance-2-0-fast-260128" },
+    },
+  },
+}
+```
+
+Both capabilities honor `models.providers.luckynemo.baseUrl` (with or without
+the `/v1` suffix) and the `LUCKYNEMO_API_KEY` credential; no extra setup is
+required once the router key is configured.
+
 ## Quotas and usage
 
 The router's `/v1/usage` response feeds the normal LuckyNemo provider-usage

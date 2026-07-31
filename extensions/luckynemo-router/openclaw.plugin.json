@@ -6,7 +6,9 @@
   "enabledByDefault": true,
   "providers": ["luckynemo"],
   "contracts": {
-    "usageProviders": ["luckynemo"]
+    "usageProviders": ["luckynemo"],
+    "imageGenerationProviders": ["luckynemo"],
+    "videoGenerationProviders": ["luckynemo"]
   },
   "setup": {
     "providers": [
