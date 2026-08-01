@@ -79,7 +79,8 @@ describe("luckynemo image generation provider", () => {
       model: "doubao-seedream-5-0-260128",
       prompt: "a red kite over the sea",
       n: 2,
-      size: "1024x1024",
+      // Below the upstream 3,686,400-pixel floor, so clamped up to the 2k tier.
+      size: "2k",
     });
     expect(request.headers?.get("Authorization")).toBe("Bearer provider-key");
     expect(request.headers?.get("Content-Type")).toBe("application/json");
@@ -107,6 +108,35 @@ describe("luckynemo image generation provider", () => {
       });
 
       expect(firstPostJsonRequest().url).toBe(`${expected}/images/generations`);
+    }
+  });
+
+  it("clamps sizes below the Seedream pixel floor up to the 2k tier", async () => {
+    const cases = [
+      { input: "1k", expected: "2k" },
+      { input: "1024x1024", expected: "2k" },
+      { input: "1792x1024", expected: "2k" },
+      { input: "2K", expected: "2k" },
+      { input: "3k", expected: "3k" },
+      { input: "1920x1920", expected: "1920x1920" },
+      { input: "2560x1440", expected: "2560x1440" },
+      { input: undefined, expected: undefined },
+    ] as const;
+    for (const { input, expected } of cases) {
+      postJsonRequestMock.mockClear();
+      mockB64ImageResponse();
+
+      const provider = buildLuckyNemoImageGenerationProvider();
+      await provider.generateImage({
+        provider: "luckynemo",
+        model: "doubao-seedream-5-0-260128",
+        prompt: "size mapping",
+        cfg: {},
+        ...(input ? { size: input } : {}),
+      });
+
+      const body = firstPostJsonRequest().body as { size?: string };
+      expect(body.size).toBe(expected);
     }
   });
 

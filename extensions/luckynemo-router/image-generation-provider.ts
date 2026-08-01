@@ -61,6 +61,35 @@ function resolveImageCount(req: ImageGenerationRequest): number {
   return Math.max(1, Math.min(MAX_IMAGE_COUNT, Math.round(count)));
 }
 
+// Seedream upstream contract: sizes are the "2k"/"3k"/"4k" tiers or an
+// explicit WIDTHxHEIGHT with at least 3,686,400 pixels (e.g. 1920x1920).
+// Agent/tool callers routinely ask for "1k" or 1024x1024-style sizes that the
+// upstream hard-rejects; clamp those up to the smallest legal tier instead of
+// failing the whole turn.
+const SEEDREAM_MIN_PIXELS = 3_686_400;
+
+function normalizeSeedreamSize(size: string | undefined): string | undefined {
+  const normalized = normalizeOptionalString(size);
+  if (!normalized) {
+    return undefined;
+  }
+  const tier = normalized.toLowerCase();
+  if (tier === "2k" || tier === "3k" || tier === "4k") {
+    return tier;
+  }
+  if (tier === "1k") {
+    return "2k";
+  }
+  const match = /^(\d+)\s*[x×]\s*(\d+)$/iu.exec(tier);
+  if (match) {
+    const pixels = Number(match[1]) * Number(match[2]);
+    if (pixels < SEEDREAM_MIN_PIXELS) {
+      return "2k";
+    }
+  }
+  return normalized;
+}
+
 // The proxy accepts a remote URL or a base64 data URL for the optional
 // reference image (image_url), matching the doubao-seedream request shape.
 function resolveReferenceImageUrl(req: ImageGenerationRequest): string | undefined {
@@ -225,7 +254,7 @@ export function buildLuckyNemoImageGenerationProvider(): ImageGenerationProvider
         });
 
       const model = normalizeLuckyNemoImageModel(req.model);
-      const size = normalizeOptionalString(req.size);
+      const size = normalizeSeedreamSize(req.size);
       const referenceImageUrl = resolveReferenceImageUrl(req);
       const requestHeaders = new Headers(headers);
       requestHeaders.set("Content-Type", "application/json");
