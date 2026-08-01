@@ -238,13 +238,22 @@ plugin:
   `doubao-seedream-5-0-260128`. An optional reference image is sent as
   `image_url` (data URL) for image-to-image requests.
 - `POST /v1/video/tasks` plus `GET /v1/video/tasks/{id}` submit and poll
-  video tasks (`{model, prompt, ratio, duration, resolution, image_urls?}`).
-  Up to nine reference images are forwarded as `image_urls` (URL or data URL).
-  Models: `doubao-seedance-2-0-fast-260128` (default),
-  `doubao-seedance-2-0-260128`, and `doubao-seedance-2-0-mini-260615`.
-  Generation takes minutes, so the provider's default timeout is 600 seconds;
-  the returned signed `videoUrl` expires after about an hour and is downloaded
-  immediately.
+  video tasks (`{model, prompt, ratio, duration, resolution, image_urls?,
+firstFrame?, lastFrame?}`). Models: `doubao-seedance-2-0-fast-260128`
+  (default), `doubao-seedance-2-0-260128`, and
+  `doubao-seedance-2-0-mini-260615`. The provider validates parameters locally
+  before submitting: `duration` must be 4-15 seconds, `ratio` must be one of
+  `16:9`, `9:16`, `1:1`, `4:3`, `3:4`, `21:9` (upstream silently falls back on
+  unknown ratios), and `resolution` is `480p`/`720p`/`1080p`. Up to nine
+  reference images are forwarded as `image_urls` (URL or data URL). The
+  `luckynemo.firstFrame`/`luckynemo.lastFrame` provider options send a
+  first/last frame pair (URL or image buffer each); the pair must be given
+  together and cannot be combined with reference images. Generation takes
+  minutes, so the provider's default timeout is 600 seconds; the returned
+  signed `videoUrl` expires after about an hour and is downloaded immediately.
+  Upstream failures arrive as HTTP 502 with a JSON message embedded in
+  `error.message`; the provider unwraps it so errors show the upstream reason
+  (for example `InvalidParameter`) instead of a bare 502.
 
 Point the tools at the LuckyNemo models in `luckynemo.json`:
 

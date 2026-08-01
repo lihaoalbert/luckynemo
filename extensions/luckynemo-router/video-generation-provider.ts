@@ -41,13 +41,17 @@ const MAX_POLL_ATTEMPTS = 90;
 const DEFAULT_RATIO = "16:9";
 const DEFAULT_RESOLUTION = "720p";
 const DEFAULT_DURATION_SECONDS = 5;
-const MIN_DURATION_SECONDS = 5;
-const MAX_DURATION_SECONDS = 10;
+// Upstream measured: every seedance model accepts 4-15s clips.
+const MIN_DURATION_SECONDS = 4;
+const MAX_DURATION_SECONDS = 15;
 const SUPPORTED_DURATION_SECONDS = Array.from(
   { length: MAX_DURATION_SECONDS - MIN_DURATION_SECONDS + 1 },
   (_, index) => MIN_DURATION_SECONDS + index,
 );
-const SUPPORTED_RATIOS = ["16:9", "4:3", "1:1", "3:4", "9:16"] as const;
+// Upstream does not validate ratio (unknown values silently fall back to a
+// default), so the legal set is enforced here instead of passing garbage
+// through.
+const SUPPORTED_RATIOS = ["16:9", "9:16", "1:1", "4:3", "3:4", "21:9"] as const;
 const SUPPORTED_RESOLUTIONS = ["480P", "720P", "1080P"] as const;
 const MAX_INPUT_IMAGES = 9;
 const DEFAULT_GENERATED_VIDEO_MAX_BYTES = 64 * 1024 * 1024;
@@ -82,11 +86,24 @@ function resolveDurationSeconds(value: number | undefined): number {
   if (typeof value !== "number" || !Number.isFinite(value)) {
     return DEFAULT_DURATION_SECONDS;
   }
-  return Math.max(MIN_DURATION_SECONDS, Math.min(MAX_DURATION_SECONDS, Math.round(value)));
+  const rounded = Math.round(value);
+  if (rounded < MIN_DURATION_SECONDS || rounded > MAX_DURATION_SECONDS) {
+    throw new Error(
+      `LuckyNemo video duration must be between ${MIN_DURATION_SECONDS} and ${MAX_DURATION_SECONDS} seconds.`,
+    );
+  }
+  return rounded;
 }
 
 function resolveRatio(req: VideoGenerationRequest): string {
-  return normalizeOptionalString(req.aspectRatio) ?? DEFAULT_RATIO;
+  const ratio = normalizeOptionalString(req.aspectRatio);
+  if (!ratio) {
+    return DEFAULT_RATIO;
+  }
+  if (!SUPPORTED_RATIOS.includes(ratio as (typeof SUPPORTED_RATIOS)[number])) {
+    throw new Error(`LuckyNemo video aspect ratio must be one of ${SUPPORTED_RATIOS.join(", ")}.`);
+  }
+  return ratio;
 }
 
 // The proxy follows the doubao-seedance resolution tokens (480p/720p/1080p);
@@ -111,6 +128,44 @@ function resolveReferenceImageUrl(input: VideoGenerationSourceAsset): string {
 // alike.
 function resolveReferenceImageUrls(req: VideoGenerationRequest): string[] {
   return (req.inputImages ?? []).map(resolveReferenceImageUrl);
+}
+
+const FIRST_FRAME_OPTION = "luckynemo.firstFrame";
+const LAST_FRAME_OPTION = "luckynemo.lastFrame";
+
+function resolveFrameValue(value: unknown, label: string): string | undefined {
+  if (value === undefined || value === null) {
+    return undefined;
+  }
+  const url = normalizeOptionalString(value);
+  if (url) {
+    return url;
+  }
+  if (isRecord(value) && value.buffer instanceof Buffer) {
+    return toImageDataUrl({
+      buffer: value.buffer,
+      mimeType: normalizeOptionalString(value.mimeType) ?? "image/png",
+    });
+  }
+  throw new Error(`LuckyNemo ${label} must be an image URL or image buffer.`);
+}
+
+// firstFrame/lastFrame are a pair contract on the server: both or neither, and
+// never mixed with free-form reference images.
+function resolveFramePair(req: VideoGenerationRequest): {
+  firstFrame?: string;
+  lastFrame?: string;
+} {
+  const options = req.providerOptions ?? {};
+  const firstFrame = resolveFrameValue(options[FIRST_FRAME_OPTION], "firstFrame");
+  const lastFrame = resolveFrameValue(options[LAST_FRAME_OPTION], "lastFrame");
+  if ((firstFrame === undefined) !== (lastFrame === undefined)) {
+    throw new Error("LuckyNemo firstFrame and lastFrame must be provided together.");
+  }
+  if (firstFrame !== undefined && (req.inputImages?.length ?? 0) > 0) {
+    throw new Error("LuckyNemo firstFrame/lastFrame cannot be combined with reference images.");
+  }
+  return firstFrame === undefined ? {} : { firstFrame, lastFrame };
 }
 
 function readTaskId(payload: LuckyNemoVideoTaskCreateResponse): string {
@@ -144,6 +199,38 @@ function readTaskFailureMessage(payload: LuckyNemoVideoTaskStatusResponse): stri
     ? normalizeOptionalString(payload.error.message)
     : normalizeOptionalString(payload.error);
   return detail ?? normalizeOptionalString(payload.message) ?? "LuckyNemo video generation failed";
+}
+
+// The proxy reports upstream failures as HTTP 502 whose error.message embeds a
+// JSON string (e.g. {"code":"InvalidParameter","message":"..."}). Unwrap the
+// inner message so callers see the actionable upstream reason, not a bare 502.
+async function throwUpstreamGatewayError(response: Response): Promise<never> {
+  let detail: string | undefined;
+  try {
+    const payload = await readProviderJsonResponse<unknown>(
+      response,
+      "LuckyNemo video generation failed",
+    );
+    const rawMessage = isRecord(payload)
+      ? isRecord(payload.error)
+        ? normalizeOptionalString(payload.error.message)
+        : normalizeOptionalString(payload.message)
+      : undefined;
+    if (rawMessage) {
+      try {
+        const inner: unknown = JSON.parse(rawMessage);
+        detail = isRecord(inner) ? normalizeOptionalString(inner.message) : undefined;
+      } catch {
+        detail = rawMessage;
+      }
+      detail ??= rawMessage;
+    }
+  } catch {
+    // Body unreadable/unparseable: fall through to the generic 502 message.
+  }
+  throw new Error(
+    `LuckyNemo video generation failed: ${detail ?? "upstream gateway error (HTTP 502)"}`,
+  );
 }
 
 async function pollVideoTask(params: {
@@ -250,6 +337,10 @@ export function buildLuckyNemoVideoGenerationProvider(): VideoGenerationProvider
         supportedDurationSeconds: SUPPORTED_DURATION_SECONDS,
         resolutions: [...SUPPORTED_RESOLUTIONS],
         supportsResolution: true,
+        providerOptions: {
+          [FIRST_FRAME_OPTION]: "string",
+          [LAST_FRAME_OPTION]: "string",
+        },
       },
       videoToVideo: {
         enabled: false,
@@ -300,6 +391,7 @@ export function buildLuckyNemoVideoGenerationProvider(): VideoGenerationProvider
 
       const model = normalizeLuckyNemoVideoModel(req.model);
       const referenceImageUrls = resolveReferenceImageUrls(req);
+      const framePair = resolveFramePair(req);
       const requestHeaders = new Headers(headers);
       requestHeaders.set("Content-Type", "application/json");
       const create = await postJsonRequest({
@@ -312,6 +404,7 @@ export function buildLuckyNemoVideoGenerationProvider(): VideoGenerationProvider
           duration: resolveDurationSeconds(req.durationSeconds),
           resolution: resolveResolution(req),
           ...(referenceImageUrls.length > 0 ? { image_urls: referenceImageUrls } : {}),
+          ...framePair,
         },
         timeoutMs,
         fetchFn: fetch,
@@ -319,6 +412,9 @@ export function buildLuckyNemoVideoGenerationProvider(): VideoGenerationProvider
         dispatcherPolicy,
       });
       try {
+        if (create.response.status === 502) {
+          await throwUpstreamGatewayError(create.response);
+        }
         await assertOkOrThrowHttpError(create.response, "LuckyNemo video generation failed");
         const payload = await readProviderJsonResponse<LuckyNemoVideoTaskCreateResponse>(
           create.response,

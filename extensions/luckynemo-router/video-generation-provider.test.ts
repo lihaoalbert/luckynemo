@@ -87,6 +87,14 @@ describe("luckynemo video generation provider", () => {
     ]);
     expect(provider.defaultTimeoutMs).toBeGreaterThanOrEqual(600_000);
     expect(provider.capabilities.imageToVideo?.maxInputImages).toBe(9);
+    expect(provider.capabilities.generate?.supportedDurationSeconds?.[0]).toBe(4);
+    expect(provider.capabilities.generate?.supportedDurationSeconds?.at(-1)).toBe(15);
+    expect(provider.capabilities.generate?.maxDurationSeconds).toBe(15);
+    expect(provider.capabilities.generate?.aspectRatios).toContain("21:9");
+    expect(provider.capabilities.imageToVideo?.providerOptions).toEqual({
+      "luckynemo.firstFrame": "string",
+      "luckynemo.lastFrame": "string",
+    });
   });
 
   it("submits a task, polls until succeeded, and downloads the signed video URL", async () => {
@@ -154,21 +162,79 @@ describe("luckynemo video generation provider", () => {
     });
   });
 
-  it("clamps out-of-range durations into the supported 5-10s window", async () => {
+  it("accepts durations at both ends of the supported 4-15s window", async () => {
+    const provider = buildLuckyNemoVideoGenerationProvider();
+    for (const [durationSeconds, expected] of [
+      [4, 4],
+      [15, 15],
+      [4.4, 4],
+    ] as const) {
+      postJsonRequestMock.mockClear();
+      mockCreateTask();
+      mockPollPayloads({ status: "succeeded", videoUrl: "https://cdn.example.com/duration.mp4" });
+      mockVideoDownload();
+
+      await provider.generateVideo({
+        provider: "luckynemo",
+        model: "doubao-seedance-2-0-fast-260128",
+        prompt: "duration boundary",
+        cfg: {},
+        durationSeconds,
+      });
+
+      expect(firstPostJsonRequest().body?.duration).toBe(expected);
+    }
+  });
+
+  it("rejects out-of-range durations with the supported window", async () => {
+    const provider = buildLuckyNemoVideoGenerationProvider();
+    for (const durationSeconds of [2, 99]) {
+      await expect(
+        provider.generateVideo({
+          provider: "luckynemo",
+          model: "doubao-seedance-2-0-fast-260128",
+          prompt: "out of range",
+          cfg: {},
+          durationSeconds,
+        }),
+      ).rejects.toThrow("LuckyNemo video duration must be between 4 and 15 seconds.");
+    }
+    expect(postJsonRequestMock).not.toHaveBeenCalled();
+  });
+
+  it("rejects unsupported aspect ratios before submitting", async () => {
+    const provider = buildLuckyNemoVideoGenerationProvider();
+    for (const aspectRatio of ["7:3", "abc"]) {
+      await expect(
+        provider.generateVideo({
+          provider: "luckynemo",
+          model: "doubao-seedance-2-0-fast-260128",
+          prompt: "bad ratio",
+          cfg: {},
+          aspectRatio,
+        }),
+      ).rejects.toThrow(
+        "LuckyNemo video aspect ratio must be one of 16:9, 9:16, 1:1, 4:3, 3:4, 21:9.",
+      );
+    }
+    expect(postJsonRequestMock).not.toHaveBeenCalled();
+  });
+
+  it("accepts the 21:9 aspect ratio", async () => {
     mockCreateTask();
-    mockPollPayloads({ status: "succeeded", videoUrl: "https://cdn.example.com/clamped.mp4" });
+    mockPollPayloads({ status: "succeeded", videoUrl: "https://cdn.example.com/wide.mp4" });
     mockVideoDownload();
 
     const provider = buildLuckyNemoVideoGenerationProvider();
     await provider.generateVideo({
       provider: "luckynemo",
       model: "doubao-seedance-2-0-fast-260128",
-      prompt: "clamped duration",
+      prompt: "wide",
       cfg: {},
-      durationSeconds: 99,
+      aspectRatio: "21:9",
     });
 
-    expect(firstPostJsonRequest().body?.duration).toBe(10);
+    expect(firstPostJsonRequest().body?.ratio).toBe("21:9");
   });
 
   it("forwards a single reference image as a one-element image_urls array", async () => {
@@ -227,6 +293,115 @@ describe("luckynemo video generation provider", () => {
       }),
     ).rejects.toThrow("LuckyNemo image-to-video supports at most 9 input images.");
     expect(postJsonRequestMock).not.toHaveBeenCalled();
+  });
+
+  it("forwards firstFrame/lastFrame as a pair", async () => {
+    mockCreateTask();
+    mockPollPayloads({ status: "succeeded", videoUrl: "https://cdn.example.com/frames.mp4" });
+    mockVideoDownload();
+
+    const provider = buildLuckyNemoVideoGenerationProvider();
+    await provider.generateVideo({
+      provider: "luckynemo",
+      model: "doubao-seedance-2-0-fast-260128",
+      prompt: "interpolate",
+      cfg: {},
+      providerOptions: {
+        "luckynemo.firstFrame": "https://example.com/first.png",
+        "luckynemo.lastFrame": { buffer: Buffer.from("last-frame"), mimeType: "image/png" },
+      },
+    });
+
+    const body = firstPostJsonRequest().body;
+    expect(body?.firstFrame).toBe("https://example.com/first.png");
+    expect(body?.lastFrame).toBe(
+      `data:image/png;base64,${Buffer.from("last-frame").toString("base64")}`,
+    );
+    expect(body).not.toHaveProperty("image_urls");
+  });
+
+  it("rejects an unpaired firstFrame/lastFrame", async () => {
+    const provider = buildLuckyNemoVideoGenerationProvider();
+    await expect(
+      provider.generateVideo({
+        provider: "luckynemo",
+        model: "doubao-seedance-2-0-fast-260128",
+        prompt: "unpaired",
+        cfg: {},
+        providerOptions: {
+          "luckynemo.firstFrame": "https://example.com/first.png",
+        },
+      }),
+    ).rejects.toThrow("LuckyNemo firstFrame and lastFrame must be provided together.");
+    expect(postJsonRequestMock).not.toHaveBeenCalled();
+  });
+
+  it("rejects firstFrame/lastFrame combined with reference images", async () => {
+    const provider = buildLuckyNemoVideoGenerationProvider();
+    await expect(
+      provider.generateVideo({
+        provider: "luckynemo",
+        model: "doubao-seedance-2-0-fast-260128",
+        prompt: "mixed frames",
+        cfg: {},
+        inputImages: [{ url: "https://example.com/ref.png" }],
+        providerOptions: {
+          "luckynemo.firstFrame": "https://example.com/first.png",
+          "luckynemo.lastFrame": "https://example.com/last.png",
+        },
+      }),
+    ).rejects.toThrow("LuckyNemo firstFrame/lastFrame cannot be combined with reference images.");
+    expect(postJsonRequestMock).not.toHaveBeenCalled();
+  });
+
+  it("unwraps the upstream JSON message from HTTP 502 responses", async () => {
+    postJsonRequestMock.mockResolvedValue({
+      response: new Response(
+        JSON.stringify({
+          error: {
+            message: JSON.stringify({
+              code: "InvalidParameter",
+              message: "duration is not supported for this model",
+            }),
+          },
+        }),
+        { status: 502, headers: { "Content-Type": "application/json" } },
+      ),
+      release: vi.fn(async () => {}),
+    });
+
+    const provider = buildLuckyNemoVideoGenerationProvider();
+    await expect(
+      provider.generateVideo({
+        provider: "luckynemo",
+        model: "doubao-seedance-2-0-fast-260128",
+        prompt: "bad param",
+        cfg: {},
+      }),
+    ).rejects.toThrow(
+      "LuckyNemo video generation failed: duration is not supported for this model",
+    );
+    expect(fetchWithTimeoutMock).not.toHaveBeenCalled();
+  });
+
+  it("falls back to the raw message when the 502 body is not embedded JSON", async () => {
+    postJsonRequestMock.mockResolvedValue({
+      response: new Response(JSON.stringify({ error: { message: "upstream timeout" } }), {
+        status: 502,
+        headers: { "Content-Type": "application/json" },
+      }),
+      release: vi.fn(async () => {}),
+    });
+
+    const provider = buildLuckyNemoVideoGenerationProvider();
+    await expect(
+      provider.generateVideo({
+        provider: "luckynemo",
+        model: "doubao-seedance-2-0-fast-260128",
+        prompt: "raw upstream message",
+        cfg: {},
+      }),
+    ).rejects.toThrow("LuckyNemo video generation failed: upstream timeout");
   });
 
   it("forwards a local reference image as a data URL for image-to-video", async () => {
