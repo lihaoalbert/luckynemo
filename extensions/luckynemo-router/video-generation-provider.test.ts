@@ -86,6 +86,7 @@ describe("luckynemo video generation provider", () => {
       "doubao-seedance-2-0-mini-260615",
     ]);
     expect(provider.defaultTimeoutMs).toBeGreaterThanOrEqual(600_000);
+    expect(provider.capabilities.imageToVideo?.maxInputImages).toBe(9);
   });
 
   it("submits a task, polls until succeeded, and downloads the signed video URL", async () => {
@@ -170,7 +171,7 @@ describe("luckynemo video generation provider", () => {
     expect(firstPostJsonRequest().body?.duration).toBe(10);
   });
 
-  it("forwards a remote reference image URL for image-to-video", async () => {
+  it("forwards a single reference image as a one-element image_urls array", async () => {
     mockCreateTask();
     mockPollPayloads({ status: "succeeded", videoUrl: "https://cdn.example.com/i2v.mp4" });
     mockVideoDownload();
@@ -184,7 +185,48 @@ describe("luckynemo video generation provider", () => {
       inputImages: [{ url: "https://example.com/input.png" }],
     });
 
-    expect(firstPostJsonRequest().body?.image_url).toBe("https://example.com/input.png");
+    expect(firstPostJsonRequest().body?.image_urls).toEqual(["https://example.com/input.png"]);
+  });
+
+  it("forwards mixed URL and buffer reference images in order", async () => {
+    mockCreateTask();
+    mockPollPayloads({ status: "succeeded", videoUrl: "https://cdn.example.com/i2v-multi.mp4" });
+    mockVideoDownload();
+
+    const provider = buildLuckyNemoVideoGenerationProvider();
+    await provider.generateVideo({
+      provider: "luckynemo",
+      model: "doubao-seedance-2-0-fast-260128",
+      prompt: "animate these",
+      cfg: {},
+      inputImages: [
+        { url: "https://example.com/first.png" },
+        { buffer: Buffer.from("fake-input"), mimeType: "image/png" },
+        { url: "https://example.com/third.jpg" },
+      ],
+    });
+
+    expect(firstPostJsonRequest().body?.image_urls).toEqual([
+      "https://example.com/first.png",
+      `data:image/png;base64,${Buffer.from("fake-input").toString("base64")}`,
+      "https://example.com/third.jpg",
+    ]);
+  });
+
+  it("rejects more than nine reference images", async () => {
+    const provider = buildLuckyNemoVideoGenerationProvider();
+    await expect(
+      provider.generateVideo({
+        provider: "luckynemo",
+        model: "doubao-seedance-2-0-fast-260128",
+        prompt: "too many",
+        cfg: {},
+        inputImages: Array.from({ length: 10 }, (_, index) => ({
+          url: `https://example.com/${index}.png`,
+        })),
+      }),
+    ).rejects.toThrow("LuckyNemo image-to-video supports at most 9 input images.");
+    expect(postJsonRequestMock).not.toHaveBeenCalled();
   });
 
   it("forwards a local reference image as a data URL for image-to-video", async () => {
@@ -201,9 +243,9 @@ describe("luckynemo video generation provider", () => {
       inputImages: [{ buffer: Buffer.from("fake-input"), mimeType: "image/png" }],
     });
 
-    expect(firstPostJsonRequest().body?.image_url).toBe(
+    expect(firstPostJsonRequest().body?.image_urls).toEqual([
       `data:image/png;base64,${Buffer.from("fake-input").toString("base64")}`,
-    );
+    ]);
   });
 
   it("honors a configured baseUrl for submit and poll", async () => {

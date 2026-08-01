@@ -238,7 +238,8 @@ plugin:
   `doubao-seedream-5-0-260128`. An optional reference image is sent as
   `image_url` (data URL) for image-to-image requests.
 - `POST /v1/video/tasks` plus `GET /v1/video/tasks/{id}` submit and poll
-  video tasks (`{model, prompt, ratio, duration, resolution, image_url?}`).
+  video tasks (`{model, prompt, ratio, duration, resolution, image_urls?}`).
+  Up to nine reference images are forwarded as `image_urls` (URL or data URL).
   Models: `doubao-seedance-2-0-fast-260128` (default),
   `doubao-seedance-2-0-260128`, and `doubao-seedance-2-0-mini-260615`.
   Generation takes minutes, so the provider's default timeout is 600 seconds;

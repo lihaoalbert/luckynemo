@@ -22,6 +22,7 @@ import type {
   GeneratedVideoAsset,
   VideoGenerationProvider,
   VideoGenerationRequest,
+  VideoGenerationSourceAsset,
 } from "openclaw/plugin-sdk/video-generation";
 import { normalizeLuckyNemoRouterApiBaseUrl } from "./provider-catalog.js";
 
@@ -48,6 +49,7 @@ const SUPPORTED_DURATION_SECONDS = Array.from(
 );
 const SUPPORTED_RATIOS = ["16:9", "4:3", "1:1", "3:4", "9:16"] as const;
 const SUPPORTED_RESOLUTIONS = ["480P", "720P", "1080P"] as const;
+const MAX_INPUT_IMAGES = 9;
 const DEFAULT_GENERATED_VIDEO_MAX_BYTES = 64 * 1024 * 1024;
 
 type LuckyNemoVideoTaskCreateResponse = {
@@ -93,11 +95,7 @@ function resolveResolution(req: VideoGenerationRequest): string {
   return (normalizeOptionalString(req.resolution) ?? DEFAULT_RESOLUTION).toLowerCase();
 }
 
-function resolveReferenceImageUrl(req: VideoGenerationRequest): string | undefined {
-  const input = req.inputImages?.[0];
-  if (!input) {
-    return undefined;
-  }
+function resolveReferenceImageUrl(input: VideoGenerationSourceAsset): string {
   const inputUrl = normalizeOptionalString(input.url);
   if (inputUrl) {
     return inputUrl;
@@ -106,6 +104,13 @@ function resolveReferenceImageUrl(req: VideoGenerationRequest): string | undefin
     throw new Error("LuckyNemo image-to-video input is missing image data.");
   }
   return toImageDataUrl({ buffer: input.buffer, mimeType: input.mimeType ?? "image/png" });
+}
+
+// The proxy accepts up to 9 reference images as `image_urls` (URL or data URL);
+// even a single image is sent as an array since the server treats both shapes
+// alike.
+function resolveReferenceImageUrls(req: VideoGenerationRequest): string[] {
+  return (req.inputImages ?? []).map(resolveReferenceImageUrl);
 }
 
 function readTaskId(payload: LuckyNemoVideoTaskCreateResponse): string {
@@ -240,7 +245,7 @@ export function buildLuckyNemoVideoGenerationProvider(): VideoGenerationProvider
       imageToVideo: {
         enabled: true,
         maxVideos: 1,
-        maxInputImages: 1,
+        maxInputImages: MAX_INPUT_IMAGES,
         maxDurationSeconds: MAX_DURATION_SECONDS,
         supportedDurationSeconds: SUPPORTED_DURATION_SECONDS,
         resolutions: [...SUPPORTED_RESOLUTIONS],
@@ -254,8 +259,10 @@ export function buildLuckyNemoVideoGenerationProvider(): VideoGenerationProvider
       if ((req.inputVideos?.length ?? 0) > 0) {
         throw new Error("LuckyNemo video generation does not support video reference inputs.");
       }
-      if ((req.inputImages?.length ?? 0) > 1) {
-        throw new Error("LuckyNemo image-to-video supports at most one input image.");
+      if ((req.inputImages?.length ?? 0) > MAX_INPUT_IMAGES) {
+        throw new Error(
+          `LuckyNemo image-to-video supports at most ${MAX_INPUT_IMAGES} input images.`,
+        );
       }
 
       const auth = await resolveApiKeyForProvider({
@@ -292,7 +299,7 @@ export function buildLuckyNemoVideoGenerationProvider(): VideoGenerationProvider
         });
 
       const model = normalizeLuckyNemoVideoModel(req.model);
-      const referenceImageUrl = resolveReferenceImageUrl(req);
+      const referenceImageUrls = resolveReferenceImageUrls(req);
       const requestHeaders = new Headers(headers);
       requestHeaders.set("Content-Type", "application/json");
       const create = await postJsonRequest({
@@ -304,7 +311,7 @@ export function buildLuckyNemoVideoGenerationProvider(): VideoGenerationProvider
           ratio: resolveRatio(req),
           duration: resolveDurationSeconds(req.durationSeconds),
           resolution: resolveResolution(req),
-          ...(referenceImageUrl ? { image_url: referenceImageUrl } : {}),
+          ...(referenceImageUrls.length > 0 ? { image_urls: referenceImageUrls } : {}),
         },
         timeoutMs,
         fetchFn: fetch,
